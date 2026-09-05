@@ -3,6 +3,10 @@
 Personal website — bio, blog, and a daily tech news feed. Built step by step
 while learning web development.
 
+See [ARCHITECTURE.md](ARCHITECTURE.md) for a file-by-file walkthrough of
+how the backend and frontend fit together — start there if you're trying
+to understand how the pieces connect, not just how to run them.
+
 ## Status: Step 3 — news generator backend (7 of 8 sections working)
 
 Frontend is plain HTML/CSS/JS, no build tools. Three pages sharing one nav:
