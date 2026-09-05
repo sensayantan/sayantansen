@@ -3,19 +3,28 @@
 Personal website — bio, blog, and a daily tech news feed. Built step by step
 while learning web development.
 
-## Status: Step 1 — vanilla site
+## Status: Step 2 — "Today's News" UI template
 
-Right now this is a plain HTML/CSS/JS site with no build tools, so it's easy
-to preview and understand:
+Still plain HTML/CSS/JS, no build tools. Now three pages sharing one nav:
 
-- `index.html` — the page content
-- `assets/css/style.css` — styling
-- `assets/js/main.js` — small bits of interactivity (mobile nav, footer year)
+- `index.html` — About Me
+- `news.html` — Today's News (the "Daybreak" template)
+- `blogs.html` — Sayantan Blogs (placeholder)
+- `assets/css/style.css` — all styling (blue pill nav + Daybreak news template)
+- `assets/js/main.js` — mobile nav toggle, footer year
+- `assets/js/news.js` — fetches `data/news.json` and renders the news page
+- `data/news.json` — the content shown on Today's News. Currently placeholder
+  data; will be regenerated automatically once `backend/generate_news.py`
+  is wired up to an AI API.
+- `backend/` — Python side, not yet implemented. `generate_news.py` is a
+  stub that will call Claude or OpenAI to research/summarize the day's
+  news and write the result into `data/news.json`.
 
 ## Run it locally
 
-Just open `index.html` in a browser, or serve it so relative links behave
-like they will online:
+`index.html` and `blogs.html` can be opened directly as files. `news.html`
+needs to be served over HTTP (browsers block `fetch()` of local files), so
+from the project folder run:
 
 ```
 python3 -m http.server 8000
@@ -34,9 +43,10 @@ Then visit `http://localhost:8000`.
 ## Roadmap
 
 1. ✅ Vanilla HTML/CSS/JS site with placeholder content
-2. Fill in real bio content and personal branding
-3. Add a blog section (Markdown posts, no backend yet)
-4. Add a Python backend (FastAPI) to generate a daily news feed
-5. Rebuild the frontend in React, calling the Python API
-6. Wire up Claude / OpenAI / Gemini API keys to power news summarization
-7. Link the site from LinkedIn, Instagram, and Facebook profiles
+2. ✅ "Today's News" UI template (blue pill nav, Daybreak-style layout, driven by `data/news.json`)
+3. Write `backend/generate_news.py` — call Claude/OpenAI to research and summarize the day's news into `data/news.json`
+4. Automate step 3 to run daily (e.g. scheduled GitHub Action)
+5. Fill in real bio content and personal branding on About Me
+6. Add an admin view for About Me and Sayantan Blogs (draft/edit/publish without touching code)
+7. Rebuild the frontend in React once there's a real API/backend to talk to
+8. Link the site from LinkedIn, Instagram, and Facebook profiles

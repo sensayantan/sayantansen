@@ -9,7 +9,7 @@ navToggle.addEventListener("click", () => {
 });
 
 navLinks.addEventListener("click", (event) => {
-  if (event.target.tagName === "A") {
+  if (event.target.closest("a")) {
     navLinks.classList.remove("open");
     navToggle.setAttribute("aria-expanded", "false");
   }
