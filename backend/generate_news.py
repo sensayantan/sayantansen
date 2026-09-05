@@ -20,6 +20,7 @@ Run manually:
 Requires ANTHROPIC_API_KEY to be set (see .env.example).
 """
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -66,15 +67,34 @@ STATS_PLACEHOLDER = [
 ]
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--since-days",
+        type=int,
+        default=None,
+        help=(
+            "Ignore state.json and search back this many days instead. "
+            "Use this when manually re-running/testing — otherwise each "
+            "re-run narrows the window to 'since the last run a few "
+            "minutes ago', which tends to legitimately find nothing."
+        ),
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
-    since_iso = state.load_since()
+    args = parse_args()
+    since_iso = state.load_since(force_lookback_days=args.since_days)
     print(f"Searching for news since {since_iso}\n")
 
     sections_out = []
+    total_stories = 0
     for section in TEXT_SECTIONS:
         print(f"Researching: {section.label}...")
         stories = research_section(section, since_iso)
         print(f"  -> {len(stories)} stories")
+        total_stories += len(stories)
         sections_out.append(
             {
                 "id": section.id,
@@ -94,7 +114,17 @@ def main() -> None:
 
     DATA_DIR.mkdir(exist_ok=True)
     NEWS_JSON_PATH.write_text(json.dumps(output, indent=2))
-    print(f"\nWrote {NEWS_JSON_PATH}")
+    print(f"\nWrote {NEWS_JSON_PATH} ({total_stories} stories total)")
+
+    if total_stories == 0:
+        print(
+            "\nWARNING: every section came back empty. NOT advancing "
+            "state.json's timestamp — next run will retry the same window "
+            "instead of narrowing it further. If this keeps happening, "
+            "re-run with a wider window, e.g.:\n"
+            "  python generate_news.py --since-days 3"
+        )
+        return
 
     state.save_success()
     print("Updated state.json with this run's timestamp.")
