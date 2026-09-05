@@ -42,10 +42,20 @@ cp .env.example .env   # then fill in ANTHROPIC_API_KEY
 python generate_news.py
 ```
 
-This calls the Claude API (costs apply — web search is $10 per 1,000
-searches plus normal token costs) and overwrites `data/news.json`. Refresh
-`news.html` (served, not opened directly — see "Run it locally" below) to
-see the real edition.
+This calls the Claude API (costs apply) and overwrites `data/news.json`.
+Refresh `news.html` (served, not opened directly — see "Run it locally"
+below) to see the real edition.
+
+**Realistic cost per day:** web search is billed at $10 per *1,000*
+searches, not $10 per search or per run — each of the 7 sections is capped
+at 4-6 searches (`max_searches` in `config.py`), so one full edition uses
+at most ~30 searches ≈ **$0.30**, plus token costs for reading results and
+writing summaries. Using `claude-sonnet-5` (the default), that's roughly
+another **$0.20-0.40/day**. Expect well under $1/day, not $10 — check your
+actual spend at [console.anthropic.com](https://console.anthropic.com) →
+Usage after your first run. If you want the cost even lower, drop
+`max_searches` further in `config.py`, or switch a section's model to
+`claude-haiku-4-5`.
 
 ### Still to come
 

@@ -11,7 +11,11 @@ import os
 from dataclasses import dataclass, field
 
 AI_PROVIDER = os.environ.get("AI_PROVIDER", "anthropic")
-MODEL_ID = os.environ.get("ANTHROPIC_MODEL", "claude-opus-5")
+# Sonnet, not Opus: for research-and-summarize work like this (as opposed to
+# hard reasoning/coding), Sonnet is a large cost cut with little quality
+# loss. Override with ANTHROPIC_MODEL=claude-opus-5 in .env if you want to
+# compare quality later.
+MODEL_ID = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5")
 
 
 @dataclass
@@ -21,7 +25,10 @@ class Section:
     kicker: str
     preferred_sources: list[str]
     guidance: str = ""
-    max_searches: int = 8
+    # Actual searches used are usually well below this cap — it's a ceiling,
+    # not a target. Web search is billed at $10 per 1,000 searches
+    # regardless of model, so this cap is the main cost lever per section.
+    max_searches: int = 4
     min_stories: int = 5
     max_stories: int = 7
 
@@ -87,6 +94,7 @@ TEXT_SECTIONS: list[Section] = [
             "and product/model, release date, features/capabilities, availability, practical "
             "importance, and whether it is a model, app, agent, developer tool, or integration."
         ),
+        max_searches=6,  # covers ~13 vendors, needs a slightly higher cap than the others
         min_stories=0,
     ),
     Section(
