@@ -5,6 +5,8 @@ the very first edition), per the "search only since the previous
 successful run" requirement.
 """
 
+from __future__ import annotations  # so `int | None` works on Python 3.9
+
 import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
