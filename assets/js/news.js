@@ -58,12 +58,14 @@ function renderStory(story, index) {
 }
 
 function renderSection(section) {
-  const stories = section.stories.map(renderStory).join("");
+  const body = section.stories.length
+    ? `<div class="db-story-grid">${section.stories.map(renderStory).join("")}</div>`
+    : `<p class="placeholder">Nothing meaningful to report in this window.</p>`;
   return `
     <section id="${section.id}" class="db-section">
       <p class="db-section-kicker">${section.kicker}</p>
       <h2 class="db-section-title">${section.label}</h2>
-      <div class="db-story-grid">${stories}</div>
+      ${body}
     </section>`;
 }
 
