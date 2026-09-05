@@ -1,0 +1,95 @@
+{
+  "_comment": "Placeholder content for the Today's News UI template. This file will be regenerated automatically by backend/generate_news.py once the AI content-generation logic is wired up. Structure (schema) matters more than the values below.",
+  "stats": [
+    { "label": "Sample Metric 1", "value": "--", "note": "Placeholder" },
+    { "label": "Sample Metric 2", "value": "--", "note": "Placeholder" },
+    { "label": "Sample Metric 3", "value": "--", "note": "Placeholder" },
+    { "label": "Sample Metric 4", "value": "--", "note": "Placeholder" }
+  ],
+  "sections": [
+    {
+      "id": "top-news",
+      "label": "Top News",
+      "kicker": "The signals shaping today",
+      "stories": [
+        {
+          "category": "Sample",
+          "headline": "Placeholder headline — real content will appear here",
+          "summary": "This is placeholder text illustrating the layout. Once the news generator is connected, real AI-generated summaries will replace this.",
+          "sources": [{ "label": "Source", "url": "#" }]
+        },
+        {
+          "category": "Sample",
+          "headline": "A second placeholder headline for this section",
+          "summary": "Each story card has a category tag, a headline, a short summary, and one or more source links.",
+          "sources": [{ "label": "Source", "url": "#" }]
+        }
+      ]
+    },
+    {
+      "id": "top-us-news",
+      "label": "Top US News",
+      "kicker": "Policy, economy and events across America",
+      "stories": [
+        {
+          "category": "Sample",
+          "headline": "Placeholder headline for Top US News",
+          "summary": "Real content for this category will be generated once the news source and prompt are defined.",
+          "sources": [{ "label": "Source", "url": "#" }]
+        }
+      ]
+    },
+    {
+      "id": "top-india-news",
+      "label": "Top India News",
+      "kicker": "Policy, economy and national developments",
+      "stories": [
+        {
+          "category": "Sample",
+          "headline": "Placeholder headline for Top India News",
+          "summary": "Real content for this category will be generated once the news source and prompt are defined.",
+          "sources": [{ "label": "Source", "url": "#" }]
+        }
+      ]
+    },
+    {
+      "id": "tech-ai",
+      "label": "Technology & AI",
+      "kicker": "Products, platforms and execution",
+      "stories": [
+        {
+          "category": "Sample",
+          "headline": "Placeholder headline for Technology & AI",
+          "summary": "Real content for this category will be generated once the news source and prompt are defined.",
+          "sources": [{ "label": "Source", "url": "#" }]
+        }
+      ]
+    },
+    {
+      "id": "sports-desk",
+      "label": "Sports Desk",
+      "kicker": "Fixtures and viewing notes",
+      "stories": [
+        {
+          "category": "Sample",
+          "headline": "Placeholder headline for Sports Desk",
+          "summary": "Real content for this category will be generated once the news source and prompt are defined.",
+          "sources": [{ "label": "Source", "url": "#" }]
+        }
+      ]
+    },
+    {
+      "id": "markets",
+      "label": "Markets",
+      "kicker": "Indices, rates and earnings",
+      "stories": [
+        {
+          "category": "Sample",
+          "headline": "Placeholder headline for Markets",
+          "summary": "Real content for this category will be generated once the news source and prompt are defined.",
+          "sources": [{ "label": "Source", "url": "#" }]
+        }
+      ]
+    }
+  ]
+}

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sayantan Sen — About</title>
-  <meta name="description" content="Personal website of Sayantan Sen — bio, daily news brief, and blog.">
+  <title>Sayantan Sen — Today's News</title>
+  <meta name="description" content="Daily curated news brief for Sayantan Sen.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,11 +19,11 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="pillnav" id="nav-links">
-        <a href="index.html" class="pill active">
+        <a href="index.html" class="pill">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5 10 3l7 6.5"/><path d="M5 8.5V17h10V8.5"/></svg>
           About Me
         </a>
-        <a href="news.html" class="pill">
+        <a href="news.html" class="pill active">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M6 7.5h8M6 10.5h8M6 13.5h5"/></svg>
           Today's News
         </a>
@@ -35,29 +35,35 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero container">
-      <h1>Hi, I'm Sayantan.</h1>
-      <p class="tagline">VP of Technology Services &middot; Building this site while learning to code, one commit at a time.</p>
-    </section>
+  <main class="daybreak">
 
-    <section id="about" class="section container">
-      <h2>About</h2>
-      <p>
-        This is a placeholder bio. I'll update this section with my background,
-        experience, and what I'm currently working on.
-      </p>
-      <p class="placeholder">An admin-editable version of this page is planned, so future updates won't need a code change.</p>
-    </section>
+    <!-- Masthead: this page's own internal nav, separate from the site-level pill nav above -->
+    <div class="db-masthead">
+      <div class="container db-masthead-row">
+        <div class="db-logo"><span class="db-logo-mark">D</span> DAYBREAK</div>
+        <nav class="db-categories" id="db-categories" aria-label="News categories">
+          <!-- filled in by news.js from data/news.json -->
+        </nav>
+        <div class="db-edition" id="db-edition"></div>
+      </div>
+    </div>
 
-    <section id="contact" class="section container">
-      <h2>Connect</h2>
-      <ul class="social-links">
-        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
-      </ul>
-    </section>
+    <div class="db-hero">
+      <div class="container">
+        <p class="db-kicker">Your researched morning brief</p>
+        <h1 id="db-hero-title">Loading today's brief…</h1>
+      </div>
+    </div>
+
+    <div class="db-stats container" id="db-stats">
+      <!-- filled in by news.js -->
+    </div>
+
+    <div class="container" id="db-sections">
+      <!-- news sections filled in by news.js -->
+      <p class="placeholder" id="db-loading">Loading news…</p>
+    </div>
+
   </main>
 
   <footer class="site-footer">
@@ -65,5 +71,6 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/news.js"></script>
 </body>
 </html>
