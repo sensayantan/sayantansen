@@ -31,9 +31,13 @@ load_dotenv()
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from claude_news import research_section
-from config import TEXT_SECTIONS
+from config import AI_PROVIDER, TEXT_SECTIONS
 import state
+
+if AI_PROVIDER == "openai":
+    from openai_news import research_section
+else:
+    from claude_news import research_section
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 NEWS_JSON_PATH = DATA_DIR / "news.json"
@@ -80,6 +84,18 @@ def parse_args() -> argparse.Namespace:
             "minutes ago', which tends to legitimately find nothing."
         ),
     )
+    parser.add_argument(
+        "--only",
+        type=str,
+        default=None,
+        metavar="SECTION_ID",
+        help=(
+            "Research only this one section (e.g. --only top-news) and "
+            "print the result — does NOT write data/news.json or advance "
+            "state.json. Use this to cheaply test a provider/model change "
+            "before running (and paying for) all sections."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -87,6 +103,19 @@ def main() -> None:
     args = parse_args()
     since_iso = state.load_since(force_lookback_days=args.since_days)
     print(f"Searching for news since {since_iso}\n")
+
+    if args.only:
+        section = next((s for s in TEXT_SECTIONS if s.id == args.only), None)
+        if section is None:
+            valid_ids = ", ".join(s.id for s in TEXT_SECTIONS)
+            print(f"Unknown section id {args.only!r}. Valid ids: {valid_ids}")
+            return
+        print(f"[TEST MODE] Researching only: {section.label}...")
+        stories = research_section(section, since_iso)
+        print(f"\n-> {len(stories)} stories:\n")
+        print(json.dumps(stories, indent=2))
+        print("\n(--only mode: data/news.json and state.json were NOT touched)")
+        return
 
     sections_out = []
     total_stories = 0
