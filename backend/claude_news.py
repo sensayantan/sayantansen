@@ -72,10 +72,22 @@ Remember: output ONLY the JSON array described in your instructions."""
 
 
 def _extract_json_array(text: str) -> list:
+    """
+    Pull a JSON array out of Claude's response text, tolerating a leading/
+    trailing sentence around it (e.g. "Here are the stories:\n[...]") even
+    though the prompt asks for JSON only — models don't always follow that
+    instruction strictly, especially right after using a tool.
+    """
     cleaned = text.strip()
     cleaned = re.sub(r"^```(?:json)?", "", cleaned).strip()
     cleaned = re.sub(r"```$", "", cleaned).strip()
-    return json.loads(cleaned)
+
+    start = cleaned.find("[")
+    end = cleaned.rfind("]")
+    if start == -1 or end == -1 or end < start:
+        raise json.JSONDecodeError("No JSON array found in response", cleaned, 0)
+
+    return json.loads(cleaned[start : end + 1])
 
 
 def research_section(section: Section, since_iso: str) -> list[dict]:
@@ -91,26 +103,25 @@ def research_section(section: Section, since_iso: str) -> list[dict]:
         }
     ]
 
-    response = client.messages.create(
+    request_kwargs = dict(
         model=MODEL_ID,
-        max_tokens=8000,
+        max_tokens=16000,
+        # Low effort: this is research/summarization, not hard reasoning —
+        # keeps thinking-token spend down (cost) and leaves more of the
+        # max_tokens budget free for the actual output (fewer truncations).
+        output_config={"effort": "low"},
         system=SYSTEM_PROMPT,
         tools=tools,
         messages=messages,
     )
+    response = client.messages.create(**request_kwargs)
 
     # A long research turn can pause mid-way (server-side search loop hit its
     # step limit) — resend the paused assistant turn unchanged to resume.
     restarts = 0
     while response.stop_reason == "pause_turn" and restarts < 5:
         messages.append({"role": "assistant", "content": response.content})
-        response = client.messages.create(
-            model=MODEL_ID,
-            max_tokens=8000,
-            system=SYSTEM_PROMPT,
-            tools=tools,
-            messages=messages,
-        )
+        response = client.messages.create(**{**request_kwargs, "messages": messages})
         restarts += 1
 
     final_text = "".join(
@@ -122,7 +133,9 @@ def research_section(section: Section, since_iso: str) -> list[dict]:
     except (json.JSONDecodeError, ValueError):
         print(
             f"  [{section.id}] Could not parse a JSON array from the response — "
-            f"skipping this section. First 300 chars of raw output:\n"
+            f"skipping this section.\n"
+            f"  stop_reason: {response.stop_reason}\n"
+            f"  First 300 chars of raw output:\n"
             f"  {final_text[:300]!r}"
         )
         return []
