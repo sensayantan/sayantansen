@@ -3,31 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sayantan Sen — Blogs</title>
-  <meta name="description" content="Blog posts by Sayantan Sen.">
+  <title>This is my first experience — Sayantan Sen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
   <header class="site-header">
     <div class="container pillnav-row">
-      <a href="index.html" class="brand">Sayantan Sen</a>
+      <a href="../index.html" class="brand">Sayantan Sen</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <nav class="pillnav" id="nav-links">
-        <a href="index.html" class="pill">
+        <a href="../index.html" class="pill">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5 10 3l7 6.5"/><path d="M5 8.5V17h10V8.5"/></svg>
           About Me
         </a>
-        <a href="news.html" class="pill">
+        <a href="../news.html" class="pill">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M6 7.5h8M6 10.5h8M6 13.5h5"/></svg>
           Today's News
         </a>
-        <a href="blogs.html" class="pill active">
+        <a href="../blogs.html" class="pill active">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16.5 4.7 13 14 3.7l2.3 2.3L7 15.3l-3.5.7Z"/></svg>
           Sayantan Blogs
         </a>
@@ -35,24 +34,19 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero container">
-      <h1>Sayantan Blogs</h1>
-      <p class="tagline">Notes on technology, leadership, and building this site from scratch.</p>
-    </section>
-
-    <p class="placeholder" id="blog-empty-state" style="max-width: var(--max-width-wide); margin: 0 auto; padding: 0 1.25rem 2rem;" hidden>
-      No posts yet.
-    </p>
-
-    <div class="blog-grid" id="blog-grid"></div>
+  <main class="container blog-post">
+    <a class="blog-back-link" href="../blogs.html">&larr; All posts</a>
+    <p class="blog-post-date">July 15, 2011</p>
+    <h1 class="blog-post-title">This is my first experience</h1>
+    <div class="blog-post-body">
+I do want to share a lot of interesting stuff that I come across everyday at my work, day-to-life. Lets see how it goes
+    </div>
   </main>
 
   <footer class="site-footer">
     <p class="container">&copy; <span id="year"></span> Sayantan Sen</p>
   </footer>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/blogs.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
