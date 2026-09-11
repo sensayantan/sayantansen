@@ -101,8 +101,19 @@ def make_excerpt(html_content: str, length: int = EXCERPT_LENGTH) -> str:
 
 
 def first_image(html_content: str) -> str | None:
-    match = re.search(r'<img[^>]+src="([^"]+)"', html_content or "")
-    return match.group(1) if match else None
+    """Returns the first usable image for the tile thumbnail, skipping any
+    http:// (not https://) images entirely — GitHub Pages serves this site
+    over https, and browsers block "mixed content" (loading an insecure
+    http:// resource on a secure page), so an http image would always show
+    as broken regardless of whether the source is even still online. Some
+    old posts hotlinked images from third-party sites over http with no
+    https alternative in the post; for those, no image is more honest than
+    a permanently-broken one."""
+    for match in re.finditer(r'<img[^>]+src="([^"]+)"', html_content or ""):
+        url = match.group(1)
+        if url.startswith("https://"):
+            return url
+    return None
 
 
 def format_date(iso_str: str) -> str:
