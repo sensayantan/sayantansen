@@ -13,13 +13,16 @@ personal blog's login traffic).
 ### 1. Create the Cloudflare Pages project
 
 1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com) (free account is fine).
-2. **Workers & Pages → Create → Pages → Connect to Git** → pick this repo (`sensayantan/sayantansen`).
-3. Configure the build:
+2. In the left sidebar, click **Compute** (under "Build") to expand it, then click **Workers & Pages**.
+   (Cloudflare's dashboard nests it here now — it's no longer a top-level sidebar item.)
+3. Click **Create application** (top right).
+4. Choose **Pages**, then **Connect to Git** → pick this repo (`sensayantan/sayantansen`).
+5. Configure the build:
    - **Root directory**: `oauth-proxy`
    - **Framework preset**: None
    - **Build command**: (leave empty)
    - **Build output directory**: `public`
-4. Click **Save and Deploy**. Once it finishes, note the URL Cloudflare gives you — something like `https://sayantansen-oauth.pages.dev`.
+6. Click **Save and Deploy**. Once it finishes, note the URL Cloudflare gives you — something like `https://sayantansen-oauth.pages.dev`.
 
 ### 2. Register a GitHub OAuth App
 
