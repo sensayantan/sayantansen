@@ -2,9 +2,11 @@ backend:
   name: github
   repo: sensayantan/sayantansen
   branch: main
-  # Set once the OAuth proxy (Phase 3 setup) is deployed — see
-  # backend/README or the project ARCHITECTURE.md for the current value.
-  # base_url: https://your-oauth-proxy.example.com
+  # The Cloudflare Pages project deployed from oauth-proxy/ (see that
+  # folder's README for setup). Replace with your actual *.pages.dev URL
+  # once the project is created.
+  base_url: https://sayantansen-oauth.pages.dev
+  auth_endpoint: api/auth
 
 # Publishing straight to `main` (no editorial review step) — matches how
 # every other part of this site publishes. Switch to "editorial_workflow"
