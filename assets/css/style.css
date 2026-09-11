@@ -723,14 +723,22 @@ a:hover {
   color: var(--color-text);
 }
 
-#professional-journey {
-  max-width: 68ch;
-}
-
 .split-section {
   display: flex;
   gap: 2rem;
   align-items: flex-start;
+}
+
+.text-panel h2 {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.text-panel h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
 }
 
 .photo-panel {
@@ -738,6 +746,11 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+#about .photo-panel {
+  position: sticky;
+  top: 96px;
 }
 
 .photo-panel:empty {
@@ -795,5 +808,9 @@ a:hover {
 
   .photo-panel-item img {
     height: 320px;
+  }
+
+  #about .photo-panel {
+    position: static;
   }
 }
