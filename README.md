@@ -67,6 +67,29 @@ Usage after your first run. If you want the cost even lower, drop
 - Automatic daily scheduling (GitHub Actions cron)
 - Auto-deploy (commit + push `data/news.json` after each run)
 
+## Blog admin (in progress)
+
+Blog posts can be written/edited two ways:
+
+1. **The one-time Blogger migration** (`backend/migrate_blogger.py`) —
+   already run; produced the 13 existing posts.
+2. **The `/admin` editor** (Decap CMS) — for new posts going forward.
+   `admin/config.yml` defines the post form: title, date, tags, an image
+   layout choice (standard/hero/gallery), multiple images with captions,
+   an optional PDF attachment, and a plain-text markdown body.
+
+When a post is saved in `/admin`, Decap commits a Markdown file to
+`content/blogs/` directly on `main`. A GitHub Action
+(`.github/workflows/render-blogs.yml`) then automatically runs
+`backend/render_blogs.py`, which turns that Markdown into a real static
+page under `blogs/` and updates `data/blogs.json` — no manual step
+needed after clicking Publish.
+
+**Not finished yet:** `/admin` needs a GitHub OAuth App and a small
+hosted OAuth proxy before login actually works — GitHub Pages can't run
+that part itself. Until that's set up, the config/page exist but login
+will fail.
+
 ## Run it locally
 
 `index.html` and `blogs.html` can be opened directly as files. `news.html`
