@@ -21,7 +21,7 @@ function renderPhotoGrid(photos) {
 
 async function loadAbout() {
   try {
-    const response = await fetch("data/about.json");
+    const response = await fetch("data/about.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`Failed to load about.json (${response.status})`);
     const data = await response.json();
 
