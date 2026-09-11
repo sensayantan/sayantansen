@@ -1,6 +1,6 @@
-function renderPhotoGrid(photos) {
+function renderPhotoPanel(photos) {
   if (!photos || photos.length === 0) return "";
-  const tiles = photos
+  return photos
     .map((p) => {
       const badge = p.ai_generated
         ? '<span class="photo-badge">AI Generated</span>'
@@ -9,14 +9,13 @@ function renderPhotoGrid(photos) {
         ? `<p class="photo-caption">${p.caption}</p>`
         : "";
       return `
-        <figure class="photo-tile">
+        <figure class="photo-panel-item">
           <img src="${p.image}" alt="${p.caption || ""}" loading="lazy">
           ${badge}
           ${caption}
         </figure>`;
     })
     .join("");
-  return `<div class="photo-grid">${tiles}</div>`;
 }
 
 async function loadAbout() {
@@ -26,7 +25,7 @@ async function loadAbout() {
     const data = await response.json();
 
     document.getElementById("about-intro").innerHTML = data.about_intro_html || "";
-    document.getElementById("profile-photos").innerHTML = renderPhotoGrid(data.profile_photos);
+    document.getElementById("profile-photos").innerHTML = renderPhotoPanel(data.profile_photos);
 
     document.getElementById("professional-journey").innerHTML =
       data.professional_journey_html || "";
@@ -37,7 +36,7 @@ async function loadAbout() {
 
     document.getElementById("family-intro").innerHTML =
       data.family_intro_html || '<p class="placeholder">This section is still being written.</p>';
-    document.getElementById("family-photos").innerHTML = renderPhotoGrid(data.family_photos);
+    document.getElementById("family-photos").innerHTML = renderPhotoPanel(data.family_photos);
   } catch (err) {
     console.error(err);
   }
