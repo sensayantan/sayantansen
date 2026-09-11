@@ -7,8 +7,7 @@
 // copy in a short-lived cookie. callback.js checks the two match before
 // trusting the response — without this, another site could trick a
 // logged-in browser into completing a login it didn't ask for.
-export async function onRequest(context) {
-  const { request, env } = context;
+export function handleAuth(request, env) {
   const clientId = env.GITHUB_CLIENT_ID;
 
   const url = new URL(request.url);

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "sayantansen-oauth",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-11",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    // Only these paths need our Worker's own logic; everything else
+    // (just the placeholder index.html here) is served as a static file
+    // without running the Worker at all.
+    "run_worker_first": ["/api/*"]
+  }
+}
