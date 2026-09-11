@@ -17,7 +17,11 @@
         if (latest.file !== "daybreak-latest.html") {
           throw new Error("Invalid latest report filename");
         }
-        window.location.replace(new URL(`DAYBREAK/${latest.file}`, window.location.href));
+        const reportUrl = new URL(`DAYBREAK/${latest.file}`, window.location.href);
+        // The filename stays stable, while the changing query string prevents
+        // browsers and the GitHub Pages CDN from reusing yesterday's HTML.
+        reportUrl.searchParams.set("edition", Date.now().toString());
+        window.location.replace(reportUrl);
       })
       .catch((error) => {
         console.error(error);
