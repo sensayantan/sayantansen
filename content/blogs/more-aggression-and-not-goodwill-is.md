@@ -1,57 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>More aggression  and not Goodwill... Is this the new India Face? — Sayantan Sen</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
+---
+title: "More aggression  and not Goodwill... Is this the new India Face?"
+date: 2014-12-30T08:55:00.002Z
+tags: []
+layout: standard
+images: []
+---
 
-  <header class="site-header">
-    <div class="container pillnav-row">
-      <a href="../index.html" class="brand">Sayantan Sen</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="pillnav" id="nav-links">
-        <a href="../index.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5 10 3l7 6.5"/><path d="M5 8.5V17h10V8.5"/></svg>
-          About Me
-        </a>
-        <a href="../news.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M6 7.5h8M6 10.5h8M6 13.5h5"/></svg>
-          Today's News
-        </a>
-        <a href="../blogs.html" class="pill active">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16.5 4.7 13 14 3.7l2.3 2.3L7 15.3l-3.5.7Z"/></svg>
-          Sayantan Blogs
-        </a>
-      </nav>
-    </div>
-  </header>
+***By Sayantan Sen, December
+29, 2014.***
 
-  <main class="container blog-post">
-    <a class="blog-back-link" href="../blogs.html">&larr; All posts</a>
-    <p class="blog-post-date">December 30, 2014</p>
-    <h1 class="blog-post-title">More aggression  and not Goodwill... Is this the new India Face?</h1>
-    
-    
-    <div class="blog-post-body">
-<p><strong><em>By Sayantan Sen, December
-29, 2014.</em></strong></p>
-<p><em>Current Border-Gavaskar encounter between Australia and India
+*Current Border-Gavaskar encounter between Australia and India
 is probably bringing out a new image of India and author wants to provide a
-perspective and tell whether it is at all necessary.</em></p>
-<p><img alt="Mitchell Johnson (left) and Virat Kohli were involved in a verbal argument © Getty Images" src="http://st2.cricketcountry.com/wp-content/uploads/2014/12/Virat-Kohli-of-India-exchanges-words-with-bowler-Mitchell-Johnson1.jpg" /></p>
-<p>Boxing Day Test cricket at
+perspective and tell whether it is at all necessary.*
+
+![Mitchell Johnson (left) and Virat Kohli were involved in a verbal argument © Getty Images](http://st2.cricketcountry.com/wp-content/uploads/2014/12/Virat-Kohli-of-India-exchanges-words-with-bowler-Mitchell-Johnson1.jpg)
+
+Boxing Day Test cricket at
 Melbourne cricket ground is a great cricketing event and every cricketing
 enthusiasts looks out for the test, and how can it be more pleasing to see two
-team competing neck to neck for the dominance.</p>
-<p>Yes, probably after some
+team competing neck to neck for the dominance.
+
+Yes, probably after some
 miserable foreign tours for Indian Test team in last year and half, where
 hardly India had shown any Test cricketing class and temperament (apart from
 one or two tests in-between) -  down 0-2 against a little-more-than-ordinary
@@ -60,24 +29,27 @@ performance is worth lots of praise and definitely new age batting sensation
 of  World Cricket is leading the effort
 from front. Viral Kohli, after miserable tours of England, has really learn
 fast and the effort from his side with 3 centuries in 3 tests proves his
-tremendous will and effort to go well in Australia.</p>
-<p>Kohli is a new age
+tremendous will and effort to go well in Australia.
+
+Kohli is a new age
 cricketer. Unfortunately along with his batting supremacy what is getting talked
 about is his behavior (well some says miss-behavior) in the cricketing field.
 We all know Australian is good in sledging and it is important to be able to be
 some-what more dominant in their approach and reply to few of the intimidation.
 But is not this approach costing India to a certain extend? Some of the
 instances which has really caught everyone's eye is this on-going series which
-potentially have or could have impacted the team's performance are:</p>
-<p><strong>Day 3, 3rd Test: Australia v India at Melbourne - Dec 26-30,
-2014</strong>:
+potentially have or could have impacted the team's performance are:
+
+**Day 3, 3rd Test: Australia v India at Melbourne - Dec 26-30,
+2014**:
 Johnson tries to throw back to the wicket in his follow through (which is very
 common reaction for any bowler) with the ball and hits Virat. Virat and Johnson
 have verbal exchange. If Australia would not have been such pathetic in their
 catching, Virat would have been out in his nervous 90s and who knows India team
-would have been 150+ runs behind instead of 60+ odd runs first innings score.</p>
-<p><strong>Day 3, 3rd Test: Australia v India at Melbourne - Dec 26-30,
-2014</strong>: It
+would have been 150+ runs behind instead of 60+ odd runs first innings score.
+
+**Day 3, 3rd Test: Australia v India at Melbourne - Dec 26-30,
+2014**: It
 was almost end of the day and Virat was playing with the tail. India were
 around 60-70 runs behind Australia's first innings score and Virat was seeing
 the ball like a baseball. He was almost hitting everything around the park and
@@ -90,9 +62,10 @@ his exceptional form behind him, India could have potentially surpassed
 Australian mammoth 513 score and he could have got his first double century.
 Although Virat later in the day (in the press conference) mentioned that such
 confrontation brings the best out of him, but if India looses this test match,
-in some-way, Virat's aggression might come out costly.</p>
-<p><strong>Day 3, 2nd Test: Australia v India at Brisbane - Dec 17-20,
-2014</strong>: Steven
+in some-way, Virat's aggression might come out costly.
+
+**Day 3, 2nd Test: Australia v India at Brisbane - Dec 17-20,
+2014**: Steven
 Smith is in a form of lifetime and with the kind of skill and temperament he is
 showing, there needs to be some miracle to break this rhythm. His first-innings
 score of 133 was such a class that no-one can ever think of not appreciating
@@ -103,15 +76,19 @@ visa-versa. Ultimately when Steve got out to Ishanth Sharma, instead of team
 India giving him a clapping exit from the ground, Ishanth shows a baseless
 aggression, which looked quite odd. Cummon, entire India bowling attack
 struggled against Steve for last 9 hours (over 2 days) and instead of acknowledging
-his tremendous effort, you are ...... very very surprising.</p>
-<p>Overall, when you look at
+his tremendous effort, you are ...... very very surprising.
+
+Overall, when you look at
 the current India Team, I think almost all team members are very good in their "lip
 service". It is a laundry list. Sekhar, Rohit, Ishant, Umesh, Varun
 Aron, Jadega, Ashwin..... They seem to be always charged up for verbal banter
 and eager to paint this new India Team image. This series seems to have really
 gone over-board. It might hit back this team hard very soon (who knows 2015 ICC
-World Cup???).</p>
-<p>Unfortunately cricket
+World Cup???).
+
+  
+
+Unfortunately cricket
 remembers and respects the ones who behave on and off field in moderation
 Sachin, Kallis, Alan Border, Rahul Dravid are all examples of such controlled
 but passionate cricketing legends. When these individuals actually have gone
@@ -126,20 +103,10 @@ might not do the same if time-machine goes backward. That is why Hershal Gibbs,
 Javen Miandad inspite of their tremendous talent will always be remembered as
 the bad boys of Cricketing history and who knows may be due to their on-field
 behaviors, they were never given the opportunity to lead their nation and when
-form was not on their side were dropped from their side.</p>
-<p>I hope Indian team's
+form was not on their side were dropped from their side.
+
+I hope Indian team's
 current stewards gets things under control and really see that the aggression
 and determination only works in favor of the team and nation and not to prove whose ego is
 more stronger. Seeing India's new artificially painted image is somewhat
-painful and looks a lot filmy than what is actually necessary.</p>
-    </div>
-    
-  </main>
-
-  <footer class="site-footer">
-    <p class="container">&copy; <span id="year"></span> Sayantan Sen</p>
-  </footer>
-
-  <script src="../assets/js/main.js"></script>
-</body>
-</html>
+painful and looks a lot filmy than what is actually necessary.

@@ -1,180 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>India always proved statistics wrong in the WC. Can it happen this time also  ? — Sayantan Sen</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
+---
+title: "India always proved statistics wrong in the WC. Can it happen this time also  ?"
+date: 2014-12-16T10:07:00.003Z
+tags: []
+layout: standard
+images: []
+---
 
-  <header class="site-header">
-    <div class="container pillnav-row">
-      <a href="../index.html" class="brand">Sayantan Sen</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="pillnav" id="nav-links">
-        <a href="../index.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5 10 3l7 6.5"/><path d="M5 8.5V17h10V8.5"/></svg>
-          About Me
-        </a>
-        <a href="../news.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M6 7.5h8M6 10.5h8M6 13.5h5"/></svg>
-          Today's News
-        </a>
-        <a href="../blogs.html" class="pill active">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16.5 4.7 13 14 3.7l2.3 2.3L7 15.3l-3.5.7Z"/></svg>
-          Sayantan Blogs
-        </a>
-      </nav>
-    </div>
-  </header>
+***By Sayantan Sen, December 15, 2014.***
 
-  <main class="container blog-post">
-    <a class="blog-back-link" href="../blogs.html">&larr; All posts</a>
-    <p class="blog-post-date">December 16, 2014</p>
-    <h1 class="blog-post-title">India always proved statistics wrong in the WC. Can it happen this time also  ?</h1>
-    
-    
-    <div class="blog-post-body">
-<p><strong><em>By Sayantan Sen, December 15, 2014.</em></strong></p>
-<p><em>2015 ICC WC is very near and while all is analyzing India's strengths and
+*2015 ICC WC is very near and while all is analyzing India's strengths and
 weaknesses, it is quite ironical that whenever India has performed well in WC,
-it was against statistics and history.</em></p>
-<p><img alt="India will be defending champions in the ICC World Cup 2015 © Getty Images" src="http://st2.cricketcountry.com/wp-content/uploads/2014/12/India-celebrate-World-Cup-2011-triumph.jpg" /></p>
-<p>Out of 11 WC played till now, India
+it was against statistics and history.*
+
+![India will be defending champions in the ICC World Cup 2015 © Getty Images](http://st2.cricketcountry.com/wp-content/uploads/2014/12/India-celebrate-World-Cup-2011-triumph.jpg)
+
+Out of 11 WC played till now, India
 has hardly performed to their potential 3 times (1983 and 2011 winners and 2003
 runners-up). If we look back and see all the 11 WC, there were certain facts
 and statistics which favored or not favored India to win the cup and it seems
-India team has always proved everybody wrong.</p>
-<p>In First 2 editions of WC, India were
+India team has always proved everybody wrong.
+
+In First 2 editions of WC, India were
 considered minnows (won only 1 match against East Africa in '75 and even lost
 on non-Test playing nation of Sri-Lanka (at that time) in '79) and can be
-somewhat ignored to prove this paradox.</p>
-<p><strong>1983</strong></p>
-<p>If India were not the winners, we
+somewhat ignored to prove this paradox.
+
+**1983**
+
+If India were not the winners, we
 could have excluded in this analysis, but in this edition of WC, India proved
 everyone wrong and also ignored all statistical predictions and historical
-trend.</p>
-<p><strong><em>For this WC, India had no hope.</em></strong></p>
-<ul>
-<li>India was
-  the weakest Test Playing nation for 3rd time in a row.</li>
-<li>West
-  Indies were unbeaten in the WC history till then</li>
-<li>No-one
+trend.
+
+***For this WC, India had no hope.***
+
+* India was
+  the weakest Test Playing nation for 3rd time in a row.
+* West
+  Indies were unbeaten in the WC history till then
+* No-one
   predicted the world champions to be beaten twice (once in Finals and once
-  in the league phase)</li>
-<li>In the era
+  in the league phase)
+* In the era
   of pace bowling, Indian team had no genuine fast bowler and had no
   world-class batsmen other than Sunil Gavaskar, who unfortunately never
-  enjoyed playing that format.</li>
-<li>Team only
+  enjoyed playing that format.
+* Team only
   had more than required all-rounders (Amarnath, Keerty Azad, Kapil Dev,
   Yashpal Sharma, Syed Kirmani), rather utility players, which was never a
   god to indication of a strong team during that time of one-day or test
-  cricket.</li>
-</ul>
-<p>Yet, India proved everybody wrong for
+  cricket.
+
+Yet, India proved everybody wrong for
 the right reason. What a win.... Arguably the biggest upset WC winners in WC
-history.</p>
-<p><strong>1987</strong></p>
-<ul>
-<li>India
-  along with Pakistan an West Indies were the favorites.</li>
-<li>This was
+history.
+
+**1987**
+
+* India
+  along with Pakistan an West Indies were the favorites.
+* This was
   the first time WC was played in sub-continent and it is very well known
   that all test playing country except the hosts struggles so hard to play
-  in the sub-continent.</li>
-<li>This was
+  in the sub-continent.
+* This was
   also the WC where the team with the strongest spinning side were tipped as
   favourites and India star bowler Maninder Singh and Ravi Shastri were on
-  their peak form.</li>
-<li>India had
+  their peak form.
+* India had
   the most experienced one-day team, all being played more than 50+ international
   one-day's, only exception being Navjot Singh Sindhu (made his debut in
-  this WC).</li>
-</ul>
-<p>India played well (lost 1 match in
+  this WC).
+
+India played well (lost 1 match in
 the leagues against AUS), but failed to qualify for the finals when they lost
 to Mike Gatting's ENG Team in the Semi Final. India (along with PAK) did prove
 everybody wrong by not winning the cup inspite of almost every statistics and
-historical trend favoring their win.</p>
-<p><strong>1992</strong></p>
-<p><strong><em>India was one of the strong
-contenders</em></strong> and
+historical trend favoring their win.
+
+**1992**
+
+***India was one of the strong
+contenders*** and
 all knew that India might struggle due to the condition (Australia not a good
 hunting ground for India historically). Other that Australia (being the host
 and being the number one team in team ranking by quite a few notches) and
 England there were no clear favorite and it was India who were the top for 4
-contenders. Factors which favored India though were:</p>
-<ul>
-<li>It had a
+contenders. Factors which favored India though were:
+
+* It had a
   very strong side (very experienced side with Sachin being the youngest
   team member and playing the least number of WC matches at that time) both
-  from batting and bowling and had immense experience.</li>
-<li>It was
+  from batting and bowling and had immense experience.
+* It was
   also the WC which for the first time India had a pace bowling attach which
   was beyond Kapil Dev and had the ability to exploit the conditions well
-  (Prabhakar, Srinath, Subroto Banerjee and Kapil Dev).</li>
-<li>To get
+  (Prabhakar, Srinath, Subroto Banerjee and Kapil Dev).
+* To get
   accustomed to Australia condition, Indian team was in Australia 4 months
   before and all other cricketing nation had rumored to have criticized
   India board for building this undue advantage of knowing the condition so
-  well before the start of the cup.</li>
-</ul>
-<p>What a disastrous performance though.
+  well before the start of the cup.
+
+What a disastrous performance though.
 Other than defeating the eventual champion and arch-rival Pakistan +  giving a courageous fight against Australia
 (lost by 1 run), India was definitely one of the worst test playing nation
 along with Australia for that World Cup. So yet again India proved everyone
-wrong.</p>
-<p><strong>1996</strong></p>
-<p><strong><em>India was a clear favorite for this
-World-Cup</em></strong>,
-because:</p>
-<ul>
-<li>Being
+wrong.
+
+**1996**
+
+***India was a clear favorite for this
+World-Cup***,
+because:
+
+* Being
   played in sub-continent condition India were again considered the
-  favorites, and why not.</li>
-<li>They were
-  the second best one-day team after Australia.</li>
-<li>What a
+  favorites, and why not.
+* They were
+  the second best one-day team after Australia.
+* What a
   batting line-up it had: Sachin, Sidhu, Kambli, Manjrekar, Azar (Captain),
-  Jadeja all in peak form.</li>
-<li>India were
+  Jadeja all in peak form.
+* India were
   playing all their matched in well-known Indian venue turning tracks like
-  Cuttack, Gwalior, Mumbai and Delhi.</li>
-</ul>
-<p>Inspite of all the buzz, India were
+  Cuttack, Gwalior, Mumbai and Delhi.
+
+Inspite of all the buzz, India were
 not able to deliver as per potential and lost miserably to eventual winnerSri
-Lanka in the Semi Final.</p>
-<p><strong>1999</strong></p>
-<p><strong><em>World Cup was back to England and
-India was again considered as a cup contender.</em></strong></p>
-<ul>
-<li>India
+Lanka in the Semi Final.
+
+**1999**
+
+***World Cup was back to England and
+India was again considered as a cup contender.***
+
+* India
   famous trio of Sachin, Dravid and Ganguly was already the most talked
   about batting line-up and Sourav Ganguly was already the world number one
   one-day batsman (at that time), while Sachin already help most of the
-  batting records at that time.</li>
-<li>For the
+  batting records at that time.
+* For the
   first time in the WC, India was represented by a team when 3 batsmen were
   in top 10 batting rank, 2 bowlers (Srinath and Kumble) were in the top 10
   bowling rank and Azar was the most experienced captain (3 WC's
-  back-to-back).</li>
-</ul>
-<p>Unfortunately, one more
+  back-to-back).
+
+Unfortunately, one more
 disappointment for India. India lost to ZIM and always struggled to qualify
 inspite of defeating PAK. This WC was the last WC where Azar captained and it
 was almost a fact that entire nation waited for the next generation (Sachin,
-Sourav, Dravid, Kumble etc) of Indian cricketer to take the leadership.</p>
-<p><strong>2003</strong></p>
-<p><strong><em>No one actually gave Indian team
-enough chances</em></strong>
+Sourav, Dravid, Kumble etc) of Indian cricketer to take the leadership.
+
+**2003**
+
+***No one actually gave Indian team
+enough chances***
 as this WC was in South Africa and entire world knew how miserable India
 was/are on bouncy pitch. This was the WC which was lead by Sourav along with a
 foreign coach John Wright. India as a team were playing great, but with
@@ -185,67 +166,74 @@ that India as a team played according to potential and in some cases exceeded
 their own abilities and surprised everyone by reaching the Final almost
 un-beaten (lost their first match to AUS by 9 wickets and were struggling
 against ZIM on their 3rd match). In this WC, India proved all statistics wrong
-and reached the final, eventually being thrashed to the winners AUS.</p>
-<p><strong>2007</strong></p>
-<p>This was arguably India's worst WC performance
-with the <strong><em>best India Team ever represented in a WC</em></strong>.</p>
-<ul>
-<li>India was
+and reached the final, eventually being thrashed to the winners AUS.
+
+**2007**
+
+This was arguably India's worst WC performance
+with the ***best India Team ever represented in a WC***.
+
+* India was
   3rd in ICC one-day ranking after AUS and SA and under the leadership of
-  Dravid.</li>
-<li>Entire
+  Dravid.
+* Entire
   cricketing world thought that it might be the last WC for famous
   Sachin-Dravid-Sourav-Kumble and hence entire team would use their
-  experience and give their best to win this cup in West Indies.</li>
-</ul>
-<p>India although proved everybody wrong being
+  experience and give their best to win this cup in West Indies.
+
+India although proved everybody wrong being
 the one of the two (other team being PAK) test-playing nation to be knocked out
 of the tournament in the first round. This was definitely the rock bottom
 performance of Indian team and hope India never performs this bad in any other
-WCs going forward</p>
-<p><strong>2011</strong></p>
-<p><strong><em>India was definitely the favorites,
-but not much was expected from this team as</em></strong></p>
-<ul>
-<li>Team was
+WCs going forward
+
+**2011**
+
+***India was definitely the favorites,
+but not much was expected from this team as***
+
+* Team was
   without Dravid and Sourav first like since 1999, while Sachin was
   definitely the same wonder boy which he was till the last WC. Almost India
   was trying with a new set of batsmen to take the challenge, with Sachin
-  and Sehwag the most experienced one.</li>
-<li>No other
+  and Sehwag the most experienced one.
+* No other
   host nation has won the WC before, other than Sri Lanka (Technically in
   1996, Srikant was the host nation and the eventual winners, but due to
   political unrest, almost no nation went to Sri Lanka to play their matches
   and Sri Lanka won most of their matches in India and Pakistan soil. So
-  actually Sri Lanka were never to the host nation)</li>
-<li>Foreign
+  actually Sri Lanka were never to the host nation)
+* Foreign
   Coach Gary Kisten was the 3rd glorified foreign coach and it was
   increasingly becoming a taboo (especially after Greg Chappel's tenure) for
-  India cricket rather than a good strategy</li>
-<li>No other
-  teams have ever won a WC with wicket-keeper Captain (MS Dhoni)</li>
-<li>It was
+  India cricket rather than a good strategy
+* No other
+  teams have ever won a WC with wicket-keeper Captain (MS Dhoni)
+* It was
   also the WC which was a very young team with 6 team members playing a WC
-  before (Yuvraj, Zaheer, Dhoni, Sachin, Harbhajan and Sehwag).</li>
-</ul>
-<p>But this was a WC where Indian Team
+  before (Yuvraj, Zaheer, Dhoni, Sachin, Harbhajan and Sehwag).
+
+But this was a WC where Indian Team
 was able to fulfill every Indian dreams at last and to everyone's surprise won
 this edition of the cup beating almost all the test-playing team on their path
 to the crown (lost to SA in the last over and tied with ENG during the group
-league).</p>
-<p><strong>2015.. what will happen? what does statistics say.</strong></p>
-<p>Are India the favorites? Yes,
+league).
+
+**2015.. what will happen? what does statistics say.**
+
+Are India the favorites? Yes,
 obviously. They are the world number one one-day team and has claimed their
 dominance almost in all major tournaments since last 4 years. So with this
 history in the backdrop, and India having a uncanny trend of proving history
 wrong will India fail to win this time? Well, we should then try to find few
-odds which build a case against this team :-).</p>
-<p><strong><em>Factors which are not favoring well
-India are obviously as below</em></strong>:</p>
-<ul>
-<li>India and
-  Australian condition. It has never ever worked in India's favor.</li>
-<li>Last time
+odds which build a case against this team :-).
+
+***Factors which are not favoring well
+India are obviously as below***:
+
+* India and
+  Australian condition. It has never ever worked in India's favor.
+* Last time
   in 1992, India team to acclimatize the Australian condition was in
   Australia 4 months ahead of the WC and was involved in a whitewash test
   series before the WC. India is doing the same this time. Why playing a
@@ -253,26 +241,26 @@ India are obviously as below</em></strong>:</p>
   regulars of WC (like Jadeja, Ashwin, Raina) will be warming the bench for
   the Test while some of the Test specialists (like Pujara, Vijay, Ishanth
   etc) will be going back home during the WC. Really, not sure what India
-  management wants out of it.</li>
-<li>Other than
+  management wants out of it.
+* Other than
   Australia no other nation has successfully help the WC, not even a ICC
-  Championship.</li>
-<li>India's
+  Championship.
+* India's
   potential WC squad of 16 will have only 4 existing world cup winning team
   member. Captain Dhoni, Kohli, Raina and Ashwin. Other than Dhoni, none of
   the other three were part of the core team in 2011 (although Kohli ended
   up playing almost all the matches for India in the 2011 edition of WC).
-  Entire think tank of 2015 WC will be different from 2011 WC.</li>
-<li>India's
+  Entire think tank of 2015 WC will be different from 2011 WC.
+* India's
   last few performance in this part of the world (Australia and New Zealand)
   has been far below than anybody's expectation and definitely the condition
-  and history will hurt this team</li>
-<li>Whenever
+  and history will hurt this team
+* Whenever
   India has won a world-cup, captain has been fresh and has been leading the
   team in the WC for the first time. Kapil succeeded  in his first attempt, but failed in his
   second. Azar tried 3 times and failed. Dhoni succeeded in his first
-  attempt and this year it will be his second attempt</li>
-<li>2011 WC
+  attempt and this year it will be his second attempt
+* 2011 WC
   was very different from other WC's, at least if we compare it with
   previous 3 to 4 WC's. India Team was in a phase where Sachin was the pivot
   and if he failed, entire team failed. Yes, Sourav and Dravid did rectified
@@ -284,22 +272,11 @@ India are obviously as below</em></strong>:</p>
   innings against Australia in the 1st test match, doesn't we find a
   similarity with Sachin's innings against Pakistan in Chennai? One person
   standing and rest all falling apart. A tournament like WC cannot be won
-  with 1 superstar. 2011 had many stars and no superstars, so was in 1983.</li>
-</ul>
-<p>But we all should hope that India
+  with 1 superstar. 2011 had many stars and no superstars, so was in 1983.
+
+But we all should hope that India
 will break all these odds and become the second successful team after Australia
 to win the World Cup for the 3rd time. If this paradox is true in any sense,
 let's all find out  few more and hence
 pray India team would prove statistics and historical trend wrong this time
-around also.</p>
-    </div>
-    
-  </main>
-
-  <footer class="site-footer">
-    <p class="container">&copy; <span id="year"></span> Sayantan Sen</p>
-  </footer>
-
-  <script src="../assets/js/main.js"></script>
-</body>
-</html>
+around also.
