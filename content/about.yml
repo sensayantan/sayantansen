@@ -1,65 +1,76 @@
-about_intro: I'm Sayantan Sen, a **technology leader** by day, a **family
-  person** by evening, and a **developer and dreamer** whenever I have
+about_intro: I'm Sayantan Sen, a **technology professional** by day, a **family
+  person** by evening and holidays, and a **day dreamer** whenever I have
   nothing productive to do.
 profile_photos:
   - ai_generated: true
     image: assets/images/blog/sayantansen-professional-image.jpeg
   - ai_generated: false
     image: assets/images/blog/sen-sayantan-globallogic-ako02249.jpg
-professional_journey: |
-  My path into technology wasn't planned as a straight line toward
-  leadership — it started, quite literally, at the code level.
+professional_journey: >-
+  My path into technology wasn't planned as a straight line toward leadership —
+  it started, quite literally, at the code level.
 
-  I began my career in 2000 as a developer and database architect,
-  writing Java and Oracle PL/SQL for Apple's internal Directory Services
-  platform — the system that tracked employees, contractors, vendors,
-  and hardware across the company, tied into HR systems and LDAP under a
-  24x7 support model. It was unglamorous, deadline-driven work, and it
-  taught me two things that have stayed with me ever since: production
-  systems don't forgive sloppy thinking, and the people who keep them
-  running rarely get the credit they deserve.
 
-  Over the next decade at Infosys, I moved steadily from writing code to
-  designing systems to leading the teams that built them — solution
-  architecture and delivery for clients like Molex, Solectron, Boeing,
-  Cisco, and Microsoft, much of it in the unglamorous but essential world
-  of B2B and EDI integration: gateways, mapping migrations, supplier
-  onboarding — the plumbing that lets large companies actually talk to
-  each other. A short stint at Software AG building out a North American
-  delivery practice sharpened a different muscle: not just delivering
-  programs, but building the organization that delivers them.
+  I began my career in post Y2K era as a developer and database architect, writing Java, C, and Oracle PL/SQL for Apple's internal Directory Services and HR platform — the system that tracked employees, contractors, vendors, and hardware across the company, tied into LDAP under a 24x7 support model. It was unglamorous, deadline-driven work, and it taught me two things that have stayed with me ever since: production systems don't forgive sloppy thinking, and the people who keep them running rarely get the credit they deserve.
 
-  The next chapter, at IBM, is where the scope really opened up. I ran
-  multi-year, multi-country programs for Lowe's, Tesco, Forever 21,
-  T-Mobile, and Abbott — order management modernization, supply chain
-  integration, platform launches across dozens of workstreams and
-  international teams. Then came Caterpillar: a five-year engagement
-  where I owned the technical and commercial evolution of their B2B/B2C
-  digital commerce platform, including a first-of-its-kind mobile
-  payment integration (WeChat Pay, Alipay, UnionPay) for their dealer
-  network, and the security architecture behind it — cryptographic
-  request signing, merchant key custody, the unglamorous but critical
-  work of making sure a payment system can't be spoofed. That platform
-  grew from roughly half a million dollars to over $120M in annual
-  revenue under my watch, across seven countries and 70+ integrated
-  systems.
 
-  Since 2020, I've been Vice President and Chief of Staff to the Chief
-  Delivery Officer at GlobalLogic, where the job has shifted again — from
-  running individual programs to shaping how a 20,000+ person global
-  engineering organization operates. Today that means leading enterprise
-  AI strategy: defining how GenAI and agentic AI get evaluated, adopted,
-  and governed across a company this size, running technical and
-  commercial evaluations of frontier model providers, and personally
-  building the prototypes and automation that inform those decisions. It
-  also means owning a $300M+ portfolio of strategic client programs and
-  the operating rhythm — planning, forecasting, executive reviews — that
-  keeps a global organization moving in the same direction.
+  Over the next decade at Infosys, I moved steadily from writing code to designing systems to leading the teams that built them — solution architecture, product management, project management, you name it. I played various client-facing roles and delivered for clients like Molex, Solectron, Boeing, Cisco, and Microsoft, much of it in the middleware space: EDI and B2B gateway integration, business rule mapping and migrations, supplier onboarding — the plumbing that lets large companies actually talk to each other. Outside core delivery, I also gained significant exposure to large-deal solutioning and pre-sales, pursuit management, pricing and estimation, and win-themes, and was fortunate to be part of a few significant wins for the company, including a $35M managed services contract for Microsoft.
 
-  Looking back, the throughline isn't really "developer to executive."
-  It's that I've never stopped wanting to understand how things actually
-  work underneath — which is, not coincidentally, exactly why I'm
-  building this website myself instead of hiring someone to do it.
-personal_journey: ""
-family_intro: ""
+
+  A short stint at Software AG building out a North American delivery practice sharpened a different muscle and expanded my horizons as a portfolio-based delivery leader: not just delivering programs, but building the organization that delivers them.
+
+
+  The next chapter, at IBM, is where the scope really opened up. I ran multi-year, multi-country programs for Lowe's, Tesco, Forever 21, T-Mobile, and Abbott — order management modernization, supply chain integration, and platform launches across dozens of workstreams and international teams.
+
+
+  Then came Caterpillar: a five-year engagement where I owned the technical and commercial evolution of their B2B/B2C digital commerce platform, including a first-of-its-kind mobile payment integration (WeChat Pay, Alipay, UnionPay) for their dealer network, and the security architecture behind it — cryptographic request signing, merchant key custody, the critical work of making sure a payment system can't be spoofed. Transaction volume grew many-fold at a staggering pace, leading to three back-to-back major B2B product line launches — across 7 countries, 9+ languages, 150+ dealer networks, and 70+ system integrations, delivered across three major delivery locations (India, US, and China) by a 100+ person engineering team. Along the way I managed a wide range of stakeholders, from engineering managers and architects to directors, VPs, and the program's executive sponsors. This is the program where I met the sharpest minds and the most dedicated group of people, who worked relentlessly for years to make it a grand success for the customer.
+
+
+  Since 2020, I've been Vice President and Chief of Staff to the Chief Delivery Officer at GlobalLogic, where the job has shifted again — from running individual programs to shaping how a 20,000+ person global engineering organization operates. Today that means leading enterprise AI strategy: defining how GenAI and agentic AI get evaluated, adopted, and governed across a company this size, running technical and commercial evaluations of frontier model providers, and personally building the prototypes and automation that inform those decisions. It also means influencing, transforming, and driving millions of dollars' worth of strategic initiatives, and developing and operating the engineering SDLC and operating rhythm that keeps a global engineering organization moving in the same direction — while simultaneously embracing both evolution and revolution (all in a very positive sense :-)).
+
+
+  Looking back, the throughline isn't really "developer to global transformation leader." It's that I've never stopped wanting to understand how things actually work underneath — which is my career mantra: be foolish, be nimble, keep learning, fail fast, don't repeat the same mistake, and never stop dreaming of more exciting work. Work hard, treat every day as a learning opportunity, and let money and fame follow — they're the byproduct, not the goal.
+personal_journey: >-
+  I grew up in the urban surroundings of Kolkata — famously known as the "City
+  of Joy," and arguably still the intellectual capital of India. Although I was
+  born in the country's capital, New Delhi, I feel fortunate to have grown up in
+  a family and social circle where dreaming big was only possible because of a
+  strong focus on educational excellence. That focus helped me and my peers
+  shape our ethics and social values early on — humility, hard work, no
+  shortcuts, and plenty of laughter along with light-hearted and intense
+  conversations and debates. In that part of the world, we famously believe
+  these conversations — known locally as "adda" — helped our generation get
+  ahead of our peers by igniting our intellectual curiosity to a different level
+  of abstraction.
+
+
+  As a kid, I dreamed of becoming a cricketer and played reasonably well, though I didn't pursue it for long. But team sports taught me something nothing else quite could — how to be a more well-rounded, empathetic teammate, and that a team's contribution is always more impactful and rewarding than any individual's.
+
+
+  This was also the era when, as a country, we were shifting from a socialist mindset to a more capitalist one — especially in the '90s, when India opened its markets to Western goods and Western ways of life. Around that same time, information technology — as a profession, a dream, a career, everything — seemed to be reaching its pinnacle, right as I was in college and exploring the next big thing for myself.
+
+
+  The profession I chose has shaped much of my personal journey and its milestones — experiences I might never have had otherwise. For that, I thank God for the countless opportunities it has given me to explore, experience, and cherish. I truly believe I've received far more than I deserve, and that it's my duty to support and help, in whatever small ways I can, those who haven't been as fortunate.
+
+
+  I do have one very non-minimalist wish. (I know minimalism is fashionable these days, and for what it's worth, I'm not particularly materialistic.) That wish is to keep going around the world, seeing places, cultures, and history. I started this journey about 10–15 years ago and have managed to check off at least one place from my bucket list every year since.
+
+
+  The list is long, so wish me luck — whoever is reading this — that I stay fit enough, strong enough, and have enough money and enthusiasm to fulfill it.
+family_intro: >-
+  I selfishly want to spend most of my time with my family, since that's the
+  environment where I feel most comfortable, most relaxed, and sometimes even a
+  little pampered. That's why my family is my world.
+
+
+  I was fortunate to have a very strong family setup, with values instilled in both my brother and me from a very early age: my father's family were all engineers, and my mother was a high-school maths teacher, so excellence in education was never optional. We saw first hand how their hard work — pursuing higher education and building strong family values and bonds — gave them a better life than their own parents had. That same ambition, drive, and ethic carried through my own formative years of schooling and college.
+
+
+  Family also meant a lot of fun, laughter, and fighting — with my brother and my cousins alike. And for us back then, family didn't just mean parents and blood relatives; it also meant school teachers, friends, neighbors, and others.
+
+
+  I currently live in San Jose, California, with my wife and my son. My wife is my best friend — the person who shows me the truth whenever I need to course-correct. And my son, the most important person in my life, is still finding his way through this complex world of uncertainties. As parents, we're committed to helping him find a path that keeps him happy and joyful.
+
+
+  Since relocating to the US, I — like many others in the same boat — definitely miss the schools, colleges, university, city, family, and friends back home. That said, I feel fortunate to live a comfortable, exciting life here with my immediate family, and I cherish every bit of it.
 family_photos: []
