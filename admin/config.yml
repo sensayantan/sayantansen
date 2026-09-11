@@ -91,7 +91,7 @@ collections:
             widget: "markdown"
             required: false
             buttons: ["bold", "italic", "link"]
-            hint: "Shown at the top of the My Family / My World section."
+            hint: "Shown as its own \"My Personal Journey\" section, between About Me and My Family / My World."
           - label: "My Family / My World — intro text"
             name: "family_intro"
             widget: "markdown"
