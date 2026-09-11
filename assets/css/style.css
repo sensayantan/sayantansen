@@ -697,6 +697,15 @@ a:hover {
    About Me page: profile/family photos, journey prose
    ========================================================= */
 
+.about-greeting {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+  text-align: left;
+}
+
 #about-intro,
 #professional-journey,
 #personal-journey,
