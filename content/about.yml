@@ -1,13 +1,12 @@
-about_intro: |
+about_intro: |-
   I'm Sayantan Sen — a technology executive by day, and as of this project,
   a first-time developer by night. I'm VP of Technology Services at
   GlobalLogic (a Hitachi Group company), based in San Jose, California.
-  This website is itself part of that story: I'm building and coding it
-  myself, learning Python and web development along the way, rather than
-  just describing that I lead engineering teams for a living.
-
-profile_photos: []
-
+profile_photos:
+  - ai_generated: true
+    image: assets/images/blog/sayantansen-professional-image.jpeg
+  - ai_generated: false
+    image: assets/images/blog/sen-sayantan-globallogic-ako02249.jpg
 professional_journey: |
   My path into technology wasn't planned as a straight line toward
   leadership — it started, quite literally, at the code level.
@@ -62,9 +61,6 @@ professional_journey: |
   It's that I've never stopped wanting to understand how things actually
   work underneath — which is, not coincidentally, exactly why I'm
   building this website myself instead of hiring someone to do it.
-
 personal_journey: ""
-
 family_intro: ""
-
 family_photos: []
