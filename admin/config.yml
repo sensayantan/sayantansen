@@ -1,0 +1,59 @@
+backend:
+  name: github
+  repo: sensayantan/sayantansen
+  branch: main
+  # Set once the OAuth proxy (Phase 3 setup) is deployed — see
+  # backend/README or the project ARCHITECTURE.md for the current value.
+  # base_url: https://your-oauth-proxy.example.com
+
+# Publishing straight to `main` (no editorial review step) — matches how
+# every other part of this site publishes. Switch to "editorial_workflow"
+# later if drafts/review ever become useful.
+publish_mode: simple
+
+media_folder: "assets/images/blog"
+public_folder: "assets/images/blog"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "content/blogs"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "Your hashtags, e.g. cricket, travel — no # needed here."
+      - label: "Layout"
+        name: "layout"
+        widget: "select"
+        default: "standard"
+        options:
+          - { label: "Standard (text only)", value: "standard" }
+          - { label: "Hero image", value: "hero" }
+          - { label: "Image gallery", value: "gallery" }
+        hint: "Hero: one big image up top. Gallery: a grid of all uploaded images."
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Caption", name: "caption", widget: "string", required: false }
+      - label: "PDF Attachment"
+        name: "attachment"
+        widget: "file"
+        required: false
+        media_folder: "assets/files/blog"
+        public_folder: "assets/files/blog"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
