@@ -85,10 +85,11 @@ When a post is saved in `/admin`, Decap commits a Markdown file to
 page under `blogs/` and updates `data/blogs.json` — no manual step
 needed after clicking Publish.
 
-**Not finished yet:** `/admin` needs a GitHub OAuth App and a small
-hosted OAuth proxy before login actually works — GitHub Pages can't run
-that part itself. Until that's set up, the config/page exist but login
-will fail.
+**OAuth setup:** `/admin` needs a GitHub OAuth App and a small hosted
+proxy before login works — GitHub Pages can't run that part itself. The
+proxy code lives in `oauth-proxy/`; see
+[oauth-proxy/README.md](oauth-proxy/README.md) for the exact one-time
+setup steps (Cloudflare Pages project + GitHub OAuth App).
 
 ## Run it locally
 
