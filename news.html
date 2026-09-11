@@ -6,16 +6,15 @@
   <title>Sayantan Sen — Today's News</title>
   <meta name="description" content="Daily curated news brief for Sayantan Sen.">
   <script>
-    // DAYBREAK/latest.json is updated whenever a new dated edition is added.
-    // Keeping the pointer separate means this stable news.html URL always opens
-    // the newest report without hard-coding a date into site navigation.
+    // This pointer is intentionally static. The publishing job overwrites
+    // DAYBREAK/daybreak-latest.html and archives a separate dated copy.
     fetch("DAYBREAK/latest.json", { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error(`Latest report lookup failed (${response.status})`);
         return response.json();
       })
       .then((latest) => {
-        if (!/^daybreak-\d{4}-[A-Z][a-z]{2}-\d{2}\.html$/.test(latest.file)) {
+        if (latest.file !== "daybreak-latest.html") {
           throw new Error("Invalid latest report filename");
         }
         window.location.replace(new URL(`DAYBREAK/${latest.file}`, window.location.href));
@@ -33,7 +32,7 @@
 <body>
 
   <noscript>
-    <p class="container"><a href="DAYBREAK/daybreak-2026-Sep-10.html">Open the latest Daybreak report</a></p>
+    <p class="container"><a href="DAYBREAK/daybreak-latest.html">Open the latest Daybreak report</a></p>
   </noscript>
 
   <header class="site-header">
