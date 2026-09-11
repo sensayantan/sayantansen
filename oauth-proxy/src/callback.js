@@ -35,8 +35,7 @@ function getCookie(request, name) {
   return match ? match[1] : null;
 }
 
-export async function onRequest(context) {
-  const { request, env } = context;
+export async function handleCallback(request, env) {
   const clientId = env.GITHUB_CLIENT_ID;
   const clientSecret = env.GITHUB_CLIENT_SECRET;
 
