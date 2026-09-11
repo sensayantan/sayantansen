@@ -59,3 +59,48 @@ collections:
         name: "body"
         widget: "markdown"
         buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
+
+  - name: "about"
+    label: "About Me Page"
+    files:
+      - name: "about"
+        label: "About Me"
+        file: "content/about.yml"
+        fields:
+          - label: "About Me — intro text"
+            name: "about_intro"
+            widget: "markdown"
+            buttons: ["bold", "italic", "link"]
+          - label: "Profile Photos"
+            name: "profile_photos"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string", required: false }
+              - label: "This photo is AI-generated"
+                name: "ai_generated"
+                widget: "boolean"
+                default: false
+          - label: "My Professional Journey"
+            name: "professional_journey"
+            widget: "markdown"
+            buttons: ["bold", "italic", "link", "heading-three", "bulleted-list"]
+          - label: "My Personal Journey"
+            name: "personal_journey"
+            widget: "markdown"
+            required: false
+            buttons: ["bold", "italic", "link"]
+            hint: "Shown at the top of the My Family / My World section."
+          - label: "My Family / My World — intro text"
+            name: "family_intro"
+            widget: "markdown"
+            required: false
+            buttons: ["bold", "italic", "link"]
+          - label: "Family Photos"
+            name: "family_photos"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string", required: false }

@@ -79,11 +79,18 @@ Blog posts can be written/edited two ways:
    an optional PDF attachment, and a plain-text markdown body.
 
 When a post is saved in `/admin`, Decap commits a Markdown file to
-`content/blogs/` directly on `main`. A GitHub Action
-(`.github/workflows/render-blogs.yml`) then automatically runs
-`backend/render_blogs.py`, which turns that Markdown into a real static
-page under `blogs/` and updates `data/blogs.json` — no manual step
-needed after clicking Publish.
+`content/blogs/` directly on `main`. The same admin also has an
+**"About Me Page"** entry (`content/about.yml`) covering the three
+sections on `index.html` — About Me, My Family / My World, and My
+Professional Journey — including profile/family photos (with an
+"AI-generated" flag per photo, shown as a badge).
+
+Either way, a GitHub Action (`.github/workflows/render-content.yml`)
+automatically runs `backend/render_blogs.py` and `backend/render_about.py`
+whenever anything under `content/` changes, turning that source content
+into the real static pages/data (`blogs/*.html`, `data/blogs.json`,
+`data/about.json`) and committing the result — no manual step needed
+after clicking Publish.
 
 **OAuth setup:** `/admin` needs a GitHub OAuth App and a small hosted
 proxy before login works — GitHub Pages can't run that part itself. The
