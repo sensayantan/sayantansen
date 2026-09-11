@@ -1,53 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ganguly and Waugh, where the elder made way for the younger — Sayantan Sen</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
+---
+title: "Ganguly and Waugh, where the elder made way for the younger"
+date: 2014-10-30T14:10:00.001Z
+tags: []
+layout: standard
+images: []
+---
 
-  <header class="site-header">
-    <div class="container pillnav-row">
-      <a href="../index.html" class="brand">Sayantan Sen</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="pillnav" id="nav-links">
-        <a href="../index.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5 10 3l7 6.5"/><path d="M5 8.5V17h10V8.5"/></svg>
-          About Me
-        </a>
-        <a href="../news.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M6 7.5h8M6 10.5h8M6 13.5h5"/></svg>
-          Today's News
-        </a>
-        <a href="../blogs.html" class="pill active">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16.5 4.7 13 14 3.7l2.3 2.3L7 15.3l-3.5.7Z"/></svg>
-          Sayantan Blogs
-        </a>
-      </nav>
-    </div>
-  </header>
+***By Sayantan Sen, October 30, 2014.***
 
-  <main class="container blog-post">
-    <a class="blog-back-link" href="../blogs.html">&larr; All posts</a>
-    <p class="blog-post-date">October 30, 2014</p>
-    <h1 class="blog-post-title">Ganguly and Waugh, where the elder made way for the younger</h1>
-    
-    
-    <div class="blog-post-body">
-<p><strong><em>By Sayantan Sen, October 30, 2014.</em></strong></p>
-<p><em>While there are quite a few famous cricketing brothers that all are aware
+*While there are quite a few famous cricketing brothers that all are aware
 of, author tries to find a striking similarity between Waugh Brothers (Steve
 and Mark Waugh) and Ganguly Brothers (Snehasish and Saurav Ganguly) where the
 younger brother made their test and first-class debut respectively in expense
-of their elder brother being dropped.</em></p>
-<p>It was Mar'90 when Indian cricketing
+of their elder brother being dropped.*
+
+It was Mar'90 when Indian cricketing
 enthusiasts got the first glimpse of a cricketer who eventually changed the
 face of Indian cricket, Saurav Ganguly, that also on an important occasion of a
 Ranji Final at Eden Gardens, Kolkata. Saurav starting to play cricket very late
@@ -60,8 +27,8 @@ gamble by many critics at that time. It was even more sensational as Bengal has
 just lost the last years Ranji final miserably to the same opponents (Delhi) and
 Bengal was trying to lift the coveted Ranji Trophy only for the second time
 since 1938-39 (50 years gap). While it was a life-time opportunity for Saurav
-getting all lime-light straightaway on the final (<em>typically all major domestic finals are heavily represented by all
-major national team's selectors</em>) his debut although was filled with mixed
+getting all lime-light straightaway on the final (*typically all major domestic finals are heavily represented by all
+major national team's selectors*) his debut although was filled with mixed
 emotions as he was actually picked in the squad replacing his elder brother
 Snehasish Ganguly. Sneshish, post the Ranji semi-final with Hyderabad where he
 made 1, he made his way for his younger brother Saurav, who ended up making 22
@@ -71,8 +38,9 @@ representing Bengal. While Saurav made his debut for the national squad in 1990
 averaged 70+ in the Ranji. While Saurav proved every critic wrong by making a
 come-back in the national squad in '95, Snehashis hanged his boot in '97, a
 career which had a lot of potential but may have been overshadowed by his more
-successful  younger brother.</p>
-<p>Just like Saurav had a mixed emotions
+successful  younger brother.
+
+Just like Saurav had a mixed emotions
 while making his Ranji debut on Mar'90, early next year in Jan'91 a very
 similar incident happened, when Wark Waugh (the younger of the Waugh twin
 brothers and considered to be the more talented but less hungrier than his
@@ -85,23 +53,14 @@ authority in the test arena, while is elder brother made his test debut almost
 emotion, but I think he never let that opportunity go as he ended up making a
 marvelous 138 and helped his squad come out of deep trouble. Waugh brother
 played their first test together later that year against the mighty West Indies
-in their home turf on Apr'91 at Queen's Park Oval, Port of Spain, Trinidad.</p>
-<p>While out of the two Ganguly brothers,
+in their home turf on Apr'91 at Queen's Park Oval, Port of Spain, Trinidad.
+
+While out of the two Ganguly brothers,
 one ended up becoming arguably the most successful captain of India, both the
 Waugh brother ended up becoming the most successful brother (and obviously twin
 brothers) ever to have played in the history of Australian and probably world
-cricket.</p>
-<p>History
+cricket.
+
+History
 will although will always remember this co-incidence where the younger of the
-sibling came to limelight in expense of the sacrifice from their elder brother.</p>
-    </div>
-    
-  </main>
-
-  <footer class="site-footer">
-    <p class="container">&copy; <span id="year"></span> Sayantan Sen</p>
-  </footer>
-
-  <script src="../assets/js/main.js"></script>
-</body>
-</html>
+sibling came to limelight in expense of the sacrifice from their elder brother.

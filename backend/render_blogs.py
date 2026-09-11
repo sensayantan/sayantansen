@@ -184,7 +184,9 @@ def render_post(md_path: Path) -> dict:
     images = front.get("images") or []
     attachment = front.get("attachment")
 
-    body_html = markdown_lib.markdown(body_md.strip())
+    body_html = markdown_lib.markdown(
+        body_md.strip(), extensions=["tables", "fenced_code", "sane_lists"]
+    )
     images_html = render_images_block(images, layout)
     tags_html = render_tags(tags)
     attachment_html = render_attachment(attachment)

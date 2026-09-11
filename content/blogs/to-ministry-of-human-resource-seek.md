@@ -1,47 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seek equal opportunity — Sayantan Sen</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
+---
+title: "Seek equal opportunity"
+date: 2014-10-30T14:20:00Z
+tags: []
+layout: standard
+images:
+  - image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XkvsrgY0hjc_JhlMyTfrMY6rCM6KbJacEYcA5jnd9VGflD4QGbt7wR6pPnOdZNuq1XC2Wg_Pyyjs8Ffy8sulvVaf2pud0D25UkAM4K9-SzIy59vrsir5wY0BxNdch-uvN1QyBKFTl66k/s1600/download.jpg"
+    caption: ""
+---
 
-  <header class="site-header">
-    <div class="container pillnav-row">
-      <a href="../index.html" class="brand">Sayantan Sen</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="pillnav" id="nav-links">
-        <a href="../index.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5 10 3l7 6.5"/><path d="M5 8.5V17h10V8.5"/></svg>
-          About Me
-        </a>
-        <a href="../news.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M6 7.5h8M6 10.5h8M6 13.5h5"/></svg>
-          Today's News
-        </a>
-        <a href="../blogs.html" class="pill active">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16.5 4.7 13 14 3.7l2.3 2.3L7 15.3l-3.5.7Z"/></svg>
-          Sayantan Blogs
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container blog-post">
-    <a class="blog-back-link" href="../blogs.html">&larr; All posts</a>
-    <p class="blog-post-date">October 30, 2014</p>
-    <h1 class="blog-post-title">Seek equal opportunity</h1>
-    
-    
-    <div class="blog-post-body">
-<p>This Children's day, a day which is celebrated for any nation's future, the young generation. A future of hope, prospect, growth and a better Country I want to share a view-point which is very close to heart. <br />
+This Children's day, a day which is celebrated for any nation's future, the young generation. A future of hope, prospect, growth and a better Country I want to share a view-point which is very close to heart.   
 India as a country is very diverse and with population of un-imaginable
 proportion competition among the peers is obvious. Competition for better
 opportunity, better livelihood and better future. Unfortunately this
@@ -53,9 +20,11 @@ not much the triers and laggers. But is it not a societies responsibility to
 embrace everyone? Yes current economy works on the simple principle of demand
 and supply and survival of the fittest, but is that humanity all about. Should society
 not be more tolerant, more expressive to support the poor and weaker section?
-Please note that the ask is not to show empathy, but to be more embracing.</p>
-<p><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XkvsrgY0hjc_JhlMyTfrMY6rCM6KbJacEYcA5jnd9VGflD4QGbt7wR6pPnOdZNuq1XC2Wg_Pyyjs8Ffy8sulvVaf2pud0D25UkAM4K9-SzIy59vrsir5wY0BxNdch-uvN1QyBKFTl66k/s1600/download.jpg"><img alt="" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XkvsrgY0hjc_JhlMyTfrMY6rCM6KbJacEYcA5jnd9VGflD4QGbt7wR6pPnOdZNuq1XC2Wg_Pyyjs8Ffy8sulvVaf2pud0D25UkAM4K9-SzIy59vrsir5wY0BxNdch-uvN1QyBKFTl66k/s1600/download.jpg" /></a></p>
-<p>Yes, I am talking here of children
+Please note that the ask is not to show empathy, but to be more embracing.
+
+[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XkvsrgY0hjc_JhlMyTfrMY6rCM6KbJacEYcA5jnd9VGflD4QGbt7wR6pPnOdZNuq1XC2Wg_Pyyjs8Ffy8sulvVaf2pud0D25UkAM4K9-SzIy59vrsir5wY0BxNdch-uvN1QyBKFTl66k/s1600/download.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XkvsrgY0hjc_JhlMyTfrMY6rCM6KbJacEYcA5jnd9VGflD4QGbt7wR6pPnOdZNuq1XC2Wg_Pyyjs8Ffy8sulvVaf2pud0D25UkAM4K9-SzIy59vrsir5wY0BxNdch-uvN1QyBKFTl66k/s1600/download.jpg)
+
+Yes, I am talking here of children
 with various disabilities. These gifted children have not come to this world
 with such condition on their wish, neither with their parent's wish. God has
 gifted them this condition and with the hope that each such beautiful soul
@@ -69,16 +38,17 @@ Laws. All are very encouraging, but unfortunately far from what the reality is.
 For an example for condition like Autism, with around 1 out of 100 children
 having this condition there are hand few specialized  school to help these children, while a country
 like Germany provides similar support to these condition till the level of
-university.</p>
-<p>Not going to any kind of comparison,
+university.
+
+Not going to any kind of comparison,
 what is the need of the hour is institutionalize the policies, laws and acts
 across schools, colleges (govt., private) so that (1) A consistency is achieved
 across when a child with special need approaches these institution (2) Tailor
 and provide more structured alternative schooling curriculum (including Home
 schooling) which understands the need to various disabilities and as well as is
-accepted well [<em>Indian education system
+accepted well [*Indian education system
 still considers Home schooling as something not globally accepted and is only
-meant to perform some vocational activities and not to do regular jobs</em>]
+meant to perform some vocational activities and not to do regular jobs*]
 (3) Have adequate resources, funding available to help them complete their
 education as per each of the child's ability without any limit. Currently on
 the ground, the experience of having just elementary education for these
@@ -89,8 +59,9 @@ out for special school only? Why they are been directed to start vocational
 training at early age? Are they not allowed play and dream along with others.
 Why they are not allowed to sit in a class with all? Yes, they need extra
 support, guidance, counseling and why this society and education institution in
-particular will not take that responsibility?</p>
-<p>Any great country as they mature also
+particular will not take that responsibility?
+
+Any great country as they mature also
 goes to societal maturity, acceptance and broad mindedness. Columnist is
 definitely of the opinion that people still here in India has to go a long way.
 Columnist at this juncture wants Ministry to drive a country wise initiative towards
@@ -109,15 +80,4 @@ nations who actually  are more open,
 structure and organized to such conditions are later on blessed with geniuses (not
 to name anyone here who eventually make their nation and society proud), not
 just their near and dear ones who anyhow know how blessed they are to get this
-opportunity to be with a special need kid.</p>
-    </div>
-    
-  </main>
-
-  <footer class="site-footer">
-    <p class="container">&copy; <span id="year"></span> Sayantan Sen</p>
-  </footer>
-
-  <script src="../assets/js/main.js"></script>
-</body>
-</html>
+opportunity to be with a special need kid.
