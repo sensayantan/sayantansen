@@ -688,3 +688,61 @@ a:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* =========================================================
+   About Me page: profile/family photos, journey prose
+   ========================================================= */
+
+#about-intro p,
+#professional-journey p,
+#personal-journey p,
+#family-intro p {
+  line-height: 1.75;
+  margin: 0 0 1.1rem;
+  color: var(--color-text);
+}
+
+#professional-journey {
+  max-width: 68ch;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+.photo-tile {
+  margin: 0;
+  position: relative;
+}
+
+.photo-tile img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.photo-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(16, 28, 46, 0.75);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+}
+
+.photo-caption {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin: 0.4rem 0 0;
+  text-align: center;
+}

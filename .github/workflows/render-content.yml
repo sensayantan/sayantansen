@@ -1,0 +1,45 @@
+# Runs automatically whenever a commit touches content/ — which is
+# exactly what happens when something is saved via the admin at /admin
+# (Decap CMS commits Markdown/YAML files straight to `main`). This
+# workflow turns that source content into real static pages/data
+# (backend/render_blogs.py, backend/render_about.py) and commits the
+# result back, so publishing needs no manual step beyond clicking
+# Publish in the admin.
+name: Render site content
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+
+# Needed so the final step below can push a commit back to this repo.
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt
+
+      - name: Render blog posts
+        run: python backend/render_blogs.py
+
+      - name: Render About Me page
+        run: python backend/render_about.py
+
+      - name: Commit rendered output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add blogs/ data/blogs.json data/about.json
+          git diff --cached --quiet || git commit -m "Render site content [skip ci]"
+          git push
