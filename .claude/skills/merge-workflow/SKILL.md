@@ -25,10 +25,10 @@ directly to `main`, even for a one-line fix.
      matching `backend/render_*.py` script and check the diff to `data/*.json`
      or `blogs/*.html` is exactly what's expected.
    - Any change to `assets/css/style.css`: bump the `?v=N` query string on
-     *every* `<link rel="stylesheet" href="assets/css/style.css?v=N">`
-     reference (`index.html`, `blogs.html`, `news.html`, and the template in
-     `backend/render_blogs.py` — regenerate the blog posts after). Forgetting
-     this is the single most repeated bug in this repo's history: the fix is
+     every reference, regenerate blog posts, then run
+     `python3 .claude/skills/frontend-standards/scripts/check_css_version.py`
+     to verify — see the `frontend-standards` skill. Forgetting this bump is
+     the single most repeated bug in this repo's history: the fix is
      correct in the file but browsers keep serving the stale cached CSS.
 
 4. **Commit with a message that explains why, not just what** — end it with
