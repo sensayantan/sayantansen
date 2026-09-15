@@ -739,8 +739,9 @@ a:hover {
    ========================================================= */
 
 .about-greeting {
+  font-family: Georgia, serif;
   font-size: clamp(2.25rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 800;   
   line-height: 1.1;
   letter-spacing: -0.01em;
   margin: 0 0 1.25rem;
