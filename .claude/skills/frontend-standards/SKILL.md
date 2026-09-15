@@ -3,6 +3,13 @@ name: frontend-standards
 description: Front-end coding standards for the sayantansen website (HTML/CSS/JS). Use when writing or editing index.html, blogs.html, news.html, blog post pages, assets/css/style.css, or assets/js/*.js.
 ---
 
+This file covers what to keep in mind while writing front-end code. For the
+full story on the CSS cache-buster bug (why it exists, every file it
+touches) and the script that checks it automatically, see
+`references/css-cache-busting.md` — only load that file if you're actually
+about to touch `style.css` or need the detail; the summary below is enough
+for everything else.
+
 This site is intentionally plain HTML/CSS/JS with **no build tools, no
 framework, no bundler** — keep it that way. Don't introduce npm, a bundler,
 React, or a CSS preprocessor without the user explicitly asking for that
@@ -41,8 +48,12 @@ unless the generation process itself is updated.
   the Daybreak files specifically. Check the existing breakpoint for the
   component you're touching rather than inventing a new one.
 - **Whenever `assets/css/style.css` changes, bump the `?v=N` query string on
-  every page that links it** (see the `merge-workflow` skill) — this is not
-  optional and has caused real shipped bugs when skipped.
+  every page that links it, then run**
+  `python3 .claude/skills/frontend-standards/scripts/check_css_version.py`
+  **to confirm nothing was missed** — don't read that script, just run it
+  and check its output (exit 0 = all consistent, non-zero = it lists which
+  file is behind). See `references/css-cache-busting.md` for why this
+  matters and the full list of files involved.
 - Prefer `position: sticky` for chrome that should stay visible while
   scrolling past it (site header, About Me's photo panel) and
   `position: fixed` + matching `body` padding for chrome that should stay

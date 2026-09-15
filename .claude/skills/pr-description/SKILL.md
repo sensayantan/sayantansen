@@ -1,7 +1,18 @@
 ---
 name: pr-description
 description: Writes pull request descriptions for the sayantansen repo. Use when opening a PR, writing a PR description, or summarizing a branch's changes for a pull request.
+allowed-tools: Read, Grep, Glob, Bash
+model: haiku
 ---
+
+`allowed-tools` is restricted to read-only tools plus `Bash` (needed for
+`git diff`/`git log`) — writing a PR description should never edit code,
+so this skill can't accidentally do it even if asked to. `model: haiku` is
+set because summarizing an already-made diff into a fixed template is a
+low-reasoning, templated task — cheaper and faster than the default model
+without a quality tradeoff worth paying for here. If PR descriptions ever
+start reading as shallow or missing nuance, that's the first thing to
+revert.
 
 Before writing anything, run `git diff main...HEAD` and `git log main..HEAD --oneline`
 to see everything the branch actually changed — never guess from memory.
