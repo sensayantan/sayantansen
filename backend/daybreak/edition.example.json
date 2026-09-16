@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-17",
+  "researchedAt": "2026-09-17T17:00:00Z",
+  "reviewComplete": false,
+  "sections": [
+    {"title":"Top News","deck":"Major global developments","stories":[],"emptyReason":"Example only — research required"},
+    {"title":"Top US News","stories":[],"emptyReason":"Example only — research required"},
+    {"title":"Top India & Asia-Pacific News","stories":[],"emptyReason":"Example only — research required"},
+    {"title":"Top News from the Middle-East","stories":[],"emptyReason":"Example only — research required"},
+    {"title":"Top News from Europe","stories":[],"emptyReason":"Example only — research required"},
+    {"title":"Top News from Latin America","stories":[],"emptyReason":"Example only — research required"},
+    {"title":"Top News from Africa","stories":[],"emptyReason":"Example only — research required"},
+    {"title":"Technology & AI","stories":[],"emptyReason":"Example only — research required"}
+  ],
+  "metrics": [
+    {"label":"S&P 500","value":"Source unavailable","asOf":"Research required","source":"https://apnews.com/hub/financial-markets"},
+    {"label":"Dow","value":"Source unavailable","asOf":"Research required","source":"https://apnews.com/hub/financial-markets"},
+    {"label":"Nasdaq","value":"Source unavailable","asOf":"Research required","source":"https://apnews.com/hub/financial-markets"},
+    {"label":"10-year Treasury","value":"Source unavailable","asOf":"Research required","source":"https://home.treasury.gov/resource-center/data-chart-center/interest-rates"},
+    {"label":"Fed policy rate","value":"Source unavailable","asOf":"Research required","source":"https://www.federalreserve.gov/monetarypolicy.htm"}
+  ],
+  "marketAnalysis":"Example only — replace with verified market internals and analysis.",
+  "marketAnalysisSources":[],
+  "earnings":{"items":[],"emptyReason":"Example only — earnings research required"}
+}
