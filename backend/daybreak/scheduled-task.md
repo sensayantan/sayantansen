@@ -2,7 +2,7 @@
 
 The actual schedule remains in the Codex app, attached to the existing conversation. This file documents it; it does not register another scheduler.
 
-The following is the intended repository-runner integration. The app update to enable it was blocked by safety review at check-in; the existing schedule remains unchanged until the exact recurring ticker-only egress and Git publishing workflow is approved. Do not mistake this file for a successfully applied app configuration.
+The existing app automation was successfully updated on 17-Sep-2026 to use this runner. The user explicitly authorized ticker-only Yahoo Finance transmission and generated HTML commits/pushes to GitHub main, now and on scheduled runs. The schedule remains Monday through Saturday at 10:00 AM Pacific. Runtime, network, credentials and validation remain execution dependencies.
 
 - Automation ID: `publish-daybreak-news`
 - Monday through Saturday, 10:00 AM Pacific (`America/Los_Angeles`); no Sunday run.
