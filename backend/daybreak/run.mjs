@@ -1,4 +1,4 @@
-// Called by the Codex automation after source-first research produces edition.json.
+// Called after either Codex or research.mjs produces a fresh edition.json.
 // No standalone timer, model API calls, or news crawling is hidden in this script.
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -6,7 +6,7 @@ import {execFileSync} from 'node:child_process';
 import assert from 'node:assert/strict';
 import {repo,render,validateEdition} from './render.mjs';
 const args=process.argv.slice(2);const arg=key=>args[args.indexOf(key)+1];
-assert(args.includes('--edition')&&args.includes('--portfolio'),'Required: --edition JSON --portfolio XLSX --authorize-yahoo-portfolio [--publish]');
+assert(args.includes('--edition')&&(args.includes('--portfolio')!==args.includes('--portfolio-symbols')),'Required: --edition JSON and exactly one of --portfolio XLSX / --portfolio-symbols PRIVATE_JSON');
 assert(args.includes('--authorize-yahoo-portfolio'),'Explicit ticker-only Yahoo authorization flag required');
 const e=JSON.parse(await fs.readFile(path.resolve(arg('--edition'))));validateEdition(e);
 const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -20,7 +20,12 @@ const publish=args.includes('--publish');
 if(publish){assert.equal(run('git',['branch','--show-current']),'main');assert.equal(run('git',['status','--porcelain']),'','Publisher must be clean before publication');run('git',['fetch','origin']);run('git',['merge','--ff-only','origin/main']);}
 const work=path.join(repo,'.daybreak-work');await fs.mkdir(work,{recursive:true});
 const symbols=path.join(work,'portfolio-symbols.json'),marketFile=path.join(work,'market.json'),portfolioFile=path.join(work,'portfolio.json');
-run('python3',['backend/daybreak/extract_portfolio.py',path.resolve(arg('--portfolio')),symbols]);
+if(args.includes('--portfolio'))run('python3',['backend/daybreak/extract_portfolio.py',path.resolve(arg('--portfolio')),symbols]);
+else {
+  const data=JSON.parse(await fs.readFile(path.resolve(arg('--portfolio-symbols'))));
+  assert(Array.isArray(data)&&data.length===96&&new Set(data).size===96&&data.every(s=>typeof s==='string'&&/^[A-Z][A-Z0-9.-]{0,9}$/.test(s)),'Expected exactly 96 unique ticker symbols only');
+  await fs.writeFile(symbols,JSON.stringify(data));
+}
 run(process.execPath,['backend/daybreak/fetch-prices.mjs','--output',marketFile]);
 run(process.execPath,['backend/daybreak/fetch-prices.mjs','--symbols',symbols,'--output',portfolioFile]);
 const [market,portfolio]=await Promise.all([marketFile,portfolioFile].map(async p=>JSON.parse(await fs.readFile(p))));
@@ -39,6 +44,10 @@ if(publish){
   result.commit=run('git',['rev-parse','--short','HEAD']);
   result.url=`https://sensayantan.github.io/sayantansen/DAYBREAK/daybreak-latest.html?v=${e.date}-${result.commit}`;
   // A pushed commit is not proof of deployment. Check Pages for up to 3 minutes.
+  if(args.includes('--defer-pages-verification')) {
+    console.log(JSON.stringify({...result,deployed:false,mode:'pushed-awaiting-deployment',output}));
+    process.exit(0);
+  }
   let deployed=false;
   for(let attempt=0;attempt<12;attempt++){
     try{const res=await fetch(result.url+`-${attempt}`,{cache:'no-store',signal:AbortSignal.timeout(15000)});if(res.ok&&(await res.text()).includes(`<title>Today’s Curated News for Sayantan Sen — ${result.dateLabel}</title>`)){deployed=true;break;}}catch{}

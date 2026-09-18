@@ -1,5 +1,9 @@
 # Daybreak architecture
 
+## Standalone cloud implementation — added 18-Sep-2026
+
+The repository now also contains `backend/daybreak/research.mjs` (API web retrieval, evidence-based summary extraction, explicit ranking/deduplication), `cloud.mjs` (standalone entry point), and `.github/workflows/daybreak.yml` (Mon–Sat Pacific-time cloud schedule with explicit deployment and verification). This optional cloud path is **disabled until configured**, and has not replaced the existing Codex schedule. See [cloud setup, safeguards and activation](backend/daybreak/cloud-setup.md). The sections below describe the original Codex-driven path; statements about missing autonomous research apply to that original path, not the newly added API engine. API credentials/billing and live preview verification are still required; no secrets were uploaded.
+
 ## What runs where
 
 Daybreak is a hybrid editorial and code pipeline. The Codex scheduled task does source-first internet research and prepares verified, structured inputs. Repository code fetches prices, calculates trends, renders a standalone HTML page, validates it and publishes it through Git. GitHub Pages serves the finished files; visitors do not make model or finance API calls.

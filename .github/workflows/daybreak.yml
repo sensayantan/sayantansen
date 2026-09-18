@@ -1,0 +1,97 @@
+name: Generate Daybreak
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish validated HTML to main (otherwise preview only)
+        type: boolean
+        default: false
+  schedule:
+    # Both offsets; local-time gate accounts for Pacific DST. GitHub may delay runs.
+    - cron: '0 17,18 * * 1-6'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: daybreak-cloud
+  cancel-in-progress: false
+jobs:
+  generate:
+    if: vars.DAYBREAK_CLOUD_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pacific schedule gate
+        id: gate
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'short',hour:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+          const get=k=>p.find(x=>x.type===k).value;
+          const run=process.env.EVENT==='workflow_dispatch'||(get('weekday')!=='Sun'&&get('hour')==='10');
+          fs.appendFileSync(process.env.GITHUB_OUTPUT,`run=${run}\n`);
+          JS
+      - name: Offline tests
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          node backend/daybreak/test.mjs
+          node --test backend/daybreak/research.test.mjs
+      - name: Research, summarize and generate
+        if: steps.gate.outputs.run == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DAYBREAK_OPENAI_MODEL: ${{ vars.DAYBREAK_OPENAI_MODEL }}
+          DAYBREAK_PORTFOLIO_SYMBOLS: ${{ secrets.DAYBREAK_PORTFOLIO_SYMBOLS }}
+          PUBLISH: ${{ github.event_name == 'schedule' || inputs.publish }}
+          ALLOW_PUBLISH: ${{ vars.DAYBREAK_API_PUBLISH_ENABLED }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          if [ "$PUBLISH" = true ] && [ "$ALLOW_PUBLISH" = true ]; then
+            node backend/daybreak/cloud.mjs --publish --defer-pages-verification
+          else
+            node backend/daybreak/cloud.mjs
+          fi
+      - name: Upload preview (never raw research or ticker files)
+        if: steps.gate.outputs.run == 'true' && success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daybreak-preview
+          path: .daybreak-work/preview/*.html
+          if-no-files-found: ignore
+          retention-days: 3
+      # GITHUB_TOKEN pushes do not trigger a second Pages workflow. Explicitly deploy.
+      - name: Configure Pages
+        if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
+        uses: actions/configure-pages@v5
+      - name: Package site without private inputs
+        if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
+        run: |
+          mkdir -p /tmp/daybreak-public-site
+          git archive HEAD | tar -x -C /tmp/daybreak-public-site
+      - name: Upload site
+        if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: /tmp/daybreak-public-site
+      - name: Deploy site
+        if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
+        uses: actions/deploy-pages@v4
+      - name: Verify live edition after deployment
+        if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
+        run: node backend/daybreak/verify-pages.mjs
