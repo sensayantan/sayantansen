@@ -70,6 +70,9 @@ Only `data/autism-faq.json` needs committing — that is what the site serves.
 `python3 test_parsers.py` checks the XML and JSON parsing against fixtures
 with no network access. Run it after touching either fetch script.
 
+`python3 calibrate.py` measures where the score cutoff should sit — see
+below.
+
 ## On the model choice
 
 `all-MiniLM-L6-v2` is the usual first suggestion and is the wrong default
@@ -84,14 +87,20 @@ documents. That prefix is written into `index.pkl` so `query.py` can never
 embed a query with different settings than the documents were embedded with;
 that mistake produces plausible scores that mean nothing.
 
-## Things to check when you first run it
+## Calibrating the score threshold
 
-- **Scores sit in a narrow, high band.** Unlike TF-IDF, dense embeddings
-  rarely score anything near zero — unrelated text still lands around 0.6.
-  Run `python3 query.py "what is the capital of France"` and see what the top
-  score is. That number is your noise floor; set `MIN_SCORE` in
-  `build_page_data.py` just above it, and re-check the bands in
-  `scoreLabel()` in `assets/js/autism.js`. Both currently hold estimates.
+Run `python3 calibrate.py`. It scores the questions the page asks alongside
+deliberately unrelated ones and reports the gap, then suggests values for
+`MIN_SCORE` in `build_page_data.py` and the bands in `scoreLabel()` in
+`assets/js/autism.js`. Both currently hold estimates.
+
+Spot-checking a single off-topic question is not enough, and it is worth
+knowing why. A corpus about one narrow topic has a high floor: asking "what
+is the capital of France" returns a trial run in Paris, and asking about
+bicycle tyres returns a cycling-and-autism trial, both scoring around 0.50.
+That is the model working — it found the closest thing that exists — but it
+means one probe measures topical adjacency rather than the true floor.
+calibrate.py uses several unrelated questions and takes the ceiling.
 - **The meaning-vs-words upgrade should be visible.** The question that
   failed under TF-IDF was "how many kids get diagnosed with autism", which
   ranked the actual prevalence document third. Semantically similar
@@ -99,7 +108,7 @@ that mistake produces plausible scores that mean nothing.
 
 ## Next steps, in order
 
-1. Tune `MIN_SCORE` and the score bands against real output (above).
+1. Run `calibrate.py` and apply the thresholds it suggests (above).
 2. Hand-curate CDC ADDM prevalence figures with per-row citations.
 3. Only after retrieval is trustworthy: add a generation step that feeds
    top-k retrieved records to an LLM to answer in plain language, with
