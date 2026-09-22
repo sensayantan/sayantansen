@@ -4,3 +4,4 @@ __pycache__/
 .venv/
 /.daybreak-work/
 /SayantanStockCode.xlsx
+experiments/autism-rag/index.pkl
