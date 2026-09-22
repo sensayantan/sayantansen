@@ -1027,6 +1027,121 @@ a:hover {
   border-bottom-color: var(--color-accent);
 }
 
+/* Free-text question box. Hidden until autism.js confirms the Worker
+   endpoint is configured — without it there is nothing to submit to. */
+.ask-form {
+  margin-bottom: 2rem;
+}
+
+.ask-row {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.ask-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.7rem 0.9rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.ask-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.ask-button {
+  padding: 0.7rem 1.4rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ask-button:hover:not(:disabled) {
+  background: var(--color-accent-dark);
+}
+
+.ask-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.ask-hint {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin: 0.6rem 0 0;
+}
+
+.ask-error {
+  padding: 0.8rem 1rem;
+  border-left: 3px solid #b3261e;
+  background: #fdecea;
+  color: #7a1c15;
+  font-size: 0.9rem;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 1.5rem;
+}
+
+/* The generated summary. Styled deliberately unlike the result cards below
+   it: everything in a result card is quoted verbatim from a real paper,
+   whereas this paragraph was written by a model, and a reader should never
+   have to guess which is which. */
+.answer-card {
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 8px 8px 0;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 2rem;
+  background: var(--color-bg-alt);
+}
+
+.answer-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 0.5rem;
+}
+
+.answer-text {
+  line-height: 1.75;
+  margin: 0;
+}
+
+.answer-caveat {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  margin: 0.9rem 0 0;
+}
+
+/* Citation markers link down to the source card they came from. */
+.citation {
+  font-weight: 700;
+  font-size: 0.85em;
+  color: var(--color-accent);
+  text-decoration: none;
+  padding: 0 0.05em;
+}
+
+.citation:hover {
+  text-decoration: underline;
+}
+
+.result-card:target {
+  background: #fff8e1;
+}
+
 /* Corpus provenance line, filled in by autism.js from the data file. */
 .experiment-provenance {
   font-size: 0.8rem;

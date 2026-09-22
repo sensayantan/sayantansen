@@ -1,3 +1,9 @@
+// Paste the deployed Worker URL here to switch the free-text box on, e.g.
+// "https://sayantansen-autism-search.<account>.workers.dev/api/ask".
+// Left empty the box stays hidden and the prepared-question dropdown still
+// works, because that is precomputed and needs no backend at all.
+const ASK_ENDPOINT = "";
+
 let faqData = [];
 
 const SOURCE_LABELS = {
@@ -49,7 +55,7 @@ function renderResults(entry) {
       const title = esc(r.title);
       const cite = citation(r);
       return `
-      <article class="result-card">
+      <article class="result-card" id="result-${i + 1}">
         <div class="result-rank">#${i + 1}</div>
         <div class="result-body">
           <div class="result-meta">
@@ -68,6 +74,24 @@ function renderResults(entry) {
     .join("");
 }
 
+// renderProvenance() rewrites the banner wholesale and runs after a fetch,
+// while initAsk() runs synchronously — so whichever finishes last would
+// otherwise clobber the other. Both call this instead; the data attribute
+// makes a second call a no-op.
+function applyAskNotice() {
+  if (!ASK_ENDPOINT) return;
+  const banner = document.getElementById("experiment-warning");
+  if (banner.dataset.askNotice === "1") return;
+  banner.dataset.askNotice = "1";
+  banner.insertAdjacentHTML(
+    "beforeend",
+    " When you ask your own question a language model writes the summary at the top. " +
+      "It is told to use only the retrieved records and to cite them, but it can still " +
+      "misread them \u2014 the numbered citations go to the real papers, and those are " +
+      "the record."
+  );
+}
+
 // The corpus can be either the real fetched one or the old hand-written
 // placeholder set, and the warning on the page has to stay true to whichever
 // is actually loaded. Only build_page_data.py writes `meta`, so its presence
@@ -75,7 +99,10 @@ function renderResults(entry) {
 function renderProvenance(meta) {
   const banner = document.getElementById("experiment-warning");
   const provenance = document.getElementById("experiment-provenance");
-  if (!meta) return;
+  if (!meta) {
+    applyAskNotice();
+    return;
+  }
 
   banner.innerHTML =
     "<strong>This is a retrieval experiment, not health information.</strong> " +
@@ -91,6 +118,10 @@ function renderProvenance(meta) {
   provenance.textContent =
     `Corpus: ${meta.document_count} documents (${counts}). ` +
     `Embedded with ${meta.model}. Built ${meta.generated}.`;
+
+  // The rewrite above dropped the notice if initAsk() had already added it.
+  banner.dataset.askNotice = "";
+  applyAskNotice();
 }
 
 // Only the abstracts that genuinely overflow get a toggle. Measuring beats
@@ -135,6 +166,7 @@ async function loadFaq() {
 
     select.addEventListener("change", (event) => {
       const results = document.getElementById("results");
+      document.getElementById("answer").innerHTML = "";
       if (event.target.value === "") {
         results.innerHTML = "";
         return;
@@ -149,4 +181,83 @@ async function loadFaq() {
   }
 }
 
+// ---------------------------------------------------------------- free text
+
+function renderAnswer(data) {
+  // Escape first, then linkify: the [n] markers survive escaping intact, so
+  // turning them into links afterwards can't smuggle markup through.
+  const body = esc(data.answer).replace(
+    /\[(\d+)\]/g,
+    (match, n) => `<a class="citation" href="#result-${n}">[${n}]</a>`
+  );
+
+  const caveat = data.answer_is_generated
+    ? `<p class="answer-caveat">Written by a language model from the sources below and
+       nothing else. It can still misread them &mdash; the numbered links go to the
+       actual papers, and those are the record.</p>`
+    : "";
+
+  return `
+    <div class="answer-card">
+      <p class="answer-label">${data.answer_is_generated ? "AI-written summary" : "No summary"}</p>
+      <p class="answer-text">${body}</p>
+      ${caveat}
+    </div>`;
+}
+
+async function ask(question) {
+  const button = document.getElementById("ask-button");
+  const answerEl = document.getElementById("answer");
+  const resultsEl = document.getElementById("results");
+
+  button.disabled = true;
+  answerEl.innerHTML = '<p class="placeholder">Searching 1900 records\u2026</p>';
+  resultsEl.innerHTML = "";
+
+  try {
+    const response = await fetch(ASK_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
+
+    answerEl.innerHTML = renderAnswer(data);
+    resultsEl.innerHTML = renderResults({ results: data.results });
+    addToggles(resultsEl);
+    document.getElementById("question-select").value = "";
+  } catch (err) {
+    console.error(err);
+    answerEl.innerHTML = `<p class="ask-error">${esc(err.message)}</p>`;
+  } finally {
+    button.disabled = false;
+  }
+}
+
+function initAsk() {
+  if (!ASK_ENDPOINT) return;
+  const form = document.getElementById("ask-form");
+  form.hidden = false;
+  document.getElementById("select-label").textContent = "Or pick a prepared question";
+
+  // The static copy says nothing is written by an AI, which is true of the
+  // prepared questions and stops being true the moment free text is live.
+  // Both the intro and the warning have to move with the feature, or the
+  // page is lying about itself.
+  document.getElementById("experiment-intro").textContent =
+    "Ask your own question, or pick a prepared one. Either way the page shows " +
+    "which records a similarity search picked out of the corpus and the score it " +
+    "gave each one, returned verbatim and linking to their sources. For your own " +
+    "questions a language model also writes a short summary from those records.";
+
+  applyAskNotice();
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const question = document.getElementById("ask-input").value.trim();
+    if (question) ask(question);
+  });
+}
+
 loadFaq();
+initAsk();

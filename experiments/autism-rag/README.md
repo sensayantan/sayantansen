@@ -53,6 +53,7 @@ python3 fetch_trials.py
 python3 build_index.py
 python3 query.py "is autism genetic"
 python3 build_page_data.py
+python3 export_worker_index.py
 ```
 
 What each step produces:
@@ -62,7 +63,8 @@ What each step produces:
 | `fetch_pubmed.py` | `corpus/pubmed.jsonl` | ~1500 abstracts, a few minutes |
 | `fetch_trials.py` | `corpus/trials.jsonl` | ~400 trial records |
 | `build_index.py` | `index.pkl` | downloads the model once (~130 MB), then embeds on CPU |
-| `build_page_data.py` | `../../data/autism-faq.json` | the only file that needs committing |
+| `build_page_data.py` | `../../data/autism-faq.json` | what the prepared-question dropdown serves |
+| `export_worker_index.py` | `../../autism-search/public/worker-index/` | what the Worker serves free-text questions from |
 
 Only `data/autism-faq.json` needs committing — that is what the site serves.
 `index.pkl` and `corpus/*.jsonl` are both gitignored: they are derived, they
@@ -152,6 +154,8 @@ relevant document scoring *below* irrelevant ones.
    inline citations back to the source URLs and explicit "not medical
    advice" framing. Given the audience — parents navigating a new diagnosis
    — an ungrounded or uncited answer is a real harm, not a quality issue.
-4. Free-text questions need a backend (GitHub Pages cannot embed a query at
-   request time). Cloudflare Workers + Vectorize is the natural fit, since
-   the OAuth proxy already runs there.
+4. ~~Free-text questions need a backend.~~ Built: see `autism-search/`.
+   A Cloudflare Worker embeds the question with Workers AI, brute-forces it
+   against the exported vectors, and has a language model summarise the top
+   matches with citations. No vector database — at 1900 documents a flat
+   file in the Worker is both faster and free.
