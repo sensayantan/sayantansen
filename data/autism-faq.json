@@ -1,28 +1,56 @@
 {
+  "meta": {
+    "model": "BAAI/bge-small-en-v1.5",
+    "generated": "2026-09-22",
+    "document_count": 1900,
+    "counts": {
+      "pubmed": 1500,
+      "clinicaltrials": 400
+    }
+  },
   "questions": [
     {
       "question": "Is autism genetic?",
       "results": [
         {
-          "score": 0.463,
-          "title": "Genetic contribution to autism risk",
-          "category": "etiology",
-          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
-          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+          "score": 0.802,
+          "title": "In silico Genotype-Phenotype Correlation Analysis of Inherited Variations in Autism Spectrum Disorder Families Identify an Interplay between Sensory Function and Repetitive-behaviour Genes.",
+          "text": "Autism Spectrum Disorder (ASD) is a neurodevelopmental condition with a strong genetic basis. Most genetic studies on ASD emphasize de novo mutations, while inherited rare variants remain understudied. We hypothesize that subtle, inherited ASD-related traits accumulate across generations and clinically manifest as ASD in offspring. To investigate this, we extracted inherited variations from trio-based Whole Exome Sequences (WES) of 23 simplex ASD families (accession number PRJNA1071313 and PRJNA1072259). Data was processed in BWA, GATK and VarScan. Variants were annotated, filtered for functional impact, and scored using a 'weighted scoring' approach based on intolerance to genetic alterations. Overall 751 'weighted-genes' with evolutionary and neuronal functions hosting deleterious inherited variations were functionally annotated for ASD-linked behaviours and comorbidities. We found 149 (20%) genes enriched for core ASD-behaviours like social-interaction and restrictive repetitive behaviours (RRB), 200 genes (26.6%) for associated-behaviours like hyperactivity, communication, intelligence and mood and 225 genes displayed neuronal-functions (p = 3.799E-20). Importantly, 62% of RRB genes displayed sensory functions and 71.43% of genes associated to social interaction deficits were also linked to seizures. Brain tissue expression analysis of all 751 genes revealed 95 prenatally and 195 postnatally upregulated genes were enriched with neurodevelopmental and neurotransmission functions, respectively; protein-protein-interactions suggested genes BUB1, HMGA2, HDAC2, KALRN, SORL1, IGF2, FASN, WFS1 as promising new-candidates for ASD. In our ASD cohort, inherited variations in genes regulating sensory function and neurodevelopment were also RRB producing genes- supporting a multigenic, subdued but additive genetic load being passed down from unrelated parents to their offsprings- promising an underexplored avenue for autism genetic research.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42184043/",
+          "publication_date": "2026-05-25",
+          "authors": "RameshRaju MK, Parambath SV, Srividhya D et al.",
+          "venue": "Journal of molecular neuroscience : MN"
         },
         {
-          "score": 0.214,
-          "title": "Environmental and prenatal factors under study",
-          "category": "etiology",
-          "text": "Research has examined a range of prenatal and early-life factors alongside genetic risk, including advanced parental age at conception, certain prenatal exposures, complications during pregnancy or birth, and extreme prematurity. Most researchers currently frame autism risk as an interaction between genetic predisposition and environmental factors rather than either alone, though no single environmental cause has been established as necessary or sufficient.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.794,
+          "title": "Closing the Gap in Autism Genetics: Population-Specific Variants and the Imperative for Global Inclusion.",
+          "text": "Autism spectrum disorder (ASD) is a highly heritable neurodevelopmental condition with an exceptionally complex and heterogeneous genetic architecture, encompassing both polygenic common variants and rare, high-impact variants. Over the past decade, large-scale sequencing studies in Europe and North America have identified hundreds of ASD risk genes and substantially advanced biological insight. However, the global distribution of ASD genomic research remains profoundly imbalanced, with most non-European ancestry populations severely underrepresented. This Eurocentric bias constrains variant discovery, limits fine-mapping resolution, and reduces the generalizability of genetic findings, with direct implications for biological interpretation, diagnosis, and therapeutic development. In this review, we synthesize current evidence on the global landscape of ASD genomics, emphasizing the striking contrast between high-depth, well-powered Euro-American cohorts and the persistent undersequencing of populations in Asia and Africa. We highlight emerging data demonstrating pronounced ancestry-specific risk genes, indicating that the genetic architecture of ASD is not uniform worldwide. We further discuss the downstream biological inference and translational applications, including artificial intelligence-assisted diagnostics and gene-based therapies. We argue that achieving a comprehensive and biologically meaningful understanding of risk genes of ASD requires large-scale trans-ethnic sequencing, integrative multi-omic approaches, and coordinated global collaboration.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41921886/",
+          "publication_date": "2026-08-15",
+          "authors": "Yang K, Geng Y, Zhou W et al.",
+          "venue": "Biological psychiatry"
         },
         {
-          "score": 0.173,
-          "title": "Autism is not caused by parenting style",
-          "category": "etiology",
-          "text": "Autism is not caused by parenting practices, emotional coldness, or early childhood experiences \u2014 a discredited idea (the 'refrigerator mother' theory) from the 1950s-60s that caused significant harm to families. Current scientific consensus attributes autism primarily to neurodevelopmental and genetic factors present from early brain development, not to how a child is raised.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.792,
+          "title": "Unraveling the Genetic and Molecular Architecture of Autism Spectrum Disorder: Implications for Clinical Genetics and Genomic Diagnostics.",
+          "text": "Autism spectrum disorder (ASD) is a neurodevelopmental condition that occurs in early childhood, characterized by a broad range of clinical manifestations and impairments in social communication. It represents one of the most prevalent neurodevelopmental disorders, affecting approximately 1% of the general population. The phenotypic heterogeneity of ASD arises from different genetic causes, including chromosomal abnormalities, copy number variants (CNVs), and single-nucleotide variants (SNVs), which may occur as de novo or inherited events. Moreover, the polygenic and multifactorial nature of ASD, together with epigenetic regulation and environmental influences, contributes substantially to its complex genetic architecture. Molecular diagnosis remains challenging and relies on multiple genomic approaches, such as array comparative genomic hybridization (array-CGH), whole-exome sequencing (WES), and whole-genome sequencing (WGS); however, the diagnostic yields of these methods remain limited, reflecting the complexity of ASD's genetic architecture. Notably, ASD-associated genes converge on key biological pathways, particularly those involved in transcriptional regulation, chromatin remodeling, synaptic function, and neuronal signaling. These include well-established risk genes such as CHD8, ADNP, ARID1B, SHANK3, SYNGAP1, SCN2A, GRIN2B, FOXP1, and DYRK1A, among others. This review summarizes the current knowledge on the genetic basis of ASD, highlighting key aspects of its complex genetic architecture. By integrating evidence from major clinical and research databases, it provides a clearer understanding of the underlying mechanisms, supporting improved diagnosis and future research and therapeutic strategies.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41977462/",
+          "publication_date": "2026-04-04",
+          "authors": "Treccarichi S, Vinci M, Virgillito M et al.",
+          "venue": "International journal of molecular sciences"
+        },
+        {
+          "score": 0.791,
+          "title": "Special Issue: Genetic Basis of Autism Spectrum Disorder.",
+          "text": "Autism spectrum disorder (ASD) encompasses a wide and diverse range of neurodevelopmental conditions, characterized by difficulties with social communication along with restricted and repetitive patterns of behavior [...].",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42196546/",
+          "publication_date": "2026-05-19",
+          "authors": "Bolognesi E, Guerini FR",
+          "venue": "International journal of molecular sciences"
         }
       ]
     },
@@ -30,207 +58,179 @@
       "question": "Do vaccines cause autism?",
       "results": [
         {
-          "score": 0.384,
-          "title": "The vaccine hypothesis has been scientifically rejected",
-          "category": "etiology",
-          "text": "The hypothesis that vaccines, including the MMR vaccine and thimerosal-containing vaccines, cause autism has been extensively studied and consistently rejected by large-scale epidemiological research across many countries and millions of children. The original 1998 study that proposed this link was retracted for data fraud and its lead author lost his medical license. Major health bodies worldwide, including the CDC and WHO, state there is no causal link between vaccines and autism.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.783,
+          "title": "Self-reported vaccine hesitancy and refusal among parents of children with autism spectrum disorder and other developmental delays: a cross-sectional study.",
+          "text": "Unlabelled: Due to the spread of misinformation that some vaccines cause autism spectrum disorder (ASD), many parents report changes in their vaccination behavior following a diagnosis of ASD, putting their children at increased risk for preventable diseases. Our study aimed to determine the rate of vaccination-related concerns and refusal behaviors in parents of children with ASD and non-autistic developmental delays (non-ASD-DD) and to examine factors potentially associated with vaccine hesitancy and refusal. In our study, a questionnaire was distributed to all parents of children diagnosed with ASD and non-ASD-DD who attended outpatient check-ups over 3 months at the Child Psychiatry Clinic of the two large hospitals. Participants completed a structured questionnaire assessing self-reported vaccination behaviors before and after diagnosis, as well as separate Likert-scale items evaluating vaccine-related beliefs and attitudes. No parents declined participation, and all 154 eligible parents were included in the study. Among the respondents, 87.7% were mothers. The most common diagnoses were intellectual disability (41.6%) and ASD (31.2%). Reported vaccine refusal increased from 3.9% before diagnosis to 9.7% after diagnosis (p = 0.012). The main reason cited for hesitancy or refusal was the belief that vaccines had caused their child's neurodevelopmental condition. No independent associations were found between post-diagnosis vaccine hesitancy/refusal and parental education, income, source of vaccine information, or depression/anxiety scores. However, 88.3% of participants disagreed or strongly disagreed with the statement that vaccines cause ASD or developmental disorders. Conclusions: Parental concerns about vaccines persist after a diagnosis of neurodevelopmental disorders. Tailored education and communication strategies are essential to support informed vaccine decision-making in these families and to prevent refusal for both diagnosed children and their siblings. What'S Known: \u2022 Persistent misinformation linking childhood vaccines-particularly the MMR vaccine-to autism spectrum disorder continues to influence parental attitudes toward vaccination. \u2022 Parents of children with ASD have been shown to exhibit higher rates of vaccine hesitancy, especially regarding vaccination of younger siblings. What Is New: \u2022 Vaccine hesitancy and refusal were more frequently reported after the diagnosis of not only autism spectrum disorder but also other developmental delays, including intellectual disability and speech delay. \u2022 Although concerns about vaccines causing developmental disorders were common, vaccine refusal remained relatively uncommon and no independent predictors of post-diagnosis hesitancy or refusal were identified, highlighting the complex nature of parental vaccination decisions.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42319500/",
+          "publication_date": "2026-06-19",
+          "authors": "Kara-Aksay A, \u00d6zyurt G, Emir B et al.",
+          "venue": "European journal of pediatrics"
         },
         {
-          "score": 0.095,
-          "title": "Genetic contribution to autism risk",
-          "category": "etiology",
-          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
-          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+          "score": 0.76,
+          "title": "Immunological Explanations for Autism Initiation From Inflammation and Neurotoxins.",
+          "text": "Autism initiation has been associated with genetic vulnerabilities, disruption of gastrointestinal microbes (gut dysbiosis), chemical and neurotoxin damage, maternal infections, allergies or autoimmune diseases. Ingested neurotoxin barriers protecting the central nervous system of a fetus or child include the gastrointestinal wall of the mother or child and the fetus or child's blood-brain barrier. Inflammation from gut dysbiosis or inflammation from other causes can decrease protections provided by the gastrointestinal wall and the blood-brain barrier, allowing neurotoxins to reach the fetus or child's brain. Postnatal gut dysbiosis can potentially increase inflammation to facilitate neurotoxin penetration of a child's brain. Chemical pollutants and neurotoxins continue to increase and include aluminum, mercury, lead, arsenic, cadmium, organophosphates, organochlorines, bacterial toxins and fungal mycotoxins. Gut dysbiosis can increase neurotoxin concentrations within a fetal or child's brain, potentially initiating neurodevelopmental damage to cause autism. There are three possible scenarios initiating autism. These scenarios include inflammation and neurotoxin access to fetal brains within the prenatal neurodevelopment period, inflammation and neurotoxin access to child brains within the postnatal neurodevelopment period, or a two-stage neurotoxin access to brains within the prenatal and postnatal neurodevelopment periods. In summary, a comprehensive explanation for autism causation by several distinct pathways is discussed.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41986249/",
+          "publication_date": "2026-04",
+          "authors": "Roe K",
+          "venue": "APMIS : acta pathologica, microbiologica, et immunologica Scandinavica"
         },
         {
-          "score": 0.075,
-          "title": "US autism prevalence, 8-year-olds",
-          "category": "prevalence_stats",
-          "text": "The CDC's Autism and Developmental Disabilities Monitoring (ADDM) Network has tracked ASD prevalence among 8-year-old children across multiple US sites since 2000. Reported prevalence has risen over successive surveillance years, from roughly 1 in 150 in the early 2000s toward approximately 1 in 31 to 1 in 36 in more recent reporting cycles. Rising numbers reflect a mix of factors: broader diagnostic criteria, increased awareness and screening, and improved access to evaluation, not necessarily a single underlying cause.",
-          "source_note": "General knowledge summary, illustrative only \u2014 verify against the current CDC ADDM Network report before real use"
+          "score": 0.748,
+          "title": "Toward an immunological classification of autism spectrum disorder: A PRISMA-ScR-compliant scoping review.",
+          "text": "Autism Spectrum Disorder (ASD) is a heterogeneous neurodevelopmental condition increasingly linked to disturbances in immune signaling and neuroimmune cross-talk. This PRISMA-ScR-guided scoping review synthesizes contemporary evidence to propose a structured immunological classification of ASD comprising six immune-related subtypes: immune overactivation, immune deficiency, autoimmunity-linked ASD, gut-immune axis dysregulation, post-infectious or immune-triggered onset patterns, and maternal immune activation. Each subtype is defined by characteristic neuroimmune features - including cytokine imbalances, aberrant microglial activation, altered microbiome-immune communication, and prenatal immune priming - reflecting distinct biological pathways through which immune dysfunction may influence neurodevelopment. Based on 42 mapped sources identified through a search strategy that primarily emphasized literature published between 2020 and 2025, while incorporating selected foundational earlier studies through citation chaining when necessary for conceptual and mechanistic context, and spanning human clinical and epidemiological studies, animal models, and integrative neuroimmune reviews, this synthesis identifies candidate biomarkers and immune signatures relevant to each subtype, including systemic and CNS-localized inflammation, autoantibodies, disrupted gut-immune-brain pathways, and maternal cytokine profiles. The framework also clarifies ongoing debates by distinguishing immune-mediated vulnerability and timing-dependent unmasking of susceptibility from assumptions of direct causation regarding environmental or infectious exposures. Conceptualizing ASD along immune-related subtypes provides a foundation for precision-based diagnostic and therapeutic approaches, highlighting opportunities for targeted immunomodulation, microbiome-informed interventions, and biomarker-driven stratification, thereby advancing translational efforts at the interface of immunology, neuroscience, and developmental psychopathology.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42102652/",
+          "publication_date": "2026-08",
+          "authors": "Al-Salihy AAS",
+          "venue": "Journal of neuroimmunology"
+        },
+        {
+          "score": 0.73,
+          "title": "Exploring offspring behaviour after prenatal COVID-19 vaccination in mice.",
+          "text": "Maternal immunisation allows the transfer of protective antibodies to the offspring, reducing the risk of severe infection during early life. While vaccination during pregnancy is clinically recommended, its long-term impact on neurodevelopment remains under investigation. Autism spectrum disorder (ASD) is a neurodevelopmental condition characterised by social and behavioural alterations. Here, we evaluated whether prenatal exposure to the COVID-19 mRNA BNT162b2 vaccine or influenza vaccine affects general and autism-related behavioural outcomes in juvenile (4 weeks) and adult (8 weeks) mouse offspring. We also assessed maternal and fetal immune responses by measuring cytokines, soluble P2X7 receptor, BDNF, CRP, and lipid peroxidation in maternal plasma and fetal brain tissue. Prenatal COVID-19 vaccination elicited a moderate maternal cytokine response (increased IL-6 and KC) without overt fetal brain inflammation. Mild, age- and sex-dependent behavioural changes were observed, including anxiety-related parameters in the elevated plus maze and altered locomotion in the open field at 4-8 weeks, however, no consistent or robust ASD-like behavioural phenotype emerged across ages. Fetal P2X7 receptor levels were elevated, while fetal CRP, BDNF, and TBARS remained unchanged. In adult offspring, BDNF was selectively reduced in the prefrontal cortex, whereas hippocampal BDNF and P2X7 receptor levels in both regions were unaffected. Although embryonic P2X7 receptor levels were transiently elevated following COVID-19 vaccination, these changes were not accompanied by fetal inflammation or persistent adult purinergic alterations. Prenatal influenza vaccination induced mild, age-dependent behavioural alterations, such as increased circling in juveniles and reduced sociability in females, without detectable maternal or fetal inflammatory responses or changes in fetal neurotrophic markers. In contrast, maternal poly(I:C) administration provoked robust systemic inflammation and pronounced fetal brain effects, including elevated cytokines, CRP, P2X7 receptor, and region-specific microglial density, accompanied by persistent reductions in adult BDNF expression. Overall, within the limits of this experimental design, prenatal COVID-19 vaccination did not produce long-lasting ASD-like phenotypes or widespread neurodevelopmental alterations, while influenza vaccination had limited and transient effects. These findings are consistent with the absence of widespread or persistent neurodevelopmental disruption in this experimental model, although further studies-including multiple doses, gestational timepoints, and cellular-level analyses-are warranted to fully elucidate mechanisms and long-term outcomes.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42297775/",
+          "publication_date": "2026-06-15",
+          "authors": "Otrokocsi L, Ma\u00e1cz F, Tod P et al.",
+          "venue": "Translational psychiatry"
         }
       ]
     },
     {
-      "question": "How common is autism?",
+      "question": "How is autism prevalence changing over time?",
       "results": [
         {
-          "score": 0.215,
-          "title": "Common early intervention approaches",
-          "category": "support_and_therapy",
-          "text": "Common evidence-supported early intervention approaches for autistic children include Applied Behavior Analysis (ABA), speech-language therapy, occupational therapy (often addressing sensory processing and fine motor skills), and developmental/relationship-based approaches such as the Early Start Denver Model (ESDM). Approach selection is highly individual, and there is active, sometimes contentious, discussion within the autism community \u2014 including autistic self-advocates \u2014 about therapy goals and methods, particularly around ABA.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.836,
+          "title": "Autism spectrum disorder: has it lost its meaning and is it leading to misdiagnosis?",
+          "text": "Background: Since the 1940s, the concept of autism has undergone marked changes, and autism spectrum disorder (ASD) is a wildly heterogenous condition. At the same time, the prevalence of ASD has increased massively. Methods: This essay considers possible reasons for the changes and their consequences. Results: Among drivers for the increase in prevalence are cultural changes, such as the desire for inclusion, harm avoidance, reliance on self-report, and the acceptance of masking. These have all led to a lowering of the diagnostic threshold. Furthermore, the popularity of the concept of autism boosted numbers via self-diagnosis and a search for identity. Conclusions: Marked differences now exist between those first diagnosed in childhood and others first diagnosed in adolescence or adulthood. The time has come to examine reasons for these conceptual changes and the consequences for clinical practice and research.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42548172/",
+          "publication_date": "2026-08-04",
+          "authors": "Frith U",
+          "venue": "Psychological medicine"
         },
         {
-          "score": 0.175,
-          "title": "Genetic contribution to autism risk",
-          "category": "etiology",
-          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
-          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+          "score": 0.793,
+          "title": "The proportion of intellectual disability in autism spectrum disorder over two decades.",
+          "text": "Background: The registered prevalence of autism has increased substantially over the past two decades, potentially impacting the co-occurrence of diagnosed intellectual disability (ID) in autism. Thus, the aim of this study was to investigate the proportion of ID in individuals with autism over two decades (2001-2020). Methods: Data for this study was retrieved for individuals born between 1988-2016 from Swedish population based national registers. A total of 3,045,819 individuals were eligible for inclusion in the current study, out of whom 81,286 had autism assigned 2001-2020. The annual proportion of ID in autism was calculated across year of autism diagnosis and the Cochrane Armitage trend tests were conducted. Results: From 2001-2020 the prevalence of autism increased by 800%. Among those with autism, 13,403 also had an ID diagnosis, resulting in an overall proportion of ID in autism of 16.5%. The proportion of ID in autism decreased from 55.8% in 2001 to 6.7% in 2020, with a comparable decrease in females and males. A similar trend was discerned when limiting the sample to those diagnosed with autism before age 13 and 7 years. Discussion: The results of this study indicate less congruity between the autism phenotype observed today and earlier conceptualizations of autism, which often included intellectual disability (ID). The findings suggest that changes in diagnostic criteria during this period contributed to a broadening of the ways in which individuals could meet criteria for autism, encompassing a wider range of cognitive abilities.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42214315/",
+          "publication_date": "2026-09",
+          "authors": "Salki\u0107 A, Tideman M, Martini MI et al.",
+          "venue": "Psychiatry research"
         },
         {
-          "score": 0.061,
-          "title": "Autism is a spectrum, not one profile",
-          "category": "myths_and_facts",
-          "text": "Autism presents highly differently across individuals \u2014 in communication style, sensory sensitivities, cognitive profile, and support needs \u2014 which is why it is described as a spectrum rather than a single fixed presentation. Two autistic people can have very different strengths, challenges, and support needs; there is no single 'look' or behavior pattern that defines autism.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.785,
+          "title": "Prevalence, incidence, and years lived with disability due to Autism Spectrum Disorder in Brazil, 1990-2023: Results from the Global Burden of Disease Study 2023.",
+          "text": "Objective: To describe the prevalence, incidence, and years lived with disability due to autism spectrum disorder in Brazil, as well as the variation of these metrics between 1990 and 2023. Methods: A time-series analysis using data for Brazil from the 2023 Global Burden of Disease study. Estimates of incidence, prevalence, and years lived with disability attributable to autism spectrum disorder were generated for Brazil and its regions. The study reports absolute frequencies, crude rates, and age-standardized rates per 100,000 inhabitants, all with 95% uncertainty intervals (95% UI), stratified by sex and age group. Results: In 2023, more than 1.1 million (95% UI: 0.58; 1.97) individuals on the autism spectrum were living in Brazil, representing 0.53% of the population (95% UI: 0.27; 0.93). The number of cases increased since 1990, while age-standardized prevalence remained stable over time. In 2023, more than 23,000 new autism spectrum disorder cases were estimated, with a rate of 11.19 per 100,000 individuals (95% UI: 2.47-31.39). Autism spectrum disorder was ranked within the top ten causes of years lived with disability for people younger than 20 years, being a non-fatal health burden. Conclusion: In 2023, 0.53% of Brazilians were autistic, corresponding to more than 207,000 years lived with disability. Prevalence was higher in males and children under five years of age. The permanent and complex nature of autism spectrum disorder imposes a significant burden, requiring healthcare and education services to be adequately prepared. Further research is needed to deepen the understanding of autism spectrum disorder and validate screening tools in the Brazilian context.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42585532/",
+          "publication_date": "2026",
+          "authors": "Dimer NA, Melo APS, Santomauro D et al.",
+          "venue": "Revista brasileira de epidemiologia = Brazilian journal of epidemiology"
+        },
+        {
+          "score": 0.773,
+          "title": "Autism Spectrum Disorder Incidence by Age and Sex in a US Health Care System, 2016 to 2024.",
+          "text": "Importance: Despite the increasing prevalence of autism spectrum disorder (ASD) in the US, underlying temporal trends in newly recorded diagnoses remain poorly understood. Objective: To evaluate age- and sex-specific incidence trends of ASD from 2016 to 2024 and quantify the temporal patterns before and after the COVID-19 pandemic and diagnostic substitution. Design, Setting, And Participants: This retrospective cohort study used electronic health record data from a large US health care system. Analyses were conducted from October to December, 2025. The study population included 171 134 participants (stratified as children [0-9] years, adolescents [10-18] years, and adults [\u226519] years) who maintained continuous engagement with the health care system, defined as having at least 1 clinical encounter annually from 2016 to 2024. Main Outcomes And Measures: The primary outcome was the annual incidence of newly recorded diagnoses of International Statistical Classification of Diseases and Related Health Problems, Tenth Revision (ICD-10) codes F84.0 and F84.5. Temporal trends were analyzed using joinpoint regression to calculate annual percentage changes (APCs) and identify significant inflection points. Results: Among 171 134 participants (mean [SD] age, 26.78 [16.38], 63.8% female), females received autism diagnoses a mean (SD) of 3.4 years later than males (age at diagnosis, 15.7 years for female individuals vs 12.3 years for male individuals; P < .001). Male autism incidence remained stable or declined 2016 to 2024; female incidence increased significantly post-2020 (APC, 19.0%; 95% CI, 12.1% to 33.4%). In the pediatric cohort, decreasing annual incidence among males (APC, -2.0%; 95% CI, -3.7% to -0.3%; to APC, -2.0%, 95% CI, -3.7% to -0.3%) alongside increasing incidence for females since 2020 (APC, 17.4; 95% CI, 9.0% to 45.3%). In adolescent males, incidence declined from 2016 to 2018 (APC, -29.6%; 95% CI, -48.9% to -1.2%), and stabilized from 2018 to 2024. In adolescent females, autism incidence increased significantly between 2020 and 2024 (APC, 22.3%; 95% CI, 6.1% to 62.8%). In adult males, autism incidence showed a downward trend in the 2016 to 2024 period, while in adult females, the APC from 2016 to 2024 was positive, but the finding was not statistically significant (APC, 8.0%; 95% CI, -0.9% to 20.0%). Conclusions And Relevance: In this cohort study, ASD diagnoses increased disproportionately among females after 2020 while remaining stable or declining among males. These patterns suggested that increasing ASD prevalence reflected improved identification of historically underrecognized presentations rather than a uniform population-level increase. These findings highlight the need for screening strategies that address sex-specific presentations.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42485038/",
+          "publication_date": "2026-07-01",
+          "authors": "Messias E, Casanova E, Huang R et al.",
+          "venue": "JAMA network open"
         }
       ]
     },
     {
-      "question": "At what age is autism usually diagnosed?",
+      "question": "What screening tools are used for toddlers?",
       "results": [
         {
-          "score": 0.295,
-          "title": "Age at first diagnosis",
-          "category": "prevalence_stats",
-          "text": "Median age of autism diagnosis in the US has typically been reported between 4 and 5 years old, despite reliable diagnosis often being possible by age 2. Delays are frequently attributed to waitlists for developmental evaluations, disparities in access by income and geography, and lower rates of early screening in underserved communities.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.712,
+          "title": "Detection of ASD at the 1st Birthday as Standard of Care: The Get SET Early Model",
+          "text": "Conditions: Autism Spectrum Disorder. According to a recent report from the Centers for Disease Control, most children with ASD do not receive a diagnosis and begin receiving treatment until well after their 4th birthday, which is unfortunate given that many connections between brain cells have already been established by that age. This program will test a model called Get S.E.T. Early (S=Screen, E=Evaluate, T=Treat) in both San Diego and Phoenix, designed to detect, evaluate, and treat ASD within the first 2 years of life. In this proposal 7,500 toddlers from the general population will be screened in San Diego and Phoenix (total 15,000) using the CSBS IT Checklist (Wetherby \\& Prizant, 2002) at well baby check-ups using a \"triple screen\" approach wherein toddlers are screened at three ages starting at 12 months. Investigators predict that providing screening tools with clear cut-off scores and guidelines for automatic referral for both evaluation and treatment will result in dramatically lowering mean age of detection in Phoenix from 4-5 years down to 1-2 years. Investigators also predict that using repeat screening at 12, 18, \\& 24 months in combination with automatic referral options via technology (i-Pads) will result in an increase in the number of ASD toddlers detected by 24 months relative to a single time point screen using traditional paper screens.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT02463422",
+          "publication_date": "2014-08",
+          "authors": "University of California, San Diego",
+          "venue": "ClinicalTrials.gov"
         },
         {
-          "score": 0.152,
-          "title": "Why early intervention timing matters",
-          "category": "support_and_therapy",
-          "text": "Research broadly supports that earlier intervention, when developmentally appropriate support begins before or around age 3, is associated with better long-term outcomes in communication and adaptive skills, attributed to higher brain plasticity in early childhood. This is a key reason early screening and reducing diagnostic delay is a public health priority, distinct from any claim that later diagnosis forecloses meaningful support or progress at any age.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.699,
+          "title": "Comparative screening accuracy of the Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-Chat-R/F) for early autism spectrum disorder: a systematic review.",
+          "text": "Objective: Early screening for autism spectrum disorder (ASD) is critical for timely intervention, making the Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-CHAT-R/F) a widely adopted tool globally. However, a recent systematic synthesis of its comparative accuracy is lacking. This review aimed to evaluate the screening accuracy of the M-CHAT-R/F against other ASD screening instruments. Design: A systematic review was conducted in accordance with Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines. A narrative synthesis was employed to integrate findings across diverse study designs and methodological quality was assessed using the Joanna Briggs Institute checklist. Eligibility Criteria: Peer-reviewed, English-language observational studies published between January 2020 and October 2025 that compared the accuracy metrics of the M-CHAT-R/F with alternative screening tools. Information Sources: Scopus, PubMed, ScienceDirect and ProQuest. Results: From 172 identified articles, six high-quality studies encompassing 12 633 participants aged 12-48 months were analysed. The synthesis revealed a complex performance profile for the M-CHAT-R/F. While its sensitivity for detecting potential cases was highly inconsistent, its negative predictive value remained consistently high, reliably identifying children who screened negative. Conversely, the tool demonstrated variable specificity and a persistently low positive predictive value, indicating a substantial false-positive burden and reduced confidence in positive results. Furthermore, the M-CHAT-R/F's accuracy was highly age-dependent, with performance degrading outside the optimal 16-30-month window compared with other specialised tools. Conclusions: The M-CHAT-R/F may not be an optimal instrument in every clinical setting. Its clinical utility may be limited by variable sensitivity and a lower positive predictive value, potentially creating a higher false-positive burden. Clinicians and health systems should consider adopting age-specific, tiered screening protocols to improve diagnostic efficiency and better allocate intervention resources.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42264543/",
+          "publication_date": "2026-06-09",
+          "authors": "Tsen ASF, Bantalani MA, Ab Rahim MN et al.",
+          "venue": "Family medicine and community health"
         },
         {
-          "score": 0.131,
-          "title": "Racial and ethnic disparities",
-          "category": "prevalence_stats",
-          "text": "Historically, White children in the US were diagnosed with autism at higher rates than Black and Hispanic children, a gap increasingly attributed to disparities in healthcare access rather than true differences in underlying prevalence. Recent ADDM cycles have shown this gap narrowing or reversing in some surveillance sites.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.698,
+          "title": "Preliminary Reliability and Validity of the M-CHAT-S, a New Autism Screening Tool for School-Aged Children.",
+          "text": "Identifying autism early is critical for ensuring timely access to appropriate educational and clinical supports. Current autism screening practices primarily focus on toddlers; universal practices for identifying the substantial portion of autistic children who arrive at school age without a diagnosis are lacking. This study evaluates the preliminary reliability and validity of the Modified Checklist for Autism in Toddlers-School Age version (M-CHAT-S), a novel screener designed for early school-age children, with separate versions for verbally fluent and minimally verbal children. A total of 165 caregivers and 107 educators completed the M-CHAT-S, along with the Social Responsiveness Scale, Second Edition (SRS-2), to test convergent validity, and the Child Behavior Checklist (CBCL), to test discriminant validity. Findings demonstrate strong internal consistency across versions (Cronbach's \u03b1 = .79-.92) and robust construct validity. Children with preexisting autism diagnoses scored higher on the M-CHAT-S than nonautistic children. Both test-retest reliability and interrater reliability were in the moderate range. Despite these limitations, the M-CHAT-S demonstrates promise as a screening tool that could facilitate earlier identification of autistic children in school settings. Future research will involve a partnership with school districts to support school-based validation and implementation.Lay AbstractChildren with disabilities have a right to a free and appropriate public education in the United States. Children who are not identified by the time of school entry are likely to miss out on appropriate services and supports to which they would otherwise be legally entitled. Many studies show that a large portion of individuals who are ultimately diagnosed with autism are not identified until by the time they start school.Screening tools can help identify children who may be on the autism spectrum. Universal autism screening is currently recommended for toddlers, but not school-age children. To address this gap, we developed the Modified Checklist for Autism in Toddlers-School Age version (M-CHAT-S) for children in early elementary school. This study tested the consistency and accuracy of the M-CHAT-S for both verbally fluent and minimally verbal children.We asked 165 caregivers and 107 educators to complete the M-CHAT-S and compared their responses to other well-established measures of autism traits and behavior. Overall, we found that the M-CHAT-S had good reliability, meaning that the items in the measure were consistent with each other. Children with a known autism diagnosis scored higher on the M-CHAT-S than non-autistic children. M-CHAT-S scores were more strongly related to another autism screening tool (the SRS-2) than to a survey of general behavior (the CBCL). However, test-retest reliability (whether the same rater's score stayed consistent over time) and interrater reliability (whether two different raters agreed on scores) were lower than expected.These results suggest that the M-CHAT-S may be a useful tool for identifying autistic children in early school years. Future research will involve partnering with school districts to be able to reach as many children as possible, including autistic children who have not yet been identified. If validated further, this tool could help schools and families recognize children who need autistic support, leading to earlier access to services.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42487298/",
+          "publication_date": "2026-09",
+          "authors": "de Marchena A, Wieckowski AT, Dickerson AF et al.",
+          "venue": "Autism : the international journal of research and practice"
+        },
+        {
+          "score": 0.69,
+          "title": "Tailoring Screening Algorithms for a Large Health System: Autism Screening as a Case Example.",
+          "text": "Objectives: When health care systems develop algorithms to implement national screening guidelines, they must choose which information to incorporate (e.g., primary screening, secondary screening, and results from prior visits), whether to follow recommended screening thresholds (i.e., cut scores), and if not, how to set them. Our objective was to analyze electronic medical record (EMR) data to inform these choices. Methods: Retrospective analyses utilized EMR from 33,490 families of children 4 years of age and under enrolled in Kaiser Permanente Northern California. Given prior screening results, we analyzed how each child in the dataset would have been classified by several potential screening algorithms that differed with respect to information used and screening thresholds. Outcomes considered several perspectives, including population health, specialty care, primary care, and individual families. Results: Analyses supported a screening algorithm that: 1) includes all sources of screening information, 2) recommends evaluation for children with an estimated chance of receiving an autism diagnosis by 4 years of \u226550%, and 3) recommends active monitoring for children with an estimated probability of autism of \u22653.3% (but <50%). If implemented with fidelity, this algorithm could result in the direct referral of 1.8% of children, achieving 34.2% sensitivity and 62.1% positive predictive value before requiring further clinical decision-making. Tradeoffs with other potential screening algorithms are considered. Conclusions: Based on results, we recommend that health systems use EMR data to consider tradeoffs between potential algorithms when implementing or refining screening protocols. We also recommend replication over time to account for secular changes.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42297237/",
+          "publication_date": "2026-08",
+          "authors": "Sheldrick RC, Hooker JL, Davignon M et al.",
+          "venue": "Academic pediatrics"
         }
       ]
     },
     {
-      "question": "What are the diagnostic criteria for autism?",
+      "question": "How effective is parent-mediated early intervention?",
       "results": [
         {
-          "score": 0.169,
-          "title": "DSM-5 core diagnostic domains",
-          "category": "diagnostic_criteria",
-          "text": "The DSM-5 organizes autism spectrum disorder diagnostic criteria into two core domains: (1) persistent deficits in social communication and social interaction across contexts, including difficulties with social-emotional reciprocity, nonverbal communicative behaviors, and developing/maintaining relationships; and (2) restricted, repetitive patterns of behavior, interests, or activities, including stereotyped movements, insistence on sameness, highly restricted interests, and unusual sensory reactivity. Symptoms must be present in early development and cause clinically significant impairment.",
-          "source_note": "Paraphrased summary of publicly known DSM-5 structure, not verbatim text \u2014 consult the DSM-5-TR directly for clinical use"
+          "score": 0.777,
+          "title": "Predictors of Parent Engagement in Part C Early Intervention for Autism: The Role of Single Parenthood and Initial Motivation.",
+          "text": "Parent engagement in early intervention supports child progress but is variable in community settings and understudied in autism populations. Prior studies have examined attendance and homework completion rather than parent participation engagement-active, independent, and responsive contribution to treatment-and it is unclear how these distinct engagement measures are related. This study examined how observationally-coded parent participation engagement during early intervention sessions, between-session practice, and attendance were interrelated in addition to the influence of sociodemographic (marital status, minoritized racial/ethnic identity, and education) and psychological characteristics (stress, self-efficacy, and motivation) on engagement. The sample included 164 parents of toddlers (16-34 months) with an autism diagnosis or early autism indicators (i.e. social communication delays) receiving services through the publicly funded Part C Early Intervention system in the United States, which serves children under 36 months with developmental delays and disabilities. Observed parent participation engagement, parent-reported between-session practice, and attendance were not significantly correlated. Only marital status significantly predicted observed parent participation engagement, such that single parents exhibited lower parent participation engagement. Low motivation predicted lower parent-reported between-session practice. No parent characteristics predicted session attendance. Results suggest that early intervention providers should consider multiple aspects of parent engagement that are influenced by different parent characteristics when assessing and promoting engagement to support child progress.Lay AbstractParent engagement in early intervention for autism supports child progress but often varies in the community. Most research studies of parents' engagement in intervention have examined attendance and homework completion rather than active and independent contribution to treatment during intervention sessions (e.g. participating in practice activities, sharing perspectives about at-home practice). In addition, little research has examined parent engagement in early intervention for autism, which may be higher compared to broader child psychotherapy since parents typically report high satisfaction with early intervention. To address these gaps, we examined how active engagement observed and scored by trained researchers in video-recorded early intervention sessions, parent report of how often they practice intervention strategies at home, and session attendance were related to each other. We also examined how parents' personal (marital status, racial/ethnic identity, and education) and psychological characteristics (stress, self-efficacy, and motivation) influenced their active engagement, at-home practice, and attendance. Our sample included 164 parents of toddlers with an autism diagnosis or showing early signs of autism participating in the United States publicly funded early intervention system. We found that active engagement, at-home practice, and attendance were not related. While most parent characteristics did not influence active engagement, single parents showed lower engagement during intervention sessions. In addition, parents who reported lower motivation to change their parenting behavior reported less at-home practice. No parent characteristics influenced their session attendance. Our results suggest that active engagement, at-home practice, and attendance may represent different aspects of parent engagement. To assess and increase parent engagement in community early intervention for autism, clinicians should consider multiple signs of engagement and the influence of various parent characteristics.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41928551/",
+          "publication_date": "2026-05",
+          "authors": "Tokish H, Ingersoll B, RISE Research Network",
+          "venue": "Autism : the international journal of research and practice"
         },
         {
-          "score": 0.16,
-          "title": "Autism and intellectual disability are not the same thing",
-          "category": "myths_and_facts",
-          "text": "Autism and intellectual disability are separate, sometimes co-occurring conditions. Estimates of the proportion of autistic individuals with a co-occurring intellectual disability vary across studies and have decreased over time as diagnostic criteria and screening have broadened to identify autistic individuals across the full range of cognitive ability, including those with average or above-average IQ.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.776,
+          "title": "Implementing a parent-mediated intervention for toddlers with ASD within the Chinese child healthcare system: a real-world study.",
+          "text": "Background: Behavioural interventions remain the cornerstone of evidence-based practice for addressing the core symptoms of autism spectrum disorder (ASD). The Skill Training Program for Parents with ASD Children (STPAC) is a group intervention programme for parents and the first parent-mediated intervention programme developed by Chinese clinical practitioners. This study was conducted to evaluate the feasibility and effectiveness of STPAC within the context of routine child healthcare services in China. Methods: This is a real-world, multi-site implementation study employed a single-arm, pre-post design. Between July 2023 and June 2025, 128 families of toddlers (aged 18-54 months) with suspected or diagnosed ASD were enrolled from two child healthcare settings. Participants received the 8-week, group-based parent training programme, which integrated didactic lessons, video modelling and individualised coaching. Outcomes were assessed at baseline and post-intervention using parent-reported measures: the Knowledge of Autism Intervention Questionnaire (KAIQ), the Communication and Symbolic Behavior Scales Developmental Profile (CSBS DP) and the Parenting Stress Index-Short Form (PSI-SF). Statistical analysis included paired-samples t-tests to evaluate within-group changes, with effect sizes (Cohen's d) calculated to quantify the magnitude of improvement. Results: Parental knowledge of autism intervention strategies increased substantially (mean improvement=6.26 points, p<0.001; d=1.17). Child communication and symbolic skills also improved, with the CSBS DP total score rising from 35.30 to 40.88 (p<0.001; d=0.99), representing an overall improvement rate of 85.7%. Furthermore, parenting stress decreased from clinically significant to normal levels (mean reduction=3.70 points, p=0.005). The intervention was equally effective across diverse family demographics, and baseline child communication ability was the strongest predictor of post-intervention gains. Conclusions: Despite an attrition rate of approximately 30%, STPAC demonstrated feasibility as a parent-mediated intervention delivered by trained local clinicians within routine child healthcare settings. Participation in the programme was associated with improvements in parental knowledge, child social communication and parenting stress. These findings provide preliminary evidence supporting the potential of STPAC to expand access to early ASD intervention, though confirmation in a randomised controlled trial is warranted.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42527107/",
+          "publication_date": "2026-07-29",
+          "authors": "Li H, Long X, Huang X et al.",
+          "venue": "BMJ paediatrics open"
         },
         {
-          "score": 0.158,
-          "title": "US autism prevalence, 8-year-olds",
-          "category": "prevalence_stats",
-          "text": "The CDC's Autism and Developmental Disabilities Monitoring (ADDM) Network has tracked ASD prevalence among 8-year-old children across multiple US sites since 2000. Reported prevalence has risen over successive surveillance years, from roughly 1 in 150 in the early 2000s toward approximately 1 in 31 to 1 in 36 in more recent reporting cycles. Rising numbers reflect a mix of factors: broader diagnostic criteria, increased awareness and screening, and improved access to evaluation, not necessarily a single underlying cause.",
-          "source_note": "General knowledge summary, illustrative only \u2014 verify against the current CDC ADDM Network report before real use"
-        }
-      ]
-    },
-    {
-      "question": "What screening tools are used to check for autism?",
-      "results": [
-        {
-          "score": 0.263,
-          "title": "ADOS-2 diagnostic observation",
-          "category": "screening_tools",
-          "text": "The Autism Diagnostic Observation Schedule, Second Edition (ADOS-2) is a semi-structured, standardized assessment administered by trained clinicians, involving direct observation of a child's or adult's social interaction, communication, and play or imaginative use of materials. It is one of the most widely used tools in formal autism diagnostic evaluations, typically combined with developmental history (e.g., via the ADI-R interview) rather than used alone.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.773,
+          "title": "A nonrandomised feasibility evaluation of a home\u2011based intervention for parents of adolescents with learning disabilities, with or without autism.",
+          "text": "Unlabelled: This study aims to determine the feasibility and acceptability of delivering ACHIEVE-a home\u2011based, parent\u2011coached OT/SLT intervention-in everyday UK practice and to describe recruitment/retention, data completeness, working alliance, delivery logistics, and exploratory changes in parent\u2011reported functional, behavioural, communication and stress outcomes. Single\u2011arm, non\u2011randomised feasibility study aligned with CONSORT pilot/feasibility guidance. Thirty\u2011six families of adolescents (11-19 years) with moderate-severe learning disabilities (many also autistic) were recruited via three special schools. Individually tailored OT/SLT sessions focussed on parent\u2011nominated goals in self\u2011care/daily living, communication, and behaviour. Hybrid delivery (home visits + secure video); feasibility and acceptability were primary outcomes; exploratory secondary outcomes included DBC, HSQ, APSI, COPM, and GAS. Recruitment via schools was via a convenience sample (36 families). Attendance was high (159/190 sessions; 83.7%) with 99 home and 59 video sessions. Endpoint data were obtained for 22 families. Parents reported strong alliance (WAI median 89.5, IQR 73.0-91.0). Exploratory signals suggested improvement: DBC T\u2011score - 3.90 (p = 0.004; n = 19); HSQ mean severity - 0.71 (p = 0.018; n = 19); APSI total - 6.80 (p = 0.046; n = 20). COPM median change + 3.0 (performance) and + 4.0 (satisfaction) (both p < 0.001; n = 17). GAS modelling suggested dose effects: ~ 7 sessions linked to ~ 80% probability of achieving expected goals, and ~ 10 to exceeding them (n = 31). Conclusion: ACHIEVE was feasible and acceptable in UK practice with high engagement and manageable data collection. Dose-response signals and alliance strength support a minimum session count and continued coaching emphasis. Findings inform outcome selection, dose, and schedules for a definitive trial; clinical changes remain exploratory. What Is Known: \u2022 Adolescents with learning disabilities (often with co-occurring autism) and their families struggle to access practical home\u2011based support; robust evidence is limited. \u2022 Family\u2011centred, parent\u2011coached allied\u2011health interventions are promising but under\u2011studied for adolescents and in home/hybrid formats. What Is New: \u2022 ACHIEVE-a home\u2011based Occupational therapy/Speech & Language Therapy, parent\u2011nominated goal programme-proved feasible and acceptable with strong therapeutic alliance for families of adolescents with learning disabilities with or without autism. \u2022 Exploratory improvements and a dose signal (~7-10 sessions) guide scheduling and outcomes for a future comparative trial.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42469481/",
+          "publication_date": "2026-07-17",
+          "authors": "Absoud M, Rush C, Mackey L et al.",
+          "venue": "European journal of pediatrics"
         },
         {
-          "score": 0.255,
-          "title": "M-CHAT-R/F screening tool",
-          "category": "screening_tools",
-          "text": "The Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-CHAT-R/F) is a widely used parent-report screening questionnaire for children between 16 and 30 months old. It is a first-level screening tool, not a diagnostic instrument \u2014 a positive result indicates a child should be referred for a full developmental evaluation, not that the child has autism.",
-          "source_note": "General knowledge summary, illustrative only"
-        },
-        {
-          "score": 0.111,
-          "title": "Sex differences in diagnosis rates",
-          "category": "prevalence_stats",
-          "text": "Autism is diagnosed more often in boys than girls, historically cited around a 4:1 ratio, though more recent research suggests the true ratio may be closer to 3:1 once accounting for underdiagnosis in girls, who more often present with subtler or camouflaged social difficulties that existing diagnostic tools were originally designed around male presentation patterns.",
-          "source_note": "General knowledge summary, illustrative only \u2014 verify against current CDC data"
-        }
-      ]
-    },
-    {
-      "question": "Who can formally diagnose autism?",
-      "results": [
-        {
-          "score": 0.18,
-          "title": "Genetic contribution to autism risk",
-          "category": "etiology",
-          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
-          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
-        },
-        {
-          "score": 0.171,
-          "title": "Autism is a spectrum, not one profile",
-          "category": "myths_and_facts",
-          "text": "Autism presents highly differently across individuals \u2014 in communication style, sensory sensitivities, cognitive profile, and support needs \u2014 which is why it is described as a spectrum rather than a single fixed presentation. Two autistic people can have very different strengths, challenges, and support needs; there is no single 'look' or behavior pattern that defines autism.",
-          "source_note": "General knowledge summary, illustrative only"
-        },
-        {
-          "score": 0.155,
-          "title": "Autism is not caused by parenting style",
-          "category": "etiology",
-          "text": "Autism is not caused by parenting practices, emotional coldness, or early childhood experiences \u2014 a discredited idea (the 'refrigerator mother' theory) from the 1950s-60s that caused significant harm to families. Current scientific consensus attributes autism primarily to neurodevelopmental and genetic factors present from early brain development, not to how a child is raised.",
-          "source_note": "General knowledge summary, illustrative only"
-        }
-      ]
-    },
-    {
-      "question": "What early intervention therapies are available?",
-      "results": [
-        {
-          "score": 0.36,
-          "title": "Why early intervention timing matters",
-          "category": "support_and_therapy",
-          "text": "Research broadly supports that earlier intervention, when developmentally appropriate support begins before or around age 3, is associated with better long-term outcomes in communication and adaptive skills, attributed to higher brain plasticity in early childhood. This is a key reason early screening and reducing diagnostic delay is a public health priority, distinct from any claim that later diagnosis forecloses meaningful support or progress at any age.",
-          "source_note": "General knowledge summary, illustrative only"
-        },
-        {
-          "score": 0.293,
-          "title": "Common early intervention approaches",
-          "category": "support_and_therapy",
-          "text": "Common evidence-supported early intervention approaches for autistic children include Applied Behavior Analysis (ABA), speech-language therapy, occupational therapy (often addressing sensory processing and fine motor skills), and developmental/relationship-based approaches such as the Early Start Denver Model (ESDM). Approach selection is highly individual, and there is active, sometimes contentious, discussion within the autism community \u2014 including autistic self-advocates \u2014 about therapy goals and methods, particularly around ABA.",
-          "source_note": "General knowledge summary, illustrative only"
-        },
-        {
-          "score": 0.096,
-          "title": "Autism is not caused by parenting style",
-          "category": "etiology",
-          "text": "Autism is not caused by parenting practices, emotional coldness, or early childhood experiences \u2014 a discredited idea (the 'refrigerator mother' theory) from the 1950s-60s that caused significant harm to families. Current scientific consensus attributes autism primarily to neurodevelopmental and genetic factors present from early brain development, not to how a child is raised.",
-          "source_note": "General knowledge summary, illustrative only"
-        }
-      ]
-    },
-    {
-      "question": "Is autism caused by parenting?",
-      "results": [
-        {
-          "score": 0.572,
-          "title": "Autism is not caused by parenting style",
-          "category": "etiology",
-          "text": "Autism is not caused by parenting practices, emotional coldness, or early childhood experiences \u2014 a discredited idea (the 'refrigerator mother' theory) from the 1950s-60s that caused significant harm to families. Current scientific consensus attributes autism primarily to neurodevelopmental and genetic factors present from early brain development, not to how a child is raised.",
-          "source_note": "General knowledge summary, illustrative only"
-        },
-        {
-          "score": 0.041,
-          "title": "Genetic contribution to autism risk",
-          "category": "etiology",
-          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
-          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
-        },
-        {
-          "score": 0.039,
-          "title": "Autism is a spectrum, not one profile",
-          "category": "myths_and_facts",
-          "text": "Autism presents highly differently across individuals \u2014 in communication style, sensory sensitivities, cognitive profile, and support needs \u2014 which is why it is described as a spectrum rather than a single fixed presentation. Two autistic people can have very different strengths, challenges, and support needs; there is no single 'look' or behavior pattern that defines autism.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.77,
+          "title": "I-PCIT Engagement and Outcomes in Children With Neurodevelopmental Disorders.",
+          "text": "Parent Child Interaction Therapy (PCIT) is an evidence-based behavioral parent training program that has shown efficacy in reducing disruptive behaviors for children with neurodevelopmental disorders (NDDs) including autism spectrum disorder (ASD), attention-deficit/hyperactivity disorder (ADHD), and developmental delays. The current study examined the impact of child and parent characteristics on (a) treatment completion and engagement (b) child behavioral outcomes, and (c) parenting outcomes. Participants included 68 parent-child dyads (children aged 2-6) with NDD diagnoses who participated in a time-limited version of internet-delivered PCIT (I-PCIT). Measures included treatment attrition, homework completion, parent reports of parenting strategies, child behavior, and parenting stress, as well as coded observations of parent use of treatment skills and child compliance. Treatment engagement findings indicated that parents of children with a diagnosis of ADHD and children with higher receptive language levels were more likely to complete treatment. Few predictors of child treatment outcomes were identified. Child ASD diagnosis was predictive of lesser improvement in only parent-reported outcome (i.e., laxness) but not observed outcomes. Parents with a diagnosis of depression demonstrated the greatest engagement and positive outcomes as defined by higher rates of treatment completion and greater improvement in parenting practices. Results underscore that I-PCIT is a robust treatment option with relatively comparable outcomes across diagnostic populations, and highlight that certain clinical presentations may facilitate treatment completion and outcomes. Future work should explore how clinical characteristics and factors may be useful in matching patients to treatment delivery modality.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42660578/",
+          "publication_date": "2026-09",
+          "authors": "Gomez Batista S, Marsden A, Carpenter L et al.",
+          "venue": "Behavior therapy"
         }
       ]
     },
@@ -238,51 +238,269 @@
       "question": "Why are more boys diagnosed with autism than girls?",
       "results": [
         {
-          "score": 0.412,
-          "title": "Sex differences in diagnosis rates",
-          "category": "prevalence_stats",
-          "text": "Autism is diagnosed more often in boys than girls, historically cited around a 4:1 ratio, though more recent research suggests the true ratio may be closer to 3:1 once accounting for underdiagnosis in girls, who more often present with subtler or camouflaged social difficulties that existing diagnostic tools were originally designed around male presentation patterns.",
-          "source_note": "General knowledge summary, illustrative only \u2014 verify against current CDC data"
+          "score": 0.766,
+          "title": "Diagnostic challenges in predominantly late-diagnosed gender-diverse autistic individuals: Age, delays, and perceived misdiagnoses.",
+          "text": "Historically, diagnostic criteria for autism have been shaped by male-centric childhood presentations, leading to reduced diagnostic accuracy for non-male autistic individuals. We investigated disparities between gender-diverse and cisgender autistic individuals in the age at formal diagnosis, delays between initial suspicion and diagnosis, and the frequency of prior perceived misdiagnoses. We analyzed 2,722 participants predominately late-diagnosed with autism, including 402 gender-diverse individuals. The analysis, controlling for age at participation, revealed that cisgender females were diagnosed at the oldest age, followed by gender-diverse individuals and cisgender males. Autistic gender-diverse individuals received the highest number of co-occurring psychiatric diagnoses and had the highest rates of prior perceived misdiagnosis, followed by cisgender females and cisgender males. These findings highlight the pressing need for diagnostic frameworks that account for gender diversity and actively mitigate biases in clinical practice.Lay abstractAutism is often thought of as a condition that mainly affects boys in childhood. However, research shows that this view can delay or complicate diagnosis for non-male autistic individuals. For instance, research has demonstrated that autistic females are diagnosed later than males. In this study, we examined when and how autism is diagnosed in gender-diverse individuals (people whose gender identity does not align with the sex they were assigned at birth or who identify outside the male/female binary) compared to cisgender men and women (whose gender aligns with their birth sex). We analyzed data from 2,722 Dutch adults with autism, including 402 gender-diverse participants, mostly diagnosed in adulthood. We looked at the age at which participants were diagnosed and how long it took from first suspecting autism to receiving a formal diagnosis. We also examined whether participants had been diagnosed with another psychiatric condition and whether they perceived that diagnosis to be a misdiagnosis. Our results showed that gender-diverse people and cisgender women tend to be diagnosed later than cisgender men. Gender-diverse individuals and women reported being previously diagnosed with other conditions such as personality disorders, which they later believed were incorrect. These results suggest that gender biases still affect autism diagnosis, especially for gender-diverse people and women. Understanding these challenges is important to improve diagnostic practices and ensure more accurate and timely support for everyone on the autism spectrum.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41841559/",
+          "publication_date": "2026-08",
+          "authors": "Zidane Burgess AZ, van der Zwaag W, Jonkman KM et al.",
+          "venue": "Autism : the international journal of research and practice"
         },
         {
-          "score": 0.094,
-          "title": "Racial and ethnic disparities",
-          "category": "prevalence_stats",
-          "text": "Historically, White children in the US were diagnosed with autism at higher rates than Black and Hispanic children, a gap increasingly attributed to disparities in healthcare access rather than true differences in underlying prevalence. Recent ADDM cycles have shown this gap narrowing or reversing in some surveillance sites.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.762,
+          "title": "Sex Differences in Psychopathology and Neurocognition in Community Youth With Autism Spectrum Disorder.",
+          "text": "Autism spectrum disorder (ASD) diagnosis is more common in males than females. To understand sex differences in psychopathology and neurocognitive performance, research systematically comparing males and females with autism spectrum disorder to non-autistic peers is critically needed. We examined sex differences in psychopathology and neurocognitive performance profiles in ASD and typically developing youths from the Philadelphia Neurodevelopment Cohort (PNC), a U.S. community sample ascertained through pediatric (non-mental-health) network. We studied 218 youths with ASD diagnosis (IQ> 70, 171 males, 47 females, mean age 12.3 years), age and sex matched to 872 Non-ASD controls. We compared psychopathology in multiple domains including mood-anxiety, fear (phobias), externalizing and psychosis spectrum symptoms as well as neurocognitive function comparing Social and Non-Social cognitive domains. Repeated-measures mixed models were applied with ASD, sex, and their interaction as fixed factors, and psychopathology and neurocognitive domains as within-group factors. All models controlled for age, socioeconomic status, IQ, and ADHD. Findings indicated sex differences in the associations between ASD and co-occurring psychopathology. Among adolescents with ASD, males exhibited more pronounced fear and mood symptoms than females. Analyses also revealed ASD-related sex differences across neurocognitive domains: performance in Social Cognition was lower in adolescents with ASD compared to non-ASD peers for both sexes, while males with ASD showed greater difficulties in Non-Social Cognition relative to females with ASD. In conclusion, ASD diagnosis is associated with sex differences in psychopathology and neurocognition in early adolescence in a large community sample. Results add to the understanding of sex-specific manifestations of ASD in youth.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42374865/",
+          "publication_date": "2026-08",
+          "authors": "Barzilay R, Katz J, Sood R et al.",
+          "venue": "Autism research : official journal of the International Society for Autism Research"
         },
         {
-          "score": 0.035,
-          "title": "Genetic contribution to autism risk",
-          "category": "etiology",
-          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
-          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+          "score": 0.751,
+          "title": "Autism Spectrum Disorder Among Gender-Diverse Children and Adolescents: A National Cohort Study.",
+          "text": "Autism spectrum disorder (ASD) is more prevalent in transgender and gender-diverse (TGD) individuals than in the general population, yet the specific developmental pathways within and clinical outcomes of this intersection are insufficiently understood. This study examined how ASD and sex assigned at birth (SAAB) are associated with gender-related milestones, access to gender-affirming consultation and care (GACC), and psychiatric outcomes. We reviewed electronic medical records for 786 TGD children and adolescents (aged 4-19 years) presenting to a national referral clinic between 2013 and 2025. Demographic, developmental, and psychiatric variables were analyzed across four ASD-by-SAAB groups using generalized linear models and logistic regressions, with Bonferroni-adjusted post hoc comparisons (\u03b1 = 0.0083). ASD was documented in 9.7% of the cohort, with referrals of autistic TGD patients increasing significantly over time. Autistic patients presented with a distinct profile, characterized by higher socioeconomic position (SEP), intellectual giftedness, non-binary gender identity, and an earlier stage of pubertal development at presentation. Crucially, while ages at gender-related milestones were largely comparable between neurotypes, autistic assigned female at birth (AFAB) adolescents were significantly less likely to initiate puberty suppression or gender-affirming hormones than their non-autistic peers. Furthermore, higher SEP was associated with earlier clinical presentation only for non-autistic youth. Autistic TGD patients exhibited a higher psychiatric burden, with an ASD diagnosis uniquely associated with elevated rates of anxiety, ADHD, and psychotropic medication use. These findings reveal a disparity between developmental synchrony and clinical access, underscoring the need for autism-informed protocols to support equitable gender-affirming care.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41873702/",
+          "publication_date": "2026-05",
+          "authors": "Topaz E, Sheppes T, Segev-Becker A et al.",
+          "venue": "Autism research : official journal of the International Society for Autism Research"
+        },
+        {
+          "score": 0.739,
+          "title": "Gender-related differences in characteristics and treatment response between attention-deficit/hyperactivity disorder Japanese children with and without autism spectrum disorder: a single-center retrospective study.",
+          "text": "Aim: Patients with attention-deficit/hyperactivity disorder (ADHD) as well as those with comorbid autism spectrum disorder (ASD), often experience intellectual developmental challenges, social immaturity and social difficulties. However, there have been few detailed reports on the gender differences in these factors among Japanese children. To compare gender-based differences in characteristics and treatment responsiveness between ADHD children without ASD and those with ASD, we undertook a clinical survey of ADHD children. Methods: Patients were divided into two groups based on the presence of ASD and by gender; ASD-based groups were further subdivided by gender, and the gender-based groups were further subdivided by ASD status. We compared patient background, including body mass index (BMI), ADHD characteristics, intelligence quotient (IQ), and treatment response between these groups. Results: Age at first examination and social intelligence quotient (SQ) were significantly lower in the male patients than in the female patients. ADHD Rating Scale (ADHD-RS) scores for hyperactivity disorder and total before treatment and ADHD-RS scores for hyperactivity disorder at the most recent follow-up in the male patients were higher than those in the female patients. In male patients, the initial IQ and SQ of the ASD-comorbidity group were lower than those of the ADHD-only group, but there were no significant differences in each ADHD-RS score, or BMI-standard deviation score. Conclusion: These results suggest that male with ADHD tend to have stronger hyperactivity and impulsivity, with such hyperactivity and impulsivity persisting despite treatment and requiring adequate long-term management.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42214913/",
+          "publication_date": "2026-08",
+          "authors": "Kawasaki Y, Suzuki Y, Miyazaki K et al.",
+          "venue": "Brain & development"
         }
       ]
     },
     {
-      "question": "Are autism and intellectual disability the same thing?",
+      "question": "What do studies say about sleep problems in autistic children?",
       "results": [
         {
-          "score": 0.591,
-          "title": "Autism and intellectual disability are not the same thing",
-          "category": "myths_and_facts",
-          "text": "Autism and intellectual disability are separate, sometimes co-occurring conditions. Estimates of the proportion of autistic individuals with a co-occurring intellectual disability vary across studies and have decreased over time as diagnostic criteria and screening have broadened to identify autistic individuals across the full range of cognitive ability, including those with average or above-average IQ.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.852,
+          "title": "Sleep as a viable target for early intervention in children with autism spectrum disorder: A narrative review informed by a systematic literature search.",
+          "text": "Autism spectrum disorder (ASD) is a neurodevelopmental condition marked by communication and social challenges, and repetitive behaviors. Early integrated developmental and behavioral interventions are recommended, ideally during peak brain development at ages 2-4. Sleep problems are common in autistic children and may appear before diagnosis. This narrative review, informed by a systematic literature search, examines how sleep disturbances affect neurodevelopment in young children with ASD and whether treatment of sleep problems may enhance response to developmental intervention. We conducted a systematic literature search on developmental trajectories AND autism AND/OR intervention AND/OR sleep (Scopus, PubMed, Scholar, Jan 2015-Jan 2026) with focus on early development and intervention (age 2-5 years) in children with ASD. Sleep is essential for brain development, learning, memory, and emotional regulation. Insufficient sleep hinders intellectual growth and adaptive skills, reducing the effectiveness of speech, language, and behavioral interventions. Extending sleep-through behavioral strategies or medications like prolonged-release melatonin-can improve educational outcomes and adaptive behavior in young children with ASD. Addressing sleep issues promptly when ASD is diagnosed or suspected may improve developmental outcomes and enhance intervention effectiveness.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41946036/",
+          "publication_date": "2026-06",
+          "authors": "Bruni O, Mammarella V, Breda M et al.",
+          "venue": "Sleep medicine reviews"
         },
         {
-          "score": 0.034,
-          "title": "Genetic contribution to autism risk",
-          "category": "etiology",
-          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
-          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+          "score": 0.852,
+          "title": "Prevalence and associated factors of sleep disorders in children and adolescents with autism spectrum disorder: a meta-analysis and systematic review.",
+          "text": "Background: Sleep disorders significantly impact the physical rehabilitation of children with autism spectrum disorder. The factors associated with these sleep disorders remain a subject of debate in clinical research. By identifying factors associated with sleep disorders in this population, more effective intervention strategies can be developed for the rehabilitation of children and adolescents with autism spectrum disorder. Therefore, this review aims to conduct an in-depth analysis of the factors associated with sleep disorders in children and adolescents with autism spectrum disorder, providing evidence-based references for advancing clinical prevention strategies. Methods: A systematic search was conducted in the CNKI, Wanfang, VIP, CBM, PubMed, Web of Science, Embase, CINAHL, and Cochrane Library databases for studies investigating factors associated with sleep disorders in children and adolescents with autism spectrum disorder. The search period spanned from the inception of each database to August 31, 2025. Two researchers independently performed literature screening, quality assessment, and data extraction. Meta-analysis was conducted using Stata MP 17 software. Results: This study included 22 research studies involving a total of 3,771 participants. Meta-analysis results showed that the prevalence of sleep disorders was 60%. with age(young), co-sleeping with parents, nighttime sleep duration, daytime sleep duration, child's screen exposure time, family dysfunction, history of neonatal asphyxia, birth weight (low), parental education level, maternal perinatal nutritional support, child supplements, children are not picky eaters, child behavioral problems, autism severity, and parental screen exposure before child sleep were the primary factors associated with sleep disorders in children and adolescents with autism spectrum disorder (P < 0.05). Conclusion: Children and adolescents with autism spectrum disorder experience sleep disorders influenced by multiple factors. Identifying these associated factors can help in developing strategies for managing sleep problems in this population, which may contribute to improving their overall daytime functioning.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42192550/",
+          "publication_date": "2026-05-26",
+          "authors": "Wang H, Yu L, Hu S et al.",
+          "venue": "BMC psychiatry"
         },
         {
-          "score": 0.032,
-          "title": "Autism is a spectrum, not one profile",
-          "category": "myths_and_facts",
-          "text": "Autism presents highly differently across individuals \u2014 in communication style, sensory sensitivities, cognitive profile, and support needs \u2014 which is why it is described as a spectrum rather than a single fixed presentation. Two autistic people can have very different strengths, challenges, and support needs; there is no single 'look' or behavior pattern that defines autism.",
-          "source_note": "General knowledge summary, illustrative only"
+          "score": 0.847,
+          "title": "Sleep disturbances and sensory processing and integration in children and adolescents with autism spectrum disorder: a systematic review.",
+          "text": "Sleep disorders and sensory abnormalities are highly represented in individuals with autism spectrum disorder and represent an important burden for these subjects and their families. Exploring the frequently co-occurring relationship between these two disturbances may be crucial for its therapeutic and rehabilitative implications. Following PRISMA 2020, we systematically reviewed studies examining associations between sleep disturbances and sensory abnormalities in children/adolescents (2-18 years) with autism spectrum disorder based on the following databases searched: MEDLINE, PsycARTICLES, PsycInfo, Psychology and Behavioral Sciences Collection, CINAHL (EBSCOhost), Scopus, and Web of Science. Final search: May 31st, 2025. Eligible designs included observational and interventional human studies reporting quantitative sleep-sensory outcomes. Sixteen studies met inclusion criteria; significant positive associations emerged between sleep problems (especially insomnia symptoms and night wakings) and sensory dysfunctions (notably sensory sensitivity/avoidance; tactile and vestibular domains). Only a minority of these studies have been conducted in older children/adolescents. Two longitudinal non-intervention studies suggested covariation over time. Use of predominantly parent-reported instruments and heterogeneous designs limited quantitative synthesis. Objective measures (e.g., actigraphy, electrodermal activity) were rarely used and showed variable concordance with questionnaires. Sleep issues and sensory dysfunctions appear connected in ASD, but more evidence is needed to determine causality. Future research should use longitudinal intervention trials and both objective and subjective assessments to see if treating sleep or sensory symptoms leads to improvement.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42150238/",
+          "publication_date": "2026-08",
+          "authors": "Mammarella V, Breda M, De Gennaro L et al.",
+          "venue": "Sleep medicine reviews"
+        },
+        {
+          "score": 0.838,
+          "title": "Sleep Disturbances and Behavioural Phenotypes in Children With Autism Spectrum Disorder: A Comparative Study With Typically Developing Peers.",
+          "text": "Objectives: The primary objective of this study was to investigate the relationship between different types of sleep problems and specific behavioural difficulties in children and adolescents with autism spectrum disorder (ASD), compared with typically developing children (TDC). Method: We compared 40 children and adolescents with ASD and normal intellectual functioning with 50 TDC using the Sleep Disturbance Scale for Children (SDSC), the Conners' Parent Rating Scale-Revised Short (CPRS-RS) and the Repetitive Behaviour Scale-Revised (RBS-R). Results: Participants with ASD had significantly higher scores on CPRS-RS inattention, hyperactivity and stereotyped, self-injurious, compulsive, routine, sameness and restricted behaviours, in addition to higher RBS-R scores. The ASD group also scored higher on the SDSC initiating and maintaining sleep subscale. Correlation analyses demonstrated significant associations between repetitive behaviours and multiple domains of sleep disturbances in the ASD group, whereas no significant correlations remained after Bonferroni correction in the TDC group. Regression analyses revealed that sleep breathing problems were associated with RBS-R Total (\u03b2 = 0.590, p = 0.001); arousal/waking with compulsive behaviours (\u03b2 = 0.394, p = 0.014); and sameness behaviours with both timing (\u03b2 = 0.542, p = 0.012) and overall sleep problems (\u03b2 = 0.516, p = 0.002) in the ASD group. Conclusions: In this study, sameness behaviours, compulsive behaviours and total RBS-R scores were significantly associated with several sleep problems in children and adolescents with ASD. These findings add to the literature demonstrating robust associations between specific types of sleep problems and particular behavioural difficulties in this population.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42087808/",
+          "publication_date": "2026-05",
+          "authors": "Sevincok D, Isik CM, Ozbek MM et al.",
+          "venue": "International journal of developmental neuroscience : the official journal of the International Society for Developmental Neuroscience"
+        }
+      ]
+    },
+    {
+      "question": "Are there biomarkers for early autism diagnosis?",
+      "results": [
+        {
+          "score": 0.874,
+          "title": "Smart sensing the spectrum: cutting-edge biosensor and biomarker approaches for early autism detection.",
+          "text": "Autism Spectrum Disorder (ASD) is a neurodevelopmental disorder, often characterized by challenges in social interaction, repetitive behaviors, and restricted interests in work. Early diagnosis is critical for effective intervention, but current methods often rely on subjective behavioral assessments that can delay identification. This underscores the need for reliable biomarkers that can facilitate earlier detection of ASD. Biomarkers are primarily proteins in nature, found in blood, saliva, or other tissues, and have the potential to enhance diagnostic accuracy and speed. They can reveal underlying neurobiological changes associated with ASD, providing objective data to support clinical findings. The search for altered levels of certain amino acids and neurotransmitters and specific genetic biomarkers such as single-nucleotide polymorphisms (SNPs) and copy number variants (CNVs) has gained momentum, driven by the need for more definitive early diagnostic tools. Neuroinflammatory and neuroimaging biomarkers through MRI and fMRI have also shown promise for early detection of ASD. Recent advancements in biosensor technology have significantly improved the prospects for biomarker discovery in ASD. Innovations in nanotechnology and microfluidics have enabled the development of highly sensitive and specific biosensors that can trace minute quantities of biomarkers. These devices allow for non-invasive sampling and real-time monitoring, making early screening more feasible and accessible for young children. This review article mainly focuses on how the integration of these biosensor and biomarker technologies could transform the early detection of ASD, ultimately facilitating timely interventions and improving patients' outcomes.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42329525/",
+          "publication_date": "2026-06-22",
+          "authors": "Ghosh D, Sadhukhan S, Attri M et al.",
+          "venue": "Metabolic brain disease"
+        },
+        {
+          "score": 0.849,
+          "title": "Biomarkers Trajectories of Early Intervention in Siblings of Children with Autism Spectrum Disorder",
+          "text": "Conditions: Autism Spectrum Disorder, Early Intervention. Phase: NA. This project deals with essential challenges in the context of Autism Spectrum Disorder benefiting from a prospective design in childhood, early intervention and a cutting-edge experimental techniques. The present study tests the potential effect of early intervention on neural and behavioral responses in toddlers at elevated likelihood of developing autism (siblings of children with autism) who show clinical autistic signs. Four comparison groups were included in the study: (1) toddlers at elevated likelihood of developing autism with clinical autistic signs who receive early intervention from 18 to 24 months (2) toddlers at elevated likelihood of developing autism with clinical autistic signs who do not receive early intervention (3) toddlers at elevated likelihood of developing autism without clinical autistic signs who only received assessment and monitoring, and (4) typically developing toddlers who only received assessment and monitoring. This study focuses on social and nonsocial sensory integration skills (measured by electroencephalographic and eyetracking recordings) to identify reliable biomarkers for early detection and intervention of autism during a critical period of development. The characterization of biomarkers will guide the detection of the most vulnerable children that will benefit from early intervention, with the long-term aim of reducing the impact of autism on the National Health System.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT05614206",
+          "publication_date": "2022-09-26",
+          "authors": "IRCCS Eugenio Medea",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
+          "score": 0.824,
+          "title": "Serum Biomarkers of Neuroaxonal and Astroglial Damage in Autism Spectrum Disorder: Relationship With Symptom Severity, Behavioural Dimensions and Age.",
+          "text": "Purpose: Autism spectrum disorder (ASD) is a neurodevelopmental condition characterized by persistent deficits in social communication and the presence of restrictive, repetitive patterns of behaviour. Although its exact aetiology remains multifaceted and partially understood, recent clinical interest has shifted towards neurobiological substrates, specifically neuroaxonal and astroglial integrity. This study aims to compare serum levels of Neurofilament Light Chain (NfL), Glial Fibrillary Acidic Protein (GFAP), Tau and S100B between children with ASD and healthy controls, while investigating the influence of these biochemical variables on autism severity and behavioural manifestations. Methods: The study cohort consisted of 44 children (aged 24-72 months) diagnosed with ASD according to DSM-5-TR criteria and 40 age-matched healthy controls. Clinical assessments were conducted using the Childhood Autism Rating Scale (CARS), the Aberrant Behaviour Checklist (ABC) and the Autism Behaviour Checklist. Serum concentrations of the targeted biomarkers were measured using the ELISA method from venous blood samples. Results: Serum NfL, Tau, GFAP and S100B concentrations did not differ significantly between children with ASD and healthy controls. Exploratory analyses suggested possible associations between selected biomarkers and clinical characteristics; however, these associations did not remain statistically significant after age adjustment and correction for multiple comparisons. Further studies using larger cohorts and ultrasensitive analytical platforms are needed to validate these preliminary findings. Conclusion: These findings indicate that serum NfL, Tau, GFAP and S100B did not differentiate children with ASD from healthy controls. Exploratory biomarker-clinical associations did not remain statistically significant after age adjustment and correction for multiple comparisons. Larger longitudinal studies using ultrasensitive analytical platforms are warranted.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42601826/",
+          "publication_date": "2026-08",
+          "authors": "Dedeo\u011flu ZN, Uzun N, K\u0131l\u0131n\u00e7 \u0130 et al.",
+          "venue": "International journal of developmental neuroscience : the official journal of the International Society for Developmental Neuroscience"
+        },
+        {
+          "score": 0.818,
+          "title": "Selected Proteins Involved in the Neuropathology of ASD as the Candidates for Fluid Biomarkers.",
+          "text": "Autism spectrum disorder (ASD) is classified as a neurodevelopmental disorder with an increasingly high incidence rate. Increasing awareness, changing diagnostic criteria and social attitudes, as well as financial considerations, will affect the prevalence of diagnosis. The symptoms of ASD vary widely, making it difficult to detect. It represents a spectrum of alterations ranging from mild indications to severe impairments and diagnosis is based on a very rigorous behavioral assessment. Nevertheless, certain neuropathological changes are common, although the background of this disorder remains still unknown. Therefore, some research aimed at better understanding the pathology of the neurological alterations in ASD, as well as the possibilities for early diagnosis and treatment of this disorder, is urgently needed. This review summarizes the current evidence on some selected proteins such as tau protein, NFL, and BDNF as well as IGF-1 that appear to be the best protein candidates for better understanding the causes of autism, as well as for use as fluid biomarkers in the diagnosis and monitoring of ASD.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42280241/",
+          "publication_date": "2026-06-03",
+          "authors": "Rutkowski P, Romanowicz A, Mroczko J et al.",
+          "venue": "Molecules (Basel, Switzerland)"
+        }
+      ]
+    },
+    {
+      "question": "What research exists on autistic adults?",
+      "results": [
+        {
+          "score": 0.787,
+          "title": "Interventions for autistic adults: A meta-analysis.",
+          "text": "Objective: The vast majority of autistic adults experience challenges related to co-occurring mental health problems, social cognition, postsecondary education or competitive employment, and other concerns. Services to address these challenges have been identified as a priority for research. This review and meta-analysis were undertaken to determine the clinical impact of interventions for a wide range of concerns for autistic adults. Method: We conducted a preregistered systematic review and meta-analysis of interventions targeting social cognition, mental health, and academic- and transition-related outcomes for autistic adults. Randomized controlled trials and quasi-experimental studies were eligible for inclusion, while single-case and pre-post designs were excluded. We extracted data on participant and intervention characteristics, primary outcome data in 10 domains (e.g., mental health, social cognition), and risk of bias. Results: Thirty-five studies were included (N = 1,631 total participants). Random-effects meta-analyses using robust variance estimation revealed significant small to moderate pooled effect sizes for mental health (k = 16, g = .35, 95% CI [0.19, 0.51], I2 = 18.13%), social cognition (k = 16, g = .45, 95% CI [0.17, 0.74], I2 = 67.77%), and quality of life (k = 8, g = .64, 95% CI [0.14, 1.15], I2 = 80.48%). Meta-analyses of behavioral, cognitive, adaptive, and employment outcomes were nonsignificant. Conclusion: Interventions for autistic adults show promise, often producing small-to-moderate positive outcomes as compared to treatment as usual or waitlist controls. Effects largely align with those seen in the child and adolescent autism literature, despite considerable heterogeneity. (PsycInfo Database Record (c) 2026 APA, all rights reserved).",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41926193/",
+          "publication_date": "2026-03",
+          "authors": "Smith IC, Holmes LG, White SW",
+          "venue": "Journal of consulting and clinical psychology"
+        },
+        {
+          "score": 0.782,
+          "title": "Autism in adolescence and adulthood.",
+          "text": "Landmark descriptions of autism in the 1940s were based on clinical work with children. Research over the subsequent 80 years has largely focused on the experiences and needs of autistic children, with recent neuroimaging and genetic studies contributing significant insights into the developmentally driven neurobiological underpinnings of this condition. However, autism is a lifelong neurodevelopmental condition and adolescence and adulthood introduces new developmental transitions and life experiences that require specific consideration. Together, the articles in this Collection-Autism in Adolescence and Adulthood-highlight the need to understand autistic experiences and neurobiology in adolescence and adulthood through a context-sensitive lens that considers developmentally relevant experiences. Across diverse methodologies, including behavioural, physiological, qualitative, and computational (machine learning), a particular focus is on understanding and supporting emotion regulation, wellbeing and mental health. Collectively, the papers highlight that adolescence and adulthood are periods of autistic development that warrant focussed scientific attention. They also underscore that autistic flourishing in adolescence and adulthood depends on a society that embraces neurodiversity and is committed to meaningful change.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42567865/",
+          "publication_date": "2026-08-07",
+          "authors": "Denisova K, Jones CRG",
+          "venue": "Scientific reports"
+        },
+        {
+          "score": 0.77,
+          "title": "To improve the diagnosis of autism spectrum disorder without intellectual impairment: A qualitative study among adults with the diagnosis and psychiatrists.",
+          "text": "Introduction: Despite the evidence and expert opinion that many adults with autism spectrum disorder (ASD) face barriers to formal diagnosis, qualitative studies examining adult patients' experience and requirements for better access to the diagnosis are still lacking. Aims: To qualitatively explore the pre-diagnosis experiences of adults with ASD, the impact of receiving a diagnosis, and the need for improved access to diagnosis both for adults with ASD and for adult psychiatrists. Methods: Sixteen semi-structured interviews were conducted (11 adults diagnosed with ASD and 5 psychiatrists). A mixed deductive-inductive thematic analysis was employed. Results: Several factors contributing to delayed diagnosis were identified including difficulties accessing healthcare, limited awareness of ASD among some clinicians, the use of camouflaging behaviors by participants, and family adaptation to their symptoms. Receiving a diagnosis was often described as a relief, allowing participants to understand past social difficulties and seek better acknowledgment and accommodation from their environment. The analysis highlighted the need to reduce wait times and service costs, as well as to enhance clinicians' knowledge of ASD to improve accessibility and satisfaction with diagnosis. Participants also noted the complex interplay between media portrayals of ASD and public understanding of the disorder. Conclusions: Increased education for mental health professionals and broader public awareness campaigns are necessary to facilitate timely access to appropriate diagnosis and support services.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41839710/",
+          "publication_date": "2026-10",
+          "authors": "Cambier G, van der Hoeven J, Chaix G et al.",
+          "venue": "L'Encephale"
+        },
+        {
+          "score": 0.768,
+          "title": "On the Spectrum: High-Functioning Autism and Its Contemporary Relevance.",
+          "text": "With publication of the Diagnostic and Statistical Manual of Mental Disorders, fifth edition (DSM-5) in 2013, autism's prevalence in the United States nearly doubled to more than 2% of the population. In reconceptualizing the condition, DSM-5 collapsed 4 diagnoses into 1 diagnosis: autism spectrum disorder. What the 4 had in common were deficits in 2 broad areas: restricted, repetitive behaviors or interests; and deficits in social communication. Three of the 4 were severe forms easily recognized in childhood. The fourth, constituting most of the increase in prevalence, was Asperger disorder, or high-functioning autism, frequently going undiagnosed until adulthood. These patients typically have fluent language, intact intellect, and highly developed compensatory strategies including social \"masking.\" The adult diagnosis is manifested in struggles to maintain employment or friendships both platonic and intimate. Nonpsychiatric providers are likely to encounter patients with autism spectrum disorder seeking care for myriad comorbid psychiatric and physical problems. Complicating matters is that many adult psychiatrists are unfamiliar with what was until recently the purview of child psychiatrists. Autism has neither cure nor specific pharmacologic treatments, but addressing comorbidities, with psychiatric and medical referrals where indicated, mitigates suffering. Services targeting employment and educational support, occupational therapy focused on activities of daily living, and skill-based psychotherapies that aim to improve social interactions can reduce stress and anxiety while enhancing function, reducing isolation, and encouraging satisfying relationships.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42065701/",
+          "publication_date": "2026-05",
+          "authors": "Bostwick JM, McKean AJS",
+          "venue": "Mayo Clinic proceedings"
+        }
+      ]
+    },
+    {
+      "question": "What clinical trials are studying autism therapies?",
+      "results": [
+        {
+          "score": 0.817,
+          "title": "Novel therapeutics in autism spectrum disorder.",
+          "text": "Autism spectrum disorder (ASD) is a heterogeneous neurodevelopmental condition with limited treatment options that address its full complexity. This review critically evaluates novel therapeutics across five key domains: behavioral and psychosocial interventions, psychopharmacology, digital and AI-driven tools, neuromodulation, and genetic therapies. The broad heterogeneity of ASD complicates clinical research, often obscuring treatment effects and limiting generalizability. Challenges across domains include identifying reliable biomarkers, defining meaningful outcomes, and ensuring equitable access to evidence-based care and research participation. Behavioral and psychosocial therapies, considered first line interventions, are shifting toward naturalistic, developmentally informed, and neurodiversity-affirming models that reflect individual needs across the spectrum and across the lifespan. There continues to be no medications that are currently FDA approved for core autism symptoms, though ongoing pharmacologic research increasingly emphasizes biologically informed, stratified approaches to develop biomarkers that identify subsets of individuals who may benefit from a specific treatment. Digital and AI-driven tools promise greater personalization and expanded access but require safeguards, validation, and attention to equity. Neuromodulation techniques, including Transcranial Magnetic Stimulation (TMS) and Transcranial Direct Current Stimulation (tDCS), remain experimental yet highlight the importance of personalized protocols and ethical oversight. Genetics has seen advancements in gene-targeted therapies for syndromic forms of ASD marking a pivotal move toward precision medicine in autism, though ongoing challenges regarding safety, efficacy, and equitable access persist. This review informs clinicians, researchers, individuals with lived experiences and other important stakeholders by appraising current evidence, identifying limitations, and outlining future directions to advance rigorous, inclusive, and collaborative autism therapeutics.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41748402/",
+          "publication_date": "2026-01",
+          "authors": "Sara Daniella Kevelson, Elmaghraby R, Patel F et al.",
+          "venue": "Neurotherapeutics : the journal of the American Society for Experimental NeuroTherapeutics"
+        },
+        {
+          "score": 0.762,
+          "title": "Integrated Platform for Measuring and Reducing Symptoms of Autism Spectrum Disorder",
+          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. This study will consist of a randomized, double-blind, sham-controlled clinical trial at SUNY Upstate Medical University and Mt. Sinai Medical Center with 80 autistic children evaluating the effects of transcranial photobiomodulation (tPBM) on multiple clinically validated scales.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT06006637",
+          "publication_date": "2023-10-17",
+          "authors": "State University of New York - Upstate Medical University",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
+          "score": 0.757,
+          "title": "Pharmacological evaluation frameworks in autism spectrum disorder: Methodological and neurobiological considerations.",
+          "text": "Autism spectrum disorder (ASD) is a heterogeneous neurodevelopmental condition characterized by persistent deficits in social communication and interaction, alongside restricted and repetitive behaviors. Despite substantial advances in genetics, neurobiology and neuroimaging, no pharmacological treatment currently addresses the core symptoms of ASD. Existing medications primarily target associated behavioral disturbances such as irritability, aggression and hyperactivity. This narrative review synthesizes contemporary neurobiological findings, methodological challenges and evolving clinical trial frameworks relevant to the evaluation of emerging pharmacotherapies in ASD. Particular emphasis is placed on biomarker-informed stratification, rigorous trial design and developmental timing as critical determinants of therapeutic success. Advances in molecular genetics, systems neuroscience and multimodal biomarker integration highlight the need for precision medicine approaches that align pharmacological targets with underlying neurodevelopmental mechanisms. Strengthening methodological rigor while maintaining ethical and neurodiversity-affirming principles will be essential to advancing effective pharmacological interventions for ASD.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42436630/",
+          "publication_date": "2026-09",
+          "authors": "Bourin M",
+          "venue": "Pakistan journal of pharmaceutical sciences"
+        },
+        {
+          "score": 0.756,
+          "title": "Drug development in autism spectrum disorder: genetic heterogeneity, failed trials, and the case for stratified pharmacotherapy.",
+          "text": "Despite three decades of clinical trials, no pharmacological treatment has shown consistent efficacy for the core features of autism spectrum disorder (ASD), and regulatory approvals remain limited to risperidone and aripiprazole for severe irritability. This limited efficacy likely reflects a mismatch between underlying biology and broad trial designs. ASD is a clinically defined neurodevelopmental condition with marked etiologic heterogeneity, shaped by highly polygenic liability and a long tail of rare, often de novo , high-impact variants. Genomic studies implicate synaptic signaling, chromatin regulation, and excitatory-inhibitory processes, but this partial biological convergence does not support a single therapeutic target across the diagnostic spectrum. Debate over environmental risk factors, including prenatal acetaminophen exposure, also shows how weak causal inference can distort research priorities. We propose three priorities for ASD pharmacotherapy: genetically stratified mechanism-linked interventions, pharmacogenomics-informed symptomatic prescribing, and trials using validated or biomarker-informed endpoints that capture outcomes regarded as meaningful by autistic people.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42127326/",
+          "publication_date": "2026-09-01",
+          "authors": "Bortoletto R, Fanelli G, Colizzi M",
+          "venue": "International clinical psychopharmacology"
+        }
+      ]
+    },
+    {
+      "question": "How do autistic children experience sensory differences?",
+      "results": [
+        {
+          "score": 0.826,
+          "title": "Mapping sensory sensitivity in autism.",
+          "text": "Background: Sensory perception in autism is strikingly heterogeneous, with individuals showing both hypo- and hypersensitivity across different sensory domains. While sensory differences are widely recognized as a core feature of autism, the structure and underlying patterns of this variability remain poorly understood. Previous studies have yielded mixed findings, often examining sensory processing in isolation within single domains, thereby limiting a comprehensive understanding of sensory sensitivity in autism. Methods: We compiled psychophysical data from 107 autistic and 408 age- and IQ-matched non-autistic individuals across 32 experimental conditions spanning multiple perceptual domains, including size, brightness, orientation, pitch, and face processing. Two complementary statistical approaches were used: segmented regression and a Bayesian hierarchical model. Results: Despite substantial inter- and intra-individual variability, both models revealed a consistent domain-specific pattern: on average, autistic individuals showed reduced sensitivity to faces and speech, while performance on basic non-social tasks was comparable to or exceeded that of the comparison group. Bayesian modelling further indicated that social relevance, rather than domain alone, accounted for the primary source of divergence between groups. Limitations: This study focused on sensory sensitivity thresholds and did not assess perceptual biases or changes in subjective appearance of the stimuli. A full account of perception in autism requires considering these broader alterations. Conclusions: The current findings suggest that sensory differences in autism reflect a structured perceptual profile shaped by social relevance, stimulus complexity, and individual variability. The results highlight the importance of individualized sensory profiling and may inform both theoretical models and personalized approaches to intervention in autism.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42135798/",
+          "publication_date": "2026-05-14",
+          "authors": "Hadad BS, Leon I, Hartston M et al.",
+          "venue": "Molecular autism"
+        },
+        {
+          "score": 0.804,
+          "title": "Sensory Intervention for Children With Autism",
+          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. Greater than 80% of children with autism spectrum disorder (ASD) experience sensory differences that make it difficult for them to fully participate in meaningful everyday activities. In this research study, we will use MRI and behavioral methods to assess how sensory interventions might change sensory brain structures, allowing us to better predict which sensory interventions might work best for whom.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT06246487",
+          "publication_date": "2024-01-16",
+          "authors": "University of Florida",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
+          "score": 0.797,
+          "title": "Capturing Phenotypic Heterogeneity in Differentiated Sensory Processing Profiles: Non-Syndromic Autism and Fragile X Syndrome.",
+          "text": "Proficient sensory processing affords adaptive responses required for daily functioning. Sensory processing differences are common across neurodevelopmental disabilities (NDDs), including autism and fragile X syndrome (FXS), and, in some cases, associated with challenging behaviors. Although sensory processing differences are common in both autism and FXS, little is known about possible variation as a function of genetic etiology, or autism classification. This study characterized sensory processing features and examined associations between these features and challenging behavior in 102 male participants-non-syndromic autism (n = 37), FXS-only (n = 15), FXS + ASD (n = 20), and neurotypical (NT) children (n = 30). Autistic children demonstrated the highest levels of sensory processing differences; however, nuanced group differences were also identified. The autistic groups (autism and FXS + ASD) were similar on hypo-responsivity and sensory seeking, and the FXS groups (FXS-only and FXS + ASD) were similar on hyper-responsivity and sensory seeking. Within-group associations between sensory differences and challenging behavior were relatively similar across groups. Findings have implications for potential etiological mechanisms of sensory processing differences and associated functional consequences. Implications for diagnostic specificity and intervention are discussed.Lay AbstractSensory processing differences are common in neurodevelopmental disabilities such as autism and fragile X syndrome (FXS). Sensory differences include extreme sensitivity to sensory experiences (hyper-responsivity), decreased sensitivity to sensory experiences (hypo-responsivity), and seeking out sensory experiences to an unexpected degree (sensory seeking). While more is known about sensory differences and challenging behaviors in autism, less is known about these patterns in children with FXS. This study examined the profiles of sensory processing differences and patterns of association between types of sensory response and challenging behavior in males between 24 and 69 months of age with FXS with and without co-occurring autism compared with young autistic males. Participant's parents filled out questionnaires about sensory responses and challenging behaviors. Results showed that sensory hyper-responsivity is likely part of the broader behavioral profile of FXS, whereas hypo-responsivity is more indicative of autism. In addition, results demonstrated comparable associations between types of atypical sensory processing and ratings of challenging behaviors across groups. These findings contribute to our understanding of the similarities and differences between autism and FXS and have important implications for targeted assessment and intervention practices.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42210557/",
+          "publication_date": "2026-07",
+          "authors": "Knott CE, Roberts JE, Will EA",
+          "venue": "Autism : the international journal of research and practice"
+        },
+        {
+          "score": 0.794,
+          "title": "Sensory processing differences and behavioural problems in children with autism: a retrospective study using statistical modelling and multi-output machine learning.",
+          "text": "Background: Sensory processing differences (SPDs) are common in children with autism, yet their specific contributions to behavioural problems remain insufficiently explored. To examine how SPDs relate to behavioural problems in children with autism and to identify key sensory predictors and sensory-based subtypes associated with behavioural risk. Methods: The retrospective study included 127 children with autism (1-7 years) who received rehabilitation training at a tertiary children's hospital between 2020 and 2024. Fifteen SPD features across visual, auditory, tactile, gustatory/olfactory and vestibular/proprioceptive modalities (covering sensitivity, hyporesponsivity and seeking behaviours) and six behavioural problems were coded as binary variables based on parent-reported questionnaires. Associations were analysed using Phi correlations and logistic regression. A multi-output random forest with Shapley Additive Explanations (SHAP) evaluated the joint predictive value of SPDs. Hierarchical clustering using Jaccard distance was used to identify sensory subtypes and compare behavioural profiles. Results: Vestibular/proprioceptive seeking was positively associated with frequent tantrums (\u03c6=0.30) and emerged as an independent predictor (OR=3.83, 95% CI 1.65 to 8.90). Visual seeking was negatively associated with difficulty adapting to routine changes (\u03c6=-0.23; OR=0.34, 95% CI 0.15 to 0.78). The multi-output random forest showed moderate performance. SHAP analysis highlighted auditory sensitivity and multiple seeking behaviours as major contributors. Clustering revealed a 'multi-sensory seeking' subtype with higher rates of tantrums. Conclusions: SPDs are meaningfully linked to behavioural problems in autism. Vestibular/proprioceptive seeking and auditory sensitivity are key behavioural risk indicators, while visual seeking may support adaptability. Sensory-based profiling has the potential to identify children at elevated behavioural risk and guide personalised intervention planning.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42097826/",
+          "publication_date": "2026-05-07",
+          "authors": "Yan C, Xu J, Duan K et al.",
+          "venue": "BMJ paediatrics open"
         }
       ]
     }

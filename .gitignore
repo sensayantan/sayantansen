@@ -5,3 +5,4 @@ __pycache__/
 /.daybreak-work/
 /SayantanStockCode.xlsx
 experiments/autism-rag/index.pkl
+experiments/autism-rag/corpus/

@@ -978,10 +978,63 @@ a:hover {
   margin: 0 0 0.6rem;
 }
 
+/* Abstracts run long enough that one result fills a screen, which defeats
+   the point of showing a ranking. Clamp to a few lines; autism.js adds the
+   toggle below only to the ones that actually overflow. */
+.result-text.is-clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.result-toggle {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0 0.6rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.result-toggle:hover,
+.result-toggle:focus-visible {
+  text-decoration: underline;
+}
+
 .result-source {
   font-size: 0.8rem;
   font-style: italic;
   color: var(--color-muted);
+  margin: 0;
+}
+
+/* Result titles link out to the real paper or trial record. */
+.result-title a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.result-title a:hover,
+.result-title a:focus {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* Corpus provenance line, filled in by autism.js from the data file. */
+.experiment-provenance {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin: 0 0 1.5rem;
+}
+
+.experiment-provenance:empty {
   margin: 0;
 }
 

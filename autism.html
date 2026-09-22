@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/style.css?v=8">
 </head>
 <body>
 
@@ -42,7 +42,7 @@
 
   <main class="container container-wide experiment-page">
 
-    <div class="experiment-warning">
+    <div class="experiment-warning" id="experiment-warning">
       <strong>This is a technical experiment, not health information.</strong>
       The documents below are illustrative placeholder text written to test a
       search pipeline — they are not verified, sourced, or current medical
@@ -52,12 +52,12 @@
 
     <h1>Autism retrieval experiment</h1>
     <p class="experiment-intro">
-      Pick a question. The page shows which documents a TF-IDF keyword search
-      picked out of a 17-document corpus, and the similarity score it gave each
-      one. Scores run 0 (nothing in common) to 1 (identical wording). Nothing is
-      written or summarised by an AI here — these are the stored documents
-      themselves, returned verbatim and ranked.
+      Pick a question. The page shows which documents a similarity search
+      picked out of the corpus, and the score it gave each one. Nothing is
+      written or summarised by an AI here — these are the stored records
+      themselves, returned verbatim and ranked, each linking out to its source.
     </p>
+    <p class="experiment-provenance" id="experiment-provenance"></p>
 
     <label class="experiment-label" for="question-select">Choose a question</label>
     <select id="question-select" class="experiment-select">

@@ -1,32 +1,120 @@
 let faqData = [];
 
+const SOURCE_LABELS = {
+  pubmed: "PubMed",
+  clinicaltrials: "ClinicalTrials.gov",
+};
+
+// Every field below comes from PubMed or ClinicalTrials.gov, not from this
+// repo, so nothing is interpolated into innerHTML unescaped.
+function esc(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (c) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  })[c]);
+}
+
+// Only ever link out to the two registries the corpus is built from.
+function safeUrl(url) {
+  return /^https:\/\/(pubmed\.ncbi\.nlm\.nih\.gov|clinicaltrials\.gov)\//.test(url) ? url : "";
+}
+
+// Dense embeddings sit in a much narrower, higher band than the old TF-IDF
+// scores: on this corpus an unrelated question still reaches 0.586, while
+// the page's own questions run 0.712 to 0.874. These bands come from
+// experiments/autism-rag/calibrate.py, not from eyeballing — re-run it if
+// the corpus changes substantially.
 function scoreLabel(score) {
-  if (score >= 0.35) return "strong match";
-  if (score >= 0.15) return "weak match";
-  return "very weak match";
+  if (score >= 0.80) return "strong match";
+  if (score >= 0.72) return "moderate match";
+  return "weak match";
+}
+
+// `source_note` is the phase-1 shape: a hand-written provenance sentence
+// rather than a real citation. Kept so the published page stays correct
+// until data/autism-faq.json is regenerated from the real corpus.
+function citation(r) {
+  const bits = [r.authors, r.venue, r.publication_date].filter(Boolean);
+  if (bits.length) return esc(bits.join(" · "));
+  return r.source_note ? esc(r.source_note) : "";
 }
 
 function renderResults(entry) {
   if (!entry.results.length) {
-    return '<p class="placeholder">Nothing in the corpus shared enough vocabulary with this question to score above zero.</p>';
+    return '<p class="placeholder">Nothing in the corpus scored above the relevance floor for this question.</p>';
   }
 
   return entry.results
-    .map((r, i) => `
+    .map((r, i) => {
+      const url = safeUrl(r.source_url);
+      const title = esc(r.title);
+      const cite = citation(r);
+      return `
       <article class="result-card">
         <div class="result-rank">#${i + 1}</div>
         <div class="result-body">
           <div class="result-meta">
             <span class="result-score">${r.score.toFixed(3)}</span>
             <span class="result-score-label">${scoreLabel(r.score)}</span>
-            <span class="result-category">${r.category.replace(/_/g, " ")}</span>
+            <span class="result-category">${esc(SOURCE_LABELS[r.source] || r.source || (r.category || "").replace(/_/g, " "))}</span>
           </div>
-          <h3 class="result-title">${r.title}</h3>
-          <p class="result-text">${r.text}</p>
-          <p class="result-source">${r.source_note}</p>
+          <h3 class="result-title">${
+            url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${title}</a>` : title
+          }</h3>
+          <p class="result-text is-clamped">${esc(r.text)}</p>
+          ${cite ? `<p class="result-source">${cite}</p>` : ""}
         </div>
-      </article>`)
+      </article>`;
+    })
     .join("");
+}
+
+// The corpus can be either the real fetched one or the old hand-written
+// placeholder set, and the warning on the page has to stay true to whichever
+// is actually loaded. Only build_page_data.py writes `meta`, so its presence
+// is the signal that these results came from real, citable sources.
+function renderProvenance(meta) {
+  const banner = document.getElementById("experiment-warning");
+  const provenance = document.getElementById("experiment-provenance");
+  if (!meta) return;
+
+  banner.innerHTML =
+    "<strong>This is a retrieval experiment, not health information.</strong> " +
+    "These are real published abstracts and trial records, returned verbatim by " +
+    "a similarity search — they are not reviewed, ranked for quality, or checked " +
+    "for whether they reflect current consensus. A high score means wording that " +
+    "matched, nothing more. For actual guidance, talk to a paediatrician or a " +
+    "developmental specialist.";
+
+  const counts = Object.entries(meta.counts || {})
+    .map(([source, n]) => `${n} from ${esc(SOURCE_LABELS[source] || source)}`)
+    .join(", ");
+  provenance.textContent =
+    `Corpus: ${meta.document_count} documents (${counts}). ` +
+    `Embedded with ${meta.model}. Built ${meta.generated}.`;
+}
+
+// Only the abstracts that genuinely overflow get a toggle. Measuring beats
+// a character-count guess: four clamped lines hold far less text on a phone
+// than on a desktop, so a fixed threshold would either add useless buttons
+// or hide text with no way to reach it.
+function addToggles(container) {
+  container.querySelectorAll(".result-text").forEach((textEl) => {
+    if (textEl.scrollHeight <= textEl.clientHeight + 2) {
+      textEl.classList.remove("is-clamped");
+      return;
+    }
+    const button = document.createElement("button");
+    button.className = "result-toggle";
+    button.type = "button";
+    button.textContent = "Show more";
+    button.setAttribute("aria-expanded", "false");
+    button.addEventListener("click", () => {
+      const clamped = textEl.classList.toggle("is-clamped");
+      button.textContent = clamped ? "Show more" : "Show less";
+      button.setAttribute("aria-expanded", String(!clamped));
+    });
+    textEl.insertAdjacentElement("afterend", button);
+  });
 }
 
 async function loadFaq() {
@@ -35,6 +123,7 @@ async function loadFaq() {
     if (!response.ok) throw new Error(`Failed to load autism-faq.json (${response.status})`);
     const data = await response.json();
     faqData = data.questions || [];
+    renderProvenance(data.meta);
 
     const select = document.getElementById("question-select");
     faqData.forEach((entry, index) => {
@@ -51,6 +140,7 @@ async function loadFaq() {
         return;
       }
       results.innerHTML = renderResults(faqData[Number(event.target.value)]);
+      addToggles(results);
     });
   } catch (err) {
     console.error(err);
