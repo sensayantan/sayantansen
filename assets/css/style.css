@@ -978,6 +978,35 @@ a:hover {
   margin: 0 0 0.6rem;
 }
 
+/* Abstracts run long enough that one result fills a screen, which defeats
+   the point of showing a ranking. Clamp to a few lines; autism.js adds the
+   toggle below only to the ones that actually overflow. */
+.result-text.is-clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.result-toggle {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0 0.6rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.result-toggle:hover,
+.result-toggle:focus-visible {
+  text-decoration: underline;
+}
+
 .result-source {
   font-size: 0.8rem;
   font-style: italic;

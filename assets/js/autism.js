@@ -60,7 +60,7 @@ function renderResults(entry) {
           <h3 class="result-title">${
             url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${title}</a>` : title
           }</h3>
-          <p class="result-text">${esc(r.text)}</p>
+          <p class="result-text is-clamped">${esc(r.text)}</p>
           ${cite ? `<p class="result-source">${cite}</p>` : ""}
         </div>
       </article>`;
@@ -93,6 +93,30 @@ function renderProvenance(meta) {
     `Embedded with ${meta.model}. Built ${meta.generated}.`;
 }
 
+// Only the abstracts that genuinely overflow get a toggle. Measuring beats
+// a character-count guess: four clamped lines hold far less text on a phone
+// than on a desktop, so a fixed threshold would either add useless buttons
+// or hide text with no way to reach it.
+function addToggles(container) {
+  container.querySelectorAll(".result-text").forEach((textEl) => {
+    if (textEl.scrollHeight <= textEl.clientHeight + 2) {
+      textEl.classList.remove("is-clamped");
+      return;
+    }
+    const button = document.createElement("button");
+    button.className = "result-toggle";
+    button.type = "button";
+    button.textContent = "Show more";
+    button.setAttribute("aria-expanded", "false");
+    button.addEventListener("click", () => {
+      const clamped = textEl.classList.toggle("is-clamped");
+      button.textContent = clamped ? "Show more" : "Show less";
+      button.setAttribute("aria-expanded", String(!clamped));
+    });
+    textEl.insertAdjacentElement("afterend", button);
+  });
+}
+
 async function loadFaq() {
   try {
     const response = await fetch("data/autism-faq.json", { cache: "no-store" });
@@ -116,6 +140,7 @@ async function loadFaq() {
         return;
       }
       results.innerHTML = renderResults(faqData[Number(event.target.value)]);
+      addToggles(results);
     });
   } catch (err) {
     console.error(err);

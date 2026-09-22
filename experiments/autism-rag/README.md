@@ -65,7 +65,28 @@ What each step produces:
 | `build_page_data.py` | `../../data/autism-faq.json` | the only file that needs committing |
 
 Only `data/autism-faq.json` needs committing — that is what the site serves.
-`index.pkl` is gitignored (derived, and a pickle is not a good repo artifact).
+`index.pkl` and `corpus/*.jsonl` are both gitignored: they are derived, they
+total several megabytes, and re-running the fetch reproduces them.
+
+## Running it without a terminal
+
+`.github/workflows/refresh-corpus.yml` does all of the above on the 1st of
+each month, and commits the regenerated `data/autism-faq.json` back to
+`main` with `[skip ci]` — the same pattern `render-content.yml` uses for
+admin-published content. It can also be started by hand from the repo's
+Actions tab (Run workflow).
+
+Two things it does that a local run does not need:
+
+- Installs the CPU-only PyTorch wheel first. The default Linux wheel is the
+  CUDA build, ~2.5 GB, on a runner with no GPU.
+- Caches `~/.cache/huggingface` under a key naming the model, so the ~130 MB
+  download happens once rather than monthly, and switching models misses the
+  cache instead of silently reusing the wrong weights.
+
+It also runs `calibrate.py` and prints the result. That is not a gate — it
+is a record, so that if the separation between on-topic and off-topic scores
+ever collapses as the corpus shifts, the log shows it.
 
 `python3 test_parsers.py` checks the XML and JSON parsing against fixtures
 with no network access. Run it after touching either fetch script.
