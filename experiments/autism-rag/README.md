@@ -39,16 +39,30 @@ row, which is a separate piece of work.
 
 ## Run it
 
+Run these one line at a time. Note there are no trailing `#` comments
+below, on purpose: zsh (the default macOS shell) does not treat `#` as a
+comment when typed interactively, so a pasted `# ~1500 records` is read as
+a tilde expansion and the command fails with "no such user or named
+directory".
+
 ```
 cd experiments/autism-rag
 pip install -r requirements.txt
-
-python3 fetch_pubmed.py          # -> corpus/pubmed.jsonl   (~1500 records)
-python3 fetch_trials.py          # -> corpus/trials.jsonl   (~400 records)
-python3 build_index.py           # -> index.pkl  (downloads the model once, ~130 MB)
+python3 fetch_pubmed.py
+python3 fetch_trials.py
+python3 build_index.py
 python3 query.py "is autism genetic"
-python3 build_page_data.py       # -> ../../data/autism-faq.json
+python3 build_page_data.py
 ```
+
+What each step produces:
+
+| Step | Writes | Notes |
+|---|---|---|
+| `fetch_pubmed.py` | `corpus/pubmed.jsonl` | ~1500 abstracts, a few minutes |
+| `fetch_trials.py` | `corpus/trials.jsonl` | ~400 trial records |
+| `build_index.py` | `index.pkl` | downloads the model once (~130 MB), then embeds on CPU |
+| `build_page_data.py` | `../../data/autism-faq.json` | the only file that needs committing |
 
 Only `data/autism-faq.json` needs committing — that is what the site serves.
 `index.pkl` is gitignored (derived, and a pickle is not a good repo artifact).
