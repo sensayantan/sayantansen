@@ -1,0 +1,290 @@
+{
+  "questions": [
+    {
+      "question": "Is autism genetic?",
+      "results": [
+        {
+          "score": 0.463,
+          "title": "Genetic contribution to autism risk",
+          "category": "etiology",
+          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
+          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+        },
+        {
+          "score": 0.214,
+          "title": "Environmental and prenatal factors under study",
+          "category": "etiology",
+          "text": "Research has examined a range of prenatal and early-life factors alongside genetic risk, including advanced parental age at conception, certain prenatal exposures, complications during pregnancy or birth, and extreme prematurity. Most researchers currently frame autism risk as an interaction between genetic predisposition and environmental factors rather than either alone, though no single environmental cause has been established as necessary or sufficient.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.173,
+          "title": "Autism is not caused by parenting style",
+          "category": "etiology",
+          "text": "Autism is not caused by parenting practices, emotional coldness, or early childhood experiences \u2014 a discredited idea (the 'refrigerator mother' theory) from the 1950s-60s that caused significant harm to families. Current scientific consensus attributes autism primarily to neurodevelopmental and genetic factors present from early brain development, not to how a child is raised.",
+          "source_note": "General knowledge summary, illustrative only"
+        }
+      ]
+    },
+    {
+      "question": "Do vaccines cause autism?",
+      "results": [
+        {
+          "score": 0.384,
+          "title": "The vaccine hypothesis has been scientifically rejected",
+          "category": "etiology",
+          "text": "The hypothesis that vaccines, including the MMR vaccine and thimerosal-containing vaccines, cause autism has been extensively studied and consistently rejected by large-scale epidemiological research across many countries and millions of children. The original 1998 study that proposed this link was retracted for data fraud and its lead author lost his medical license. Major health bodies worldwide, including the CDC and WHO, state there is no causal link between vaccines and autism.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.095,
+          "title": "Genetic contribution to autism risk",
+          "category": "etiology",
+          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
+          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+        },
+        {
+          "score": 0.075,
+          "title": "US autism prevalence, 8-year-olds",
+          "category": "prevalence_stats",
+          "text": "The CDC's Autism and Developmental Disabilities Monitoring (ADDM) Network has tracked ASD prevalence among 8-year-old children across multiple US sites since 2000. Reported prevalence has risen over successive surveillance years, from roughly 1 in 150 in the early 2000s toward approximately 1 in 31 to 1 in 36 in more recent reporting cycles. Rising numbers reflect a mix of factors: broader diagnostic criteria, increased awareness and screening, and improved access to evaluation, not necessarily a single underlying cause.",
+          "source_note": "General knowledge summary, illustrative only \u2014 verify against the current CDC ADDM Network report before real use"
+        }
+      ]
+    },
+    {
+      "question": "How common is autism?",
+      "results": [
+        {
+          "score": 0.215,
+          "title": "Common early intervention approaches",
+          "category": "support_and_therapy",
+          "text": "Common evidence-supported early intervention approaches for autistic children include Applied Behavior Analysis (ABA), speech-language therapy, occupational therapy (often addressing sensory processing and fine motor skills), and developmental/relationship-based approaches such as the Early Start Denver Model (ESDM). Approach selection is highly individual, and there is active, sometimes contentious, discussion within the autism community \u2014 including autistic self-advocates \u2014 about therapy goals and methods, particularly around ABA.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.175,
+          "title": "Genetic contribution to autism risk",
+          "category": "etiology",
+          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
+          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+        },
+        {
+          "score": 0.061,
+          "title": "Autism is a spectrum, not one profile",
+          "category": "myths_and_facts",
+          "text": "Autism presents highly differently across individuals \u2014 in communication style, sensory sensitivities, cognitive profile, and support needs \u2014 which is why it is described as a spectrum rather than a single fixed presentation. Two autistic people can have very different strengths, challenges, and support needs; there is no single 'look' or behavior pattern that defines autism.",
+          "source_note": "General knowledge summary, illustrative only"
+        }
+      ]
+    },
+    {
+      "question": "At what age is autism usually diagnosed?",
+      "results": [
+        {
+          "score": 0.295,
+          "title": "Age at first diagnosis",
+          "category": "prevalence_stats",
+          "text": "Median age of autism diagnosis in the US has typically been reported between 4 and 5 years old, despite reliable diagnosis often being possible by age 2. Delays are frequently attributed to waitlists for developmental evaluations, disparities in access by income and geography, and lower rates of early screening in underserved communities.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.152,
+          "title": "Why early intervention timing matters",
+          "category": "support_and_therapy",
+          "text": "Research broadly supports that earlier intervention, when developmentally appropriate support begins before or around age 3, is associated with better long-term outcomes in communication and adaptive skills, attributed to higher brain plasticity in early childhood. This is a key reason early screening and reducing diagnostic delay is a public health priority, distinct from any claim that later diagnosis forecloses meaningful support or progress at any age.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.131,
+          "title": "Racial and ethnic disparities",
+          "category": "prevalence_stats",
+          "text": "Historically, White children in the US were diagnosed with autism at higher rates than Black and Hispanic children, a gap increasingly attributed to disparities in healthcare access rather than true differences in underlying prevalence. Recent ADDM cycles have shown this gap narrowing or reversing in some surveillance sites.",
+          "source_note": "General knowledge summary, illustrative only"
+        }
+      ]
+    },
+    {
+      "question": "What are the diagnostic criteria for autism?",
+      "results": [
+        {
+          "score": 0.169,
+          "title": "DSM-5 core diagnostic domains",
+          "category": "diagnostic_criteria",
+          "text": "The DSM-5 organizes autism spectrum disorder diagnostic criteria into two core domains: (1) persistent deficits in social communication and social interaction across contexts, including difficulties with social-emotional reciprocity, nonverbal communicative behaviors, and developing/maintaining relationships; and (2) restricted, repetitive patterns of behavior, interests, or activities, including stereotyped movements, insistence on sameness, highly restricted interests, and unusual sensory reactivity. Symptoms must be present in early development and cause clinically significant impairment.",
+          "source_note": "Paraphrased summary of publicly known DSM-5 structure, not verbatim text \u2014 consult the DSM-5-TR directly for clinical use"
+        },
+        {
+          "score": 0.16,
+          "title": "Autism and intellectual disability are not the same thing",
+          "category": "myths_and_facts",
+          "text": "Autism and intellectual disability are separate, sometimes co-occurring conditions. Estimates of the proportion of autistic individuals with a co-occurring intellectual disability vary across studies and have decreased over time as diagnostic criteria and screening have broadened to identify autistic individuals across the full range of cognitive ability, including those with average or above-average IQ.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.158,
+          "title": "US autism prevalence, 8-year-olds",
+          "category": "prevalence_stats",
+          "text": "The CDC's Autism and Developmental Disabilities Monitoring (ADDM) Network has tracked ASD prevalence among 8-year-old children across multiple US sites since 2000. Reported prevalence has risen over successive surveillance years, from roughly 1 in 150 in the early 2000s toward approximately 1 in 31 to 1 in 36 in more recent reporting cycles. Rising numbers reflect a mix of factors: broader diagnostic criteria, increased awareness and screening, and improved access to evaluation, not necessarily a single underlying cause.",
+          "source_note": "General knowledge summary, illustrative only \u2014 verify against the current CDC ADDM Network report before real use"
+        }
+      ]
+    },
+    {
+      "question": "What screening tools are used to check for autism?",
+      "results": [
+        {
+          "score": 0.263,
+          "title": "ADOS-2 diagnostic observation",
+          "category": "screening_tools",
+          "text": "The Autism Diagnostic Observation Schedule, Second Edition (ADOS-2) is a semi-structured, standardized assessment administered by trained clinicians, involving direct observation of a child's or adult's social interaction, communication, and play or imaginative use of materials. It is one of the most widely used tools in formal autism diagnostic evaluations, typically combined with developmental history (e.g., via the ADI-R interview) rather than used alone.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.255,
+          "title": "M-CHAT-R/F screening tool",
+          "category": "screening_tools",
+          "text": "The Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-CHAT-R/F) is a widely used parent-report screening questionnaire for children between 16 and 30 months old. It is a first-level screening tool, not a diagnostic instrument \u2014 a positive result indicates a child should be referred for a full developmental evaluation, not that the child has autism.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.111,
+          "title": "Sex differences in diagnosis rates",
+          "category": "prevalence_stats",
+          "text": "Autism is diagnosed more often in boys than girls, historically cited around a 4:1 ratio, though more recent research suggests the true ratio may be closer to 3:1 once accounting for underdiagnosis in girls, who more often present with subtler or camouflaged social difficulties that existing diagnostic tools were originally designed around male presentation patterns.",
+          "source_note": "General knowledge summary, illustrative only \u2014 verify against current CDC data"
+        }
+      ]
+    },
+    {
+      "question": "Who can formally diagnose autism?",
+      "results": [
+        {
+          "score": 0.18,
+          "title": "Genetic contribution to autism risk",
+          "category": "etiology",
+          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
+          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+        },
+        {
+          "score": 0.171,
+          "title": "Autism is a spectrum, not one profile",
+          "category": "myths_and_facts",
+          "text": "Autism presents highly differently across individuals \u2014 in communication style, sensory sensitivities, cognitive profile, and support needs \u2014 which is why it is described as a spectrum rather than a single fixed presentation. Two autistic people can have very different strengths, challenges, and support needs; there is no single 'look' or behavior pattern that defines autism.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.155,
+          "title": "Autism is not caused by parenting style",
+          "category": "etiology",
+          "text": "Autism is not caused by parenting practices, emotional coldness, or early childhood experiences \u2014 a discredited idea (the 'refrigerator mother' theory) from the 1950s-60s that caused significant harm to families. Current scientific consensus attributes autism primarily to neurodevelopmental and genetic factors present from early brain development, not to how a child is raised.",
+          "source_note": "General knowledge summary, illustrative only"
+        }
+      ]
+    },
+    {
+      "question": "What early intervention therapies are available?",
+      "results": [
+        {
+          "score": 0.36,
+          "title": "Why early intervention timing matters",
+          "category": "support_and_therapy",
+          "text": "Research broadly supports that earlier intervention, when developmentally appropriate support begins before or around age 3, is associated with better long-term outcomes in communication and adaptive skills, attributed to higher brain plasticity in early childhood. This is a key reason early screening and reducing diagnostic delay is a public health priority, distinct from any claim that later diagnosis forecloses meaningful support or progress at any age.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.293,
+          "title": "Common early intervention approaches",
+          "category": "support_and_therapy",
+          "text": "Common evidence-supported early intervention approaches for autistic children include Applied Behavior Analysis (ABA), speech-language therapy, occupational therapy (often addressing sensory processing and fine motor skills), and developmental/relationship-based approaches such as the Early Start Denver Model (ESDM). Approach selection is highly individual, and there is active, sometimes contentious, discussion within the autism community \u2014 including autistic self-advocates \u2014 about therapy goals and methods, particularly around ABA.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.096,
+          "title": "Autism is not caused by parenting style",
+          "category": "etiology",
+          "text": "Autism is not caused by parenting practices, emotional coldness, or early childhood experiences \u2014 a discredited idea (the 'refrigerator mother' theory) from the 1950s-60s that caused significant harm to families. Current scientific consensus attributes autism primarily to neurodevelopmental and genetic factors present from early brain development, not to how a child is raised.",
+          "source_note": "General knowledge summary, illustrative only"
+        }
+      ]
+    },
+    {
+      "question": "Is autism caused by parenting?",
+      "results": [
+        {
+          "score": 0.572,
+          "title": "Autism is not caused by parenting style",
+          "category": "etiology",
+          "text": "Autism is not caused by parenting practices, emotional coldness, or early childhood experiences \u2014 a discredited idea (the 'refrigerator mother' theory) from the 1950s-60s that caused significant harm to families. Current scientific consensus attributes autism primarily to neurodevelopmental and genetic factors present from early brain development, not to how a child is raised.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.041,
+          "title": "Genetic contribution to autism risk",
+          "category": "etiology",
+          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
+          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+        },
+        {
+          "score": 0.039,
+          "title": "Autism is a spectrum, not one profile",
+          "category": "myths_and_facts",
+          "text": "Autism presents highly differently across individuals \u2014 in communication style, sensory sensitivities, cognitive profile, and support needs \u2014 which is why it is described as a spectrum rather than a single fixed presentation. Two autistic people can have very different strengths, challenges, and support needs; there is no single 'look' or behavior pattern that defines autism.",
+          "source_note": "General knowledge summary, illustrative only"
+        }
+      ]
+    },
+    {
+      "question": "Why are more boys diagnosed with autism than girls?",
+      "results": [
+        {
+          "score": 0.412,
+          "title": "Sex differences in diagnosis rates",
+          "category": "prevalence_stats",
+          "text": "Autism is diagnosed more often in boys than girls, historically cited around a 4:1 ratio, though more recent research suggests the true ratio may be closer to 3:1 once accounting for underdiagnosis in girls, who more often present with subtler or camouflaged social difficulties that existing diagnostic tools were originally designed around male presentation patterns.",
+          "source_note": "General knowledge summary, illustrative only \u2014 verify against current CDC data"
+        },
+        {
+          "score": 0.094,
+          "title": "Racial and ethnic disparities",
+          "category": "prevalence_stats",
+          "text": "Historically, White children in the US were diagnosed with autism at higher rates than Black and Hispanic children, a gap increasingly attributed to disparities in healthcare access rather than true differences in underlying prevalence. Recent ADDM cycles have shown this gap narrowing or reversing in some surveillance sites.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.035,
+          "title": "Genetic contribution to autism risk",
+          "category": "etiology",
+          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
+          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+        }
+      ]
+    },
+    {
+      "question": "Are autism and intellectual disability the same thing?",
+      "results": [
+        {
+          "score": 0.591,
+          "title": "Autism and intellectual disability are not the same thing",
+          "category": "myths_and_facts",
+          "text": "Autism and intellectual disability are separate, sometimes co-occurring conditions. Estimates of the proportion of autistic individuals with a co-occurring intellectual disability vary across studies and have decreased over time as diagnostic criteria and screening have broadened to identify autistic individuals across the full range of cognitive ability, including those with average or above-average IQ.",
+          "source_note": "General knowledge summary, illustrative only"
+        },
+        {
+          "score": 0.034,
+          "title": "Genetic contribution to autism risk",
+          "category": "etiology",
+          "text": "Twin and family studies consistently estimate autism heritability at roughly 60-90%, indicating a strong genetic component, though there is no single 'autism gene.' Research has identified hundreds of genes associated with increased likelihood, spanning both common genetic variants each contributing small effects and rare de novo (non-inherited) mutations with larger individual effects. Autism is understood as a highly polygenic and heterogeneous condition rather than one with a single genetic cause.",
+          "source_note": "General knowledge summary, illustrative only \u2014 an active and evolving research area"
+        },
+        {
+          "score": 0.032,
+          "title": "Autism is a spectrum, not one profile",
+          "category": "myths_and_facts",
+          "text": "Autism presents highly differently across individuals \u2014 in communication style, sensory sensitivities, cognitive profile, and support needs \u2014 which is why it is described as a spectrum rather than a single fixed presentation. Two autistic people can have very different strengths, challenges, and support needs; there is no single 'look' or behavior pattern that defines autism.",
+          "source_note": "General knowledge summary, illustrative only"
+        }
+      ]
+    }
+  ]
+}
