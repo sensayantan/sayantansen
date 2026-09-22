@@ -101,6 +101,22 @@ bicycle tyres returns a cycling-and-autism trial, both scoring around 0.50.
 That is the model working — it found the closest thing that exists — but it
 means one probe measures topical adjacency rather than the true floor.
 calibrate.py uses several unrelated questions and takes the ceiling.
+
+Measured on the first real corpus (~1900 documents, bge-small-en-v1.5):
+
+| | score |
+|---|---|
+| Off-topic ceiling | 0.586 |
+| On-topic floor | 0.712 |
+| On-topic median | 0.802 |
+| On-topic best | 0.874 |
+| **Separation** | **+0.126** |
+
+Those gave `MIN_SCORE = 0.63`, and score bands of 0.80 (strong) and 0.72
+(moderate), which are what the code now holds. The separation is what
+matters: with a clear gap, one cutoff genuinely divides signal from noise.
+Under TF-IDF there was no such gap — the failing case in phase 1 was a
+relevant document scoring *below* irrelevant ones.
 - **The meaning-vs-words upgrade should be visible.** The question that
   failed under TF-IDF was "how many kids get diagnosed with autism", which
   ranked the actual prevalence document third. Semantically similar

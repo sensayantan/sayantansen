@@ -40,11 +40,12 @@ MAX_AUTHORS = 3
 # "score > 0" filter would let anything through. This floor drops results
 # that rank top-k only because nothing better existed.
 #
-# TUNE THIS. The right value depends on the model and on the corpus, and it
-# can only be set by reading real output: run query.py on a question the
-# corpus genuinely cannot answer ("what is the capital of France"), see what
-# the top score is, and set the floor just above it.
-MIN_SCORE = 0.0
+# Measured with calibrate.py against the real corpus (~1900 documents):
+# unrelated questions peak at 0.586, while the weakest question the page
+# actually asks tops out at 0.712. This sits in that gap, nearer the noise
+# side so a genuinely weak match is shown rather than silently dropped.
+# Re-run calibrate.py after any substantial change to the corpus.
+MIN_SCORE = 0.63
 
 # Phrased the way someone might actually ask, not the way papers are titled —
 # which is the point of switching to embeddings. With TF-IDF these failed

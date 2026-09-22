@@ -18,12 +18,14 @@ function safeUrl(url) {
   return /^https:\/\/(pubmed\.ncbi\.nlm\.nih\.gov|clinicaltrials\.gov)\//.test(url) ? url : "";
 }
 
-// Dense embeddings sit in a much narrower band than the old TF-IDF scores —
-// unrelated text still scores around 0.6, so these bands start higher.
-// They are calibrated by eye and worth re-checking against real output.
+// Dense embeddings sit in a much narrower, higher band than the old TF-IDF
+// scores: on this corpus an unrelated question still reaches 0.586, while
+// the page's own questions run 0.712 to 0.874. These bands come from
+// experiments/autism-rag/calibrate.py, not from eyeballing — re-run it if
+// the corpus changes substantially.
 function scoreLabel(score) {
-  if (score >= 0.75) return "strong match";
-  if (score >= 0.65) return "moderate match";
+  if (score >= 0.80) return "strong match";
+  if (score >= 0.72) return "moderate match";
   return "weak match";
 }
 
