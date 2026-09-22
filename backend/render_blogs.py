@@ -133,6 +133,10 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16.5 4.7 13 14 3.7l2.3 2.3L7 15.3l-3.5.7Z"/></svg>
           Sayantan Blogs
         </a>
+        <a href="../autism.html" class="pill">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 3h5"/><path d="M9 3v5.5L4.5 16h11L11 8.5V3"/></svg>
+          My Experiment
+        </a>
       </nav>
     </div>
   </header>
