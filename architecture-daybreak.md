@@ -46,7 +46,7 @@ No separate frontend framework/build is needed for this report. The renderer emb
 
 ## Editorial input contract
 
-The scheduled agent writes `.daybreak-work/edition.json` for the actual current Pacific date. All eight configured editorial sections must exist. Empty sections require an explicit reason rather than recycled news.
+The scheduled agent writes `.daybreak-work/edition.json` for the actual current Pacific date. All nine configured editorial sections must exist. Empty sections require an explicit reason rather than recycled news.
 
 Each story contains `eventId`, `category`, `headline`, `summary`, `publishedAt`, and `sources`. Each source has `url`, `label`, and the actual `verifiedAt` timestamp. The agent opens/checks citations and uses the real publication time; it must not fabricate timestamps to pass validation. Example story shape:
 
@@ -69,7 +69,7 @@ Each of the five `metrics` requires a display `value`, its source observation da
 
 Search every region independently, plus a worldwide breaking-event sweep. Major earthquakes, floods, mass shootings, massacres, terrorism, accidents and humanitarian emergencies belong in Top News when their verified human impact and urgency warrant it. Nepal is searched within Asia-Pacific; there is no standalone disaster/Nepal desk.
 
-Select Top News first. Do not repeat those events in any other editorial section. Regional desks are India & Asia-Pacific, the Middle East, Europe, Latin America including the Caribbean, Africa, and the US. Technology requires genuinely new reporting within the edition window. Local authoritative sources and independent wires support verification, especially casualty counts and disputed claims.
+Select Top News first. Do not repeat those events in any other editorial section. Regional desks are India & Asia-Pacific, the Middle East, Europe, Latin America including the Caribbean, Africa, and the US. Technology requires genuinely new reporting within the edition window. Health and Research prioritizes primary and peer-reviewed sources and always includes an autism-focused search covering research, care, access, education and clearly labeled human-interest stories. It distinguishes association from causation, preprints from peer review, animal or laboratory work from human evidence, and early research from clinical guidance. Local authoritative sources and independent wires support verification, especially casualty counts and disputed claims.
 
 ## Price methodology and privacy
 

@@ -22,7 +22,8 @@ const scopes=[
   'Europe including EU, UK, Ukraine, Russia and European public safety and policy.',
   'Latin America and Caribbean including Mexico, Brazil, Argentina and smaller countries.',
   'Africa across North, West, Central, East and Southern Africa, including Sudan and Nigeria.',
-  'New technology and AI developments, not recycled product announcements. Prefer original research, official releases and independent reporting.'
+  'New technology and AI developments, not recycled product announcements. Prefer original research, official releases and independent reporting.',
+  'Health and medical research published within the edition window. Prioritize peer-reviewed journals, primary research, systematic reviews, clinical guidance and credible health reporting. Always search autism spectrum disorder, including new research, healthcare access, support, education and clearly labeled inspirational human-interest stories. Distinguish association from causation, preprints from peer review, animal or laboratory work from human evidence, and early studies from clinical guidance. Never provide diagnosis or treatment advice.'
 ];
 export function pacificDate(now=new Date()) {
   return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
@@ -78,7 +79,7 @@ export function rankAndDeduplicate(cards,now=Date.now()) {
   }
   return selected;
 }
-export function createClient({key,model,fetchImpl=fetch,maxCalls=20}) {
+export function createClient({key,model,fetchImpl=fetch,maxCalls=22}) {
   assert(key,'OPENAI_API_KEY is required (never commit it)');
   assert(model,'DAYBREAK_OPENAI_MODEL must name an API model supporting web search and structured outputs');
   let calls=0;

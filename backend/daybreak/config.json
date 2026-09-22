@@ -1,5 +1,5 @@
 {
-  "sections": ["Top News", "Top US News", "Top India & Asia-Pacific News", "Top News from the Middle-East", "Top News from Europe", "Top News from Latin America", "Top News from Africa", "Technology & AI"],
+  "sections": ["Top News", "Top US News", "Top India & Asia-Pacific News", "Top News from the Middle-East", "Top News from Europe", "Top News from Latin America", "Top News from Africa", "Technology & AI", "Health and Research"],
   "metrics": ["S&P 500", "Dow", "Nasdaq", "10-year Treasury", "Fed policy rate"],
   "marketSymbols": ["AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "AVGO", "TSLA", "BRK-B", "JPM", "WMT", "LLY", "V", "XOM", "ORCL", "MA", "COST", "JNJ", "HD", "PG", "NFLX", "BAC", "ABBV", "KO", "CVX", "PLTR", "AMD", "CRM", "CSCO", "IBM", "ADBE", "QCOM", "INTC", "PEP", "MCD"]
 }

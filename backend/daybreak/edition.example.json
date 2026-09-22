@@ -10,7 +10,8 @@
     {"title":"Top News from Europe","stories":[],"emptyReason":"Example only — research required"},
     {"title":"Top News from Latin America","stories":[],"emptyReason":"Example only — research required"},
     {"title":"Top News from Africa","stories":[],"emptyReason":"Example only — research required"},
-    {"title":"Technology & AI","stories":[],"emptyReason":"Example only — research required"}
+    {"title":"Technology & AI","stories":[],"emptyReason":"Example only — research required"},
+    {"title":"Health and Research","stories":[],"emptyReason":"Example only — health, research and autism research required"}
   ],
   "metrics": [
     {"label":"S&P 500","value":"Source unavailable","asOf":"Research required","source":"https://apnews.com/hub/financial-markets"},
