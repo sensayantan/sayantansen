@@ -3,7 +3,7 @@
 Personal website — bio, blog, and a daily tech news feed. Built step by step
 while learning web development.
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for a file-by-file walkthrough of
+See [architecture-daybreak.md](architecture-daybreak.md) for the current Daybreak architecture and a walkthrough of
 how the backend and frontend fit together — start there if you're trying
 to understand how the pieces connect, not just how to run them.
 
