@@ -1,0 +1,20 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "sayantansen-autism-search",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-11",
+
+  // Workers AI: embeds the visitor's question and writes the summary.
+  // Bound rather than called over HTTP, so no API token lives anywhere.
+  "ai": {
+    "binding": "AI"
+  },
+
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    // The API routes need the Worker; worker-index/* is fetched *through*
+    // the binding from inside the Worker, so it does not need listing here.
+    "run_worker_first": ["/api/*"]
+  }
+}
