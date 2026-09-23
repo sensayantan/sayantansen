@@ -94,24 +94,50 @@ async function handleAsk(request, env) {
     );
   }
 
+  let results;
   try {
-    const results = await search(env, question, TOP_K);
-    const answer = await generateAnswer(env, question, results);
-    return json(
-      {
-        question,
-        answer: answer.text,
-        // The page shows a different, stronger warning when a model wrote
-        // the text than when it only ranked documents.
-        answer_is_generated: answer.generated,
-        results: results.map((r) => ({ score: Number(r.score.toFixed(3)), ...r.doc })),
-      },
-      request
-    );
+    results = await search(env, question, TOP_K);
   } catch (error) {
-    console.error(error);
+    console.error("retrieval failed:", error);
     return json({ error: "Search failed. Try again shortly." }, request, 500);
   }
+
+  // Generation is the optional layer. Retrieval is what carries the actual
+  // value here — real papers, ranked, each with a link — so a failure in the
+  // summariser returns the sources rather than nothing. Collapsing both into
+  // one try block meant a bad model name threw away a perfectly good set of
+  // results and reported it as "Search failed", which pointed at the wrong
+  // half of the pipeline.
+  let answer;
+  try {
+    answer = await generateAnswer(env, question, results);
+  } catch (error) {
+    console.error("generation failed:", error);
+    answer = {
+      text:
+        "The summary step is unavailable, so these are search results only. " +
+        "The ranked sources below are unaffected — they are what the search " +
+        "actually found, returned verbatim.",
+      generated: false,
+      // Surfaced deliberately. Workers AI errors name the model or the
+      // parameter at fault, and a public 500 with no detail is exactly what
+      // made this hard to diagnose. Nothing secret passes through here.
+      error: String(error?.message || error).slice(0, 300),
+    };
+  }
+
+  return json(
+    {
+      question,
+      answer: answer.text,
+      // The page shows a different, stronger warning when a model wrote the
+      // text than when it only ranked documents.
+      answer_is_generated: answer.generated,
+      ...(answer.error ? { answer_error: answer.error } : {}),
+      results: results.map((r) => ({ score: Number(r.score.toFixed(3)), ...r.doc })),
+    },
+    request
+  );
 }
 
 export default {
