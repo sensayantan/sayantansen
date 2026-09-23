@@ -10,6 +10,14 @@ routes on it. That one holds GitHub client secrets and guards admin login;
 this one is a public, unauthenticated endpoint that spends AI inference on
 whatever a stranger types. Neither should be able to take the other down.
 
+For how this fits with the offline pipeline — which machine runs what, which
+files are intermediates, and why the prepared questions need no server at
+all — see **How the whole thing fits together** in
+[`experiments/autism-rag/README.md`](../experiments/autism-rag/README.md).
+
+This is a plain HTTP API, not MCP. The browser POSTs JSON to a URL and gets
+JSON back.
+
 ## What it does
 
 ```

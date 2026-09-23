@@ -118,6 +118,19 @@ Then visit `http://localhost:8000`.
 4. GitHub will give you a URL like `https://<username>.github.io/sayantansen/`
    within a minute or two.
 
+## Autism retrieval experiment
+
+`/autism.html` searches ~1900 real PubMed abstracts and ClinicalTrials.gov
+records by meaning rather than keyword, and can summarise the top matches
+with citations back to the source papers.
+
+| Folder | What it is |
+|---|---|
+| [`experiments/autism-rag/`](experiments/autism-rag/) | The offline pipeline: fetch, embed, export. **Start here** — its README has the architecture overview. |
+| [`autism-search/`](autism-search/) | A Cloudflare Worker answering typed questions live, since GitHub Pages cannot run code. |
+
+Refreshed monthly by `.github/workflows/refresh-corpus.yml`.
+
 ## Roadmap
 
 1. ✅ Vanilla HTML/CSS/JS site with placeholder content

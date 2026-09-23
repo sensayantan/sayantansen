@@ -18,6 +18,108 @@ was not verifiable — the prevalence figures in it were approximate
 recollections, not readings from a CDC report. Every record now links to a
 page you can open and check.
 
+## How the whole thing fits together
+
+Three different computers run code in this project, and it is worth being
+precise about which does what, because the same Python runs in two of them.
+
+| Where | Runs | When |
+|---|---|---|
+| Your Mac | the fetch / embed / export scripts | whenever you run them by hand |
+| GitHub Actions | the exact same scripts | 1st of each month, unattended |
+| Cloudflare Worker | `autism-search/` | every time a visitor types a question |
+
+The first two are interchangeable — GitHub Actions is just a machine that
+runs the scripts for you so you do not have to. The third is different in
+kind, and the reason it exists is below.
+
+### What is produced, and what is kept
+
+```
+fetch_pubmed.py  ──▶ corpus/pubmed.jsonl  ─┐
+fetch_trials.py  ──▶ corpus/trials.jsonl  ─┴─▶ build_index.py ──▶ index.pkl
+                                                                     │
+                            ┌────────────────────────────────────────┴───────┐
+                            ▼                                                ▼
+                  build_page_data.py                            export_worker_index.py
+                            │                                                │
+                            ▼                                                ▼
+                  data/autism-faq.json                   autism-search/public/worker-index/
+                  (committed)                                         (committed)
+```
+
+Only the two bottom boxes are committed. `corpus/*.jsonl` and `index.pkl`
+are gitignored **intermediates** — on a GitHub Actions run they are built
+inside the runner and thrown away when it shuts down. Nothing is lost,
+because they can always be rebuilt from the same two APIs.
+
+So yes: `refresh-corpus.yml` does build `index.pkl` out of `pubmed.jsonl`
+and `trials.jsonl`. But `index.pkl` is not the deliverable — it is a step on
+the way to the two files that are, and it does not survive the run that made
+it.
+
+### Why a Cloudflare Worker is needed at all
+
+GitHub Pages is a file server. It hands out `.html`, `.css`, `.js` and
+`.json` exactly as they sit in the repo. It cannot run code.
+
+That is fine for the prepared questions, because their answers were computed
+in advance: `build_page_data.py` ran all eleven questions through the index
+on a machine that *could* run Python, and wrote the results to
+`data/autism-faq.json`. The browser just downloads that file. No server is
+involved because no thinking happens at request time.
+
+A question someone types cannot work that way, because nobody knew the
+question in advance. The moment it is submitted, something has to:
+
+1. turn that sentence into 384 numbers, which means running an embedding model
+2. compare it against 1900 stored vectors
+3. hand the best matches to a language model to summarise
+
+None of that is a file that can be served. It is computation that has to
+happen *when the request arrives*, on a computer that is awake and listening.
+GitHub Pages has no such computer. Cloudflare Workers is one.
+
+Cloudflare specifically, rather than any other host:
+
+- it is free at this volume, and Workers AI covers both the embedding model
+  and the summarising model on the free allowance
+- the site already has a Worker (`oauth-proxy/`), so it is a familiar deploy
+  rather than a new platform
+- Workers do not sleep, so there is no 30-second cold start on the first
+  question after a quiet night, which a free-tier container host would have
+
+### Two paths a question can take
+
+```
+Prepared question (dropdown)
+  browser ──▶ data/autism-faq.json  (a static file on GitHub Pages)
+  no server, no cost, answer already computed
+
+Typed question (free text)
+  browser ──▶ Cloudflare Worker ──▶ Workers AI  (embed the question)
+                               ──▶ vectors.bin  (rank 1900 documents)
+                               ──▶ Workers AI  (summarise the top 4)
+  computed live, per question
+```
+
+Both render into the same page. The dropdown keeps working whether or not
+the Worker exists, which is why `ASK_ENDPOINT` in `assets/js/autism.js`
+ships empty — an undeployed or broken Worker hides the text box instead of
+breaking the page.
+
+### This is not MCP
+
+MCP (Model Context Protocol) is a way to hand tools to an AI assistant
+during a conversation — it is how Claude Code reaches this GitHub repo, for
+instance. Nothing in this project uses it.
+
+The Worker is an ordinary HTTP API. The browser POSTs JSON to a URL and gets
+JSON back, the same mechanism a weather widget or a login form uses. The
+fetch scripts are ordinary HTTP clients against NCBI and ClinicalTrials.gov.
+The distinction that matters: MCP is for an AI calling out to tools, and
+every call here is regular software calling a regular web API.
+
 ## Where the data comes from
 
 Two free public HTTP APIs. No account, no API key, no cost, nothing sent to
