@@ -3,6 +3,23 @@
   "name": "sayantansen-oauth",
   "main": "src/index.js",
   "compatibility_date": "2026-09-11",
+
+  // GITHUB_CLIENT_ID lives here, not in the Cloudflare dashboard, and that
+  // is deliberate. `wrangler deploy` treats this file as the source of truth
+  // for plain-text vars, so anything added only through the dashboard is
+  // wiped on the next deploy — and because this Worker deploys from git,
+  // that is every push to main. Secrets are exempt from that wipe, which is
+  // why GITHUB_CLIENT_SECRET survived while this one kept disappearing and
+  // /admin kept 404ing after unrelated merges.
+  //
+  // Committing it is fine: an OAuth *client ID* is public by design. It is
+  // visible in the browser's address bar during the GitHub authorize
+  // redirect. Only GITHUB_CLIENT_SECRET is sensitive, and that stays a
+  // Cloudflare secret, never in this repo.
+  "vars": {
+    "GITHUB_CLIENT_ID": "Ov23liLzR26bbpevnXz5"
+  },
+
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",

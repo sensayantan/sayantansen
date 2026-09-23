@@ -37,11 +37,39 @@ these steps reflect what's actually there now, not older docs.
 
 ### 3. Give the proxy those credentials
 
-Back in the Cloudflare project: **Settings → Variables and Secrets** → add:
-- `GITHUB_CLIENT_ID` = the Client ID from step 2
-- `GITHUB_CLIENT_SECRET` = the Client Secret from step 2 — add it as a **Secret**, not a plain text variable, so it's encrypted at rest.
+Only **one** of the two goes in the dashboard.
 
-Redeploy after saving (Cloudflare may prompt for this automatically).
+- `GITHUB_CLIENT_SECRET` → **Settings → Variables and Secrets**, added as a
+  **Secret**, not a plain text variable, so it is encrypted at rest and never
+  reaches this repo.
+- `GITHUB_CLIENT_ID` → already committed, in the `vars` block of
+  `wrangler.jsonc`. Do **not** add it in the dashboard.
+
+Redeploy after saving the secret (Cloudflare may prompt for this).
+
+#### Why the client ID lives in the config file
+
+This bit cost real debugging time, twice, so it is worth stating plainly.
+
+`wrangler deploy` treats `wrangler.jsonc` as the source of truth for
+plain-text vars. Anything added *only* through the dashboard is wiped on the
+next deploy. Secrets are exempt from that wipe.
+
+This Worker deploys from git, so "the next deploy" means **every push to
+`main`** — including pushes that have nothing to do with `oauth-proxy/`.
+The failure mode is nasty: merge an unrelated PR, and `/admin` login starts
+404ing, with the client ID quietly gone from the dashboard and no obvious
+connection between the two events.
+
+Committing the client ID is safe. An OAuth *client ID* is public by design —
+it is visible in the browser's address bar during the GitHub authorize
+redirect, and GitHub's own docs treat it as public. Only the *secret* is
+sensitive.
+
+If you ever change the OAuth App, edit the value in `wrangler.jsonc` and
+push. `src/auth.js` returns a plain-text explanation rather than redirecting
+to GitHub when the value is missing, so the next failure says what is wrong
+instead of showing GitHub's 404.
 
 ### 4. Point the admin at this proxy
 
