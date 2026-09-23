@@ -12,10 +12,12 @@
 //     never called at all — an empty result is an honest answer, and asking
 //     a model to answer from no sources is asking it to make something up
 
-// Not verifiable from the dev sandbox (Cloudflare is blocked there), so
-// confirm this model is on your account's Workers AI catalogue. If it isn't,
-// this constant is the only thing that needs changing.
-const TEXT_MODEL = "@cf/meta/llama-3.1-8b-instruct";
+// Set TEXT_MODEL in autism-search/wrangler.jsonc rather than editing this
+// file. Cloudflare retires Workers AI models on a schedule — the first one
+// used here resolved to @cf/meta/infire-llama-3.1-8b-instruct and had
+// already been deprecated on 2026-05-30 — so the name needs to be cheap to
+// change. The fallback below only applies if the var is unset.
+const DEFAULT_TEXT_MODEL = "@cf/meta/llama-3.1-8b-instruct";
 
 const MAX_TOKENS = 500;
 const TEMPERATURE = 0.2;
@@ -52,6 +54,8 @@ function buildSourceBlock(results) {
 }
 
 export async function generateAnswer(env, question, results) {
+  const model = env.TEXT_MODEL || DEFAULT_TEXT_MODEL;
+
   if (!results.length) {
     return {
       text:
@@ -68,7 +72,7 @@ export async function generateAnswer(env, question, results) {
     `Sources:\n\n${buildSourceBlock(results)}\n\n` +
     `Answer the question using only these sources, citing them with [n] markers.`;
 
-  const response = await env.AI.run(TEXT_MODEL, {
+  const response = await env.AI.run(model, {
     messages: [
       { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: userPrompt },

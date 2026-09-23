@@ -10,6 +10,17 @@
     "binding": "AI"
   },
 
+  "vars": {
+    // The model that writes the summary. Cloudflare retires these on a
+    // schedule, so it lives here rather than in code: check the current
+    // Workers AI catalogue, paste the id, redeploy. GET /api/health reports
+    // the value this deployment is actually using.
+    //
+    // The previous value resolved to @cf/meta/infire-llama-3.1-8b-instruct,
+    // which Cloudflare deprecated on 2026-05-30.
+    "TEXT_MODEL": "@cf/meta/llama-3.1-8b-instruct"
+  },
+
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",

@@ -158,7 +158,13 @@ export default {
       try {
         const results = await search(env, "autism", 1);
         return json(
-          { ok: true, sample_score: Number(results[0]?.score?.toFixed(3) ?? 0) },
+          {
+            ok: true,
+            sample_score: Number(results[0]?.score?.toFixed(3) ?? 0),
+            // Which text model this deployment will actually use. Checking it
+            // here beats discovering a deprecated name through a failed ask.
+            text_model: env.TEXT_MODEL || "(default in answer.js)",
+          },
           request
         );
       } catch (error) {

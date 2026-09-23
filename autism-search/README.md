@@ -39,10 +39,18 @@ and would add a paid dependency to something that currently costs nothing.
 
 `src/search.js` and `src/answer.js` each name a Workers AI model:
 
-| File | Constant | Value |
+| Where | Name | Value |
 |---|---|---|
 | `src/search.js` | `EMBEDDING_MODEL` | `@cf/baai/bge-small-en-v1.5` |
-| `src/answer.js` | `TEXT_MODEL` | `@cf/meta/llama-3.1-8b-instruct` |
+| `wrangler.jsonc` (`vars`) | `TEXT_MODEL` | set this from the current catalogue |
+
+The text model lives in config rather than code because Cloudflare retires
+these on a schedule. The first value used here resolved to
+`@cf/meta/infire-llama-3.1-8b-instruct`, which had been deprecated on
+2026-05-30 — the ask endpoint returned `5028: ... was deprecated`. Check the
+current catalogue, paste the id into `wrangler.jsonc`, redeploy.
+`GET /api/health` reports the value the live deployment is using, so a wrong
+name is visible without having to trigger a failed ask.
 
 **These were written without being able to check Cloudflare's current model
 catalogue** — developers.cloudflare.com is unreachable from the environment
