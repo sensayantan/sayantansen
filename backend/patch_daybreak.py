@@ -45,23 +45,26 @@ EXPERIMENT_LINK = (
 
 METHOD_NOTE = (
     '<p class="dbMethod"><strong>How this is made</strong> — OpenAI Codex, on a '
-    "standard monthly subscription rather than paid API calls, collects each day's "
-    "stories against a fixed list of topics I follow, pulls them together through "
-    "MCP, and writes a single static HTML page. A scheduled job commits that page "
-    "to GitHub and this site renders it. The aim is a brief that costs nothing to "
-    "run and reads <em>across</em> sources rather than through one: every outlet "
-    "carries a slant, so the useful version of a story is the one assembled from "
-    "several.</p>"
+    "standard monthly subscription rather than paid API calls. It works from a "
+    "fixed list of topics I follow, gathers the day's stories, summarises them, "
+    "and writes a single static HTML page. A scheduled job commits that page to "
+    "GitHub and this site renders it. The aim is a brief that costs nothing to run "
+    "and reads <em>across</em> sources rather than through one: every outlet "
+    "carries a slant, so the most useful version of a story is the one assembled "
+    "from several.</p>"
 )
 
-EXTRA_CSS = """
+CSS_START = "/*site-patch-start*/"
+CSS_END = "/*site-patch-end*/"
+
+EXTRA_CSS = CSS_START + """
 .dbCategoryBar{display:flex;flex-wrap:wrap;gap:8px 18px;padding:13px 5%;background:#f4f6fa;border-bottom:1px solid #d7dce5}
 .dbCategoryBar a{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:#46587a;white-space:nowrap}
 .dbCategoryBar a:hover,.dbCategoryBar a:focus{color:#2759bd;text-decoration:underline}
 .dbMethod{margin:0;padding:11px 5% 13px;background:#fff;border-bottom:1px solid #e6eaf1;font-size:11px;line-height:1.65;color:#6b7a94}
 .dbMethod strong{color:#46587a}
 @media(max-width:850px){.dbCategoryBar{gap:7px 13px;padding:11px 5%}.dbCategoryBar a{font-size:11px}}
-"""
+""" + CSS_END
 
 
 def add_experiment_link(html: str) -> tuple[str, bool]:
@@ -94,9 +97,18 @@ def move_category_links(html: str) -> tuple[str, bool]:
 
 
 def add_method_note(html: str) -> tuple[str, bool]:
-    """Puts the note directly below the masthead (and its category bar)."""
-    if 'class="dbMethod"' in html:
-        return html, False
+    """Puts the note directly below the masthead (and its category bar).
+
+    Replaces an existing note rather than skipping it. The note's wording is
+    ours, not the generator's, so editing METHOD_NOTE above and re-running
+    has to update every edition — a plain "already present, skip" would
+    silently leave old text on every page already patched.
+    """
+    existing = re.search(r'<p class="dbMethod">.*?</p>', html, re.S)
+    if existing:
+        if existing.group(0) == METHOD_NOTE:
+            return html, False
+        return html[: existing.start()] + METHOD_NOTE + html[existing.end():], True
     # Anchor on the category bar this script just inserted, falling back to
     # the masthead itself. Anchoring on what we control rather than on what
     # follows it means a generator that reorders the page later still lands
@@ -112,8 +124,17 @@ def add_method_note(html: str) -> tuple[str, bool]:
 
 
 def add_css(html: str) -> tuple[str, bool]:
-    if ".dbCategoryBar{" in html:
-        return html, False
+    """Injects our styles, replacing a previous injection if there is one.
+
+    Delimited by markers for the same reason the note is matched and
+    replaced: tweaking EXTRA_CSS must reach editions that were patched by an
+    earlier version of this script.
+    """
+    existing = re.search(re.escape(CSS_START) + ".*?" + re.escape(CSS_END), html, re.S)
+    if existing:
+        if existing.group(0) == EXTRA_CSS:
+            return html, False
+        return html[: existing.start()] + EXTRA_CSS + html[existing.end():], True
     if "</style>" not in html:
         return html, False
     return html.replace("</style>", EXTRA_CSS + "</style>", 1), True
