@@ -182,10 +182,19 @@ async function loadFaq() {
 function renderAnswer(data) {
   // Escape first, then linkify: the [n] markers survive escaping intact, so
   // turning them into links afterwards can't smuggle markup through.
-  const body = esc(data.answer).replace(
-    /\[(\d+)\]/g,
-    (match, n) => `<a class="citation" href="#${SOURCE_PREFIX}${n}">[${n}]</a>`
-  );
+  //
+  // Only numbers that match a source become links. The model is told how
+  // many sources it has and still overshoots — a real answer closed with
+  // "[5]" against four sources — and a citation linking to a card that
+  // isn't there is worse than no link at all on a page whose whole promise
+  // is that every claim is checkable. Out-of-range markers stay as plain
+  // text, visibly inert.
+  const sourceCount = (data.results || []).length;
+  const body = esc(data.answer).replace(/\[(\d+)\]/g, (match, n) => {
+    const index = Number(n);
+    if (index < 1 || index > sourceCount) return match;
+    return `<a class="citation" href="#${SOURCE_PREFIX}${index}">[${index}]</a>`;
+  });
 
   const caveat = data.answer_is_generated
     ? `<p class="answer-caveat">Written by a language model from the sources below and
