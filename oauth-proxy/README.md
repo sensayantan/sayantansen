@@ -44,6 +44,9 @@ Only **one** of the two goes in the dashboard.
   reaches this repo.
 - `GITHUB_CLIENT_ID` → already committed, in the `vars` block of
   `wrangler.jsonc`. Do **not** add it in the dashboard.
+- `SITE_ORIGIN` → also in `wrangler.jsonc`. This is the only origin the
+  access token is delivered to. Change it if the site moves to a custom
+  domain, or login will silently stop working.
 
 Redeploy after saving the secret (Cloudflare may prompt for this).
 
@@ -78,6 +81,37 @@ In `admin/config.yml`, set `backend.base_url` to your actual deployed URL from s
 ### 5. Test it
 
 Visit `https://sensayantan.github.io/sayantansen/admin/` → click **Login with GitHub** → approve on GitHub's page → you should land back in the admin, logged in.
+
+## The popup handshake, and why it does not wait
+
+After GitHub redirects back to `/api/callback`, the token has to get from the
+popup to the `/admin` window. There is no shared server session between them,
+so it goes by `window.postMessage`.
+
+Decap's protocol is: the popup announces itself with `authorizing:github`,
+the opener replies, and the popup then sends the token.
+
+That middle step is unreliable. The browser can refuse the opener's reply:
+
+```
+Unable to post message to https://<worker>.workers.dev.
+Recipient has origin https://sensayantan.github.io.
+```
+
+The original code only sent the token from inside the reply handler, so when
+that reply never landed the popup sat blank forever — holding a perfectly
+valid token it never delivered. The symptom looks nothing like the cause: a
+blank white window, no error on the page itself, and a successful OAuth round
+trip behind it.
+
+So the reply is now an optimisation rather than a requirement. Decap registers
+its token listener *before* sending the reply, which means a token that
+arrives without one is still received. A 500 ms timer sends it either way, and
+a `sent` flag stops the two paths firing twice.
+
+The token is posted to `SITE_ORIGIN` explicitly, never `"*"` — a wildcard here
+would hand a GitHub token with `repo` scope to whatever happened to open the
+popup.
 
 ## How it works (the short version)
 

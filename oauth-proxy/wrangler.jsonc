@@ -17,7 +17,12 @@
   // redirect. Only GITHUB_CLIENT_SECRET is sensitive, and that stays a
   // Cloudflare secret, never in this repo.
   "vars": {
-    "GITHUB_CLIENT_ID": "Ov23liLzR26bbpevnXz5"
+    "GITHUB_CLIENT_ID": "Ov23liLzR26bbpevnXz5",
+
+    // Where the access token is allowed to be delivered. callback.js posts
+    // it to this exact origin rather than "*", so only the admin page can
+    // read it. Change this if the site ever moves to a custom domain.
+    "SITE_ORIGIN": "https://sensayantan.github.io"
   },
 
   "assets": {
