@@ -1,10 +1,18 @@
-# Runs automatically whenever a commit touches content/ — which is
-# exactly what happens when something is saved via the admin at /admin
-# (Decap CMS commits Markdown/YAML files straight to `main`). This
-# workflow turns that source content into real static pages/data
-# (backend/render_blogs.py, backend/render_about.py) and commits the
-# result back, so publishing needs no manual step beyond clicking
-# Publish in the admin.
+# Runs automatically whenever a commit touches content/ or DAYBREAK/.
+#
+# content/** is what the admin at /admin writes (Decap CMS commits
+# Markdown/YAML straight to `main`); this workflow turns that into static
+# pages and data via backend/render_blogs.py and backend/render_about.py,
+# so publishing needs no manual step beyond clicking Publish.
+#
+# DAYBREAK/** is written by the external news generator, which knows
+# nothing about this site's conventions — it omits the "My Experiment" nav
+# link and crams the category links into the masthead. Every hand-fix to an
+# edition used to be lost the next morning when a fresh one landed;
+# backend/patch_daybreak.py re-applies them here instead, which is what
+# makes them survive. The [skip ci] on the commit below matters more than
+# usual now: without it, committing a patched edition back to DAYBREAK/**
+# would re-trigger this same workflow.
 name: Render site content
 
 on:
@@ -12,6 +20,7 @@ on:
     branches: [main]
     paths:
       - "content/**"
+      - "DAYBREAK/**"
 
 # Needed so the final step below can push a commit back to this repo.
 permissions:
@@ -36,10 +45,13 @@ jobs:
       - name: Render About Me page
         run: python backend/render_about.py
 
+      - name: Re-apply site conventions to Daybreak editions
+        run: python backend/patch_daybreak.py
+
       - name: Commit rendered output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add blogs/ data/blogs.json data/about.json
+          git add blogs/ data/blogs.json data/about.json DAYBREAK/
           git diff --cached --quiet || git commit -m "Render site content [skip ci]"
           git push
