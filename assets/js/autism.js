@@ -2,7 +2,7 @@
 // "https://sayantansen-autism-search.<account>.workers.dev/api/ask".
 // Left empty the box stays hidden and the prepared-question dropdown still
 // works, because that is precomputed and needs no backend at all.
-const ASK_ENDPOINT = "";
+const ASK_ENDPOINT = "https://sayantansen-autism-search.sen-sayantan.workers.dev/api/ask";
 
 let faqData = [];
 
