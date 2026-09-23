@@ -10,6 +10,20 @@
 export function handleAuth(request, env) {
   const clientId = env.GITHUB_CLIENT_ID;
 
+  // Without this guard a missing client ID still redirects to GitHub, with
+  // client_id=undefined in the query string, and GitHub answers with its own
+  // 404. That 404 looks like the admin page is missing rather than like a
+  // configuration problem, which is exactly the wrong place to go looking.
+  if (!clientId) {
+    return new Response(
+      "GITHUB_CLIENT_ID is not set on this Worker.\n\n" +
+        "It should come from the vars block in oauth-proxy/wrangler.jsonc. " +
+        "If it is missing there, add it and redeploy — a value set only in " +
+        "the Cloudflare dashboard is wiped by the next wrangler deploy.",
+      { status: 500, headers: { "Content-Type": "text/plain" } }
+    );
+  }
+
   const url = new URL(request.url);
   const state = crypto.randomUUID();
 
