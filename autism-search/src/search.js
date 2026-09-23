@@ -14,9 +14,19 @@
 const EMBEDDING_MODEL = "@cf/baai/bge-small-en-v1.5";
 const EXPECTED_LOCAL_MODEL = "BAAI/bge-small-en-v1.5";
 
-// Measured with experiments/autism-rag/calibrate.py against this corpus:
-// unrelated questions peak at 0.586, real ones start at 0.712.
-const MIN_SCORE = 0.63;
+// calibrate.py measured this corpus locally: unrelated questions peaked at
+// 0.586, real ones started at 0.712, so the floor sat at 0.63.
+//
+// Workers AI scores the same corpus lower. On "is autism genetic" the top
+// result is 0.742 here against 0.812 locally, and on the weakest prepared
+// question the four results came back at 0.648 / 0.638 / 0.635 / 0.632 —
+// the last of them clearing 0.63 by two thousandths. Those are the right
+// papers; a marginally weaker question would have returned an empty page.
+//
+// 0.56 holds the same position in the Worker's range that 0.63 held
+// locally, after shifting by the ~0.065 offset measured on identical
+// questions.
+const MIN_SCORE = 0.56;
 
 // A Worker isolate is reused across requests, so the index loads once and
 // then stays hot. The promise (not the value) is cached so concurrent first

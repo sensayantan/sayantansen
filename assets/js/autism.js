@@ -24,14 +24,24 @@ function safeUrl(url) {
   return /^https:\/\/(pubmed\.ncbi\.nlm\.nih\.gov|clinicaltrials\.gov)\//.test(url) ? url : "";
 }
 
-// Dense embeddings sit in a much narrower, higher band than the old TF-IDF
-// scores: on this corpus an unrelated question still reaches 0.586, while
-// the page's own questions run 0.712 to 0.874. These bands come from
-// experiments/autism-rag/calibrate.py, not from eyeballing — re-run it if
-// the corpus changes substantially.
-function scoreLabel(score) {
-  if (score >= 0.80) return "strong match";
-  if (score >= 0.72) return "moderate match";
+// Two different score scales end up on this page, and they are not
+// comparable. The prepared answers were scored offline by
+// sentence-transformers; the live ones are scored by Workers AI. Run on the
+// same question, Workers AI comes back about 0.065 lower — 0.742 against
+// 0.812 for "is autism genetic". One set of bands would label every live
+// result a grade weaker than the identical prepared one, which is worse
+// than useless on a page about showing its working.
+//
+// Local bands come from experiments/autism-rag/calibrate.py; the Worker's
+// are that measurement shifted by the offset above.
+const SCORE_SCALES = {
+  local: { strong: 0.8, moderate: 0.72 },
+  worker: { strong: 0.735, moderate: 0.655 },
+};
+
+function scoreLabel(score, scale) {
+  if (score >= scale.strong) return "strong match";
+  if (score >= scale.moderate) return "moderate match";
   return "weak match";
 }
 
@@ -47,7 +57,7 @@ function citation(r) {
 const PREPARED_PREFIX = "prepared-result-";
 const SOURCE_PREFIX = "source-";
 
-function renderResults(entry, idPrefix) {
+function renderResults(entry, idPrefix, scale) {
   if (!entry.results.length) {
     return '<p class="placeholder">Nothing in the corpus scored above the relevance floor for this question.</p>';
   }
@@ -63,7 +73,7 @@ function renderResults(entry, idPrefix) {
         <div class="result-body">
           <div class="result-meta">
             <span class="result-score">${r.score.toFixed(3)}</span>
-            <span class="result-score-label">${scoreLabel(r.score)}</span>
+            <span class="result-score-label">${scoreLabel(r.score, scale)}</span>
             <span class="result-category">${esc(SOURCE_LABELS[r.source] || r.source || (r.category || "").replace(/_/g, " "))}</span>
           </div>
           <h3 class="result-title">${
@@ -157,7 +167,7 @@ async function loadFaq() {
         results.innerHTML = "";
         return;
       }
-      results.innerHTML = renderResults(faqData[Number(event.target.value)], PREPARED_PREFIX);
+      results.innerHTML = renderResults(faqData[Number(event.target.value)], PREPARED_PREFIX, SCORE_SCALES.local);
       addToggles(results);
     });
   } catch (err) {
@@ -210,7 +220,7 @@ async function ask(question) {
     if (!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
 
     answerEl.innerHTML = renderAnswer(data);
-    resultsEl.innerHTML = renderResults({ results: data.results }, SOURCE_PREFIX);
+    resultsEl.innerHTML = renderResults({ results: data.results }, SOURCE_PREFIX, SCORE_SCALES.worker);
     addToggles(resultsEl);
   } catch (err) {
     console.error(err);
