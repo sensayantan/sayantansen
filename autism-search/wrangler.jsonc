@@ -18,7 +18,7 @@
     //
     // The previous value resolved to @cf/meta/infire-llama-3.1-8b-instruct,
     // which Cloudflare deprecated on 2026-05-30.
-    "TEXT_MODEL": "@cf/meta/llama-3.1-8b-instruct"
+    "TEXT_MODEL": "@cf/deepseek-ai/deepseek-v4-pro-0813"
   },
 
   "assets": {
