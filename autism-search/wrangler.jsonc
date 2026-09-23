@@ -16,9 +16,14 @@
     // Workers AI catalogue, paste the id, redeploy. GET /api/health reports
     // the value this deployment is actually using.
     //
-    // The previous value resolved to @cf/meta/infire-llama-3.1-8b-instruct,
-    // which Cloudflare deprecated on 2026-05-30.
-    "TEXT_MODEL": "@cf/deepseek-ai/deepseek-v4-pro-0813"
+    // Two constraints, both learned the hard way. The name must not be
+    // deprecated: the first value resolved to
+    // @cf/meta/infire-llama-3.1-8b-instruct and failed with "5028: ...
+    // was deprecated on 2026-05-30". And an @cf/ prefix is not enough on its
+    // own — @cf/deepseek-ai/deepseek-v4-pro-0813 is Cloudflare-hosted but
+    // failed with "5035: ... is not available on the Workers Free plan".
+    // Small open-weight models are the ones the free plan covers.
+    "TEXT_MODEL": "@cf/mistral/mistral-7b-instruct-v0.2-lora"
   },
 
   "assets": {

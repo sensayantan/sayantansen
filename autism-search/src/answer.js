@@ -17,7 +17,7 @@
 // used here resolved to @cf/meta/infire-llama-3.1-8b-instruct and had
 // already been deprecated on 2026-05-30 — so the name needs to be cheap to
 // change. The fallback below only applies if the var is unset.
-const DEFAULT_TEXT_MODEL = "@cf/deepseek-ai/deepseek-v4-pro-0813";
+const DEFAULT_TEXT_MODEL = "@cf/mistral/mistral-7b-instruct-v0.2-lora";
 
 const MAX_TOKENS = 500;
 const TEMPERATURE = 0.2;
