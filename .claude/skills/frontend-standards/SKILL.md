@@ -57,13 +57,21 @@ to it — the generator's structure drifts between versions.
   `@media (max-width: 700px)` (About Me split-sections), and `850px` inside
   the Daybreak files specifically. Check the existing breakpoint for the
   component you're touching rather than inventing a new one.
-- **Whenever `assets/css/style.css` changes, bump the `?v=N` query string on
-  every page that links it, then run**
+- **Whenever `assets/css/style.css` *or* any `assets/js/*.js` changes, bump
+  the `?v=N` query string on every reference**, then run
   `python3 .claude/skills/frontend-standards/scripts/check_css_version.py`
   **to confirm nothing was missed** — don't read that script, just run it
   and check its output (exit 0 = all consistent, non-zero = it lists which
-  file is behind). See `references/css-cache-busting.md` for why this
-  matters and the full list of files involved.
+  file is behind or unversioned). CSS and JS share one counter, so bump both
+  together. See `references/css-cache-busting.md` for why this matters and
+  the full list of files involved.
+- Scripts went unversioned for a long time, on the assumption that a stale
+  stylesheet is a cosmetic problem. It is not symmetric: a stale *script*
+  makes a feature invisible. A cached `autism.js` kept serving an empty
+  `ASK_ENDPOINT` after the real one had shipped, so the page went on
+  insisting its search was "not connected" when it was. The check script now
+  fails on any reference with no `?v=` at all, which is how that gap
+  survived unnoticed.
 - Prefer `position: sticky` for chrome that should stay visible while
   scrolling past it (site header, About Me's photo panel) and
   `position: fixed` + matching `body` padding for chrome that should stay
