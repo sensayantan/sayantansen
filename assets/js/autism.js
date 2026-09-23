@@ -44,7 +44,10 @@ function citation(r) {
   return r.source_note ? esc(r.source_note) : "";
 }
 
-function renderResults(entry) {
+const PREPARED_PREFIX = "prepared-result-";
+const SOURCE_PREFIX = "source-";
+
+function renderResults(entry, idPrefix) {
   if (!entry.results.length) {
     return '<p class="placeholder">Nothing in the corpus scored above the relevance floor for this question.</p>';
   }
@@ -55,7 +58,7 @@ function renderResults(entry) {
       const title = esc(r.title);
       const cite = citation(r);
       return `
-      <article class="result-card" id="result-${i + 1}">
+      <article class="result-card" id="${idPrefix}${i + 1}">
         <div class="result-rank">#${i + 1}</div>
         <div class="result-body">
           <div class="result-meta">
@@ -74,10 +77,10 @@ function renderResults(entry) {
     .join("");
 }
 
-// renderProvenance() rewrites the banner wholesale and runs after a fetch,
-// while initAsk() runs synchronously — so whichever finishes last would
-// otherwise clobber the other. Both call this instead; the data attribute
-// makes a second call a no-op.
+// Only appended when the Worker is actually wired up: until then nothing on
+// the page is model-written, and the warning should not claim otherwise.
+// renderProvenance() and initAsk() both call this and either may run first,
+// so the data attribute makes the second call a no-op.
 function applyAskNotice() {
   if (!ASK_ENDPOINT) return;
   const banner = document.getElementById("experiment-warning");
@@ -97,31 +100,15 @@ function applyAskNotice() {
 // is actually loaded. Only build_page_data.py writes `meta`, so its presence
 // is the signal that these results came from real, citable sources.
 function renderProvenance(meta) {
-  const banner = document.getElementById("experiment-warning");
-  const provenance = document.getElementById("experiment-provenance");
-  if (!meta) {
-    applyAskNotice();
-    return;
-  }
-
-  banner.innerHTML =
-    "<strong>This is a retrieval experiment, not health information.</strong> " +
-    "These are real published abstracts and trial records, returned verbatim by " +
-    "a similarity search — they are not reviewed, ranked for quality, or checked " +
-    "for whether they reflect current consensus. A high score means wording that " +
-    "matched, nothing more. For actual guidance, talk to a paediatrician or a " +
-    "developmental specialist.";
+  applyAskNotice();
+  if (!meta) return;
 
   const counts = Object.entries(meta.counts || {})
     .map(([source, n]) => `${n} from ${esc(SOURCE_LABELS[source] || source)}`)
     .join(", ");
-  provenance.textContent =
+  document.getElementById("experiment-provenance").textContent =
     `Corpus: ${meta.document_count} documents (${counts}). ` +
     `Embedded with ${meta.model}. Built ${meta.generated}.`;
-
-  // The rewrite above dropped the notice if initAsk() had already added it.
-  banner.dataset.askNotice = "";
-  applyAskNotice();
 }
 
 // Only the abstracts that genuinely overflow get a toggle. Measuring beats
@@ -166,12 +153,11 @@ async function loadFaq() {
 
     select.addEventListener("change", (event) => {
       const results = document.getElementById("results");
-      document.getElementById("answer").innerHTML = "";
       if (event.target.value === "") {
         results.innerHTML = "";
         return;
       }
-      results.innerHTML = renderResults(faqData[Number(event.target.value)]);
+      results.innerHTML = renderResults(faqData[Number(event.target.value)], PREPARED_PREFIX);
       addToggles(results);
     });
   } catch (err) {
@@ -188,7 +174,7 @@ function renderAnswer(data) {
   // turning them into links afterwards can't smuggle markup through.
   const body = esc(data.answer).replace(
     /\[(\d+)\]/g,
-    (match, n) => `<a class="citation" href="#result-${n}">[${n}]</a>`
+    (match, n) => `<a class="citation" href="#${SOURCE_PREFIX}${n}">[${n}]</a>`
   );
 
   const caveat = data.answer_is_generated
@@ -208,7 +194,7 @@ function renderAnswer(data) {
 async function ask(question) {
   const button = document.getElementById("ask-button");
   const answerEl = document.getElementById("answer");
-  const resultsEl = document.getElementById("results");
+  const resultsEl = document.getElementById("ask-results");
 
   button.disabled = true;
   answerEl.innerHTML = '<p class="placeholder">Searching 1900 records\u2026</p>';
@@ -224,9 +210,8 @@ async function ask(question) {
     if (!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
 
     answerEl.innerHTML = renderAnswer(data);
-    resultsEl.innerHTML = renderResults({ results: data.results });
+    resultsEl.innerHTML = renderResults({ results: data.results }, SOURCE_PREFIX);
     addToggles(resultsEl);
-    document.getElementById("question-select").value = "";
   } catch (err) {
     console.error(err);
     answerEl.innerHTML = `<p class="ask-error">${esc(err.message)}</p>`;
@@ -237,22 +222,10 @@ async function ask(question) {
 
 function initAsk() {
   if (!ASK_ENDPOINT) return;
-  const form = document.getElementById("ask-form");
-  form.hidden = false;
-  document.getElementById("select-label").textContent = "Or pick a prepared question";
-
-  // The static copy says nothing is written by an AI, which is true of the
-  // prepared questions and stops being true the moment free text is live.
-  // Both the intro and the warning have to move with the feature, or the
-  // page is lying about itself.
-  document.getElementById("experiment-intro").textContent =
-    "Ask your own question, or pick a prepared one. Either way the page shows " +
-    "which records a similarity search picked out of the corpus and the score it " +
-    "gave each one, returned verbatim and linking to their sources. For your own " +
-    "questions a language model also writes a short summary from those records.";
-
+  document.getElementById("ask-form").hidden = false;
+  document.getElementById("ask-unavailable").hidden = true;
   applyAskNotice();
-  form.addEventListener("submit", (event) => {
+  document.getElementById("ask-form").addEventListener("submit", (event) => {
     event.preventDefault();
     const question = document.getElementById("ask-input").value.trim();
     if (question) ask(question);

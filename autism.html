@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=9">
+  <link rel="stylesheet" href="assets/css/style.css?v=10">
 </head>
 <body>
 
@@ -43,43 +43,172 @@
   <main class="container container-wide experiment-page">
 
     <div class="experiment-warning" id="experiment-warning">
-      <strong>This is a technical experiment, not health information.</strong>
-      The documents below are illustrative placeholder text written to test a
-      search pipeline — they are not verified, sourced, or current medical
-      content, and nothing here should inform any decision about a real child.
-      For actual guidance, talk to a paediatrician or a developmental specialist.
+      <strong>This is a research search tool, not health information.</strong>
+      What you see below are published abstracts and trial records returned by a
+      similarity search — not reviewed, not ranked for quality, and not checked
+      against current clinical consensus. Nothing here should inform a decision
+      about a real child. For that, talk to a paediatrician or a developmental
+      specialist.
     </div>
 
-    <h1>Autism retrieval experiment</h1>
-    <p class="experiment-intro" id="experiment-intro">
-      Pick a question. The page shows which documents a similarity search
-      picked out of the corpus, and the score it gave each one. Nothing is
-      written or summarised by an AI here — these are the stored records
-      themselves, returned verbatim and ranked, each linking out to its source.
+    <h1>Asking research questions about autism</h1>
+
+    <p class="experiment-lede">
+      A search over roughly 1,900 real research papers and clinical trial records,
+      built to answer the questions families actually ask — and to show its
+      working, so every answer can be traced back to the paper it came from.
     </p>
-    <p class="experiment-provenance" id="experiment-provenance"></p>
 
-    <form class="ask-form" id="ask-form" hidden>
-      <label class="experiment-label" for="ask-input">Ask your own question</label>
-      <div class="ask-row">
-        <input type="text" id="ask-input" class="ask-input" maxlength="300"
-               autocomplete="off" placeholder="e.g. does early intervention help with language?">
-        <button type="submit" class="ask-button" id="ask-button">Ask</button>
-      </div>
-      <p class="ask-hint">
-        Your question is embedded and compared against 1900 research records.
-        A model then summarises only what the top matches say, with citations
-        you can click.
+    <section class="experiment-section">
+      <h2>Why this exists</h2>
+      <p>
+        Autism diagnoses have risen sharply over the past two decades. Part of
+        that is a genuine increase; a large part is broader diagnostic criteria
+        and better recognition of children who would once have been missed
+        entirely. The distinction matters for researchers. For a family, the
+        practical consequence is the same either way: far more people are
+        arriving at the beginning of this, holding the same handful of questions,
+        with very little that answers them well.
       </p>
-    </form>
+      <p>
+        Those questions are rarely exotic. <em>Is it genetic? Did something I do
+        cause this? What does the evidence actually say about early intervention?
+        What is being trialled right now, and where?</em> Honest answers to all of
+        them exist in published research — which is precisely where most parents
+        give up. It is written in unfamiliar vocabulary, scattered across tens of
+        thousands of papers, and the readable summaries in between are too often
+        produced by someone with something to sell.
+      </p>
+      <p>
+        This page is a small attempt at narrowing that gap: pointing a family at
+        the actual literature on the question they asked, in the words the
+        researchers used, with a link to every source. It answers nothing on its
+        own authority.
+      </p>
+    </section>
 
-    <label class="experiment-label" for="question-select" id="select-label">Choose a question</label>
-    <select id="question-select" class="experiment-select">
-      <option value="">— select —</option>
-    </select>
+    <section class="experiment-section">
+      <h2>Where the information comes from</h2>
+      <p>
+        Two public sources. No scraping, no paywalled content, nothing private,
+        and no paid API.
+      </p>
+      <table class="source-table">
+        <thead>
+          <tr><th>Source</th><th>What it holds</th><th>How it is accessed</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a><span class="source-owner">US National Library of Medicine</span></td>
+            <td>~1,500 abstracts of peer-reviewed autism research</td>
+            <td>The free <strong>E-utilities</strong> HTTP API, in two calls: <code>esearch</code> returns the record IDs matching a search term, <code>efetch</code> returns those records as XML. No key, no account.</td>
+          </tr>
+          <tr>
+            <td><a href="https://clinicaltrials.gov/" target="_blank" rel="noopener">ClinicalTrials.gov</a><span class="source-owner">US National Institutes of Health</span></td>
+            <td>~400 registered trials — what is being tried, by whom, and where</td>
+            <td>Its public <strong>v2 JSON API</strong>, paged through with a cursor. No key, no account.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="section-note">
+        Every record keeps its source URL, publication date, authors and journal,
+        so each result links back to the paper or trial it came from. Nothing on
+        this page is written from memory. The set is refreshed automatically each
+        month, so it does not quietly go stale.
+      </p>
+      <p class="experiment-provenance" id="experiment-provenance"></p>
+    </section>
 
-    <div id="answer"></div>
-    <div id="results"></div>
+    <section class="experiment-section">
+      <h2>How it works</h2>
+      <p>
+        Keyword search fails people here, because a worried parent and a journal
+        abstract do not use the same words. "Will my son ever talk?" shares almost
+        no vocabulary with a paper titled "Predictors of expressive language
+        outcomes in minimally verbal children."
+      </p>
+      <p>
+        So each record is converted into a list of 384 numbers — an
+        <strong>embedding</strong> — that represents what the text means rather
+        than which words it contains. A question is converted the same way, and
+        the records whose numbers sit closest to it are returned, ranked by how
+        close. That similarity score is shown on every result, because a number
+        you can see is more honest than a confident answer you cannot check.
+      </p>
+      <p>
+        This is the retrieval half of what is usually called RAG. It is a small
+        demonstration of something with much wider application: the same
+        technique turns any pile of documents nobody has time to read — clinical
+        guidance, policy, benefits paperwork, school reports — into something a
+        person can ask a plain question of. Autism research is a case where the
+        gap between what is known and what reaches a family is wide, and the cost
+        of that gap is borne by people already having a hard week.
+      </p>
+    </section>
+
+    <section class="experiment-section" id="prepared">
+      <h2>1. Prepared questions</h2>
+      <p class="section-note">
+        Eleven questions run in advance, so this works with no server at all —
+        the results are computed offline and shipped with the page. Each result
+        is a stored record, returned word for word and ranked. Nothing here is
+        written or summarised by an AI.
+      </p>
+
+      <label class="experiment-label" for="question-select" id="select-label">Choose a question</label>
+      <select id="question-select" class="experiment-select">
+        <option value="">— select —</option>
+      </select>
+
+      <div id="results"></div>
+    </section>
+
+    <section class="experiment-section" id="ask">
+      <h2>2. Ask your own question</h2>
+      <p class="section-note">
+        Anything you type has to be converted to numbers at that moment, which
+        needs a live server — so this half runs on a Cloudflare Worker rather
+        than on the static site. It ranks the same 1,900 records, then has a
+        language model write a short summary of the top matches, with citations
+        you can click through to the papers themselves.
+      </p>
+
+      <form class="ask-form" id="ask-form" hidden>
+        <label class="experiment-label" for="ask-input">Your question</label>
+        <div class="ask-row">
+          <input type="text" id="ask-input" class="ask-input" maxlength="300"
+                 autocomplete="off" placeholder="e.g. does early intervention help with language?">
+          <button type="submit" class="ask-button" id="ask-button">Ask</button>
+        </div>
+      </form>
+
+      <p class="ask-unavailable" id="ask-unavailable">
+        <strong>Not connected yet.</strong> The search service for this section
+        has not been wired up, so free-text questions are unavailable. The
+        prepared questions above are unaffected — they need no server.
+      </p>
+
+      <div id="answer"></div>
+      <div id="ask-results"></div>
+    </section>
+
+    <section class="experiment-section">
+      <h2>Where this goes next</h2>
+      <p>
+        The corpus is deliberately narrow right now — research abstracts and
+        trials, nothing else. The obvious additions are prevalence and
+        demographic figures from the CDC's monitoring network, each carrying its
+        own citation, and the trial locations already sitting unused in the data,
+        which could become a map of who is doing this work and where.
+      </p>
+      <p>
+        The larger ambition is less about search and more about the thing behind
+        it: the distance between a family with a question and the people, services
+        and evidence that could answer it. That distance is not a technology
+        problem, but it is one of the places where this technology is unusually
+        well suited to helping — and it costs nothing to run.
+      </p>
+    </section>
 
   </main>
 

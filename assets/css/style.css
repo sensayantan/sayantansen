@@ -890,6 +890,114 @@ a:hover {
   margin: 0 0 2rem;
 }
 
+/* The explanatory sections above and below the two search tools. Prose here
+   is read, not scanned, so it keeps the narrower measure even though the page
+   itself is container-wide. */
+.experiment-lede {
+  font-size: 1.22rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 46rem;
+  margin: 0 0 2.5rem;
+}
+
+.experiment-section {
+  max-width: 46rem;
+  margin: 0 0 2.75rem;
+}
+
+.experiment-section h2 {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  margin: 0 0 0.9rem;
+}
+
+.experiment-section p {
+  line-height: 1.75;
+  margin: 0 0 1rem;
+}
+
+.section-note {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.source-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.88rem;
+}
+
+.source-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 0.9rem 0.5rem 0;
+}
+
+.source-table td {
+  vertical-align: top;
+  padding: 0.85rem 0.9rem 0.85rem 0;
+  border-bottom: 1px solid var(--color-border);
+  line-height: 1.6;
+}
+
+.source-table code {
+  font-size: 0.85em;
+  background: var(--color-accent-soft);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* The owning body, under the source name rather than beside it. */
+.source-owner {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  margin-top: 0.15rem;
+}
+
+/* Shown in place of the ask form until the Worker URL is configured, so the
+   section still explains itself rather than silently vanishing. */
+.ask-unavailable {
+  max-width: 46rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg-alt);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  /* Three columns of prose is unreadable on a phone; stack each source into
+     its own labelled block instead. */
+  .source-table thead {
+    display: none;
+  }
+
+  .source-table tr {
+    display: block;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .source-table td {
+    display: block;
+    border: none;
+    padding: 0.2rem 0;
+  }
+
+  .source-table td:first-child {
+    font-weight: 700;
+  }
+}
+
 .experiment-label {
   display: block;
   font-weight: 700;
