@@ -46,7 +46,7 @@ No separate frontend framework/build is needed for this report. The renderer emb
 
 ## Editorial input contract
 
-The scheduled agent writes `.daybreak-work/edition.json` for the actual current Pacific date. All nine configured editorial sections must exist. Empty sections require an explicit reason rather than recycled news.
+The scheduled agent writes `.daybreak-work/edition.json` for the actual current Pacific date. All ten configured editorial sections must exist, including the Bay Area desk immediately after Top US News. Each section must satisfy its configured story-count range, and every story must cite at least two independent source domains; the pipeline refuses incomplete editions rather than padding them.
 
 Each story contains `eventId`, `category`, `headline`, `summary`, `publishedAt`, and `sources`. Each source has `url`, `label`, and the actual `verifiedAt` timestamp. The agent opens/checks citations and uses the real publication time; it must not fabricate timestamps to pass validation. Example story shape:
 

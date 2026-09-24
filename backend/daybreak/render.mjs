@@ -18,11 +18,13 @@ export function validateEdition(e) {
   const seen=new Set();
   e.sections.forEach((s,i)=>{
     assert.equal(s.title,config.sections[i]);assert(Array.isArray(s.stories));
-    if(!s.stories.length)assert(s.emptyReason,'Explain an empty region');
+    const rule=config.sectionRules[s.title];assert(rule,`Missing section rule: ${s.title}`);
+    assert(s.stories.length>=rule.min&&s.stories.length<=rule.max,`${s.title} requires ${rule.min}-${rule.max} stories`);
     for(const x of s.stories) {
-      assert(x.eventId&&x.headline&&x.summary&&x.publishedAt&&x.sources?.length,'Incomplete story');
+      assert(x.eventId&&x.headline&&x.summary&&x.publishedAt&&x.sources?.length>=2,'Incomplete story or fewer than two sources');
       assert(!Number.isNaN(Date.parse(x.publishedAt)),'Invalid publication timestamp');
       assert(x.sources.every(src=>src.verifiedAt&&src.label),'Verified sources required');
+      assert(new Set(x.sources.map(src=>new URL(src.url).hostname.replace(/^www\./,''))).size>=2,'Each story requires two independent source domains');
       const keys=[`event:${x.eventId}`,`headline:${x.headline.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}`,...x.sources.map(src=>`url:${new URL(src.url).href.replace(/#.*$/,'')}`)];
       for(const key of keys){assert(!seen.has(key),`Duplicate event/headline/source: ${key}`);seen.add(key);}
       x.sources.forEach(src=>url(src.url));

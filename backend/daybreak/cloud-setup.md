@@ -4,7 +4,7 @@ Added 18-Sep-2026. The cloud workflow is checked in but **disabled by default**.
 
 ## Executable research and summaries
 
-`research.mjs` runs eleven web-search passes (nine desks, markets, earnings) through OpenAI Responses web search. Each retrieval is followed by a separate structured extraction/summarization call restricted to supplied evidence and tool-returned source URLs. No portfolio data is supplied to the model.
+`research.mjs` runs twelve web-search passes (ten desks, markets, earnings) through OpenAI Responses web search. Each retrieval is followed by a separate structured extraction/summarization call restricted to supplied evidence and tool-returned source URLs. No portfolio data is supplied to the model.
 
 `rankAndDeduplicate` sorts by **20 × human impact + 10 × significance + freshness bonus (0–10)**. Impact/significance are model-assessed 0–5 judgments, not measured facts. Impact ≥4 promotes a story into Top News. Repeated event IDs, canonical source URLs and headlines with ≥75% token overlap are removed. Top News has up to five stories; each other desk up to three. Publication dates outside 48 hours are dropped. Prior edition headlines are supplied to avoid unchanged announcements; this prompt safeguard does not guarantee semantic cross-day deduplication.
 

@@ -17,6 +17,7 @@ const earningsSchema=object({items:array(object({title:str,summary:str,officialU
 const scopes=[
   'Worldwide major disasters, earthquakes, floods, shootings, massacres, wars, public-health emergencies and consequential breaking events. Search across continents, not only US headlines.',
   'US government, economy, public safety and major domestic developments.',
+  'Local San Francisco Bay Area news, including San Francisco, Oakland, San Jose, the Peninsula, North Bay and East Bay. Use Google News for discovery only, then cite original reporting from sources such as NBC Bay Area, ABC7, KQED, CBS Bay Area, San Francisco Chronicle, San Jose Mercury News, local government and public agencies.',
   'India, Nepal and South Asia; China, Taiwan, Japan, Korea; Southeast Asia, Australia, New Zealand and Pacific islands.',
   'Middle East: Iran, Israel, Palestine, Lebanon, Syria, Iraq, Yemen and Gulf states.',
   'Europe including EU, UK, Ukraine, Russia and European public safety and policy.',
@@ -72,7 +73,8 @@ export function rankAndDeduplicate(cards,now=Date.now()) {
   const selected=[],counts=new Map();
   for(const card of valid) {
     const section=card.humanImpact>=4?'Top News':card.section;
-    if((counts.get(section)||0)>=(section==='Top News'?5:3))continue;
+    const rule=config.sectionRules[section];if(!rule)continue;
+    if((counts.get(section)||0)>=rule.max)continue;
     if(selected.some(x=>x.eventId===card.eventId||similar(x.headline,card.headline)||
       x.sources.some(s=>card.sources.some(t=>canonical(s.url)===canonical(t.url)))))continue;
     selected.push({...card,section,score:score(card)});counts.set(section,(counts.get(section)||0)+1);
@@ -101,7 +103,7 @@ export async function research({request,date=pacificDate(),now=()=>new Date(),pr
       tools:[{type:'web_search',search_context_size:'medium'}],tool_choice:'required',max_tool_calls:3,
       include:['web_search_call.action.sources'],
       input:`Research Daybreak for ${date}, now ${now().toISOString()}. ${scope}
-Search and read current sources; prefer official records and Reuters/AP/BBC or reputable regional journalism.
+Search and read current sources; prefer official records and Reuters/AP/BBC or reputable regional journalism. Every candidate story must be corroborated by at least two independent source domains. Google News may be used for discovery but cite the original publishers, not a Google News redirect.
 Use publication dates within 48 hours, distinguish scheduled events from actual results, and attribute contested claims.
 Return factual evidence notes with publication/observation dates and inline source citations. Do not invent facts or dates.
 Prior edition headlines (exclude unchanged stories; include only verified material new developments): ${JSON.stringify(previousHeadlines)}.
@@ -126,7 +128,7 @@ Empty stories/items require an honest reason. Do not claim an exhaustive S&P 500
   for(let i=0;i<config.sections.length;i++) {
     const section=config.sections[i];console.log(`Researching ${section}`);
     const {data,allowed}=await retrieveAndExtract(section,scopes[i],newsSchema);
-    assert(Array.isArray(data.stories)&&data.stories.length<=8,'Invalid/excessive candidate count');
+    assert(Array.isArray(data.stories)&&data.stories.length<=12,'Invalid/excessive candidate count');
     emptyReasons.set(section,data.emptyReason);
     for(const card of data.stories) {
       assert(card.evidence&&card.summary&&card.headline&&card.eventId,'Incomplete evidence card');
@@ -137,7 +139,8 @@ Empty stories/items require an honest reason. Do not claim an exhaustive S&P 500
       cards.push({...card,section,sources:card.sources.map(s=>({...s,url:canonical(s.url),verifiedAt:now().toISOString()}))});
     }
   }
-  const selected=rankAndDeduplicate(cards,now().getTime());assert(selected.length>=5,'Insufficient fresh news; refuse edition');
+  const selected=rankAndDeduplicate(cards,now().getTime());
+  for(const [title,rule] of Object.entries(config.sectionRules))assert(selected.filter(x=>x.section===title).length>=rule.min,`Insufficient fresh news for ${title}`);
   console.log('Researching market observations');
   const {data:markets,allowed:marketUrls}=await retrieveAndExtract('Markets',
     `Find sourced current S&P 500, Dow and Nasdaq percentage moves with observation time; 10-year Treasury yield; current Federal Reserve target range.

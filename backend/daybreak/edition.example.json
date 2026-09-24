@@ -5,6 +5,7 @@
   "sections": [
     {"title":"Top News","deck":"Major global developments","stories":[],"emptyReason":"Example only — research required"},
     {"title":"Top US News","stories":[],"emptyReason":"Example only — research required"},
+    {"title":"Local US Bay-Area News","stories":[],"emptyReason":"Example only — Bay Area research required"},
     {"title":"Top India & Asia-Pacific News","stories":[],"emptyReason":"Example only — research required"},
     {"title":"Top News from the Middle-East","stories":[],"emptyReason":"Example only — research required"},
     {"title":"Top News from Europe","stories":[],"emptyReason":"Example only — research required"},
