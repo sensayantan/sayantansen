@@ -43,8 +43,6 @@ traffic-heavy city.
 
 - - -
 
-
-
 ## Day 1 – Istanbul & Taksim Square
 
 **Morning to Afternoon:** Arrival and check-in at **Arts Taksim Hotel**, centrally located near **Taksim Square** — just a stone’s throw away.
@@ -341,8 +339,6 @@ we resisted the temptation this time, unlike our pottery and carpet splurges ear
 5. Leather factory visits are fun, but don’t feel pressured to buy — prices are high despite discounts.
 
 - - -
-
-
 
 ## Day 6 – Athens City Tour: Acropolis, Acropolis Museum, City Landmarks & Evening in Plaka
 
@@ -686,5 +682,3 @@ the sunsets of Oia, and the calm waters of the Aegean Sea.
 - - -
 
 ## Watch the Video
-
-https://youtu.be/P7_8H7AXjzQ
