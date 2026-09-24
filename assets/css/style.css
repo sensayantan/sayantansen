@@ -824,41 +824,37 @@ a:hover {
   }
 }
 
-/* On a wide screen the post used a 760px column and left ~840px of 1600
-   empty. Widening the text alone would have made it worse: the body was
-   already running at about 92 characters a line, past the ~75 that reads
-   comfortably.
+/* On a wide screen the post used a 760px shell and left most of a 1600px
+   window empty.
 
-   So the page grows to 1140px and the column and the type grow together —
-   the line length stays where it was while the article takes up more of
-   the screen — and the banner, video and galleries fill the width outright.
+   The first attempt scaled the column and the type up together to keep the
+   line length where it was. That read fine but looked oversized, so the
+   type is back at its normal size and the column simply takes the width
+   instead: 1000px of a 1180px page. That runs long — about 135 characters
+   a line against the ~75 that is usually recommended — which is a
+   deliberate trade for a page that fills the screen.
 
    This block has to sit after the base .blog-post rules. Placed before
-   them it lost the cascade to `.blog-post-body { font-size: 1rem }` at
-   equal specificity, and the size bump silently did nothing. */
+   them it loses the cascade to `.blog-post-body { font-size: 1rem }` at
+   equal specificity. */
 @media (min-width: 1080px) {
   .blog-post {
-    max-width: 1140px;
+    max-width: 1180px;
   }
 
-  /* The prose column and the type scale up together, so the article fills
-     more of the page without the line length growing past what reads
-     comfortably. Measured at 1600px: 840px at 20px is about 91 characters per
-     line — a shorter measure than the 720px/16px column it replaces. */
   .blog-post > * {
-    max-width: 840px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
   }
 
   /* An inline-block ignores `margin: auto`, so the back link would sit on
-     the container edge while the prose starts 130px further in. Offset it
-     by hand so the two line up. */
+     the container edge instead of lining up with the prose. */
   .blog-post > .blog-back-link {
-    margin-left: calc((100% - 840px) / 2);
+    margin-left: calc((100% - 1000px) / 2);
   }
 
-  /* Only the media is allowed out of the column. */
+  /* Media takes the full page width, wider than the prose. */
   .blog-post > .blog-banner,
   .blog-post > .blog-video,
   .blog-post > .blog-hero-image,
@@ -868,14 +864,6 @@ a:hover {
 
   .blog-post > .blog-banner {
     max-height: 460px;
-  }
-
-  .blog-post-title {
-    font-size: 2.5rem;
-  }
-
-  .blog-post-body {
-    font-size: 1.25rem;
   }
 }
 
