@@ -1122,6 +1122,84 @@ a:hover {
   outline-offset: 1px;
 }
 
+/* The ranked sources, set apart from the summary above them. Most readers
+   want the summary; the sources are the receipts, and they should look like
+   receipts — smaller, on a tinted ground, and foldable away. Open by
+   default, because the summary's citations link into these cards and a
+   collapsed block would send every one of them into hidden content. */
+.sources-block {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.5rem 1.1rem 0.25rem;
+  margin-bottom: 2rem;
+  font-size: 0.84rem;
+}
+
+.sources-summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding: 0.6rem 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.sources-summary::-webkit-details-marker {
+  display: none;
+}
+
+.sources-summary::before {
+  content: "+";
+  font-size: 0.95rem;
+  width: 0.9rem;
+}
+
+.sources-block[open] .sources-summary::before {
+  content: "\2212";
+}
+
+.sources-summary:hover,
+.sources-summary:focus-visible {
+  color: var(--color-accent-dark);
+}
+
+.sources-hint {
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-muted);
+}
+
+/* Inside the block everything steps down a size: these are supporting
+   evidence, not the main read. */
+.sources-block .result-title {
+  font-size: 1rem;
+}
+
+.sources-block .result-text {
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+.sources-block .result-score {
+  font-size: 0.95rem;
+}
+
+.sources-block .result-card {
+  border-bottom-color: var(--color-border);
+}
+
+.sources-block .result-card:last-child {
+  border-bottom: none;
+}
+
 .result-card {
   display: flex;
   gap: 1rem;
@@ -1322,6 +1400,10 @@ a:hover {
 .answer-text {
   line-height: 1.75;
   margin: 0;
+  /* The model puts a break before its closing caveat, and HTML would
+     collapse it into the preceding sentence. pre-line keeps the newlines it
+     wrote while still collapsing runs of spaces. */
+  white-space: pre-line;
 }
 
 .answer-caveat {
