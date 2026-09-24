@@ -961,6 +961,103 @@ a:hover {
   margin-top: 0.15rem;
 }
 
+/* The build notes. Deliberately set apart from the page body: smaller,
+   quieter, and behind a rule, so it reads as an appendix for whoever is
+   curious rather than as something a parent has to get through before
+   reaching the two search tools. */
+.tech-section {
+  max-width: 46rem;
+  margin: 3.5rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--color-border);
+  font-size: 0.86rem;
+  color: var(--color-muted);
+}
+
+/* Collapsed by default. It holds the full technical account — sources,
+   models, why a Worker exists, what the summariser may and may not do — and
+   a parent looking for a paper should not have to scroll past all of it to
+   reach the search. Open, it is the longest thing on the page; closed, it is
+   one line. */
+.tech-summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.tech-summary::-webkit-details-marker {
+  display: none;
+}
+
+.tech-summary::before {
+  content: "+";
+  font-family: var(--font-sans, inherit);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  width: 1rem;
+}
+
+.tech-section[open] .tech-summary::before {
+  content: "\2212";
+}
+
+.tech-section[open] .tech-summary {
+  margin-bottom: 1.25rem;
+}
+
+.tech-summary:hover,
+.tech-summary:focus-visible {
+  color: var(--color-accent);
+}
+
+.tech-summary-hint {
+  font-family: inherit;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+.tech-section h3 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 1.75rem 0 0.5rem;
+}
+
+.tech-section p {
+  line-height: 1.7;
+  margin: 0 0 0.75rem;
+}
+
+.tech-section strong {
+  color: var(--color-text);
+}
+
+.tech-section code {
+  font-size: 0.86em;
+  background: var(--color-accent-soft);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  word-break: break-word;
+}
+
+.tech-section .source-table {
+  font-size: 0.82rem;
+}
+
+.tech-section .experiment-provenance {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+}
+
 /* Shown in place of the ask form until the Worker URL is configured, so the
    section still explains itself rather than silently vanishing. */
 .ask-unavailable {
