@@ -140,7 +140,16 @@ Empty stories/items require an honest reason. Do not claim an exhaustive S&P 500
     }
   }
   const selected=rankAndDeduplicate(cards,now().getTime());
-  for(const [title,rule] of Object.entries(config.sectionRules))assert(selected.filter(x=>x.section===title).length>=rule.min,`Insufficient fresh news for ${title}`);
+  // Per-section minimums are targets, not gates. Enforcing them as asserts
+  // meant one quiet region killed the whole edition, and rankAndDeduplicate
+  // promotes any humanImpact>=4 story into Top News — so a section that
+  // returned exactly its minimum fell short the moment one of its stories
+  // was grave. A thin region is reported and published with its emptyReason.
+  const thin=Object.entries(config.sectionRules)
+    .map(([title,rule])=>[title,selected.filter(x=>x.section===title).length,rule.min])
+    .filter(([,got,min])=>got<min);
+  for(const [title,got,min] of thin)console.warn(`Thin section: ${title} has ${got} of ${min}`);
+  assert(selected.length>=5,'Insufficient fresh news; refuse edition');
   console.log('Researching market observations');
   const {data:markets,allowed:marketUrls}=await retrieveAndExtract('Markets',
     `Find sourced current S&P 500, Dow and Nasdaq percentage moves with observation time; 10-year Treasury yield; current Federal Reserve target range.

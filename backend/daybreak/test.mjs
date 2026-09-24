@@ -13,6 +13,14 @@ const validation=execFileSync('python3',[new URL('./validate_html.py',import.met
 assert((await fs.readFile(path.join(out,result.archive))).equals(await fs.readFile(path.join(out,'daybreak-latest.html'))));
 const duplicate=structuredClone(e);duplicate.sections[1].stories[0].eventId='test-0-0';assert.throws(()=>validateEdition(duplicate),/Duplicate/);
 const badUrl=structuredClone(e);badUrl.sections[0].stories[0].sources[0].url='javascript:alert(1)';assert.throws(()=>validateEdition(badUrl));
+// A section below its minimum publishes; the edition is thinner, not refused.
+const thin=structuredClone(e);thin.sections[4].stories=[];thin.sections[4].emptyReason='Nothing verified in this search.';validateEdition(thin);
+// An empty section still has to say why it is empty.
+const silent=structuredClone(e);silent.sections[4].stories=[];delete silent.sections[4].emptyReason;assert.throws(()=>validateEdition(silent),/Explain an empty region/);
+// The maximum stays a hard bound.
+const over=structuredClone(e);const s0=over.sections[0];const max=config.sectionRules[s0.title].max;
+while(s0.stories.length<=max)s0.stories.push({...structuredClone(s0.stories[0]),eventId:`over-${s0.stories.length}`,headline:`Overflow story ${s0.stories.length}`});
+assert.throws(()=>validateEdition(over),/allows at most/);
 const sparse={...prices,rows:prices.rows.map(x=>({...x,week:-1}))};await render(e,sparse,prices,out);assert((await fs.readFile(path.join(out,result.archive),'utf8')).includes('No additional eligible stock'));
-console.log('PASS: render, balanced HTML, section order, table counts, checksums, duplicate rejection, URL rejection and unavailable slots');
+console.log('PASS: render, balanced HTML, section order, table counts, checksums, duplicate rejection, URL rejection, thin-section tolerance, empty-section reason, section maximum and unavailable slots');
 console.log(validation.trim());

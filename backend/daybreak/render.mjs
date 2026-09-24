@@ -19,7 +19,10 @@ export function validateEdition(e) {
   e.sections.forEach((s,i)=>{
     assert.equal(s.title,config.sections[i]);assert(Array.isArray(s.stories));
     const rule=config.sectionRules[s.title];assert(rule,`Missing section rule: ${s.title}`);
-    assert(s.stories.length>=rule.min&&s.stories.length<=rule.max,`${s.title} requires ${rule.min}-${rule.max} stories`);
+    // The maximum is a hard bound; the minimum is not. A section short of its
+    // minimum yields a thinner edition, never a refused one — see research.mjs.
+    assert(s.stories.length<=rule.max,`${s.title} allows at most ${rule.max} stories`);
+    if(!s.stories.length)assert(s.emptyReason,'Explain an empty region');
     for(const x of s.stories) {
       assert(x.eventId&&x.headline&&x.summary&&x.publishedAt&&x.sources?.length>=2,'Incomplete story or fewer than two sources');
       assert(!Number.isNaN(Date.parse(x.publishedAt)),'Invalid publication timestamp');

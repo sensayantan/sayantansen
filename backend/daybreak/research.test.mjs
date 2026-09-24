@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {canonical,sourceUrls,checkSources,rankAndDeduplicate,createClient,pacificDate,research} from './research.mjs';
 import {config} from './render.mjs';
 const stamp='2026-09-18T17:00:00.000Z';
-const card=(i,overrides={})=>({eventId:`e${i}`,headline:`Distinct story number ${i}`,summary:'Verified synthetic evidence.',evidence:'Verified synthetic evidence.',publishedAt:stamp,humanImpact:1,significance:1,sources:[{url:`https://example.com/${i}`,label:'Fixture'}],section:config.sections[i%config.sections.length],...overrides});
+const card=(i,overrides={})=>({eventId:`e${i}`,headline:`Distinct story number ${i}`,summary:'Verified synthetic evidence.',evidence:'Verified synthetic evidence.',publishedAt:stamp,humanImpact:1,significance:1,sources:[{url:`https://example.com/${i}`,label:'Fixture A'},{url:`https://example.org/${i}`,label:'Fixture B'}],section:config.sections[i%config.sections.length],...overrides});
 test('source provenance rejects invented URLs, ignores model-written URLs',()=>{
   const r={output:[{type:'web_search_call',action:{sources:[{url:'https://example.com/a?utm_source=x'}]}},{type:'message',content:[{text:'https://invented.com',annotations:[]}]}]};
   const urls=sourceUrls(r);assert.equal(urls.size,1);checkSources(['https://example.com/a'],urls);
@@ -23,18 +23,22 @@ test('request budget, credentials and API failures stop without retries',async()
   const fail=createClient({key:'fixture',model:'fixture',fetchImpl:async()=>({ok:false,status:429})});await assert.rejects(fail({}),/no retry/);
 });
 test('Pacific date respects UTC rollover',()=>assert.equal(pacificDate(new Date('2026-09-19T01:00:00Z')),'2026-09-18'));
-test('full research contract uses 22 mocked calls and emits nine sections',async()=>{
+// One headline per configured section, in section order. Deliberately
+// dissimilar: rankAndDeduplicate drops headlines with 75% token overlap.
+const HEADLINES=['Coastal earthquake recovery','Congress passes tax changes','Oakland transit funding vote','Japan central bank decision','Gulf maritime talks','European energy security','Brazil infrastructure plans','Kenya election court hearing','New semiconductor architecture','Autism care research update'];
+assert.equal(HEADLINES.length,config.sections.length,'Add a fixture headline for every configured section');
+test('full research contract uses 24 mocked calls and emits ten sections',async()=>{
   let calls=0,desk=0;
   const request=async body=>{
     calls++;
-    if(body.tools)return {status:'completed',output:[{type:'web_search_call',action:{sources:[{url:`https://example.com/${desk}`}]}},{type:'message',content:[{type:'output_text',text:'Synthetic evidence only.'}]}]};
+    if(body.tools)return {status:'completed',output:[{type:'web_search_call',action:{sources:[{url:`https://example.com/${desk}`},{url:`https://example.org/${desk}`}]}},{type:'message',content:[{type:'output_text',text:'Synthetic evidence only.'}]}]};
     let data;
-    if(desk<config.sections.length)data={stories:[card(desk,{headline:['Coastal earthquake recovery','Congress passes tax changes','Japan central bank decision','Gulf maritime talks','European energy security','Brazil infrastructure plans','Kenya election court hearing','New semiconductor architecture','Autism care research update'][desk]})],emptyReason:''};
+    if(desk<config.sections.length)data={stories:[card(desk,{headline:HEADLINES[desk]})],emptyReason:''};
     else if(desk===config.sections.length)data={metrics:config.metrics.map(label=>({label,value:'Source unavailable',asOf:'Fixture only',source:`https://example.com/${desk}`})),marketAnalysis:'Fixture analysis.',marketAnalysisSources:[`https://example.com/${desk}`]};
     else data={items:[],emptyReason:'No verified new results in fixture; not exhaustive.'};
     desk++;return {status:'completed',output:[{type:'message',content:[{type:'output_text',text:JSON.stringify(data)}]}]};
   };
   const result=await research({request,date:'2026-09-18',now:()=>new Date(stamp)});
-  assert.equal(calls,22);assert.equal(result.edition.sections.length,9);assert.equal(result.audit.length,11);
+  assert.equal(calls,2*config.sections.length+4);assert.equal(result.edition.sections.length,config.sections.length);assert.equal(result.audit.length,config.sections.length+2);
   assert.equal(result.edition.sections[0].stories[0].sources[0].verifiedAt,stamp);
 });
