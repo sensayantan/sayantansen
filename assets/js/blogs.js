@@ -1,7 +1,10 @@
 function renderTile(post) {
+  // A post with no banner still gets the column, empty. Letting those rows
+  // start at the left edge instead made the list look broken rather than
+  // sparse — and most of the older posts predate the banner field.
   const image = post.image
     ? `<img class="blog-tile-image" src="${post.image}" alt="" loading="lazy">`
-    : "";
+    : '<div class="blog-tile-image blog-tile-image-empty" aria-hidden="true"></div>';
   return `
     <a class="blog-tile" href="${post.url}">
       ${image}
