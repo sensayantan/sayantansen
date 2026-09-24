@@ -28,6 +28,11 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
+      - label: "Banner Image"
+        name: "banner"
+        widget: "image"
+        required: false
+        hint: "One image for the post. It appears across the top of the article and as its thumbnail in the blog list. Separate from the Images below, which go inside the article."
       - label: "Tags"
         name: "tags"
         widget: "list"

@@ -34,7 +34,9 @@ ROOT = Path(__file__).resolve().parent.parent
 CONTENT_DIR = ROOT / "content" / "blogs"
 BLOGS_DIR = ROOT / "blogs"
 DATA_PATH = ROOT / "data" / "blogs.json"
-EXCERPT_LENGTH = 180
+# The listing is one post per row now, so there is room for a longer
+# excerpt than the old three-across grid allowed.
+EXCERPT_LENGTH = 240
 
 
 def parse_frontmatter(text: str) -> tuple[dict, str]:
@@ -78,6 +80,18 @@ def render_images_block(images: list[dict], layout: str) -> str:
     return ""  # "standard" layout: no dedicated image block
 
 
+def render_banner(path: str | None, title: str) -> str:
+    """The banner sits above the post title, separate from `images`.
+
+    `images` and `layout` still control pictures *inside* the article; this
+    is the one that also becomes the thumbnail in the blog list.
+    """
+    if not path:
+        return ""
+    src = "../" + strip_leading_slash(path)
+    return f'<img class="blog-banner" src="{src}" alt="{title}">'
+
+
 def render_attachment(path: str | None) -> str:
     if not path:
         return ""
@@ -110,7 +124,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=15">
+  <link rel="stylesheet" href="../assets/css/style.css?v=17">
 </head>
 <body>
 
@@ -143,6 +157,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
 
   <main class="container blog-post">
     <a class="blog-back-link" href="../blogs.html">&larr; All posts</a>
+    {banner_html}
     <p class="blog-post-date">{date_display}</p>
     <h1 class="blog-post-title">{title}</h1>
     {tags_html}
@@ -167,7 +182,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=15"></script>
+  <script src="../assets/js/main.js?v=17"></script>
 </body>
 </html>
 """
@@ -197,16 +212,19 @@ def render_post(md_path: Path) -> dict:
     layout = front.get("layout") or "standard"
     images = front.get("images") or []
     attachment = front.get("attachment")
+    banner = front.get("banner")
 
     body_html = markdown_lib.markdown(
         body_md.strip(), extensions=["tables", "fenced_code", "sane_lists"]
     )
+    banner_html = render_banner(banner, title)
     images_html = render_images_block(images, layout)
     tags_html = render_tags(tags)
     attachment_html = render_attachment(attachment)
 
     page_html = POST_PAGE_TEMPLATE.format(
         title=title,
+        banner_html=banner_html,
         date_display=date_display,
         tags_html=tags_html,
         images_html=images_html,
@@ -216,8 +234,11 @@ def render_post(md_path: Path) -> dict:
     BLOGS_DIR.mkdir(exist_ok=True)
     (BLOGS_DIR / f"{slug}.html").write_text(page_html)
 
-    tile_image = None
-    if images:
+    # The banner is the thumbnail when there is one. Falling back to the
+    # first in-article image keeps the older posts, written before this field
+    # existed, from losing their tile picture.
+    tile_image = strip_leading_slash(banner) if banner else None
+    if not tile_image and images:
         tile_image = strip_leading_slash(images[0].get("image", "")) or None
 
     return {
