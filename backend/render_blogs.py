@@ -124,7 +124,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=17">
+  <link rel="stylesheet" href="../assets/css/style.css?v=18">
 </head>
 <body>
 
@@ -166,6 +166,14 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
 {body_html}
     </div>
     {attachment_html}
+
+    <section class="post-comments" id="comments">
+      <h2 class="post-comments-title">Comments</h2>
+      <p class="post-comments-note">
+        Comments are GitHub Discussions on this site's repository, so leaving
+        one needs a GitHub account.
+      </p>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -182,7 +190,8 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=17"></script>
+  <script src="../assets/js/main.js?v=18"></script>
+  <script src="../assets/js/comments.js?v=18"></script>
 </body>
 </html>
 """
