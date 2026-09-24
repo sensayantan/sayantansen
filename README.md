@@ -118,6 +118,39 @@ Then visit `http://localhost:8000`.
 4. GitHub will give you a URL like `https://<username>.github.io/sayantansen/`
    within a minute or two.
 
+## Blog comments
+
+Each blog post has a comments section powered by
+[giscus](https://giscus.app), which stores comments as GitHub Discussions in
+this repository. No server, no database, no cost — moderation is the repo's
+Discussions tab, and readers are not tracked beyond what GitHub already
+knows. The trade-off is that leaving a comment requires a GitHub account.
+
+`assets/js/comments.js` hides the section entirely until it is configured,
+so an unfinished setup shows nothing rather than an empty "Comments" heading
+on every post.
+
+### Setup, once
+
+1. **Enable Discussions**: repo **Settings** → **General** → **Features** →
+   tick **Discussions**.
+2. **Install the giscus app**: [github.com/apps/giscus](https://github.com/apps/giscus)
+   → **Install** → grant it access to `sensayantan/sayantansen` only.
+3. **Get the category id**: open [giscus.app](https://giscus.app), enter
+   `sensayantan/sayantansen` as the repository, pick **Announcements** as the
+   category, and copy the `data-category-id` value out of the generated
+   snippet. That id only exists once step 1 is done, which is why it is not
+   already in the file.
+4. Paste it into `categoryId` in `assets/js/comments.js`, commit and push.
+
+Announcements is the right category because only maintainers can open a
+discussion there: every comment arrives as a reply to a thread giscus
+created for that post, rather than as a new top-level discussion anyone can
+start.
+
+Threads are matched on **pathname**, so a post keeps its comments when
+retitled but loses them if its slug changes.
+
 ## Autism retrieval experiment
 
 `/autism.html` searches ~1900 real PubMed abstracts and ClinicalTrials.gov

@@ -619,6 +619,27 @@ a:hover {
   }
 }
 
+/* Comments, below the article and clearly separated from it. Hidden
+   entirely by comments.js until giscus is configured — an empty "Comments"
+   heading on every post is worse than none. */
+.post-comments {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--color-border);
+}
+
+.post-comments-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin: 0 0 0.4rem;
+}
+
+.post-comments-note {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin: 0 0 1.5rem;
+}
+
 /* =========================================================
    Individual blog post page
    ========================================================= */
