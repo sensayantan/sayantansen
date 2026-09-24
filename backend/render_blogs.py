@@ -92,12 +92,58 @@ def render_banner(path: str | None, title: str) -> str:
     return f'<img class="blog-banner" src="{src}" alt="{title}">'
 
 
+# Only these two, and only ever rebuilt from an extracted id — never by
+# interpolating whatever was typed into an iframe src.
+YOUTUBE_ID = re.compile(
+    r"(?:youtu\.be/|youtube\.com/(?:watch\?v=|embed/|shorts/|v/))([A-Za-z0-9_-]{6,})"
+)
+VIMEO_ID = re.compile(r"vimeo\.com/(?:video/)?(\d+)")
+
+
+def render_video(url: str | None) -> str:
+    """Embeds a YouTube or Vimeo link as a responsive player.
+
+    Returns "" for anything it does not recognise rather than guessing, so
+    a mistyped link shows nothing instead of a broken frame.
+    """
+    if not url:
+        return ""
+
+    match = YOUTUBE_ID.search(url)
+    if match:
+        src = f"https://www.youtube.com/embed/{match.group(1)}"
+    else:
+        match = VIMEO_ID.search(url)
+        if not match:
+            return ""
+        src = f"https://player.vimeo.com/video/{match.group(1)}"
+
+    return (
+        '<div class="blog-video">'
+        f'<iframe src="{src}" title="Video" loading="lazy" allowfullscreen '
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; '
+        'gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin">'
+        "</iframe></div>"
+    )
+
+
 def render_attachment(path: str | None) -> str:
+    """Links an uploaded file.
+
+    An absolute URL is linked as-is. Prefixing "../" onto one produced
+    hrefs like "../https://youtu.be/..." - which is how a video link pasted
+    into this field became a broken relative path labelled with the video
+    id as its filename.
+    """
     if not path:
         return ""
-    filename = path.rsplit("/", 1)[-1]
-    href = "../" + strip_leading_slash(path)
-    return f'<p class="blog-attachment"><a href="{href}">\U0001F4CE {filename}</a></p>'
+    if path.startswith(("http://", "https://")):
+        href = path
+        label = path.split("://", 1)[1]
+    else:
+        href = "../" + strip_leading_slash(path)
+        label = path.rsplit("/", 1)[-1]
+    return f'<p class="blog-attachment"><a href="{href}">\U0001F4CE {label}</a></p>'
 
 
 def render_tags(tags: list[str]) -> str:
@@ -124,7 +170,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=18">
+  <link rel="stylesheet" href="../assets/css/style.css?v=19">
 </head>
 <body>
 
@@ -165,6 +211,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
     <div class="blog-post-body">
 {body_html}
     </div>
+    {video_html}
     {attachment_html}
 
     <section class="post-comments" id="comments">
@@ -190,8 +237,8 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=18"></script>
-  <script src="../assets/js/comments.js?v=18"></script>
+  <script src="../assets/js/main.js?v=19"></script>
+  <script src="../assets/js/comments.js?v=19"></script>
 </body>
 </html>
 """
@@ -222,6 +269,7 @@ def render_post(md_path: Path) -> dict:
     images = front.get("images") or []
     attachment = front.get("attachment")
     banner = front.get("banner")
+    video = front.get("video")
 
     body_html = markdown_lib.markdown(
         body_md.strip(), extensions=["tables", "fenced_code", "sane_lists"]
@@ -229,6 +277,7 @@ def render_post(md_path: Path) -> dict:
     banner_html = render_banner(banner, title)
     images_html = render_images_block(images, layout)
     tags_html = render_tags(tags)
+    video_html = render_video(video)
     attachment_html = render_attachment(attachment)
 
     page_html = POST_PAGE_TEMPLATE.format(
@@ -238,6 +287,7 @@ def render_post(md_path: Path) -> dict:
         tags_html=tags_html,
         images_html=images_html,
         body_html=body_html,
+        video_html=video_html,
         attachment_html=attachment_html,
     )
     BLOGS_DIR.mkdir(exist_ok=True)
