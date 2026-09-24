@@ -46,7 +46,9 @@ No separate frontend framework/build is needed for this report. The renderer emb
 
 ## Editorial input contract
 
-The scheduled agent writes `.daybreak-work/edition.json` for the actual current Pacific date. All ten configured editorial sections must exist, including the Bay Area desk immediately after Top US News. Each section must satisfy its configured story-count range, and every story must cite at least two independent source domains; the pipeline refuses incomplete editions rather than padding them.
+The scheduled agent writes `.daybreak-work/edition.json` for the actual current Pacific date. All ten configured editorial sections must exist, including the Bay Area desk immediately after Top US News. Section counts are editorial targets rather than publication minimums: the agent searches toward them, but may publish fewer verified stories and the renderer discloses the shortfall. Configured maximums and the requirement that every included story cite at least two independent source domains remain hard gates; the pipeline never pads a section with weak or invented material.
+
+Before overwriting the working edition, the research command reads the prior `.daybreak-work/edition.json` when it is from an earlier date. Prior stories become search leads, not publishable content. For a below-target desk, the researcher checks those events for a material current-window development and must build any continuing story from newly retrieved, two-domain evidence. Unchanged recaps, copied summaries and inherited timestamps are rejected by instruction; the normal freshness and source validators still apply.
 
 Each story contains `eventId`, `category`, `headline`, `summary`, `publishedAt`, and `sources`. Each source has `url`, `label`, and the actual `verifiedAt` timestamp. The agent opens/checks citations and uses the real publication time; it must not fabricate timestamps to pass validation. Example story shape:
 

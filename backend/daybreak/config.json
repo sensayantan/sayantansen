@@ -1,16 +1,16 @@
 {
   "sections": ["Top News", "Top US News", "Local US Bay-Area News", "Top India & Asia-Pacific News", "Top News from the Middle-East", "Top News from Europe", "Top News from Latin America", "Top News from Africa", "Technology & AI", "Health and Research"],
   "sectionRules": {
-    "Top News": {"min": 5, "max": 10},
-    "Top US News": {"min": 5, "max": 8},
-    "Local US Bay-Area News": {"min": 3, "max": 5},
-    "Top India & Asia-Pacific News": {"min": 5, "max": 8},
-    "Top News from the Middle-East": {"min": 2, "max": 4},
-    "Top News from Europe": {"min": 5, "max": 8},
-    "Top News from Latin America": {"min": 2, "max": 4},
-    "Top News from Africa": {"min": 2, "max": 4},
-    "Technology & AI": {"min": 2, "max": 4},
-    "Health and Research": {"min": 2, "max": 4}
+    "Top News": {"target": 5, "max": 10},
+    "Top US News": {"target": 5, "max": 8},
+    "Local US Bay-Area News": {"target": 3, "max": 5},
+    "Top India & Asia-Pacific News": {"target": 5, "max": 8},
+    "Top News from the Middle-East": {"target": 2, "max": 4},
+    "Top News from Europe": {"target": 5, "max": 8},
+    "Top News from Latin America": {"target": 2, "max": 4},
+    "Top News from Africa": {"target": 2, "max": 4},
+    "Technology & AI": {"target": 2, "max": 4},
+    "Health and Research": {"target": 2, "max": 4}
   },
   "metrics": ["S&P 500", "Dow", "Nasdaq", "10-year Treasury", "Fed policy rate"],
   "marketSymbols": ["AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "AVGO", "TSLA", "BRK-B", "JPM", "WMT", "LLY", "V", "XOM", "ORCL", "MA", "COST", "JNJ", "HD", "PG", "NFLX", "BAC", "ABBV", "KO", "CVX", "PLTR", "AMD", "CRM", "CSCO", "IBM", "ADBE", "QCOM", "INTC", "PEP", "MCD"]

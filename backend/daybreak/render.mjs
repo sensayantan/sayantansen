@@ -19,7 +19,8 @@ export function validateEdition(e) {
   e.sections.forEach((s,i)=>{
     assert.equal(s.title,config.sections[i]);assert(Array.isArray(s.stories));
     const rule=config.sectionRules[s.title];assert(rule,`Missing section rule: ${s.title}`);
-    assert(s.stories.length>=rule.min&&s.stories.length<=rule.max,`${s.title} requires ${rule.min}-${rule.max} stories`);
+    assert(s.stories.length<=rule.max,`${s.title} allows at most ${rule.max} stories`);
+    assert(Number.isInteger(rule.target)&&rule.target>=0&&rule.target<=rule.max,`${s.title} has an invalid editorial target`);
     for(const x of s.stories) {
       assert(x.eventId&&x.headline&&x.summary&&x.publishedAt&&x.sources?.length>=2,'Incomplete story or fewer than two sources');
       assert(!Number.isNaN(Date.parse(x.publishedAt)),'Invalid publication timestamp');
@@ -51,7 +52,12 @@ export async function render(e,market,portfolio,outputDir) {
   const down=portfolio.rows.filter(x=>!x.error&&x.week<0&&x.month<0).sort((a,b)=>(a.week+a.month)-(b.week+b.month));
   const watch=down.map(x=>({...x,catalyst:`${Math.min(x.week,x.month)<=-5?'Higher review':'Monitor'} — review priority only, not a buy/sell recommendation.`}));
   const unavailable=portfolio.rows.filter(x=>x.error);
-  const editorial=e.sections.map((s,i)=>`<section class="section" id="s${i}"><div class="sectionTitle"><p>${esc(s.deck||'')}</p><h2>${esc(s.title)}</h2></div><div class="stories">${s.stories.map((x,j)=>`<article class="story"><span>${String(j+1).padStart(2,'0')}</span><div><small>${esc(x.category)} · ${esc(x.publishedAt.slice(0,10))}</small><h3>${esc(x.headline)}</h3><p>${esc(x.summary)}</p><div class="links">${x.sources.map(src=>link(src.url,src.label)).join(' ')}</div></div></article>`).join('')||`<p>${esc(s.emptyReason)}</p>`}</div></section>`).join('');
+  const editorial=e.sections.map((s,i)=>{
+    const rule=config.sectionRules[s.title];
+    const targetNote=s.stories.length<rule.target?`<p class="targetNote">Editorial target: ${rule.target}; ${s.stories.length} fresh ${s.stories.length===1?'story':'stories'} met the sourcing standard at this edition’s cutoff.</p>`:'';
+    const empty=s.emptyReason||'No fresh story met the sourcing standard at this edition’s cutoff.';
+    return `<section class="section" id="s${i}"><div class="sectionTitle"><p>${esc(s.deck||'')}</p><h2>${esc(s.title)}</h2></div>${targetNote}<div class="stories">${s.stories.map((x,j)=>`<article class="story"><span>${String(j+1).padStart(2,'0')}</span><div><small>${esc(x.category)} · ${esc(x.publishedAt.slice(0,10))}</small><h3>${esc(x.headline)}</h3><p>${esc(x.summary)}</p><div class="links">${x.sources.map(src=>link(src.url,src.label)).join(' ')}</div></div></article>`).join('')||`<p>${esc(empty)}</p>`}</div></section>`;
+  }).join('');
   const earnings=e.earnings.items.map(x=>{
     assert(x.title&&x.summary&&x.officialUrl&&x.independentUrl);return `<article class="earning"><h4>${esc(x.title)}</h4><p>${esc(x.summary)}</p><div class="links">${link(x.officialUrl,'Official report')}${link(x.independentUrl,'Independent coverage')}</div></article>`;
   }).join('')||`<p>${esc(e.earnings.emptyReason||'No newly published results verified at the research cutoff.')}</p>`;
