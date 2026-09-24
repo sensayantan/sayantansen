@@ -170,7 +170,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=19">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20">
 </head>
 <body>
 
@@ -237,8 +237,8 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=19"></script>
-  <script src="../assets/js/comments.js?v=19"></script>
+  <script src="../assets/js/main.js?v=20"></script>
+  <script src="../assets/js/comments.js?v=20"></script>
 </body>
 </html>
 """
