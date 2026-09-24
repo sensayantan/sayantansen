@@ -20,7 +20,7 @@ const GISCUS = {
   // for that post, rather than as a new top-level discussion anyone can
   // start.
   category: "Announcements",
-  categoryId: "",
+  categoryId: "DIC_kwDOUJ9k1c4DGRdz",
 };
 
 function mountComments() {
