@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=11">
+  <link rel="stylesheet" href="assets/css/style.css?v=13">
 </head>
 <body>
 
@@ -54,105 +54,56 @@
     <h1>Asking research questions about autism</h1>
 
     <p class="experiment-lede">
-      A search over roughly 1,900 real research papers and clinical trial records,
-      built to answer the questions families actually ask — and to show its
-      working, so every answer can be traced back to the paper it came from.
+      A search over roughly 1,900 real research papers and clinical trial
+      records, built to answer the questions families actually ask — and to
+      show its working, so every answer traces back to the paper it came from.
     </p>
 
     <section class="experiment-section">
-      <h2>Why this exists</h2>
+      <h2>Why this experiment</h2>
       <p>
-        Autism diagnoses have risen sharply over the past two decades. Part of
-        that is a genuine increase; a large part is broader diagnostic criteria
-        and better recognition of children who would once have been missed
-        entirely. The distinction matters for researchers. For a family, the
-        practical consequence is the same either way: far more people are
-        arriving at the beginning of this, holding the same handful of questions,
-        with very little that answers them well.
+        Autism is being identified at a rate that would have been
+        unrecognisable twenty years ago. Part of that is broader diagnostic
+        criteria and better recognition of children who were previously missed
+        entirely; part of it may be a genuine increase. Researchers argue about
+        the proportions, and the argument matters — but not to a family at the
+        beginning of this.
       </p>
       <p>
-        Those questions are rarely exotic. <em>Is it genetic? Did something I do
-        cause this? What does the evidence actually say about early intervention?
-        What is being trialled right now, and where?</em> Honest answers to all of
-        them exist in published research — which is precisely where most parents
-        give up. It is written in unfamiliar vocabulary, scattered across tens of
-        thousands of papers, and the readable summaries in between are too often
-        produced by someone with something to sell.
+        What is striking, against that expansion, is how little has been
+        settled underneath it. Decades of research have implicated hundreds of
+        genes and a long list of prenatal and early-life factors, and produced
+        no single cause. There is no treatment that addresses autism itself —
+        what exists is support and intervention aimed at specific difficulties,
+        which is a different thing and worth not confusing. An enormous amount
+        is now known, and almost none of it resolves into the answer a parent
+        is actually looking for.
       </p>
       <p>
-        This page is a small attempt at narrowing that gap: pointing a family at
-        the actual literature on the question they asked, in the words the
-        researchers used, with a link to every source. It answers nothing on its
-        own authority.
-      </p>
-    </section>
-
-    <section class="experiment-section">
-      <h2>Where the information comes from</h2>
-      <p>
-        Two public sources. No scraping, no paywalled content, nothing private,
-        and no paid API.
-      </p>
-      <table class="source-table">
-        <thead>
-          <tr><th>Source</th><th>What it holds</th><th>How it is accessed</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a><span class="source-owner">US National Library of Medicine</span></td>
-            <td>~1,500 abstracts of peer-reviewed autism research</td>
-            <td>The free <strong>E-utilities</strong> HTTP API, in two calls: <code>esearch</code> returns the record IDs matching a search term, <code>efetch</code> returns those records as XML. No key, no account.</td>
-          </tr>
-          <tr>
-            <td><a href="https://clinicaltrials.gov/" target="_blank" rel="noopener">ClinicalTrials.gov</a><span class="source-owner">US National Institutes of Health</span></td>
-            <td>~400 registered trials — what is being tried, by whom, and where</td>
-            <td>Its public <strong>v2 JSON API</strong>, paged through with a cursor. No key, no account.</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="section-note">
-        Every record keeps its source URL, publication date, authors and journal,
-        so each result links back to the paper or trial it came from. Nothing on
-        this page is written from memory. The set is refreshed automatically each
-        month, so it does not quietly go stale.
-      </p>
-      <p class="experiment-provenance" id="experiment-provenance"></p>
-    </section>
-
-    <section class="experiment-section">
-      <h2>How it works</h2>
-      <p>
-        Keyword search fails people here, because a worried parent and a journal
-        abstract do not use the same words. "Will my son ever talk?" shares almost
-        no vocabulary with a paper titled "Predictors of expressive language
-        outcomes in minimally verbal children."
+        So the questions families arrive with are rarely exotic. <em>Is it
+        genetic? Did something I do cause this? What does the evidence actually
+        say about early intervention? What is being trialled right now, and
+        where?</em> Honest answers to all of them exist in published research —
+        which is precisely where most people give up. It is written in
+        unfamiliar vocabulary, scattered across tens of thousands of papers,
+        and the readable summaries in between are too often produced by someone
+        with something to sell.
       </p>
       <p>
-        So each record is converted into a list of 384 numbers — an
-        <strong>embedding</strong> — that represents what the text means rather
-        than which words it contains. A question is converted the same way, and
-        the records whose numbers sit closest to it are returned, ranked by how
-        close. That similarity score is shown on every result, because a number
-        you can see is more honest than a confident answer you cannot check.
-      </p>
-      <p>
-        This is the retrieval half of what is usually called RAG. It is a small
-        demonstration of something with much wider application: the same
-        technique turns any pile of documents nobody has time to read — clinical
-        guidance, policy, benefits paperwork, school reports — into something a
-        person can ask a plain question of. Autism research is a case where the
-        gap between what is known and what reaches a family is wide, and the cost
-        of that gap is borne by people already having a hard week.
+        This page is a small attempt at narrowing that gap: pointing a family
+        at the actual literature on the question they asked, in the words the
+        researchers used, with a link to every source. It answers nothing on
+        its own authority, and it is not a substitute for a paediatrician or a
+        developmental specialist.
       </p>
     </section>
 
     <section class="experiment-section" id="prepared">
-      <h2>1. Prepared questions</h2>
+      <h2>Frequently asked questions</h2>
       <p class="section-note">
-        Eleven questions run in advance, so this works with no server at all —
-        the results are computed offline and shipped with the page. Each result
-        is a stored record, returned word for word and ranked. Nothing here is
-        written or summarised by an AI.
+        Eleven questions answered in advance, so this works with no server at
+        all. Each result is a stored record, returned word for word and ranked.
+        Nothing here is written or summarised by an AI.
       </p>
 
       <label class="experiment-label" for="question-select" id="select-label">Choose a question</label>
@@ -164,13 +115,11 @@
     </section>
 
     <section class="experiment-section" id="ask">
-      <h2>2. Ask your own question</h2>
+      <h2>Ask your own question</h2>
       <p class="section-note">
-        Anything you type has to be converted to numbers at that moment, which
-        needs a live server — so this half runs on a Cloudflare Worker rather
-        than on the static site. It ranks the same 1,900 records, then has a
-        language model write a short summary of the top matches, with citations
-        you can click through to the papers themselves.
+        Anything you type is matched against the same 1,900 records, and a
+        language model then writes a short summary of the best matches with
+        citations you can click through to the papers themselves.
       </p>
 
       <form class="ask-form" id="ask-form" hidden>
@@ -192,23 +141,117 @@
       <div id="ask-results"></div>
     </section>
 
-    <section class="experiment-section">
-      <h2>Where this goes next</h2>
+    <details class="tech-section">
+      <summary class="tech-summary">How this is built<span class="tech-summary-hint">the sources, the models, the cost</span></summary>
+
+      <p class="experiment-provenance" id="experiment-provenance"></p>
+
+      <h3>Where the data comes from</h3>
       <p>
-        The corpus is deliberately narrow right now — research abstracts and
-        trials, nothing else. The obvious additions are prevalence and
-        demographic figures from the CDC's monitoring network, each carrying its
-        own citation, and the trial locations already sitting unused in the data,
+        Two public sources. No scraping, no paywalled content, nothing private,
+        and no paid API.
+      </p>
+      <table class="source-table">
+        <thead>
+          <tr><th>Source</th><th>What it holds</th><th>How it is accessed</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a><span class="source-owner">US National Library of Medicine</span></td>
+            <td>~1,500 abstracts of peer-reviewed autism research</td>
+            <td>The free <strong>E-utilities</strong> HTTP API, in two calls: <code>esearch</code> returns the record IDs matching a search term, <code>efetch</code> returns those records as XML. No key, no account.</td>
+          </tr>
+          <tr>
+            <td><a href="https://clinicaltrials.gov/" target="_blank" rel="noopener">ClinicalTrials.gov</a><span class="source-owner">US National Institutes of Health</span></td>
+            <td>~400 registered trials — what is being tried, by whom, and where</td>
+            <td>Its public <strong>v2 JSON API</strong>, paged through with a cursor. No key, no account.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        A scheduled GitHub Actions job re-fetches both sources monthly and
+        rebuilds everything below, so the corpus does not quietly go stale.
+      </p>
+
+      <h3>Finding the right papers</h3>
+      <p>
+        Keyword search fails people here, because a worried parent and a
+        journal abstract do not use the same words. "Will my son ever talk?"
+        shares almost no vocabulary with a paper titled "Predictors of
+        expressive language outcomes in minimally verbal children."
+      </p>
+      <p>
+        So each record is converted into a list of 384 numbers — an
+        <strong>embedding</strong> — using <code>BAAI/bge-small-en-v1.5</code>,
+        an open-weight model small enough to run on a laptop CPU. The numbers
+        represent what the text means rather than which words it contains. A
+        question is converted the same way, and the records whose numbers sit
+        closest are returned, ranked by how close. That similarity score is
+        printed on every result, because a number you can check is more honest
+        than a confident answer you cannot.
+      </p>
+      <p>
+        There is no vector database. At 1,900 records the whole index is 2.8 MB
+        — small enough to hold in memory and compare by brute force in well
+        under a millisecond. A managed vector database would earn its keep at a
+        scale this is nowhere near, and would add a paid dependency to
+        something that currently costs nothing.
+      </p>
+
+      <h3>Why the second section needs a server</h3>
+      <p>
+        This site is static: GitHub Pages hands out files exactly as they sit
+        in the repository and cannot run code. That is fine for the prepared
+        questions, whose answers are computed offline and shipped as a data
+        file. A question someone types cannot work that way, because nobody
+        knew the question in advance — it has to be turned into numbers at the
+        moment it is asked.
+      </p>
+      <p>
+        That runs on a <strong>Cloudflare Worker</strong>: a small piece of
+        code that wakes on each request at whichever data centre is nearest the
+        visitor. It embeds the question through
+        <code>@cf/baai/bge-small-en-v1.5</code> — the same model that built the
+        index, which matters, because a question embedded by a different model
+        lands in a different space and every score becomes meaningless while
+        still looking plausible. It ranks the 1,900 records, then passes the
+        best four to <code>@cf/mistral/mistral-7b-instruct-v0.2-lora</code> to
+        write the summary.
+      </p>
+      <p>
+        Both models run on Cloudflare's free tier, which allows 10,000 neurons
+        a day — a question costs a small fraction of one percent of that. The
+        whole thing, end to end, runs at no cost.
+      </p>
+
+      <h3>What the model is and is not allowed to do</h3>
+      <p>
+        The summariser sees only the retrieved records, never its own training
+        knowledge. It is instructed to put a citation marker after every
+        factual sentence, to say plainly when the sources do not answer the
+        question, and never to give medical advice or suggest a diagnosis. If
+        the search finds nothing above a relevance threshold, the model is not
+        called at all — asking it to answer from no sources is inviting it to
+        invent one.
+      </p>
+      <p>
+        Those are instructions, and instructions get ignored. So the page
+        checks too: a citation is only turned into a link when it points at a
+        source that is genuinely on the page, and the summary is styled
+        distinctly from the result cards below it — those are quoted verbatim
+        from real papers, the summary was written by a model, and a reader
+        should never have to guess which is which.
+      </p>
+
+      <h3>What is still missing</h3>
+      <p>
+        The corpus is deliberately narrow: research abstracts and trials,
+        nothing else. The obvious additions are prevalence and demographic
+        figures from the CDC's monitoring network, each carrying its own
+        citation, and the trial locations already sitting unused in the data,
         which could become a map of who is doing this work and where.
       </p>
-      <p>
-        The larger ambition is less about search and more about the thing behind
-        it: the distance between a family with a question and the people, services
-        and evidence that could answer it. That distance is not a technology
-        problem, but it is one of the places where this technology is unusually
-        well suited to helping — and it costs nothing to run.
-      </p>
-    </section>
+    </details>
 
   </main>
 
@@ -226,7 +269,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=11"></script>
-  <script src="assets/js/autism.js?v=11"></script>
+  <script src="assets/js/main.js?v=13"></script>
+  <script src="assets/js/autism.js?v=13"></script>
 </body>
 </html>
