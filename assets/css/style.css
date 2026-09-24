@@ -615,7 +615,7 @@ a:hover {
   }
 
   .blog-tile-title {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -821,6 +821,61 @@ a:hover {
 @media (max-width: 640px) {
   .blog-gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* On a wide screen the post used a 760px column and left ~840px of 1600
+   empty. Widening the text alone would have made it worse: the body was
+   already running at about 92 characters a line, past the ~75 that reads
+   comfortably.
+
+   So the page grows to 1140px and the column and the type grow together —
+   the line length stays where it was while the article takes up more of
+   the screen — and the banner, video and galleries fill the width outright.
+
+   This block has to sit after the base .blog-post rules. Placed before
+   them it lost the cascade to `.blog-post-body { font-size: 1rem }` at
+   equal specificity, and the size bump silently did nothing. */
+@media (min-width: 1080px) {
+  .blog-post {
+    max-width: 1140px;
+  }
+
+  /* The prose column and the type scale up together, so the article fills
+     more of the page without the line length growing past what reads
+     comfortably. Measured at 1600px: 840px at 20px is about 91 characters per
+     line — a shorter measure than the 720px/16px column it replaces. */
+  .blog-post > * {
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* An inline-block ignores `margin: auto`, so the back link would sit on
+     the container edge while the prose starts 130px further in. Offset it
+     by hand so the two line up. */
+  .blog-post > .blog-back-link {
+    margin-left: calc((100% - 840px) / 2);
+  }
+
+  /* Only the media is allowed out of the column. */
+  .blog-post > .blog-banner,
+  .blog-post > .blog-video,
+  .blog-post > .blog-hero-image,
+  .blog-post > .blog-gallery {
+    max-width: 100%;
+  }
+
+  .blog-post > .blog-banner {
+    max-height: 460px;
+  }
+
+  .blog-post-title {
+    font-size: 2.5rem;
+  }
+
+  .blog-post-body {
+    font-size: 1.25rem;
   }
 }
 
