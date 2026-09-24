@@ -7,7 +7,7 @@ layout: standard
 images:
   - image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiG1u06LOoxQr8YJetloFqFQNoQ4t9P2NZrSg0yQonaLNi3XWHH5gnMusneNtmkP89fJilhqMGk5XiWfmdQHS63fDzlxHdZIIpqPLsyPk-tLttjkFhM-A_9VsLHq9G3xPAW_KRIkh0EdFi1A5EXISMc5RcNupFs_LQmI0DLLgh5fgRRN0WyNO5U4q1j7CZh/s1600/Turkey.jpeg
     caption: ""
-attachment: https://youtu.be/P7_8H7AXjzQ
+video: https://youtu.be/P7_8H7AXjzQ
 ---
 
 # Turkey & Greece – 11 Day Travel Blog (7/11/25 - 7/21/25)

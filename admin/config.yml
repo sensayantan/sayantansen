@@ -54,6 +54,12 @@ collections:
         fields:
           - { label: "Image", name: "image", widget: "image" }
           - { label: "Caption", name: "caption", widget: "string", required: false }
+      - label: "Video URL"
+        name: "video"
+        widget: "string"
+        required: false
+        hint: "A YouTube or Vimeo link, e.g. https://youtu.be/xxxxxxxxxxx. It is embedded as a player at the end of the post. Do not put video links in PDF Attachment below - that field is for uploaded files."
+
       - label: "PDF Attachment"
         name: "attachment"
         widget: "file"
