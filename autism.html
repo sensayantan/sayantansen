@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=13">
+  <link rel="stylesheet" href="assets/css/style.css?v=15">
 </head>
 <body>
 
@@ -101,9 +101,9 @@
     <section class="experiment-section" id="prepared">
       <h2>Frequently asked questions</h2>
       <p class="section-note">
-        Eleven questions answered in advance, so this works with no server at
-        all. Each result is a stored record, returned word for word and ranked.
-        Nothing here is written or summarised by an AI.
+        The questions people ask most often. Each runs the same search as the
+        box below: a short summary of what the best-matching research says,
+        with the sources it came from listed underneath.
       </p>
 
       <label class="experiment-label" for="question-select" id="select-label">Choose a question</label>
@@ -111,15 +111,16 @@
         <option value="">— select —</option>
       </select>
 
+      <div id="prepared-answer"></div>
       <div id="results"></div>
     </section>
 
     <section class="experiment-section" id="ask">
       <h2>Ask your own question</h2>
       <p class="section-note">
-        Anything you type is matched against the same 1,900 records, and a
-        language model then writes a short summary of the best matches with
-        citations you can click through to the papers themselves.
+        Anything you type is matched against the same 1,900 records. The
+        citations in the summary link straight to the paper each claim came
+        from.
       </p>
 
       <form class="ask-form" id="ask-form" hidden>
@@ -132,9 +133,10 @@
       </form>
 
       <p class="ask-unavailable" id="ask-unavailable">
-        <strong>Not connected yet.</strong> The search service for this section
-        has not been wired up, so free-text questions are unavailable. The
-        prepared questions above are unaffected — they need no server.
+        <strong>Not connected yet.</strong> The search service has not been
+        wired up, so free-text questions are unavailable. The questions above
+        still work — they fall back to stored results, ranked but without a
+        summary.
       </p>
 
       <div id="answer"></div>
@@ -269,7 +271,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=13"></script>
-  <script src="assets/js/autism.js?v=13"></script>
+  <script src="assets/js/main.js?v=15"></script>
+  <script src="assets/js/autism.js?v=15"></script>
 </body>
 </html>
