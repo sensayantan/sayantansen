@@ -46,6 +46,12 @@ Then came our first major travel lesson. **The JetSMART surprise.** Our Lima-Cus
 
 ## **First impressions of Cusco**
 
+![](/sayantansen/assets/images/blog/five-days-in-peru-we-came-for-machu-picchu-but-left-remembering-the-people/pxl_20260405_130404763.jpg)
+
+![](/sayantansen/assets/images/blog/five-days-in-peru-we-came-for-machu-picchu-but-left-remembering-the-people/pxl_20260405_122216003.jpg)
+
+![](/sayantansen/assets/images/blog/five-days-in-peru-we-came-for-machu-picchu-but-left-remembering-the-people/pxl_20260405_130616177.jpg)
+
 Eventually we landed in Cusco. The first thing you notice is the altitude. Cusco sits at approximately 3,400 meters above sea level, and the historic city was the capital of the Inca Empire. It is a remarkable place where the Inca city and the later Spanish colonial city effectively exist on top of one another. But when you first arrive, history isn't necessarily what your body notices. It notices the air. Walking requires more effort. Climbing stairs requires more effort. You instinctively slow down. We checked into our hotel and later walked toward **Plaza de Armas and San Blas**.
 
 This was our first proper encounter with Peru: old streets, plazas, churches, restaurants and the Andes surrounding everything. Our guide would later tell us that the old city of Cusco was designed in the form of a puma. I initially treated that as another colorful guide story, but Peru's official tourism site notes that historians do indeed associate the ancient city's plan with the shape of a puma. We ended our first day with a very good Peruvian dinner. After all the flights, baggage surprises and altitude, it finally felt like: **We were in Peru.**
@@ -61,6 +67,8 @@ The following morning was our Sacred Valley day. We had arranged a private vehic
 On our way out of the city we stopped at a high viewpoint overlooking Cusco. From above, the geography suddenly made sense. The city sits in a valley surrounded by mountains. Our guide explained how Inca Cusco developed around rivers, some of which were later channeled or covered as the Spanish city developed. The guide also began explaining the history of the Incas. Some guide narratives inevitably mix documented history with local tradition, but the broad story is extraordinary enough without embellishment. The Inca Empire's dramatic expansion occurred mainly in the 15th and early 16th centuries. The ruler most closely associated with its transformation was **Pachacuti**, who reorganized Cusco and is also traditionally associated with the construction of Machu Picchu. The civilization demonstrated remarkable organization in agriculture, road building, water management, stonework and administration. And yet they left no conventional written script comparable with European or Asian writing systems. That contrast fascinated me throughout the trip.
 
 **Pisac — Terraces in the Mountains**
+
+![](/sayantansen/assets/images/blog/five-days-in-peru-we-came-for-machu-picchu-but-left-remembering-the-people/pxl_20260405_142519954.jpg)
 
 Our first major archaeological stop was Pisac. It was chilly when we arrived, and the altitude made the climb more demanding than it looked. The agricultural terraces immediately demonstrated something we would see repeatedly: the Incas didn't try to flatten the Andes. They adapted themselves to them. Terraces converted steep mountain slopes into agricultural land. Roads and stairs connected elevations. Settlements became part of the mountain rather than something imposed upon it. This was also where we started hearing repeatedly about potatoes. Peru has an extraordinary diversity of potatoes, and experimentation with crops, microclimates and altitude was a central part of Andean agriculture.
 
@@ -79,6 +87,8 @@ Our guide described them as representations of different realms. The condor repr
 **Ollantaytambo — The Perfect Ending to the Sacred Valley.** Our final archaeological stop was Ollantaytambo. By this point we were tired. My wife initially wasn't feeling well enough to climb. My son and I started without her, but eventually she decided to join us. I'm glad she did. Ollantaytambo is spectacular. The terraces climb dramatically above the town, and the stonework once again raises questions about how the Incas planned, moved and assembled enormous stones. The site also reinforced something that would become even clearer at Machu Picchu: the Incas watched the sun carefully. Architecture, ritual and agriculture were connected to solar movement and seasonal cycles. After the tour our guide dropped us at Ollantaytambo's central area. And then came one of those wonderful small travel experiences. Our hotel was down a narrow lane where cars couldn't go. A hotel porter arrived and transported our luggage using a little three-wheeled vehicle/cart through the narrow streets while we followed on foot. Unfortunately, we were so tired that I didn't photograph it. I regret that. Sometimes the photographs you don't take become the memories you remember most. Despite being tucked away in this old mountain town, our hotel manager managed to arrange pizza delivery. A large thin-crust pizza cost about **44 soles**. And that was how Day 2 ended.
 
 # Day 3 — The 5:05 AM Train and the Great Machu Picchu Ticket Gamble
+
+
 
 The next morning started before sunrise. We boarded **PeruRail Expedition 71** from Ollantaytambo. The train left almost exactly at 5:05 AM. For weeks I had worried about PeruRail's luggage restriction. We had rearranged our luggage repeatedly to stay around the permitted tourist-train allowance. And after all that worry? Nobody seriously scrutinized it on the outbound journey. Travel has a sense of humor. We reached Machu Picchu Pueblo—better known to many travelers as **Aguas Calientes**—at approximately **6:45 AM**. But we weren't heading to the hotel. We were running.
 
