@@ -2,7 +2,12 @@
 title: "Five Days in Peru: We Came for Machu Picchu, but Left Remembering the People"
 date: 2026-04-03T06:00:00.000-07:00
 banner: assets/images/blog/five-days-in-peru-we-came-for-machu-picchu-but-left-remembering-the-people/chatgpt-image-sep-25-2026-11_15_29-am.png
-tags: []
+tags:
+  - vacation
+  - senfamily
+  - peru
+  - cusco
+  - machupichu
 layout: standard
 images: []
 ---
@@ -10,7 +15,7 @@ There are trips where everything goes according to plan. And then there are trip
 
 Our five days in Peru belonged firmly to the second category.
 
-We came primarily for Machu Picchu. It had been the centerpiece around which I had built the entire itinerary: Cusco, the Sacred Valley, Ollantaytambo, two different Machu Picchu circuits and finally a day in Lima.
+We came primarily for Machu Picchu. It had been the centerpiece around which I had built the entire itinerary: Cusco, the Sacred Valley, Ollantaytambo, two different Machu Picchu circuits and finally a day in Lima. 
 
 By the time we left, however, my strongest memories weren't only of ancient stones and mountains. They were of Peru itself: its people, its history, its contradictions, its food, its politics, its young generation, its markets and—in several cases—our own travel mistakes.
 
@@ -40,105 +45,33 @@ That lesson would follow us throughout Peru.
 
 We landed in Lima the next morning.
 
-Immigration was surprisingly smooth. Lima's airport felt clean and modern, and the international arrival experience was considerably easier than I had anticipated.
-
-I had intentionally kept almost five hours between our international arrival and our domestic flight to Cusco because I was worried about immigration, baggage and transferring terminals.
-
-In reality, we finished almost everything within an hour and a half.
-
-That left us with a painfully long wait.
+Immigration was surprisingly smooth. Lima's airport felt clean and modern, and the international arrival experience was considerably easier than I had anticipated.cI had intentionally kept almost five hours between our international arrival and our domestic flight to Cusco because I was worried about immigration, baggage and transferring terminals.cIn reality, we finished almost everything within an hour and a half. That left us with a painfully long wait.
 
 We couldn't use the lounge because the service we were looking for appeared to be available only for international departures. Eventually we ate at KFC—not memorable food by any stretch, but at that moment one of the more reasonable options.
 
-Then came our first major travel lesson.
-
-## The JetSMART surprise
-
-Our Lima-Cusco flight was on JetSMART.
-
-I had booked through Expedia and had not paid enough attention to the fare's baggage conditions.
-
-That was a mistake.
-
-We discovered that virtually every piece of baggage beyond a small personal item cost extra. Even airport counter services could cost more. We had also been unable to complete web check-in before the outbound flight.
-
-Between our large suitcase, carry-on trolley bags and backpacks, the additional charges came to an astonishing **$201**.
-
-For a short domestic flight.
-
-That was painful.
-
-It became one of the most important practical lessons of the trip:
+Then came our first major travel lesson. **The JetSMART surprise.** Our Lima-Cusco flight was on JetSMART. I had booked through Expedia and had not paid enough attention to the fare's baggage conditions. That was a mistake. We discovered that virtually every piece of baggage beyond a small personal item cost extra. Even airport counter services could cost more. We had also been unable to complete web check-in before the outbound flight. Between our large suitcase, carry-on trolley bags and backpacks, the additional charges came to an astonishing **$201**. For a short domestic flight. That was painful. It became one of the most important practical lessons of the trip:
 
 **With a low-cost airline, never judge the fare by the airfare alone.**
 
-## First impressions of Cusco
+## **First impressions of Cusco**
 
-Eventually we landed in Cusco.
+Eventually we landed in Cusco. The first thing you notice is the altitude. Cusco sits at approximately 3,400 meters above sea level, and the historic city was the capital of the Inca Empire. It is a remarkable place where the Inca city and the later Spanish colonial city effectively exist on top of one another. But when you first arrive, history isn't necessarily what your body notices. It notices the air. Walking requires more effort. Climbing stairs requires more effort. You instinctively slow down. We checked into our hotel and later walked toward **Plaza de Armas and San Blas**.
 
-The first thing you notice is the altitude.
+This was our first proper encounter with Peru: old streets, plazas, churches, restaurants and the Andes surrounding everything. Our guide would later tell us that the old city of Cusco was designed in the form of a puma. I initially treated that as another colorful guide story, but Peru's official tourism site notes that historians do indeed associate the ancient city's plan with the shape of a puma. We ended our first day with a very good Peruvian dinner. After all the flights, baggage surprises and altitude, it finally felt like: **We were in Peru.**
 
-Cusco sits at approximately 3,400 meters above sea level, and the historic city was the capital of the Inca Empire. It is a remarkable place where the Inca city and the later Spanish colonial city effectively exist on top of one another.
-
-But when you first arrive, history isn't necessarily what your body notices.
-
-It notices the air.
-
-Walking requires more effort. Climbing stairs requires more effort. You instinctively slow down.
-
-We checked into our hotel and later walked toward Plaza de Armas and San Blas.
-
-This was our first proper encounter with Peru: old streets, plazas, churches, restaurants and the Andes surrounding everything.
-
-Our guide would later tell us that the old city of Cusco was designed in the form of a puma. I initially treated that as another colorful guide story, but Peru's official tourism site notes that historians do indeed associate the ancient city's plan with the shape of a puma.
-
-We ended our first day with a very good Peruvian dinner.
-
-After all the flights, baggage surprises and altitude, it finally felt like:
-
-**We were in Peru.**
-
-There was one disappointment, however, that I realized too late. We hadn't built Rainbow Mountain into our itinerary. I tried to move the schedule around by a day, but by then the hotels, trains and Machu Picchu arrangements made it virtually impossible.
-
-That became another lesson: Peru has much more than Machu Picchu, and some decisions need to be made before the trip begins.
+There was one disappointment, however, that I realized too late. We hadn't built Rainbow Mountain into our itinerary. I tried to move the schedule around by a day, but by then the hotels, trains and Machu Picchu arrangements made it virtually impossible. That became another lesson: Peru has much more than Machu Picchu, and some decisions need to be made before the trip begins.
 
 # Day 2 — Through the Sacred Valley
 
-The following morning was our Sacred Valley day.
+The following morning was our Sacred Valley day. We had arranged a private vehicle and guide, and the route would eventually take us from Cusco through **Pisac, Moray and the Maras Salt Mines before ending at Ollantaytambo**. This was the day when Peru started revealing the civilization behind the scenery.
 
-We had arranged a private vehicle and guide, and the route would eventually take us from Cusco through **Pisac, Moray and the Maras Salt Mines before ending at Ollantaytambo**.
+**Looking down on Cusco**
 
-This was the day when Peru started revealing the civilization behind the scenery.
+On our way out of the city we stopped at a high viewpoint overlooking Cusco. From above, the geography suddenly made sense. The city sits in a valley surrounded by mountains. Our guide explained how Inca Cusco developed around rivers, some of which were later channeled or covered as the Spanish city developed. The guide also began explaining the history of the Incas. Some guide narratives inevitably mix documented history with local tradition, but the broad story is extraordinary enough without embellishment. The Inca Empire's dramatic expansion occurred mainly in the 15th and early 16th centuries. The ruler most closely associated with its transformation was **Pachacuti**, who reorganized Cusco and is also traditionally associated with the construction of Machu Picchu. The civilization demonstrated remarkable organization in agriculture, road building, water management, stonework and administration. And yet they left no conventional written script comparable with European or Asian writing systems. That contrast fascinated me throughout the trip.
 
-## Looking down on Cusco
+## Pisac — Terraces in the Mountains
 
-On our way out of the city we stopped at a high viewpoint overlooking Cusco.
-
-From above, the geography suddenly made sense.
-
-The city sits in a valley surrounded by mountains. Our guide explained how Inca Cusco developed around rivers, some of which were later channeled or covered as the Spanish city developed.
-
-The guide also began explaining the history of the Incas.
-
-Some guide narratives inevitably mix documented history with local tradition, but the broad story is extraordinary enough without embellishment.
-
-The Inca Empire's dramatic expansion occurred mainly in the 15th and early 16th centuries. The ruler most closely associated with its transformation was **Pachacuti**, who reorganized Cusco and is also traditionally associated with the construction of Machu Picchu.
-
-The civilization demonstrated remarkable organization in agriculture, road building, water management, stonework and administration.
-
-And yet they left no conventional written script comparable with European or Asian writing systems.
-
-That contrast fascinated me throughout the trip.
-
-# Pisac — Terraces in the Mountains
-
-Our first major archaeological stop was Pisac.
-
-It was chilly when we arrived, and the altitude made the climb more demanding than it looked.
-
-The agricultural terraces immediately demonstrated something we would see repeatedly: the Incas didn't try to flatten the Andes.
-
-They adapted themselves to them.
+Our first major archaeological stop was Pisac. It was chilly when we arrived, and the altitude made the climb more demanding than it looked. The agricultural terraces immediately demonstrated something we would see repeatedly: the Incas didn't try to flatten the Andes. They adapted themselves to them.
 
 Terraces converted steep mountain slopes into agricultural land. Roads and stairs connected elevations. Settlements became part of the mountain rather than something imposed upon it.
 
