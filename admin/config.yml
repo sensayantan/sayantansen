@@ -85,11 +85,12 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
-        # "image" puts an insert-image control in the body toolbar, so a
-        # picture can sit between two paragraphs instead of only in the
-        # Images list below, which always renders as a block at the end.
-        buttons: ["bold", "italic", "link", "image", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
-        editor_components: ["image"]
+        # `buttons` only accepts inline/block formatting names — "image" is
+        # NOT one of them, and putting it here fails config validation and
+        # takes the whole admin down. Image insertion is an editor
+        # component, configured separately below.
+        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
+        editor_components: ["image", "code-block"]
         hint: "Use the image button to place a picture inline, where the cursor is. The Images field below is for a gallery at the end of the post."
 
   - name: "about"
