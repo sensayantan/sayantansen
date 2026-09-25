@@ -1716,3 +1716,23 @@ a:hover {
   .archive-grid { gap: 3px; }
   .archive-day { font-size: 0.85rem; }
 }
+
+/* Bare mode: archive.html?chrome=off, opened in a pop-up from a Daybreak
+   edition. No site header or footer, since a pop-up has nowhere to
+   navigate back to. The class is set by an inline script in <head> so the
+   chrome never paints. */
+.is-bare .site-header,
+.is-bare .site-footer,
+.is-bare .archive-chrome-only {
+  display: none;
+}
+
+/* The mobile media query sets body padding-bottom again further down, so
+   this needs the extra specificity rather than relying on source order. */
+html.is-bare body {
+  padding-bottom: 0;
+}
+
+.is-bare .archive-page {
+  padding-top: 1.5rem;
+}

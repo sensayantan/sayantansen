@@ -53,12 +53,53 @@ EDITION_RE = re.compile(r"^daybreak-(\d{4})-([A-Z][a-z]{2})-(\d{2})\.html$")
 # Sits in the masthead beside the edition date, not in the category bar.
 # In the bar it was the 12th of 12 links and read as another news section
 # rather than a control, which is why it went unnoticed.
+# chrome=off strips the site header and footer on the archive page, which a
+# pop-up has no use for. target=_blank means it still opens in a new tab with
+# JavaScript off; the injected script upgrades that to a sized window and can
+# then tell when the browser blocked it.
 ARCHIVE_LINK = (
-    f'<a class="dbArchiveLink" href="{SITE}/archive.html">'
+    f'<a class="dbArchiveLink" href="{SITE}/archive.html?chrome=off"'
+    ' target="_blank" rel="noopener">'
     '<svg viewBox="0 0 20 20" aria-hidden="true">'
     '<rect x="3" y="4" width="14" height="4" rx="1"/>'
     '<path d="M4.5 8.5V16h11V8.5M8 11.5h4"/></svg>'
     "Past editions</a>"
+)
+
+POPUP_START = "/*site-popup-start*/"
+POPUP_END = "/*site-popup-end*/"
+
+# A pop-up blocker is silent: window.open just returns null, and without this
+# the pill would look broken. The notice offers a plain link, which is a
+# normal user-initiated navigation and is not blocked.
+POPUP_SCRIPT = (
+    "<script>" + POPUP_START + """
+(function(){
+  var link=document.querySelector(".dbArchiveLink");
+  if(!link)return;
+  var notice=null;
+  link.addEventListener("click",function(e){
+    e.preventDefault();
+    if(notice){notice.remove();notice=null;}
+    var w=null;
+    try{
+      w=window.open(link.href,"daybreakArchive",
+        "width=720,height=780,menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes");
+    }catch(err){w=null;}
+    // A blocked pop-up is null, already closed, or has no usable closed flag.
+    if(!w||w.closed||typeof w.closed=="undefined"){
+      notice=document.createElement("div");
+      notice.className="dbPopupBlocked";
+      notice.setAttribute("role","alert");
+      notice.innerHTML='Your browser blocked the pop-up. '+
+        '<a href="'+link.href+'" target="_blank" rel="noopener">Open past editions in a new tab</a>';
+      (document.querySelector(".dbCategoryBar")||document.body).insertAdjacentElement("afterend",notice);
+      return;
+    }
+    try{w.focus();}catch(err){}
+  });
+})();
+""" + POPUP_END + "</script>"
 )
 
 # The site footer the rest of the site carries. The generator emits only a
@@ -108,7 +149,13 @@ EXTRA_CSS = CSS_START + """
 .dbCategoryBar a:hover,.dbCategoryBar a:focus{color:#2759bd;text-decoration:underline}
 .dbMethod{margin:0;padding:11px 5% 13px;background:#fff;border-bottom:1px solid #e6eaf1;font-size:11px;line-height:1.65;color:#6b7a94}
 .dbMethod strong{color:#46587a}
-.dbMasthead-tools{display:flex;align-items:center;gap:16px}
+/* margin-left:auto pushes the whole group to the right edge; the generator
+   put that on .edition, which now sits inside this group and so no longer
+   reaches the header. */
+.dbMasthead-tools{display:flex;align-items:center;gap:16px;margin-left:auto}
+.dbMasthead-tools .edition{margin-left:0}
+.dbPopupBlocked{margin:0;padding:10px 5%;background:#fff4d6;border-bottom:1px solid #e8d391;font-size:12px;color:#6b5312}
+.dbPopupBlocked a{color:#8a5a00;font-weight:700}
 .dbArchiveLink{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid #c9d2e2;border-radius:999px;background:#fff;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:#2759bd;white-space:nowrap}
 .dbArchiveLink svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6}
 .dbArchiveLink:hover,.dbArchiveLink:focus{background:#2759bd;border-color:#2759bd;color:#fff}
@@ -170,23 +217,47 @@ def add_archive_link(html: str) -> tuple[str, bool]:
     # Clear the old placement so an already-patched edition moves the link
     # rather than ending up with two.
     stale = re.search(r'<a class="dbArchiveLink".*?</a>', html, re.S)
-    if stale and 'class="dbMasthead-tools"' not in html:
+    if stale:
+        if stale.group(0) == ARCHIVE_LINK and 'class="dbMasthead-tools"' in html:
+            return html, False
+        # Older placement or older markup: strip it, and unwrap the tools div
+        # so the block below rebuilds it in the current order.
         html = html[: stale.start()] + html[stale.end():]
-    elif stale:
-        return html, False
+        html = re.sub(r'<div class="dbMasthead-tools">(.*?)</div>', r"\1", html, count=1, flags=re.S)
 
     # The masthead is <header class="top">brand + edition</header> by the
     # time move_category_links has run.
     edition = re.search(r'<div class="edition">.*?</div>', html, re.S)
     if not edition:
         return html, False
+    # Date first, pill last, so the pill lands hard against the right edge.
     tools = (
         '<div class="dbMasthead-tools">'
-        + ARCHIVE_LINK
         + edition.group(0)
+        + ARCHIVE_LINK
         + "</div>"
     )
     return html[: edition.start()] + tools + html[edition.end():], True
+
+
+def add_popup_script(html: str) -> tuple[str, bool]:
+    """Opens the archive in a sized window, and says so when that is blocked.
+
+    Replaces an existing block rather than skipping it, so edits to
+    POPUP_SCRIPT reach editions patched by an earlier version.
+    """
+    existing = re.search(
+        re.escape("<script>" + POPUP_START) + ".*?" + re.escape(POPUP_END + "</script>"),
+        html,
+        re.S,
+    )
+    if existing:
+        if existing.group(0) == POPUP_SCRIPT:
+            return html, False
+        return html[: existing.start()] + POPUP_SCRIPT + html[existing.end():], True
+    if "</body>" not in html:
+        return html, False
+    return html.replace("</body>", POPUP_SCRIPT + "</body>", 1), True
 
 
 def add_site_footer(html: str) -> tuple[str, bool]:
@@ -297,6 +368,7 @@ def patch(path: Path) -> list[str]:
         ("category-bar", move_category_links),
         ("archive-link", add_archive_link),
         ("site-footer", add_site_footer),
+        ("popup-script", add_popup_script),
         ("method-note", add_method_note),
     ):
         html, changed = fn(html)

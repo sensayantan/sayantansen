@@ -8,7 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=22">
+  <link rel="stylesheet" href="assets/css/style.css?v=23">
+  <script>
+    // Runs before the body paints. Setting this from archive.js would let the
+    // header and footer render first and then vanish.
+    if (new URLSearchParams(location.search).has("chrome")) {
+      document.documentElement.classList.add("is-bare");
+    }
+  </script>
 </head>
 <body>
 
@@ -51,7 +58,7 @@
       <p class="archive-status" id="archive-status">Loading editions…</p>
     </div>
 
-    <p class="archive-latest">
+    <p class="archive-latest archive-chrome-only">
       <a href="news.html">Read the latest edition →</a>
     </p>
   </main>
@@ -70,7 +77,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=22"></script>
-  <script src="assets/js/archive.js?v=22"></script>
+  <script src="assets/js/main.js?v=23"></script>
+  <script src="assets/js/archive.js?v=23"></script>
 </body>
 </html>
