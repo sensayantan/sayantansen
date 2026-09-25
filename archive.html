@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sayantan Sen — About</title>
-  <meta name="description" content="Personal website of Sayantan Sen — bio, daily news brief, and blog.">
+  <title>Sayantan Sen — Daybreak Archive</title>
+  <meta name="description" content="Browse past editions of the Daybreak news brief by date.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,11 +19,11 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="pillnav" id="nav-links">
-        <a href="index.html" class="pill active">
+        <a href="index.html" class="pill">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5 10 3l7 6.5"/><path d="M5 8.5V17h10V8.5"/></svg>
           About Me
         </a>
-        <a href="news.html" class="pill">
+        <a href="news.html" class="pill active">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M6 7.5h8M6 10.5h8M6 13.5h5"/></svg>
           Today's News
         </a>
@@ -39,27 +39,21 @@
     </div>
   </header>
 
-  <main>
-    <section class="section container container-wide" id="about">
-      <div class="split-section">
-        <div id="profile-photos" class="photo-panel"></div>
-        <div class="text-panel">
-          <h2>About Me</h2>
-          <h1 class="about-greeting">Hi, I'm Sayantan <span aria-hidden="true">👋</span></h1>
-          <div id="about-intro"></div>
+  <main class="container archive-page">
+    <h1 class="archive-title">Daybreak archive</h1>
+    <p class="archive-intro">
+      Pick a date to read that morning's brief. Daybreak doesn't run on
+      Sundays, and a few weekdays are missing too — only the days with an
+      edition are selectable.
+    </p>
 
-          <h2 id="personal">My Personal Journey</h2>
-          <div id="personal-journey"></div>
+    <div class="archive-calendar" id="archive-calendar" aria-live="polite">
+      <p class="archive-status" id="archive-status">Loading editions…</p>
+    </div>
 
-          <h2 id="family">My Family / My World</h2>
-          <div id="family-intro"></div>
-
-          <h2 id="journey">My Professional Journey</h2>
-          <div id="professional-journey"></div>
-        </div>
-      </div>
-    </section>
-
+    <p class="archive-latest">
+      <a href="news.html">Read the latest edition →</a>
+    </p>
   </main>
 
   <footer class="site-footer">
@@ -77,6 +71,6 @@
   </footer>
 
   <script src="assets/js/main.js?v=22"></script>
-  <script src="assets/js/about.js?v=22"></script>
+  <script src="assets/js/archive.js?v=22"></script>
 </body>
 </html>
