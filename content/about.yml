@@ -3,9 +3,9 @@ about_intro: I'm Sayantan Sen, a **technology professional** by day, a **family
   nothing productive to do.
 profile_photos:
   - ai_generated: true
-    image: assets/images/blog/sayantansen-professional-image.jpeg
+    image: /sayantansen/assets/images/blog/sayantansen-professional-image.jpeg
   - ai_generated: false
-    image: assets/images/blog/sen-sayantan-globallogic-ako02249.jpg
+    image: /sayantansen/assets/images/blog/sen-sayantan-globallogic-ako02249.jpg
 professional_journey: >-
   My path into technology wasn't planned as a straight line toward leadership —
   it started, quite literally, at the code level.

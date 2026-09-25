@@ -2,7 +2,7 @@
 title: Time to have Indian coach for Team Cricket India and there is no one
   better that Sourav Ganguli
 date: 2015-01-01T13:30:00.002Z
-banner: assets/images/blog/time-to-have-indian-coach-for-team/cricket_coaches_collage.jpg
+banner: /sayantansen/assets/images/blog/time-to-have-indian-coach-for-team/cricket_coaches_collage.jpg
 tags: []
 layout: standard
 images: []

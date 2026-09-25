@@ -2,7 +2,7 @@
 title: Is N Srinivasan the only grey spot in otherwise a great career of
   Mahendra Singh Dhoni?
 date: 2015-01-01T13:28:00.004Z
-banner: assets/images/blog/is-n-srinivasan-only-grey-spot-in/ds.jpeg
+banner: /sayantansen/assets/images/blog/is-n-srinivasan-only-grey-spot-in/ds.jpeg
 tags: []
 layout: standard
 images: []
