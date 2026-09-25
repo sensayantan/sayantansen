@@ -46,5 +46,6 @@ test('full research contract uses 24 mocked calls and emits every configured sec
   const result=await research({request,date:'2026-09-18',now:()=>new Date(stamp),previousStories:[{section:'Top News',eventId:'prior-event',headline:'Prior developing event',summary:'Prior summary',publishedAt:'2026-09-17T17:00:00Z'}]});
   assert.equal(calls,24);assert.equal(result.edition.sections.length,config.sections.length);assert.equal(result.audit.length,config.sections.length+2);
   assert.match(firstResearchPrompt,/Prior developing event/);assert.match(firstResearchPrompt,/material new development/);
+  assert.match(firstResearchPrompt,/BBC News/);assert.match(firstResearchPrompt,/Required source roster/);
   assert.equal(result.edition.sections[0].stories[0].sources[0].verifiedAt,stamp);
 });

@@ -127,6 +127,38 @@ The Asia-Pacific sweep must also search Nepal and the rest of South Asia, China 
 - [The Africa Report](https://www.theafricareport.com/)
 - [Ahram Online](https://english.ahram.org.eg/)
 
+### Technology & AI
+
+- [Reuters Technology](https://www.reuters.com/technology/)
+- [MIT Technology Review](https://www.technologyreview.com/)
+- [The Verge](https://www.theverge.com/tech)
+- [TechCrunch](https://techcrunch.com/)
+- [WIRED](https://www.wired.com/)
+- [Ars Technica](https://arstechnica.com/)
+- [IEEE Spectrum](https://spectrum.ieee.org/)
+- [Nature — Technology](https://www.nature.com/subjects/technology)
+- [OpenAI News](https://openai.com/news/)
+- [Google DeepMind](https://deepmind.google/discover/blog/)
+
+Official company or laboratory pages are primary sources for announcements, not independent validation. Material product, safety, policy, and research claims still need independent reporting or the underlying paper.
+
+### Health and Research
+
+- [PubMed](https://pubmed.ncbi.nlm.nih.gov/)
+- [The New England Journal of Medicine](https://www.nejm.org/)
+- [JAMA](https://jamanetwork.com/journals/jama)
+- [The Lancet](https://www.thelancet.com/)
+- [The BMJ](https://www.bmj.com/)
+- [Nature Medicine](https://www.nature.com/nm/)
+- [Science](https://www.science.org/)
+- [NIH News Releases](https://www.nih.gov/news-events/news-releases)
+- [CDC Newsroom](https://www.cdc.gov/media/)
+- [World Health Organization News](https://www.who.int/news)
+- [Spectrum — Autism Research News](https://www.thetransmitter.org/spectrum/)
+- [Autism Research](https://onlinelibrary.wiley.com/journal/19393806)
+
+Journal articles, registries, agencies, universities, and study authors are primary sources. Health summaries must also seek independent clinical or science reporting where available and must retain the evidence limitations required by `scheduled-task.md`.
+
 ## Required workflow for every editorial desk
 
 1. **Set the edition window.** Use the current Pacific date and the repository's freshness rules. Load the prior working edition only as a list of continuing-event leads.

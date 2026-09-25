@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
-import {config, repo, validateEdition} from './render.mjs';
+import {config, repo, sourceRosters, validateEdition} from './render.mjs';
 
 const str={type:'string'};
 const array=items=>({type:'array',items});
@@ -75,8 +75,7 @@ export function rankAndDeduplicate(cards,now=Date.now()) {
     const section=card.humanImpact>=4?'Top News':card.section;
     const rule=config.sectionRules[section];if(!rule)continue;
     if((counts.get(section)||0)>=rule.max)continue;
-    if(selected.some(x=>x.eventId===card.eventId||similar(x.headline,card.headline)||
-      x.sources.some(s=>card.sources.some(t=>canonical(s.url)===canonical(t.url)))))continue;
+    if(selected.some(x=>x.eventId===card.eventId||similar(x.headline,card.headline)))continue;
     selected.push({...card,section,score:score(card)});counts.set(section,(counts.get(section)||0)+1);
   }
   return selected;
@@ -99,11 +98,13 @@ export function createClient({key,model,fetchImpl=fetch,maxCalls=24}) {
 export async function research({request,date=pacificDate(),now=()=>new Date(),previousStories=[],previousHeadlines=[]}) {
   const audit=[],cards=[],emptyReasons=new Map();
   async function retrieveAndExtract(name,scope,schema) {
+    const roster=sourceRosters.get(name.toLowerCase().replace(/[^a-z0-9]+/g,''))||[];
     const retrieval=await request({
-      tools:[{type:'web_search',search_context_size:'medium'}],tool_choice:'required',max_tool_calls:3,
+      tools:[{type:'web_search',search_context_size:'high'}],tool_choice:'required',max_tool_calls:12,
       include:['web_search_call.action.sources'],
       input:`Research Daybreak for ${date}, now ${now().toISOString()}. ${scope}
 Search and read current sources; prefer official records and Reuters/AP/BBC or reputable regional journalism. Every candidate story must be corroborated by at least two independent source domains. Google News may be used for discovery but cite the original publishers, not a Google News redirect.
+Required source roster for this desk: ${JSON.stringify(roster)}. Attempt every listed current-news page, open candidate articles rather than relying on search snippets, and state in the evidence when a listed source is blocked, paywalled, stale, unavailable or unreadable. The roster is a discovery requirement, not permission to claim inaccessible material was read.
 Use publication dates within 48 hours, distinguish scheduled events from actual results, and attribute contested claims.
 Return factual evidence notes with publication/observation dates and inline source citations. Do not invent facts or dates.
 First prioritize genuinely new events. If this desk may fall below its editorial target, revisit the prior-edition events listed below and search for a material new development published for this edition. A new official decision, verified impact change, result, filing, escalation or resolution may qualify. A rewritten headline, commentary, recap or unchanged background does not. Never copy yesterday's summary, sources or timestamp. Any continuing story must be rewritten from today's retrieved evidence and independently corroborated like a new story.

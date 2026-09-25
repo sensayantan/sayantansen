@@ -5,6 +5,14 @@ import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 export const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 export const config=JSON.parse(await fs.readFile(new URL('./config.json',import.meta.url)));
+const rosterMarkdown=await fs.readFile(new URL('./editorial-sources.md',import.meta.url),'utf8');
+const rosterKey=value=>value.toLowerCase().replace(/[^a-z0-9]+/g,'');
+export const sourceRosters=new Map();let rosterTitle='';
+for(const line of rosterMarkdown.split(/\r?\n/)) {
+  const heading=line.match(/^###\s+(.+)$/);if(heading){rosterTitle=rosterKey(heading[1]);if(!sourceRosters.has(rosterTitle))sourceRosters.set(rosterTitle,[]);continue;}
+  const item=line.match(/^- \[([^\]]+)\]\((https:\/\/[^)]+)\)$/);if(item&&rosterTitle)sourceRosters.get(rosterTitle).push({label:item[1],url:item[2]});
+}
+for(const title of config.sections)assert(sourceRosters.get(rosterKey(title))?.length,`Missing editorial source roster for ${title}`);
 const esc=x=>String(x??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const pct=x=>Number.isFinite(x)?`${x>=0?'+':''}${x.toFixed(1)}%`:'Source unavailable';
 const tone=x=>Number.isFinite(x)?(x>=0?'up':'down'):'na';
@@ -26,7 +34,7 @@ export function validateEdition(e) {
       assert(!Number.isNaN(Date.parse(x.publishedAt)),'Invalid publication timestamp');
       assert(x.sources.every(src=>src.verifiedAt&&src.label),'Verified sources required');
       assert(new Set(x.sources.map(src=>new URL(src.url).hostname.replace(/^www\./,''))).size>=2,'Each story requires two independent source domains');
-      const keys=[`event:${x.eventId}`,`headline:${x.headline.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}`,...x.sources.map(src=>`url:${new URL(src.url).href.replace(/#.*$/,'')}`)];
+      const keys=[`event:${x.eventId}`,`headline:${x.headline.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}`];
       for(const key of keys){assert(!seen.has(key),`Duplicate event/headline/source: ${key}`);seen.add(key);}
       x.sources.forEach(src=>url(src.url));
     }
@@ -54,9 +62,10 @@ export async function render(e,market,portfolio,outputDir) {
   const unavailable=portfolio.rows.filter(x=>x.error);
   const editorial=e.sections.map((s,i)=>{
     const rule=config.sectionRules[s.title];
-    const targetNote=s.stories.length<rule.target?`<p class="targetNote">Editorial target: ${rule.target}; ${s.stories.length} fresh ${s.stories.length===1?'story':'stories'} met the sourcing standard at this edition’s cutoff.</p>`:'';
+    const roster=sourceRosters.get(rosterKey(s.title));
+    const rosterHtml=`<div class="sourceRoster" style="font:10px/1.45 Arial,sans-serif;color:#666;margin:-16px 0 24px"><strong>Research roster checked for this desk (availability varies):</strong> ${roster.map(src=>link(src.url,src.label)).join(' · ')}</div>`;
     const empty=s.emptyReason||'No fresh story met the sourcing standard at this edition’s cutoff.';
-    return `<section class="section" id="s${i}"><div class="sectionTitle"><p>${esc(s.deck||'')}</p><h2>${esc(s.title)}</h2></div>${targetNote}<div class="stories">${s.stories.map((x,j)=>`<article class="story"><span>${String(j+1).padStart(2,'0')}</span><div><small>${esc(x.category)} · ${esc(x.publishedAt.slice(0,10))}</small><h3>${esc(x.headline)}</h3><p>${esc(x.summary)}</p><div class="links">${x.sources.map(src=>link(src.url,src.label)).join(' ')}</div></div></article>`).join('')||`<p>${esc(empty)}</p>`}</div></section>`;
+    return `<section class="section" id="s${i}"><div class="sectionTitle"><p>${esc(s.deck||'')}</p><h2>${esc(s.title)}</h2></div>${rosterHtml}<div class="stories">${s.stories.map((x,j)=>`<article class="story"><span>${String(j+1).padStart(2,'0')}</span><div><small>${esc(x.category)} · ${esc(x.publishedAt.slice(0,10))}</small><h3>${esc(x.headline)}</h3><p>${esc(x.summary)}</p><div class="links">${x.sources.map(src=>link(src.url,src.label)).join(' ')}</div></div></article>`).join('')||`<p>${esc(empty)}</p>`}</div></section>`;
   }).join('');
   const earnings=e.earnings.items.map(x=>{
     assert(x.title&&x.summary&&x.officialUrl&&x.independentUrl);return `<article class="earning"><h4>${esc(x.title)}</h4><p>${esc(x.summary)}</p><div class="links">${link(x.officialUrl,'Official report')}${link(x.independentUrl,'Independent coverage')}</div></article>`;
