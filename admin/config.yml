@@ -105,6 +105,80 @@ collections:
         editor_components: ["image", "code-block"]
         hint: "Use the image button to place a picture inline, where the cursor is. The Images field below is for a gallery at the end of the post."
 
+  # SenProjectDocumentation. Nested lists (epic -> stories -> criteria) are
+  # workable in the CMS but clumsy; the file is also meant to be edited
+  # directly, by Codex when it appends the Daybreak epics. Both routes write
+  # the same YAML.
+  - name: "projectdocs"
+    label: "Project Documentation"
+    files:
+      - name: "projectdocs"
+        label: "SenProjectDocumentation"
+        file: "content/project-docs.yml"
+        fields:
+          - label: "Document"
+            name: "document"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Document purpose", name: "purpose", widget: "text" }
+              - { label: "Product vision", name: "vision", widget: "text" }
+              - label: "Core principles"
+                name: "principles"
+                widget: "list"
+                required: false
+                field: { label: "Principle", name: "principle", widget: "text" }
+          - label: "Epics"
+            name: "epics"
+            widget: "list"
+            label_singular: "Epic"
+            summary: "Epic {{fields.number}} — {{fields.title}} ({{fields.project}})"
+            fields:
+              - { label: "Project", name: "project", widget: "string", default: "SenSite" }
+              - { label: "Epic number", name: "number", widget: "number", value_type: "int" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Summary", name: "summary", widget: "text", required: false }
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                default: "Open"
+                options: ["Done", "In progress", "Open", "Blocked"]
+              - label: "Stories"
+                name: "stories"
+                widget: "list"
+                label_singular: "Story"
+                summary: "{{fields.number}} — {{fields.title}}"
+                fields:
+                  - { label: "Story number", name: "number", widget: "string", hint: "e.g. 1.1" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Status"
+                    name: "status"
+                    widget: "select"
+                    default: "Open"
+                    options: ["Done", "In progress", "Open", "Blocked"]
+                  - { label: "Narrative", name: "narrative", widget: "text", required: false, hint: "As a ..., I want ..., so that ..." }
+                  - label: "Acceptance criteria"
+                    name: "acceptance_criteria"
+                    widget: "list"
+                    required: false
+                    field: { label: "Criterion", name: "criterion", widget: "text" }
+                  - label: "Assumptions"
+                    name: "assumptions"
+                    widget: "list"
+                    required: false
+                    field: { label: "Assumption", name: "assumption", widget: "text" }
+                  - { label: "Notes", name: "notes", widget: "text", required: false }
+          - label: "Definition of done"
+            name: "definition_of_done"
+            widget: "list"
+            required: false
+            field: { label: "Item", name: "item", widget: "text" }
+          - label: "Out of scope"
+            name: "out_of_scope"
+            widget: "list"
+            required: false
+            field: { label: "Item", name: "item", widget: "text" }
+
   - name: "about"
     label: "About Me Page"
     # Stays on the shared folder, where its two photos already live. Without

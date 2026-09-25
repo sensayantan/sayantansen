@@ -1,0 +1,526 @@
+{
+  "title": "SenProjectDocumentation",
+  "purpose": "This document consolidates the requirements expressed while designing, building, testing and operating sensayantan.github.io \u2014 a static personal site with a browser-based CMS, an automated daily news brief, and a retrieval search over autism research. It converts the request history into epics, user stories, acceptance criteria and assumptions.",
+  "vision": "As the site owner, I want a personal site I can publish to from a browser, that carries an automated daily brief and a research search I can defend, so that everything I put my name to is current, honest about its limits, and maintainable without a build step.",
+  "principles": [
+    "<strong>Measure, do not eyeball.</strong> Layout and relevance decisions are settled by measuring the rendered page or scoring real queries, never by reading the code and assuming.",
+    "<strong>A fix belongs where it survives.</strong> Generated files are overwritten, so changes go into the script that re-applies them, not into the output.",
+    "<strong>Honest about limits.</strong> Search results are presented as a similarity search over literature, never as health information.",
+    "<strong>No silent failure.</strong> A stale cache, a blocked pop-up and an invalid config each announce themselves rather than looking like nothing happened.",
+    "<strong>Cite or do not claim.</strong> Every factual sentence in a generated answer carries a citation, and citations never outnumber the sources retrieved.",
+    "<strong>No build step.</strong> Plain HTML, CSS and JavaScript with no bundler or framework, so the site stays editable years from now.",
+    "<strong>Secrets never enter the repository.</strong> Tokens live as platform secrets; only values that are public by design are committed.",
+    "<strong>Trade-offs are recorded.</strong> Where a choice departs from convention, the reasoning is written into the code so it is not silently reverted."
+  ],
+  "projects": [
+    {
+      "name": "SenSite",
+      "epics": [
+        {
+          "project": "SenSite",
+          "number": 1,
+          "key": "Epic 1",
+          "title": "Autism research search",
+          "summary": "A question-answering search over real autism literature, built to show its working rather than to sound authoritative.",
+          "status": "In progress",
+          "stories": [
+            {
+              "number": "1.1",
+              "title": "Real corpus from public sources",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want the index built from real published abstracts and trial records so that answers trace to actual research rather than to a model's recollection.",
+              "acceptance_criteria": [
+                "PubMed abstracts are retrieved via E-utilities, esearch followed by efetch.",
+                "ClinicalTrials.gov records are retrieved via the v2 JSON API with cursor paging.",
+                "Roughly 1,500 abstracts and 400 trial records are fetched.",
+                "Parsers handle structured abstracts, inline markup, MedlineDate values and collective authors.",
+                "Parser tests run from fixtures and require no network access."
+              ],
+              "assumptions": [
+                "Both APIs remain free and require no key.",
+                "An NCBI API key raises the rate limit but is never required.",
+                "Credentials are read from the environment and never committed."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "1.2",
+              "title": "Search by meaning, not keywords",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader, I want a question to find papers that answer it rather than papers that repeat its words.",
+              "acceptance_criteria": [
+                "Dense embeddings use BAAI/bge-small-en-v1.5, 384 dimensions, 512-token window.",
+                "The query instruction prefix is stored inside the index so query and document settings cannot drift apart.",
+                "Ranking is cosine similarity over unit-normalised vectors, brute force top-k."
+              ],
+              "assumptions": [
+                "all-MiniLM-L6-v2 was rejected because its 256 word-piece window truncates abstracts.",
+                "At roughly 1,900 documents a vector database would cost more than it saves."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "1.3",
+              "title": "A relevance threshold set by measurement",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want the cut-off between a real match and noise derived from measurement so that it can be defended and re-derived.",
+              "acceptance_criteria": [
+                "A calibration script measures the off-topic ceiling against the on-topic floor.",
+                "It refuses to suggest a threshold when those two ranges overlap.",
+                "Calibration uses six unrelated control questions rather than one.",
+                "The threshold was recalibrated to 0.56 after a genuine result cleared the previous floor by 0.002."
+              ],
+              "assumptions": [
+                "A single off-topic probe measures the wrong thing; a bicycle question scored 0.514 against a cycling trial."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "1.4",
+              "title": "Free-text questions with a written answer",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader, I want to ask my own question and receive a written summary, not only a list of links.",
+              "acceptance_criteria": [
+                "A Cloudflare Worker performs retrieval and generation within the free tier.",
+                "The index ships as a flat vectors file and a documents file, with no database.",
+                "The Worker refuses to run when the index's model name does not match its own.",
+                "Retrieval failure is fatal; generation failure still returns ranked results.",
+                "Every factual sentence carries a citation, and citation markers never exceed the number of sources."
+              ],
+              "assumptions": [
+                "The Workers AI free tier allows 10,000 neurons per day.",
+                "The \"@cf/\" prefix marks first-party models, not free-tier ones.",
+                "Third-party models require a provider key and billing and are therefore out of scope."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "1.5",
+              "title": "Presented honestly",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a parent arriving at this page, I want to understand immediately what it is and is not, so that I do not mistake a similarity search for medical advice.",
+              "acceptance_criteria": [
+                "A prominent banner states that this is a research search tool, not health information.",
+                "The page carries a noindex directive.",
+                "Outbound result links are restricted to pubmed.ncbi.nlm.nih.gov and clinicaltrials.gov.",
+                "Prepared and free-text questions share one pipeline and one presentation.",
+                "Sources collapse into a quieter block so that the summary leads."
+              ],
+              "assumptions": [
+                "A reader here may be a worried parent rather than a researcher."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "1.6",
+              "title": "Correct the corpus imbalance",
+              "status": "Open",
+              "known_status": true,
+              "narrative": "As a reader, I want trial records to surface in proportion to their share of the corpus so that ongoing research is not under-represented.",
+              "acceptance_criteria": [
+                "Trial records appear roughly in proportion to their 21% share of the corpus."
+              ],
+              "assumptions": [
+                "Trials are 21% of the corpus but produce about 9% of results, because protocol language sits further from how people phrase questions."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "1.7",
+              "title": "Prevalence figures with citations",
+              "status": "Open",
+              "known_status": true,
+              "narrative": "As a reader, I want current prevalence figures alongside the search so that the scale of the subject is clear.",
+              "acceptance_criteria": [
+                "Each figure carries a named source and a date."
+              ],
+              "assumptions": [
+                "No API exists, so the figures are hand-curated and need re-checking when the source updates."
+              ],
+              "notes": ""
+            }
+          ],
+          "done": 5,
+          "total": 7
+        },
+        {
+          "project": "SenSite",
+          "number": 2,
+          "key": "Epic 2",
+          "title": "Daybreak daily news brief",
+          "summary": "A daily brief generated outside this repository, made to behave like part of this site once it lands.",
+          "status": "In progress",
+          "stories": [
+            {
+              "number": "2.1",
+              "title": "Site conventions survive a new edition",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want this site's conventions re-applied automatically so that they stop disappearing every morning.",
+              "acceptance_criteria": [
+                "A patch script re-applies conventions on every push touching the editions folder.",
+                "Each step checks its own marker, so running the script twice changes nothing.",
+                "Steps anchor on markup the script itself controls rather than on generator output.",
+                "Behaviour is verified against a genuinely new edition, not only existing ones."
+              ],
+              "assumptions": [
+                "The generator's structure drifts between versions.",
+                "Editions never load the site stylesheet; they are a separate design system with inline CSS."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "2.2",
+              "title": "Reach older editions",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader, I want to open any past edition by date so that the archive is not write-only.",
+              "acceptance_criteria": [
+                "A calendar page lists every edition that exists.",
+                "Days with no edition are greyed out and cannot be selected.",
+                "The index is generated from the files present, not from a weekday rule.",
+                "Month paging is clamped to the range that has editions.",
+                "Dates are parsed field by field rather than with a UTC-parsing date constructor."
+              ],
+              "assumptions": [
+                "Daybreak skips Sundays but has also missed ordinary weekdays, so a weekday rule would offer days that 404.",
+                "A UTC-parsed date renders a day early anywhere west of Greenwich."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "2.3",
+              "title": "Open the archive without losing the edition",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader, I want the archive to open beside what I am reading rather than replacing it.",
+              "acceptance_criteria": [
+                "The archive opens in a separate sized window.",
+                "A chrome-off parameter strips site header and footer, and carries through to the edition opened from it.",
+                "A blocked pop-up shows a notice with a plain-link fallback.",
+                "The link still opens a new tab with JavaScript disabled."
+              ],
+              "assumptions": [
+                "Pop-up blockers are silent; window.open simply returns null.",
+                "Mobile browsers ignore the requested size and open a tab instead."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "2.4",
+              "title": "One consistent header and a usable section menu",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader, I want the header to stay put as I move between pages, and the section menu to stay reachable as I scroll.",
+              "acceptance_criteria": [
+                "Header height, background, brand position, nav span and active pill are identical across all four pages at desktop width.",
+                "The category bar occupies one row at every width from 390px to 1440px.",
+                "The bar sticks while scrolling, positioned below the site header rather than underneath it.",
+                "Section anchors are offset so a jump does not land beneath the pinned bar."
+              ],
+              "assumptions": [
+                "Eleven full section titles cannot fit one row at any readable size, so the bar carries short labels and the headings keep the full names.",
+                "The generator's own site header is already sticky at the top, so the category bar must measure it rather than assume a height."
+              ],
+              "notes": "At 390px the Daybreak header is 75px against 63px elsewhere. The site collapses to a hamburger at that width and an edition has none to collapse into; matching exactly requires injecting one."
+            },
+            {
+              "number": "2.5",
+              "title": "Restore a lower bound on edition contents",
+              "status": "Open",
+              "known_status": true,
+              "narrative": "As the report owner, I want an edition with no verified stories to be refused rather than published empty.",
+              "acceptance_criteria": [
+                "A research run that verifies nothing refuses the edition."
+              ],
+              "assumptions": [
+                "Per-section minimums should stay soft; only the overall floor should be hard.",
+                "The original floor of five stories was replaced by per-section minimums, which were then relaxed, leaving no floor at all."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "2.6",
+              "title": "Stop discarding promoted stories",
+              "status": "Open",
+              "known_status": true,
+              "narrative": "As a reader, I want a grave regional story to appear somewhere rather than vanish because the lead section was full.",
+              "acceptance_criteria": [
+                "A promoted story that cannot fit Top News stays in its origin section."
+              ],
+              "assumptions": [
+                "Confirmed by simulation \u2014 twelve grave Africa candidates produce ten Top News entries, zero Africa entries and two discarded."
+              ],
+              "notes": ""
+            }
+          ],
+          "done": 4,
+          "total": 6
+        },
+        {
+          "project": "SenSite",
+          "number": 3,
+          "key": "Epic 3",
+          "title": "Blog authoring and publishing",
+          "summary": "Write posts in a browser and have them appear, without touching the repository.",
+          "status": "Done",
+          "stories": [
+            {
+              "number": "3.1",
+              "title": "Publish from the browser",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want to write and publish a post from a browser so that publishing does not require a local checkout.",
+              "acceptance_criteria": [
+                "The admin commits Markdown straight to the default branch.",
+                "GitHub sign-in runs through a Cloudflare Worker OAuth proxy.",
+                "The token is delivered to an explicit origin, never to a wildcard.",
+                "A workflow renders posts and listing data on every content change."
+              ],
+              "assumptions": [
+                "The OAuth client id is public by design; the secret exists only as a platform secret."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "3.2",
+              "title": "Banner, listing and comments",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader, I want posts to look like articles, with a picture and a way to respond.",
+              "acceptance_criteria": [
+                "A banner image renders above the article and as the listing thumbnail.",
+                "Posts are listed one per row.",
+                "A video URL embeds as a player, with the id extracted rather than the input interpolated into the frame source.",
+                "Comments are backed by GitHub Discussions."
+              ],
+              "assumptions": [
+                "A video link pasted into the attachment field produced a broken relative URL, so the fields are now distinct."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "3.3",
+              "title": "Publishing that actually publishes",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want a published post to appear and a deleted post to disappear.",
+              "acceptance_criteria": [
+                "Listing data is fetched with cache disabled, so a CDN cannot serve a stale listing.",
+                "Deleting a post removes both its listing entry and its rendered page.",
+                "Imported posts that have no markdown source survive a rebuild."
+              ],
+              "assumptions": [
+                "Entries written by the renderer are marked, and only marked entries are retired when their source disappears."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "3.4",
+              "title": "An editor that matches how a post is written",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want the form to ask for what a post actually needs and nothing more.",
+              "acceptance_criteria": [
+                "The date field has no clock.",
+                "An optional end date produces a date range in the listing.",
+                "Tags accept a comma-separated line.",
+                "Images can be placed inline within the body."
+              ],
+              "assumptions": [
+                "The CMS cannot multi-select uploads, resize images in the editor, or drag-reorder them; those remain unavailable."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "3.5",
+              "title": "Uploads that do not overwrite each other",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want a new upload never to replace an existing image silently.",
+              "acceptance_criteria": [
+                "Each post uploads into its own folder.",
+                "Existing images are migrated so every post's picker finds its own files.",
+                "Media paths are root-absolute so the admin resolves previews correctly."
+              ],
+              "assumptions": [
+                "The CMS does not uniquify uploads; a repeated filename replaces the file at that path.",
+                "Two files of the same name within the same post still collide."
+              ],
+              "notes": ""
+            }
+          ],
+          "done": 5,
+          "total": 5
+        },
+        {
+          "project": "SenSite",
+          "number": 4,
+          "key": "Epic 4",
+          "title": "Reading experience",
+          "summary": "Layout and typography decisions, each settled by measurement.",
+          "status": "Done",
+          "stories": [
+            {
+              "number": "4.1",
+              "title": "Use the available width",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader on a wide screen, I want the page to use the space rather than sit in a narrow strip.",
+              "acceptance_criteria": [
+                "The blog post page is 1180px with a 1000px text column.",
+                "The experiment page fills its shell, presenting one width down the page.",
+                "There is no horizontal overflow from 390px to 1600px."
+              ],
+              "assumptions": [
+                "Long lines were chosen deliberately over empty space; the blog body runs about 135 characters per line and the experiment page about 170, against the 75 usually recommended.",
+                "The reasoning is recorded in the stylesheet so it is not reverted as an oversight."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "4.2",
+              "title": "Chrome never covers content",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader, I want the fixed footer to stay clear of the last thing on the page.",
+              "acceptance_criteria": [
+                "Body padding clears the fixed footer at every width.",
+                "Clearance is measured at the true page bottom rather than mid-scroll."
+              ],
+              "assumptions": [
+                "The footer stacks to three rows on a phone and is taller than it appears."
+              ],
+              "notes": ""
+            }
+          ],
+          "done": 2,
+          "total": 2
+        },
+        {
+          "project": "SenSite",
+          "number": 5,
+          "key": "Epic 5",
+          "title": "Pipeline and safeguards",
+          "summary": "The checks that exist because something shipped broken and nobody noticed until it was in front of a person.",
+          "status": "Done",
+          "stories": [
+            {
+              "number": "5.1",
+              "title": "Never serve a stale stylesheet or script",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader, I want the page I load to use the code that was actually deployed.",
+              "acceptance_criteria": [
+                "CSS and JavaScript share one version counter and are bumped together.",
+                "A check script fails on any reference that carries no version at all."
+              ],
+              "assumptions": [
+                "A stale script is worse than a stale stylesheet; it makes a feature silently absent rather than merely ugly."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "5.2",
+              "title": "Catch a broken CMS config before a person does",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want an invalid admin configuration to fail in CI rather than to take the admin down.",
+              "acceptance_criteria": [
+                "A validator checks markdown buttons, editor components, widget names and datetime fields against their allowed values.",
+                "It fails on the exact value that previously broke the admin, not merely passing on a corrected file.",
+                "The workflow runs it, and the admin folder is in the workflow's trigger paths."
+              ],
+              "assumptions": [
+                "Parsing as YAML is not the same as being schema-valid, and only the CMS knows the schema.",
+                "An invalid value replaces the entire admin with an error rather than degrading."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "5.3",
+              "title": "A pipeline that can be run on demand",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want to run the render pipeline without waiting for a content change.",
+              "acceptance_criteria": [
+                "The workflow can be dispatched manually."
+              ],
+              "assumptions": [
+                "The push trigger watches content paths, so a change to the workflow itself could not exercise it."
+              ],
+              "notes": ""
+            }
+          ],
+          "done": 3,
+          "total": 3
+        },
+        {
+          "project": "SenSite",
+          "number": 6,
+          "key": "Epic 6",
+          "title": "Project documentation",
+          "summary": "This page.",
+          "status": "In progress",
+          "stories": [
+            {
+              "number": "6.1",
+              "title": "Document the work as a backlog",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want the request history expressed as epics and stories so that the reasoning behind the site is legible later.",
+              "acceptance_criteria": [
+                "Epics, stories, acceptance criteria and assumptions render as a backlog.",
+                "Content lives in one file that both the admin and an external agent can edit.",
+                "The page is unlisted and carries a noindex directive."
+              ],
+              "assumptions": [
+                "Written after the fact from the request history, so statuses describe what shipped rather than what was planned."
+              ],
+              "notes": ""
+            },
+            {
+              "number": "6.2",
+              "title": "Merge in the Daybreak epics",
+              "status": "Open",
+              "known_status": true,
+              "narrative": "As the site owner, I want the Daybreak epics on the same page so that one backlog covers the whole site.",
+              "acceptance_criteria": [
+                "Daybreak epics appear alongside these, grouped separately, without reformatting either set."
+              ],
+              "assumptions": [
+                "The page groups epics by their project field, so neither set needs renumbering."
+              ],
+              "notes": ""
+            }
+          ],
+          "done": 1,
+          "total": 2
+        }
+      ]
+    }
+  ],
+  "definition_of_done": [
+    "The change is measured or tested, not assumed to work from reading the code.",
+    "Generated output is produced by a script, never hand-edited.",
+    "Asset versions are bumped and the consistency check passes.",
+    "Both workflows are green and the render step commits nothing unexpected.",
+    "Any trade-off that departs from convention is written into the code."
+  ],
+  "out_of_scope": [
+    "Multi-select uploads, in-editor image resizing and drag-reordering \u2014 the CMS does not support them.",
+    "Paid APIs and third-party hosted models requiring provider billing.",
+    "A build step, bundler or front-end framework.",
+    "Presenting search results as health information of any kind."
+  ],
+  "totals": {
+    "epics": 6,
+    "stories": 25,
+    "done": 20
+  }
+}
