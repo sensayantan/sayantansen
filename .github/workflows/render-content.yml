@@ -24,6 +24,11 @@ on:
     paths:
       - "content/**"
       - "DAYBREAK/**"
+      # Decap validates config.yml in the browser, and a value it rejects
+      # replaces the whole admin with an error rather than degrading. So a
+      # bad config is invisible until someone opens /admin. Checking it here
+      # means a push that breaks it fails CI instead.
+      - "admin/**"
   # Run on demand from the Actions tab. The push trigger above only fires on
   # content/** and DAYBREAK/**, so a change to this workflow or to one of the
   # render scripts cannot exercise itself — it otherwise waits for the next
@@ -46,6 +51,9 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r backend/requirements.txt
+
+      - name: Validate the CMS config
+        run: python backend/check_cms_config.py
 
       - name: Render blog posts
         run: python backend/render_blogs.py
