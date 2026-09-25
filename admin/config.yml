@@ -13,8 +13,8 @@ backend:
 # later if drafts/review ever become useful.
 publish_mode: simple
 
-media_folder: "assets/images/blog"
-public_folder: "assets/images/blog"
+media_folder: "/assets/images/blog"
+public_folder: "/sayantansen/assets/images/blog"
 
 collections:
   - name: "blog"
@@ -35,7 +35,7 @@ collections:
     #
     # public_folder carries the Pages base path so Decap's own previews
     # resolve; backend/render_blogs.py strips it back off for the site.
-    media_folder: "assets/images/blog/{{slug}}"
+    media_folder: "/assets/images/blog/{{slug}}"
     public_folder: "/sayantansen/assets/images/blog/{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -92,8 +92,8 @@ collections:
         name: "attachment"
         widget: "file"
         required: false
-        media_folder: "assets/files/blog"
-        public_folder: "assets/files/blog"
+        media_folder: "/assets/files/blog"
+        public_folder: "/sayantansen/assets/files/blog"
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -110,7 +110,7 @@ collections:
     # Stays on the shared folder, where its two photos already live. Without
     # this it would inherit the global folder and its picker would still
     # work, but naming it here keeps it from drifting if that global changes.
-    media_folder: "assets/images/blog"
+    media_folder: "/assets/images/blog"
     public_folder: "/sayantansen/assets/images/blog"
     files:
       - name: "about"
