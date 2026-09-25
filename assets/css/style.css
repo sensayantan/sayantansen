@@ -1753,3 +1753,283 @@ html.is-bare body {
 .is-bare .archive-page {
   padding-top: 1.5rem;
 }
+
+/* =========================================================
+   SenProjectDocumentation (projectdocs.html)
+   A backlog view: epics as collapsible groups of stories.
+   ========================================================= */
+
+.backlog-page {
+  padding: 2rem 1.25rem 3rem;
+  max-width: 1400px;
+}
+
+.backlog-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 0.35rem;
+}
+
+.backlog-head h1 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin: 0 0 1rem;
+}
+
+.backlog-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.backlog-counts {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.backlog-filters {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.backlog-filter {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-muted);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.backlog-filter:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.backlog-filter.is-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.backlog-h2 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin: 2rem 0 0.5rem;
+}
+
+.backlog-overview p {
+  margin: 0 0 0.75rem;
+  line-height: 1.7;
+}
+
+.backlog-vision {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 0.9rem;
+  color: var(--color-text);
+}
+
+.backlog-principles {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.backlog-principles li {
+  margin-bottom: 0.4rem;
+}
+
+.backlog-project-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin: 2.5rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+/* ---- Epic ------------------------------------------------ */
+
+.epic {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  margin: 1rem 0 0;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.epic-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-bg-alt);
+  cursor: pointer;
+  list-style: none;
+}
+
+.epic-head::-webkit-details-marker { display: none; }
+
+.epic-head::before {
+  content: "▸";
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.epic[open] > .epic-head::before { content: "▾"; }
+
+.epic-key {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-accent-dark);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
+}
+
+.epic-title {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.epic-progress {
+  margin-left: auto;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.epic-summary {
+  margin: 0;
+  padding: 0.85rem 1rem 0;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.epic-stories {
+  padding: 0.5rem 1rem 1rem;
+}
+
+/* ---- Story ----------------------------------------------- */
+
+.story {
+  border-top: 1px solid var(--color-border);
+  padding: 1rem 0 0.5rem;
+}
+
+.story:first-child { border-top: 0; }
+
+.story-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.story-key {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+.story-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.story-narrative {
+  margin: 0 0 0.75rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.story-block {
+  margin: 0 0 0.75rem;
+}
+
+.story-block ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.7;
+}
+
+.story-block li { margin-bottom: 0.25rem; }
+
+.backlog-sublabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 0.3rem;
+}
+
+/* Assumptions read as supporting context, not as requirements. */
+.story-assumptions,
+.story-notes {
+  border-left: 2px solid var(--color-border);
+  padding-left: 0.8rem;
+  color: var(--color-muted);
+}
+
+.story-notes p { margin: 0; line-height: 1.7; }
+
+/* ---- Status chips ---------------------------------------- */
+
+.chip {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 0.18rem 0.5rem;
+  white-space: nowrap;
+}
+
+.chip-done { background: #dcf5e4; color: #14602f; }
+.chip-in-progress { background: #dbe7ff; color: #1b3f8f; }
+.chip-open { background: #eceff4; color: #4b5872; }
+.chip-blocked { background: #fde2e1; color: #8a2019; }
+.chip-other { background: var(--color-accent-soft); color: var(--color-accent-dark); }
+
+/* ---- Appendix -------------------------------------------- */
+
+.backlog-appendix-block h2 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin: 2rem 0 0.5rem;
+}
+
+.backlog-appendix-block ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.backlog-status {
+  color: var(--color-muted);
+  padding: 1.5rem 0;
+}
+
+@media (max-width: 640px) {
+  .epic-progress { margin-left: 0; width: 100%; }
+  .backlog-toolbar { align-items: flex-start; }
+}
