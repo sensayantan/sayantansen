@@ -170,7 +170,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=24">
+  <link rel="stylesheet" href="../assets/css/style.css?v=25">
 </head>
 <body>
 
@@ -237,8 +237,8 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=24"></script>
-  <script src="../assets/js/comments.js?v=24"></script>
+  <script src="../assets/js/main.js?v=25"></script>
+  <script src="../assets/js/comments.js?v=25"></script>
 </body>
 </html>
 """
@@ -258,12 +258,44 @@ def format_date(value) -> tuple[str, str]:
     return text, display
 
 
+def format_date_range(start, end) -> tuple[str, str]:
+    """Display string for a post that covers a span of days.
+
+    End date is optional, so a single-day post reads exactly as before. A
+    range inside one month collapses the repeated month name, and one that
+    crosses a year keeps both.
+    """
+    start_iso, start_display = format_date(start)
+    if not end or not str(end).strip():
+        return start_iso, start_display
+
+    end_iso, end_display = format_date(end)
+    if end_iso[:10] <= start_iso[:10]:
+        # An end on or before the start is not a range; ignore it rather
+        # than print something backwards.
+        return start_iso, start_display
+
+    s_year, s_month = start_iso[:4], start_iso[5:7]
+    e_year, e_month = end_iso[:4], end_iso[5:7]
+    if s_year == e_year and s_month == e_month:
+        # "April 3–7, 2026"
+        day = str(int(end_iso[8:10]))
+        head = start_display.rsplit(",", 1)[0]
+        return start_iso, f"{head}\u2013{day}, {s_year}"
+    if s_year == e_year:
+        # "April 3 – May 2, 2026"
+        head = start_display.rsplit(",", 1)[0]
+        tail = end_display.rsplit(",", 1)[0]
+        return start_iso, f"{head} \u2013 {tail}, {s_year}"
+    return start_iso, f"{start_display} \u2013 {end_display}"
+
+
 def render_post(md_path: Path) -> dict:
     front, body_md = parse_frontmatter(md_path.read_text())
     slug = md_path.stem
 
     title = front.get("title") or "(untitled)"
-    date_iso, date_display = format_date(front.get("date", ""))
+    date_iso, date_display = format_date_range(front.get("date", ""), front.get("end_date"))
     tags = front.get("tags") or []
     layout = front.get("layout") or "standard"
     images = front.get("images") or []
@@ -308,6 +340,11 @@ def render_post(md_path: Path) -> dict:
         "excerpt": make_excerpt(body_html),
         "image": tile_image,
         "url": f"blogs/{slug}.html",
+        # Marks the entry as coming from content/blogs/. Entries without it
+        # are the older Blogger imports, which exist only as rendered HTML
+        # and must survive a rebuild. See main() for why that distinction
+        # matters when a post is deleted.
+        "source": "content",
     }
 
 
@@ -333,7 +370,26 @@ def main() -> None:
     if DATA_PATH.exists():
         existing = json.loads(DATA_PATH.read_text())
 
-    kept = [p for p in existing.get("posts", []) if p["slug"] not in rendered_slugs]
+    # Entries are merged rather than rebuilt because most posts here are
+    # Blogger imports that exist only as rendered HTML, with no markdown to
+    # render from. That merge also kept deleted posts forever: removing a
+    # post in the CMS deletes its .md, and the stale entry and its HTML page
+    # both stayed behind. Only entries this script wrote can be retired.
+    kept, orphaned = [], []
+    for post in existing.get("posts", []):
+        if post["slug"] in rendered_slugs:
+            continue  # re-rendered below, from the current markdown
+        if post.get("source") == "content":
+            orphaned.append(post["slug"])
+        else:
+            kept.append(post)
+
+    for slug in orphaned:
+        page = ROOT / "blogs" / f"{slug}.html"
+        if page.exists():
+            page.unlink()
+        print(f"Removed deleted post {slug} (entry and blogs/{slug}.html)")
+
     merged = kept + list(new_entries.values())
     merged.sort(key=lambda p: p["date_iso"], reverse=True)
 

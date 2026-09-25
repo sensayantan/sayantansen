@@ -71,7 +71,7 @@ function renderSection(section) {
 
 async function loadNews() {
   try {
-    const response = await fetch("data/news.json");
+    const response = await fetch("data/news.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`Failed to load news.json (${response.status})`);
     const data = await response.json();
 
