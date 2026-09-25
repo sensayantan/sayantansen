@@ -35,7 +35,11 @@ DATA_PATH = ROOT / "data" / "project-docs.json"
 
 # Anything outside this set is rendered as a neutral chip rather than being
 # dropped, so a status Codex introduces still displays.
-KNOWN_STATUSES = {"Done", "In progress", "Open", "Blocked"}
+KNOWN_STATUSES = {"Done", "In progress", "Blocked"}
+
+# Same tolerance pattern as story status: an unrecognised backlog type still
+# renders, as a neutral chip, rather than being dropped.
+KNOWN_BACKLOG_TYPES = {"Technical Debt", "Feature Enhancement", "Feature Development"}
 
 
 def inline(text) -> str:
@@ -60,6 +64,25 @@ def story(raw: dict, epic_number, index: int) -> dict:
         "acceptance_criteria": [inline(x) for x in raw.get("acceptance_criteria") or []],
         "assumptions": [inline(x) for x in raw.get("assumptions") or []],
         "notes": inline(raw.get("notes")),
+    }
+
+
+def backlog_item(raw: dict, index: int) -> dict:
+    epic_name = raw.get("epic")
+    title = raw.get("title")
+    item_type = raw.get("type") or "Feature Development"
+    date = raw.get("date")
+    if not epic_name or not title:
+        raise ValueError(f"backlog[{index}] needs both epic and title")
+    return {
+        "epic": epic_name,
+        "title": title,
+        "description": inline(raw.get("description")),
+        "type": str(item_type),
+        "known_type": str(item_type) in KNOWN_BACKLOG_TYPES,
+        # ISO text is fine as-is for both sorting and display; nothing here
+        # needs it as a real date object.
+        "date": str(date) if date else "",
     }
 
 
@@ -108,6 +131,11 @@ def main() -> int:
             projects.append(seen[name])
         seen[name]["epics"].append(item)
 
+    backlog_raw = source.get("backlog") or []
+    backlog = [backlog_item(b, i) for i, b in enumerate(backlog_raw)]
+    # Most recently identified first, matching how a backlog is normally read.
+    backlog.sort(key=lambda b: b["date"], reverse=True)
+
     stories_total = sum(e["total"] for e in epics)
     output = {
         "title": doc.get("title") or "Project documentation",
@@ -115,12 +143,14 @@ def main() -> int:
         "vision": inline(doc.get("vision")),
         "principles": [inline(p) for p in doc.get("principles") or []],
         "projects": projects,
+        "backlog": backlog,
         "definition_of_done": [inline(x) for x in source.get("definition_of_done") or []],
         "out_of_scope": [inline(x) for x in source.get("out_of_scope") or []],
         "totals": {
             "epics": len(epics),
             "stories": stories_total,
             "done": sum(e["done"] for e in epics),
+            "backlog": len(backlog),
         },
     }
 
@@ -128,7 +158,8 @@ def main() -> int:
     DATA_PATH.write_text(json.dumps(output, indent=2) + "\n")
     print(
         f"Wrote {DATA_PATH.relative_to(ROOT)} "
-        f"({len(projects)} project(s), {len(epics)} epics, {stories_total} stories)"
+        f"({len(projects)} project(s), {len(epics)} epics, {stories_total} stories, "
+        f"{len(backlog)} backlog item(s))"
     )
     return 0
 
