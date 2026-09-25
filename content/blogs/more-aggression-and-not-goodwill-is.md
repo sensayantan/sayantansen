@@ -1,6 +1,7 @@
 ---
-title: "More aggression  and not Goodwill... Is this the new India Face?"
+title: More aggression  and not Goodwill... Is this the new India Face?
 date: 2014-12-30T08:55:00.002Z
+banner: /sayantansen/assets/images/blog/more-aggression-and-not-goodwill-is-this-the-new-india-face/final_cricket_collage-45.png
 tags: []
 layout: standard
 images: []
