@@ -240,8 +240,12 @@ a:hover {
     gap: 0.35rem;
   }
 
+  /* The footer is fixed, so body padding is what keeps the last element
+     clear of it. At this width the footer stacks to three rows and
+     measures 127px, so 96px left the final link partly covered on every
+     page. Measured, not guessed — see the archive page's bottom link. */
   body {
-    padding-bottom: 96px;
+    padding-bottom: 136px;
   }
 }
 
@@ -1578,4 +1582,137 @@ a:hover {
     flex-direction: column;
     gap: 0.35rem;
   }
+}
+
+/* =========================================================
+   Daybreak archive calendar (archive.html)
+   ========================================================= */
+
+.archive-page {
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+.archive-title {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  margin: 0 0 0.75rem;
+  color: var(--color-text);
+}
+
+.archive-intro {
+  color: var(--color-muted);
+  margin: 0 0 2rem;
+}
+
+/* Square cells across a 760px container would be ~104px each, which reads
+   as oversized next to the mobile view. Capping the calendar keeps the day
+   cells at a normal size without narrowing the page text. */
+.archive-calendar {
+  max-width: 560px;
+}
+
+.archive-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.archive-month {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.archive-nav {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-accent);
+  border-radius: 6px;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.archive-nav:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.archive-nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.archive-dayname {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-bottom: 0.4rem;
+}
+
+/* Square cells whatever the column width, so the grid stays a calendar
+   rather than stretching into letterboxes on a wide screen. */
+.archive-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+}
+
+.archive-day.is-blank {
+  border-color: transparent;
+}
+
+/* A day with no edition is visibly inert: no border, no pointer, muted. */
+.archive-day.is-empty {
+  color: #aab4c5;
+}
+
+.archive-day.is-available {
+  background: var(--color-accent-soft);
+  border-color: var(--color-border);
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.archive-day.is-available:hover,
+.archive-day.is-available:focus-visible {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+}
+
+.archive-count,
+.archive-status {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  margin: 1.25rem 0 0;
+}
+
+.archive-latest {
+  margin: 2rem 0 0;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .archive-grid { gap: 3px; }
+  .archive-day { font-size: 0.85rem; }
 }

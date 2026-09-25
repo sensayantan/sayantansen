@@ -1,57 +1,57 @@
-# Runs automatically whenever a commit touches content/ or DAYBREAK/.
-#
-# content/** is what the admin at /admin writes (Decap CMS commits
-# Markdown/YAML straight to `main`); this workflow turns that into static
-# pages and data via backend/render_blogs.py and backend/render_about.py,
-# so publishing needs no manual step beyond clicking Publish.
-#
-# DAYBREAK/** is written by the external news generator, which knows
-# nothing about this site's conventions — it omits the "My Experiment" nav
-# link and crams the category links into the masthead. Every hand-fix to an
-# edition used to be lost the next morning when a fresh one landed;
-# backend/patch_daybreak.py re-applies them here instead, which is what
-# makes them survive. The [skip ci] on the commit below matters more than
-# usual now: without it, committing a patched edition back to DAYBREAK/**
-# would re-trigger this same workflow.
-name: Render site content
-
-on:
-  push:
-    branches: [main]
-    paths:
-      - "content/**"
-      - "DAYBREAK/**"
-
-# Needed so the final step below can push a commit back to this repo.
-permissions:
-  contents: write
-
-jobs:
-  render:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: pip install -r backend/requirements.txt
-
-      - name: Render blog posts
-        run: python backend/render_blogs.py
-
-      - name: Render About Me page
-        run: python backend/render_about.py
-
-      - name: Re-apply site conventions to Daybreak editions
-        run: python backend/patch_daybreak.py
-
-      - name: Commit rendered output
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add blogs/ data/blogs.json data/about.json DAYBREAK/
-          git diff --cached --quiet || git commit -m "Render site content [skip ci]"
-          git push
+ DAYBREAK/** is written by the external news generator, which knows# Runs automatically whenever a commit touches content/ or DAYBREAK/.
+ DAYBREAK/** is written by the external news generator, which knows#
+ DAYBREAK/** is written by the external news generator, which knows# content/** is what the admin at /admin writes (Decap CMS commits
+ DAYBREAK/** is written by the external news generator, which knows# Markdown/YAML straight to `main`); this workflow turns that into static
+ DAYBREAK/** is written by the external news generator, which knows# pages and data via backend/render_blogs.py and backend/render_about.py,
+ DAYBREAK/** is written by the external news generator, which knows# so publishing needs no manual step beyond clicking Publish.
+ DAYBREAK/** is written by the external news generator, which knows#
+ DAYBREAK/** is written by the external news generator, which knows# DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knows# nothing about this site's conventions — it omits the "My Experiment" nav
+ DAYBREAK/** is written by the external news generator, which knows# link and crams the category links into the masthead. Every hand-fix to an
+ DAYBREAK/** is written by the external news generator, which knows# edition used to be lost the next morning when a fresh one landed;
+ DAYBREAK/** is written by the external news generator, which knows# backend/patch_daybreak.py re-applies them here instead, which is what
+ DAYBREAK/** is written by the external news generator, which knows# makes them survive. The [skip ci] on the commit below matters more than
+ DAYBREAK/** is written by the external news generator, which knows# usual now: without it, committing a patched edition back to DAYBREAK/**
+ DAYBREAK/** is written by the external news generator, which knows# would re-trigger this same workflow.
+ DAYBREAK/** is written by the external news generator, which knowsname: Render site content
+ DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knowson:
+ DAYBREAK/** is written by the external news generator, which knows  push:
+ DAYBREAK/** is written by the external news generator, which knows    branches: [main]
+ DAYBREAK/** is written by the external news generator, which knows    paths:
+ DAYBREAK/** is written by the external news generator, which knows      - "content/**"
+ DAYBREAK/** is written by the external news generator, which knows      - "DAYBREAK/**"
+ DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knows# Needed so the final step below can push a commit back to this repo.
+ DAYBREAK/** is written by the external news generator, which knowspermissions:
+ DAYBREAK/** is written by the external news generator, which knows  contents: write
+ DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knowsjobs:
+ DAYBREAK/** is written by the external news generator, which knows  render:
+ DAYBREAK/** is written by the external news generator, which knows    runs-on: ubuntu-latest
+ DAYBREAK/** is written by the external news generator, which knows    steps:
+ DAYBREAK/** is written by the external news generator, which knows      - uses: actions/checkout@v4
+ DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knows      - uses: actions/setup-python@v5
+ DAYBREAK/** is written by the external news generator, which knows        with:
+ DAYBREAK/** is written by the external news generator, which knows          python-version: "3.11"
+ DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knows      - name: Install dependencies
+ DAYBREAK/** is written by the external news generator, which knows        run: pip install -r backend/requirements.txt
+ DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knows      - name: Render blog posts
+ DAYBREAK/** is written by the external news generator, which knows        run: python backend/render_blogs.py
+ DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knows      - name: Render About Me page
+ DAYBREAK/** is written by the external news generator, which knows        run: python backend/render_about.py
+ DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knows      - name: Re-apply site conventions to Daybreak editions
+ DAYBREAK/** is written by the external news generator, which knows        run: python backend/patch_daybreak.py
+ DAYBREAK/** is written by the external news generator, which knows
+ DAYBREAK/** is written by the external news generator, which knows      - name: Commit rendered output
+ DAYBREAK/** is written by the external news generator, which knows        run: |
+ DAYBREAK/** is written by the external news generator, which knows          git config user.name "github-actions[bot]"
+ DAYBREAK/** is written by the external news generator, which knows          git config user.email "github-actions[bot]@users.noreply.github.com"
+ DAYBREAK/** is written by the external news generator, which knows          git add blogs/ data/blogs.json data/about.json data/daybreak-index.json DAYBREAK/
+ DAYBREAK/** is written by the external news generator, which knows          git diff --cached --quiet || git commit -m "Render site content [skip ci]"
+ DAYBREAK/** is written by the external news generator, which knows          git push

@@ -15,7 +15,12 @@ applies three changes, and writes it back:
   2. Moves the category links out of the DAYBREAK masthead into their own
      bar underneath it. Inline in the masthead they wrap into the brand
      and the edition date and read as clutter.
-  3. Inserts the short note explaining how the brief is produced.
+  3. Adds the "Archive" link to that bar, which is how a reader reaches
+     an older edition.
+  4. Inserts the short note explaining how the brief is produced.
+
+It also writes data/daybreak-index.json, the list of editions that exist,
+which archive.html reads to decide which calendar days are selectable.
 
 Every step checks for its own marker first, so running this twice is a
 no-op and running it on an already-patched archive changes nothing.
@@ -30,12 +35,22 @@ is what makes the changes survive a new edition.
 
 from __future__ import annotations
 
+import datetime as dt
+import json
 import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DAYBREAK_DIR = ROOT / "DAYBREAK"
+INDEX_PATH = ROOT / "data" / "daybreak-index.json"
 SITE = "https://sensayantan.github.io/sayantansen"
+
+# daybreak-2026-Sep-24.html -> 2026-09-24. Editions are named with an
+# abbreviated month, which does not sort or compare as a date, so the
+# archive index converts them once here rather than in the browser.
+EDITION_RE = re.compile(r"^daybreak-(\d{4})-([A-Z][a-z]{2})-(\d{2})\.html$")
+
+ARCHIVE_LINK = f'<a class="dbArchiveLink" href="{SITE}/archive.html">Archive</a>'
 
 EXPERIMENT_LINK = (
     f'<a href="{SITE}/autism.html">'
@@ -96,6 +111,64 @@ def move_category_links(html: str) -> tuple[str, bool]:
     return html[: header.start()] + stripped_header + bar + html[header.end():], True
 
 
+def add_archive_link(html: str) -> tuple[str, bool]:
+    """Adds the archive link to the end of the category bar.
+
+    Runs after move_category_links, so the bar exists by now. The archive
+    is the only way back to an older edition, and an edition page carries
+    no other site chrome that could hold the link.
+    """
+    if 'class="dbArchiveLink"' in html:
+        return html, False
+    bar = re.search(r'(<nav class="dbCategoryBar"[^>]*>)(.*?)(</nav>)', html, re.S)
+    if not bar:
+        return html, False
+    replaced = bar.group(1) + bar.group(2) + ARCHIVE_LINK + bar.group(3)
+    return html[: bar.start()] + replaced + html[bar.end():], True
+
+
+def edition_date(name: str) -> dt.date | None:
+    """The calendar date an edition filename stands for, or None."""
+    m = EDITION_RE.match(name)
+    if not m:
+        return None
+    year, month, day = m.groups()
+    try:
+        return dt.datetime.strptime(f"{year}-{month}-{day}", "%Y-%b-%d").date()
+    except ValueError:
+        return None
+
+
+def write_index(files: list[Path]) -> bool:
+    """Writes the archive index the calendar reads.
+
+    The calendar greys out every day with no edition. Deriving that from a
+    weekday rule would be wrong: Daybreak skips Sundays, but it has also
+    missed ordinary weekdays, and those days would offer a link to a file
+    that does not exist. So the index lists exactly the files present.
+    """
+    editions = []
+    for path in files:
+        date = edition_date(path.name)
+        if date:
+            editions.append({"date": date.isoformat(), "file": path.name})
+    editions.sort(key=lambda e: e["date"])
+
+    index = {
+        "editions": editions,
+        "first": editions[0]["date"] if editions else None,
+        "last": editions[-1]["date"] if editions else None,
+    }
+    payload = json.dumps(index, indent=2) + "\n"
+    # Rewriting an identical file on every run would add an empty commit to
+    # the render workflow, so only write when something actually changed.
+    if INDEX_PATH.exists() and INDEX_PATH.read_text() == payload:
+        return False
+    INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
+    INDEX_PATH.write_text(payload)
+    return True
+
+
 def add_method_note(html: str) -> tuple[str, bool]:
     """Puts the note directly below the masthead (and its category bar).
 
@@ -147,6 +220,7 @@ def patch(path: Path) -> list[str]:
         ("css", add_css),
         ("experiment-link", add_experiment_link),
         ("category-bar", move_category_links),
+        ("archive-link", add_archive_link),
         ("method-note", add_method_note),
     ):
         html, changed = fn(html)
@@ -175,7 +249,11 @@ def main() -> None:
             print(f"{path.name}: {', '.join(applied)}")
         else:
             print(f"{path.name}: already up to date")
-    print(f"\nPatched {touched} of {len(files)} editions.")
+    if write_index(files):
+        print(f"\nWrote {INDEX_PATH.relative_to(ROOT)}")
+    else:
+        print(f"\n{INDEX_PATH.relative_to(ROOT)}: already up to date")
+    print(f"Patched {touched} of {len(files)} editions.")
 
 
 if __name__ == "__main__":
