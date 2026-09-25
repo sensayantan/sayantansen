@@ -24,6 +24,11 @@ on:
     paths:
       - "content/**"
       - "DAYBREAK/**"
+  # Run on demand from the Actions tab. The push trigger above only fires on
+  # content/** and DAYBREAK/**, so a change to this workflow or to one of the
+  # render scripts cannot exercise itself — it otherwise waits for the next
+  # edition or Publish before anyone finds out it is broken.
+  workflow_dispatch:
 
 # Needed so the final step below can push a commit back to this repo.
 permissions:
