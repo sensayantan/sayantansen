@@ -1,6 +1,7 @@
 ---
-title: "Manage your time"
-date: 2011-08-21T16:41:00Z
+title: Manage your time
+date: 2011-08-21T16:41:00.000Z
+banner: /sayantansen/assets/images/blog/manage-your-time/images.png
 tags: []
 layout: standard
 images: []
