@@ -1,6 +1,7 @@
 ---
-title: "Ganguly and Waugh, where the elder made way for the younger"
+title: Ganguly and Waugh, where the elder made way for the younger
 date: 2014-10-30T14:10:00.001Z
+banner: assets/images/blog/three_photo_cricket_collage.jpg
 tags: []
 layout: standard
 images: []
