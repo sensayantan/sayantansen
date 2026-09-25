@@ -2042,6 +2042,14 @@ html.is-bare body {
   padding: 4rem 1.25rem;
 }
 
+/* [hidden] and .doc-gate{display:flex} are equal specificity, and this
+   stylesheet loads after the browser's own UA stylesheet, so without this
+   rule setting the hidden *attribute* in JS never actually hid the gate —
+   it stayed visible, stacked above the unlocked content, after sign-in. */
+.doc-gate[hidden] {
+  display: none;
+}
+
 .doc-gate-card {
   max-width: 420px;
   text-align: center;
@@ -2169,6 +2177,19 @@ html.is-bare body {
   font-variant-numeric: tabular-nums;
 }
 
+/* Both are targets of a JS smooth-scroll from the toolbar; without this the
+   sticky site header covers the first couple of lines after landing. */
+#backlog,
+#backlog-table-section {
+  scroll-margin-top: 88px;
+}
+
+.backlog-filter-jump {
+  margin-left: 0.5rem;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 .chip-type-technical-debt { background: #fde8d7; color: #8a4a10; }
 .chip-type-feature-enhancement { background: #dbe7ff; color: #1b3f8f; }
 .chip-type-feature-development { background: #e3dcff; color: #4b2d99; }
@@ -2176,4 +2197,153 @@ html.is-bare body {
 @media (max-width: 700px) {
   .backlog-table { display: block; overflow-x: auto; white-space: nowrap; }
   .backlog-table-body { white-space: normal; }
+}
+
+/* ---- Backlog editor (add/edit/delete, signed-in only) -------- */
+
+.backlog-table-note {
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  font-style: italic;
+  margin: 0 0 1rem;
+}
+
+.backlog-add-button {
+  display: inline-block;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-accent);
+  background: var(--color-bg);
+  color: var(--color-accent);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.backlog-add-button:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.backlog-table-actions {
+  white-space: nowrap;
+}
+
+.backlog-row-action {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  cursor: pointer;
+  margin-right: 0.4rem;
+}
+
+.backlog-row-action:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.backlog-row-danger:hover {
+  border-color: #b3261e;
+  color: #b3261e;
+}
+
+.backlog-editor-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 28, 46, 0.55);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4vh 1.25rem;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.backlog-editor-panel {
+  background: var(--color-bg);
+  border-radius: 10px;
+  padding: 1.75rem;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(16, 28, 46, 0.35);
+}
+
+.backlog-editor-panel h3 {
+  font-family: var(--font-serif);
+  margin: 0 0 1.25rem;
+}
+
+.backlog-editor-field {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.backlog-editor-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.3rem;
+}
+
+.backlog-editor-field select,
+.backlog-editor-field input,
+.backlog-editor-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+.backlog-editor-field textarea {
+  resize: vertical;
+}
+
+.backlog-editor-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.backlog-editor-save {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.backlog-editor-save:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.backlog-editor-cancel {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+.backlog-editor-status {
+  min-height: 1.2em;
+  margin: 0.75rem 0 0;
+  font-size: 0.82rem;
+  color: #b3261e;
 }
