@@ -18,6 +18,11 @@
   var status = document.getElementById("archive-status");
   if (!root) return;
 
+  /* In the pop-up the chrome is off. Carry that through to the edition a day
+   * links to, otherwise the pop-up opens the archive bare and then hands back
+   * a full edition complete with site header and footer. */
+  var bare = document.documentElement.classList.contains("is-bare");
+
   /* "2026-09-10" -> a local Date at midnight.
    *
    * new Date("2026-09-10") parses as UTC midnight, which in any negative
@@ -126,7 +131,7 @@
           var cell;
           if (file) {
             cell = document.createElement("a");
-            cell.href = "DAYBREAK/" + file;
+            cell.href = "DAYBREAK/" + file + (bare ? "?chrome=off" : "");
             cell.className = "archive-day is-available";
             cell.setAttribute("aria-label", "Daybreak for " + iso);
           } else {
