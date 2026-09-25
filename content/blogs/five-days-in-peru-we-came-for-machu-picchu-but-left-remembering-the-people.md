@@ -23,23 +23,13 @@ This is our Peru story.
 
 # Day 0 — San Jose to El Salvador: The Journey Begins
 
-We started from San Jose on Friday, April 3.
+We started from San Jose on Friday, April 3. There is something special about the beginning of a major trip. Before boarding, we relaxed at the Golden Gate Lounge, ate some lunch and enjoyed that familiar pre-vacation feeling: the itinerary was set, hotels were booked, Machu Picchu tickets were partly sorted out, and months of planning were finally becoming reality.
 
-There is something special about the beginning of a major trip. Before boarding, we relaxed at the Golden Gate Lounge, ate some lunch and enjoyed that familiar pre-vacation feeling: the itinerary was set, hotels were booked, Machu Picchu tickets were partly sorted out, and months of planning were finally becoming reality.
+**Our first stop was San Salvador.**
 
-Our first stop was San Salvador.
+We arrived on time but immediately encountered one of those small travel moments that somehow becomes memorable. We needed dinner and discovered that airport food in El Salvador was surprisingly expensive. A Chipotle-style bowl cost around $16; dinner for the three of us came to approximately $53. Then came a little drama. Airport security directed us toward a different gate, and suddenly we were rushing. By the time we figured everything out, our names were being announced. We became some of the last passengers to board.
 
-We arrived on time but immediately encountered one of those small travel moments that somehow becomes memorable. We needed dinner and discovered that airport food in El Salvador was surprisingly expensive. A Chipotle-style bowl cost around $16; dinner for the three of us came to approximately $53.
-
-Then came a little drama.
-
-Airport security directed us toward a different gate, and suddenly we were rushing. By the time we figured everything out, our names were being announced.
-
-We became some of the last passengers to board.
-
-One other thing became obvious very early in the trip: **Spanish matters in this part of the world**. English wasn't something we could simply assume people would speak.
-
-That lesson would follow us throughout Peru.
+One other thing became obvious very early in the trip: **Spanish matters in this part of the world**. English wasn't something we could simply assume people would speak. That lesson would follow us throughout Peru.
 
 # Day 1 — Lima, JetSMART and Our First Evening in Cusco
 
@@ -69,1153 +59,111 @@ The following morning was our Sacred Valley day. We had arranged a private vehic
 
 On our way out of the city we stopped at a high viewpoint overlooking Cusco. From above, the geography suddenly made sense. The city sits in a valley surrounded by mountains. Our guide explained how Inca Cusco developed around rivers, some of which were later channeled or covered as the Spanish city developed. The guide also began explaining the history of the Incas. Some guide narratives inevitably mix documented history with local tradition, but the broad story is extraordinary enough without embellishment. The Inca Empire's dramatic expansion occurred mainly in the 15th and early 16th centuries. The ruler most closely associated with its transformation was **Pachacuti**, who reorganized Cusco and is also traditionally associated with the construction of Machu Picchu. The civilization demonstrated remarkable organization in agriculture, road building, water management, stonework and administration. And yet they left no conventional written script comparable with European or Asian writing systems. That contrast fascinated me throughout the trip.
 
-## Pisac — Terraces in the Mountains
+**Pisac — Terraces in the Mountains**
 
-Our first major archaeological stop was Pisac. It was chilly when we arrived, and the altitude made the climb more demanding than it looked. The agricultural terraces immediately demonstrated something we would see repeatedly: the Incas didn't try to flatten the Andes. They adapted themselves to them.
+Our first major archaeological stop was Pisac. It was chilly when we arrived, and the altitude made the climb more demanding than it looked. The agricultural terraces immediately demonstrated something we would see repeatedly: the Incas didn't try to flatten the Andes. They adapted themselves to them. Terraces converted steep mountain slopes into agricultural land. Roads and stairs connected elevations. Settlements became part of the mountain rather than something imposed upon it. This was also where we started hearing repeatedly about potatoes. Peru has an extraordinary diversity of potatoes, and experimentation with crops, microclimates and altitude was a central part of Andean agriculture.
 
-Terraces converted steep mountain slopes into agricultural land. Roads and stairs connected elevations. Settlements became part of the mountain rather than something imposed upon it.
+**Moray — An Agricultural Laboratory?** Then came Moray. It is one of those places that photographs don't fully explain. Enormous concentric terraces descend into the earth in near-perfect circles. Our guide described theories about how the original depression formed and how the Incas subsequently engineered the terraces. What is much clearer is that the terraces demonstrate the Incas' sophisticated relationship with agriculture and different growing conditions. Standing above those circles, the overwhelming thought was: **How did people create this here, centuries ago, without modern machinery?**
 
-This was also where we started hearing repeatedly about potatoes.
+**Maras — Salt at 3,000 Meters.** Then came one of the strangest landscapes of the trip: the Maras salt pans. Thousands of small pools cascade down a mountainside. A naturally salty spring feeds the system, and families from the local community have traditionally operated individual pools. From a distance it looks almost artificial—a geometric patchwork of whites, browns and creams carved into a mountain. Our guide explained the geology in terms of ancient marine deposits uplifted with the Andes. Whether every simplified geological explanation we heard was exact or not, the sight itself required no exaggeration. Salt. High in the Andes. Harvested from hundreds upon hundreds of tiny pools. The salt pans also required a separate entrance ticket because of the way the site is locally managed.
 
-Peru has an extraordinary diversity of potatoes, and experimentation with crops, microclimates and altitude was a central part of Andean agriculture.
+**The Condor, Puma and Serpent.** Throughout the Sacred Valley, three animals kept appearing in stories and imagery:**The condor. The puma. The serpent.**
 
-# Moray — An Agricultural Laboratory?
+Our guide described them as representations of different realms. The condor represented the upper or celestial world. The puma represented the earthly world of the living. The serpent represented the world below. This wasn't simply something invented for tourists; Peru's official tourism material also describes the puma, condor and serpent as an important sacred trilogy in Andean/Inca cosmology. The symbolism would appear again at Machu Picchu.
 
-Then came Moray.
+**Cuy — And a Very Peruvian Last Supper** Then came one of my favorite cultural stories. **Guinea pig.** Or *cuy*, as it is called locally. Guinea pig is not considered a pet in the same way we normally think about it in the United States. It has been raised as food in the Andes for centuries and can be served during celebrations and important occasions. And then we heard the wonderful story of **The Last Supper**. In Cusco Cathedral there is an 18th-century Andean interpretation of the Last Supper, associated with painter Marcos Zapata, in which the food at the table reflects the local world—including what is commonly identified as a guinea pig. Whether one likes the idea of eating guinea pig or not, I loved what the painting represented. Christianity had arrived from Europe. But Peru didn't simply receive it unchanged. It absorbed it, localized it and made parts of it Peruvian.
 
-It is one of those places that photographs don't fully explain.
+**Familiar India, Thousands of Miles Away.** Another unexpected source of amusement was seeing familiar Indian brands. **Bajaj. TVS. Bata.** Three-wheelers and motorcycles from Bajaj were everywhere. We also saw TVS. And then there was Bata. For someone who grew up in Kolkata, Bata hardly feels exotic. It is part of the landscape of childhood in India. I rarely see Bata stores in the United States. Yet here we were, halfway across the world in Peru, looking at Bata again. Travel occasionally creates these strange little bridges between places that otherwise have almost nothing in common.
 
-Enormous concentric terraces descend into the earth in near-perfect circles.
-
-Our guide described theories about how the original depression formed and how the Incas subsequently engineered the terraces. What is much clearer is that the terraces demonstrate the Incas' sophisticated relationship with agriculture and different growing conditions.
-
-Standing above those circles, the overwhelming thought was:
-
-**How did people create this here, centuries ago, without modern machinery?**
-
-# Maras — Salt at 3,000 Meters
-
-Then came one of the strangest landscapes of the trip: the Maras salt pans.
-
-Thousands of small pools cascade down a mountainside.
-
-A naturally salty spring feeds the system, and families from the local community have traditionally operated individual pools.
-
-From a distance it looks almost artificial—a geometric patchwork of whites, browns and creams carved into a mountain.
-
-Our guide explained the geology in terms of ancient marine deposits uplifted with the Andes. Whether every simplified geological explanation we heard was exact or not, the sight itself required no exaggeration.
-
-Salt.
-
-High in the Andes.
-
-Harvested from hundreds upon hundreds of tiny pools.
-
-The salt pans also required a separate entrance ticket because of the way the site is locally managed.
-
-# The Condor, Puma and Serpent
-
-Throughout the Sacred Valley, three animals kept appearing in stories and imagery:
-
-**The condor.
-The puma.
-The serpent.**
-
-Our guide described them as representations of different realms.
-
-The condor represented the upper or celestial world.
-
-The puma represented the earthly world of the living.
-
-The serpent represented the world below.
-
-This wasn't simply something invented for tourists; Peru's official tourism material also describes the puma, condor and serpent as an important sacred trilogy in Andean/Inca cosmology.
-
-The symbolism would appear again at Machu Picchu.
-
-# Cuy — And a Very Peruvian Last Supper
-
-Then came one of my favorite cultural stories.
-
-**Guinea pig.**
-
-Or *cuy*, as it is called locally.
-
-Guinea pig is not considered a pet in the same way we normally think about it in the United States. It has been raised as food in the Andes for centuries and can be served during celebrations and important occasions.
-
-And then we heard the wonderful story of **The Last Supper**.
-
-In Cusco Cathedral there is an 18th-century Andean interpretation of the Last Supper, associated with painter Marcos Zapata, in which the food at the table reflects the local world—including what is commonly identified as a guinea pig.
-
-Whether one likes the idea of eating guinea pig or not, I loved what the painting represented.
-
-Christianity had arrived from Europe.
-
-But Peru didn't simply receive it unchanged.
-
-It absorbed it, localized it and made parts of it Peruvian.
-
-# Familiar India, Thousands of Miles Away
-
-Another unexpected source of amusement was seeing familiar Indian brands.
-
-**Bajaj. TVS. Bata.**
-
-Three-wheelers and motorcycles from Bajaj were everywhere. We also saw TVS.
-
-And then there was Bata.
-
-For someone who grew up in Kolkata, Bata hardly feels exotic. It is part of the landscape of childhood in India.
-
-I rarely see Bata stores in the United States.
-
-Yet here we were, halfway across the world in Peru, looking at Bata again.
-
-Travel occasionally creates these strange little bridges between places that otherwise have almost nothing in common.
-
-# Ollantaytambo — The Perfect Ending to the Sacred Valley
-
-Our final archaeological stop was Ollantaytambo.
-
-By this point we were tired.
-
-My wife initially wasn't feeling well enough to climb. My son and I started without her, but eventually she decided to join us.
-
-I'm glad she did.
-
-Ollantaytambo is spectacular.
-
-The terraces climb dramatically above the town, and the stonework once again raises questions about how the Incas planned, moved and assembled enormous stones.
-
-The site also reinforced something that would become even clearer at Machu Picchu: the Incas watched the sun carefully. Architecture, ritual and agriculture were connected to solar movement and seasonal cycles.
-
-After the tour our guide dropped us at Ollantaytambo's central area.
-
-And then came one of those wonderful small travel experiences.
-
-Our hotel was down a narrow lane where cars couldn't go.
-
-A hotel porter arrived and transported our luggage using a little three-wheeled vehicle/cart through the narrow streets while we followed on foot.
-
-Unfortunately, we were so tired that I didn't photograph it.
-
-I regret that.
-
-Sometimes the photographs you don't take become the memories you remember most.
-
-Despite being tucked away in this old mountain town, our hotel manager managed to arrange pizza delivery.
-
-A large thin-crust pizza cost about **44 soles**.
-
-And that was how Day 2 ended.
+**Ollantaytambo — The Perfect Ending to the Sacred Valley.** Our final archaeological stop was Ollantaytambo. By this point we were tired. My wife initially wasn't feeling well enough to climb. My son and I started without her, but eventually she decided to join us. I'm glad she did. Ollantaytambo is spectacular. The terraces climb dramatically above the town, and the stonework once again raises questions about how the Incas planned, moved and assembled enormous stones. The site also reinforced something that would become even clearer at Machu Picchu: the Incas watched the sun carefully. Architecture, ritual and agriculture were connected to solar movement and seasonal cycles. After the tour our guide dropped us at Ollantaytambo's central area. And then came one of those wonderful small travel experiences. Our hotel was down a narrow lane where cars couldn't go. A hotel porter arrived and transported our luggage using a little three-wheeled vehicle/cart through the narrow streets while we followed on foot. Unfortunately, we were so tired that I didn't photograph it. I regret that. Sometimes the photographs you don't take become the memories you remember most. Despite being tucked away in this old mountain town, our hotel manager managed to arrange pizza delivery. A large thin-crust pizza cost about **44 soles**. And that was how Day 2 ended.
 
 # Day 3 — The 5:05 AM Train and the Great Machu Picchu Ticket Gamble
 
-The next morning started before sunrise.
+The next morning started before sunrise. We boarded **PeruRail Expedition 71** from Ollantaytambo. The train left almost exactly at 5:05 AM. For weeks I had worried about PeruRail's luggage restriction. We had rearranged our luggage repeatedly to stay around the permitted tourist-train allowance. And after all that worry? Nobody seriously scrutinized it on the outbound journey. Travel has a sense of humor. We reached Machu Picchu Pueblo—better known to many travelers as **Aguas Calientes**—at approximately **6:45 AM**. But we weren't heading to the hotel. We were running.
 
-We boarded **PeruRail Expedition 71** from Ollantaytambo.
+**The Race for Circuit 2A.** Our online ticket for that afternoon was Circuit 1A. But what I really wanted was **Circuit 2A for the following morning**. Those tickets had not been available online when I planned the trip, so we decided to attempt the in-person process in Aguas Calientes. When we reached the Cultural Center, my heart sank. There were already at least **100 people ahead of us**. Some told us they had been standing there since around **4 AM**. Nobody seemed completely certain what would happen. Would we receive a ticket? A coupon? Would we have to return in the afternoon? I used translation on my phone to ask the local police. Even their explanation wasn't completely clear. Eventually the process started moving. We stood there for roughly an hour. When our turn came, we received a coupon/number—and then discovered that there was another line through which tickets were being processed according to those numbers. And then came perhaps the biggest logistical victory of the trip. **We got exactly what we wanted: Circuit 2A at 7:00 AM the following morning.** From stepping off the train to walking away with our tickets, it took around 70 minutes. We had done it.
 
-The train left almost exactly at 5:05 AM.
+**Casa Andina, Exhaustion and No Sleep.** We walked to Casa Andina Standard Machu Picchu. It was around 8:30 AM. Official check-in wasn't yet available, although the hotel kindly offered us early access at around 10. We were exhausted. So exhausted that we actually dozed on the lobby couch. But something funny happened. Once the room became available and we finally had a bed...we couldn't sleep. Perhaps it was adrenaline. Perhaps it was the realization that Machu Picchu was literally above us.
 
-For weeks I had worried about PeruRail's luggage restriction. We had rearranged our luggage repeatedly to stay around the permitted tourist-train allowance.
+**The Bus Up to Machu Picchu.** Our Circuit 1A entry was at **3 PM**. We headed toward the bus stop around early afternoon. The ride took approximately 25–30 minutes up a winding mountain road. The road itself was an experience—switchbacks, jungle and steep terrain. The drivers clearly knew every bend. We arrived roughly half an hour early and assumed we could enter. No. Our passports wouldn't validate for the 3 PM ticket until the 3 PM entry window opened. So we waited. Then came another little scare. Although I had entered three passport numbers when purchasing the tickets online, the booking somehow showed **my name against all three passengers**. The staff noticed immediately. After some discussion they apparently understood what had happened and allowed my wife, my son and me through. Then came another surprise: **No selfie sticks.** We had to leave ours behind. And finally, after months of planning, flights, altitude, trains, ticket lines and baggage problems...we walked into Machu Picchu.
 
-And after all that worry?
-
-Nobody seriously scrutinized it on the outbound journey.
-
-Travel has a sense of humor.
-
-We reached Machu Picchu Pueblo—better known to many travelers as **Aguas Calientes**—at approximately **6:45 AM**.
-
-But we weren't heading to the hotel.
-
-We were running.
-
-# The Race for Circuit 2A
-
-Our online ticket for that afternoon was Circuit 1A.
-
-But what I really wanted was **Circuit 2A for the following morning**.
-
-Those tickets had not been available online when I planned the trip, so we decided to attempt the in-person process in Aguas Calientes.
-
-When we reached the Cultural Center, my heart sank.
-
-There were already at least **100 people ahead of us**.
-
-Some told us they had been standing there since around **4 AM**.
-
-Nobody seemed completely certain what would happen.
-
-Would we receive a ticket?
-
-A coupon?
-
-Would we have to return in the afternoon?
-
-I used translation on my phone to ask the local police. Even their explanation wasn't completely clear.
-
-Eventually the process started moving.
-
-We stood there for roughly an hour.
-
-When our turn came, we received a coupon/number—and then discovered that there was another line through which tickets were being processed according to those numbers.
-
-And then came perhaps the biggest logistical victory of the trip.
-
-**We got exactly what we wanted: Circuit 2A at 7:00 AM the following morning.**
-
-From stepping off the train to walking away with our tickets, it took around 70 minutes.
-
-We had done it.
-
-# Casa Andina, Exhaustion and No Sleep
-
-We walked to Casa Andina Standard Machu Picchu.
-
-It was around 8:30 AM.
-
-Official check-in wasn't yet available, although the hotel kindly offered us early access at around 10.
-
-We were exhausted.
-
-So exhausted that we actually dozed on the lobby couch.
-
-But something funny happened.
-
-Once the room became available and we finally had a bed...
-
-we couldn't sleep.
-
-Perhaps it was adrenaline.
-
-Perhaps it was the realization that Machu Picchu was literally above us.
-
-# The Bus Up to Machu Picchu
-
-Our Circuit 1A entry was at **3 PM**.
-
-We headed toward the bus stop around early afternoon.
-
-The ride took approximately 25–30 minutes up a winding mountain road.
-
-The road itself was an experience—switchbacks, jungle and steep terrain. The drivers clearly knew every bend.
-
-We arrived roughly half an hour early and assumed we could enter.
-
-No.
-
-Our passports wouldn't validate for the 3 PM ticket until the 3 PM entry window opened.
-
-So we waited.
-
-Then came another little scare.
-
-Although I had entered three passport numbers when purchasing the tickets online, the booking somehow showed **my name against all three passengers**.
-
-The staff noticed immediately.
-
-After some discussion they apparently understood what had happened and allowed my wife, my son and me through.
-
-Then came another surprise:
-
-**No selfie sticks.**
-
-We had to leave ours behind.
-
-And finally, after months of planning, flights, altitude, trains, ticket lines and baggage problems...
-
-we walked into Machu Picchu.
-
-# Circuit 1A — The Climb Before the View
-
-Circuit 1A was harder than I expected.
-
-The route climbed relentlessly upward through greenery.
-
-It took us approximately **45 minutes**, with many breaks.
-
-At several points, before the view opened up, it was psychologically difficult because you keep climbing without seeing the reward.
-
-And then...
-
-everything changed.
-
-The trees opened.
-
-The terraces appeared.
-
-And there it was.
-
-**Machu Picchu.**
-
-UNESCO describes Machu Picchu as a 15th-century Inca creation at about 2,430 meters, integrated extraordinarily into the meeting point between the Andes and the upper Amazon basin. Seeing it in person, that description suddenly makes sense.
-
-The mountain behind the classic view is **Huayna Picchu**—“young mountain.” Nearby is Huchuy Picchu, while Machu Picchu Mountain rises on the opposite side.
-
-But at that moment, names didn't matter.
-
-The view did.
-
-# The Moment Photographs Couldn't Capture
-
-Of course we took photographs.
-
-Lots of them.
-
-Everyone was doing the same.
-
-People were creating reels, posing creatively and inventing ways to capture themselves with Machu Picchu.
-
-We are not particularly gifted at that sort of thing, but we tried.
-
-And then something much better happened.
-
-After taking enough pictures...
-
-we stopped.
-
-We sat on the grass.
-
-And we simply looked.
-
-For a long time.
-
-No camera.
-
-No rushing.
-
-No need to prove that we had been there.
-
-Just the three of us looking at a place that had existed in our imagination for years.
-
-That became my favorite moment of the entire journey.
-
-**After all the photographs, we finally stopped taking pictures—and actually saw Machu Picchu.**
-
-There are places where photographs are enough.
-
-Machu Picchu isn't one of them.
-
-# One of the Last Buses Down
-
-We spent well over an hour around the upper viewpoints and gradually descended.
-
-By the time we returned to the bus area, it was late afternoon.
-
-We ended up taking one of the final buses down toward Aguas Calientes.
-
-The emotional part of the day was over.
-
-Now came ordinary life again.
-
-And sometimes ordinary life creates the better stories.
-
-# Souvenirs, Inca Kola and Falling in the Market
-
-We did some shopping.
-
-Peru T-shirts.
-
-Machu Picchu shot glasses.
-
-Ponchos for family members.
-
-We bargained a little.
-
-And then we bought **Inca Kola**.
-
-The bright-yellow drink is one of Peru's most famous soft drinks and is now closely associated commercially with Coca-Cola.
-
-My review?
-
-**Horrible.**
-
-Obviously millions of Peruvians would disagree with me.
-
-Somehow one of our bottles disappeared. I thought my son might have left it somewhere, so I went back through the market looking for it.
-
-And then I tripped.
-
-Not gracefully.
-
-I fell rather spectacularly.
-
-Two policemen nearby saw it happen but didn't come over to help.
-
-I was disappointed.
-
-But almost immediately, local women working in the nearby shops came over and helped me.
-
-That tiny incident stayed with me.
-
-Institutions are one thing.
-
-People are another.
-
-# Dinner Beside the River
-
-We ended the evening with a good dinner beside the rushing river.
-
-The water flowing through this region belongs to the Urubamba river system, which ultimately feeds into the Amazon basin.
-
-We could hear it while eating.
-
-And after one of the most extraordinary days of our lives, that sound was somehow the perfect ending.
+**Circuit 1A — The Climb Before the View** Circuit 1A was harder than I expected. The route climbed relentlessly upward through greenery. It took us approximately **45 minutes**, with many breaks. At several points, before the view opened up, it was psychologically difficult because you keep climbing without seeing the reward.And then...everything changed. The terraces appeared. And there it was. **Machu Picchu.**UNESCO describes Machu Picchu as a 15th-century Inca creation at about 2,430 meters, integrated extraordinarily into the meeting point between the Andes and the upper Amazon basin. Seeing it in person, that description suddenly makes sense. The mountain behind the classic view is **Huayna Picchu**—“young mountain.” Nearby is Huchuy Picchu, while Machu Picchu Mountain rises on the opposite side. But at that moment, names didn't matter. The view did.**The Moment Photographs Couldn't Capture.** Of course we took photographs.Lots of them. Everyone was doing the same. People were creating reels, posing creatively and inventing ways to capture themselves with Machu Picchu. We are not particularly gifted at that sort of thing, but we tried. And then something much better happened. After taking enough pictures... we stopped. We sat on the grass. And we simply looked. For a long time. No camera. No rushing. No need to prove that we had been there. Just the three of us looking at a place that had existed in our imagination for years. That became my favorite moment of the entire journey. **After all the photographs, we finally stopped taking pictures—and actually saw Machu Picchu.** There are places where photographs are enough. Machu Picchu isn't one of them. One of the Last Buses Down. We spent well over an hour around the upper viewpoints and gradually descended. By the time we returned to the bus area, it was late afternoon. We ended up taking one of the final buses down toward Aguas Calientes. The emotional part of the day was over. Now came ordinary life again. And sometimes ordinary life creates the better stories. **Souvenirs, Inca Kola and Falling in the Market.** We did some shopping. Peru T-shirts. Machu Picchu shot glasses. Ponchos for family members. We bargained a little. And then we bought **Inca Kola**. The bright-yellow drink is one of Peru's most famous soft drinks and is now closely associated commercially with Coca-Cola. My review? **Horrible.** Obviously millions of Peruvians would disagree with me. Somehow one of our bottles disappeared. I thought my son might have left it somewhere, so I went back through the market looking for it. And then I tripped. Not gracefully. I fell rather spectacularly. Two policemen nearby saw it happen but didn't come over to help. I was disappointed. But almost immediately, local women working in the nearby shops came over and helped me. That tiny incident stayed with me. Institutions are one thing. People are another. **Dinner Beside the River**. We ended the evening with a good dinner beside the rushing river. The water flowing through this region belongs to the Urubamba river system, which ultimately feeds into the Amazon basin. We could hear it while eating. And after one of the most extraordinary days of our lives, that sound was somehow the perfect ending.
 
 # Day 4 — Machu Picchu Again, This Time to Understand It
 
-The alarm went off around **5 AM**.
+The alarm went off around **5 AM**. Our much-awaited Circuit 2A ticket was for 7 AM. Our guide had insisted that we reach the bus queue at **6 sharp**. We were running a few minutes behind, but he was already there and had positioned himself in the queue. This time there were no surprises. No ticket uncertainty. No passport-name drama. We boarded the bus. Day 3 had been about **seeing Machu Picchu**. Day 4 would be about understanding it.
 
-Our much-awaited Circuit 2A ticket was for 7 AM.
+**Agricultural Machu Picchu and Urban Machu Picchu.** Our guide explained that Machu Picchu can broadly be understood through agricultural and urban areas. That division is also reflected in official descriptions of the site: terraces and agricultural areas sit alongside residential, ceremonial and elite urban structures. UNESCO notes approximately 200 structures distributed across the steep ridge. We entered through the agricultural side and gradually moved toward the urban zone. The terraces weren't decorative landscaping. They were infrastructure. Agriculture. Drainage. Slope stabilization. Everything seemed to have multiple purposes.
 
-Our guide had insisted that we reach the bus queue at **6 sharp**.
+**Who Lived at Machu Picchu?** Our guide described Machu Picchu as a place connected with the elite rather than an ordinary city. The exact purpose of Machu Picchu remains debated, but it is strongly associated with the Inca elite and Pachacuti's period. Estimates commonly put its resident population in the hundreds rather than thousands; a UNESCO-associated description notes a population above 500. Walking through the remains, it becomes easier to imagine a functioning community. Homes. Storage. Agriculture. Ceremonial spaces. Water. Roads. Everything a settlement needed—except that it existed on a mountain ridge in one of the most dramatic landscapes imaginable.
 
-We were running a few minutes behind, but he was already there and had positioned himself in the queue.
+**Engineering Without Modern Machinery.** The engineering fascinated me as much as the scenery. Water was distributed using gravity. Channels carried spring water through the settlement. Terraces managed both agriculture and the mountain itself. Buildings had trapezoidal doors and windows. Roofs would originally have been thatched, meaning what we see today is only the stone skeleton of a much more complete settlement. UNESCO calls Machu Picchu an achievement of architecture, urban planning and land use, and after walking through it, that doesn't sound like exaggeration.
 
-This time there were no surprises.
+**Following the Sun** Then came perhaps my favorite intellectual part of Machu Picchu. The sun. Our guide repeatedly showed us how structures were connected with solar observation. The Incas' agricultural calendar depended upon understanding seasonal cycles, and important ceremonial architecture was associated with solar events. The Temple of the Sun and Intihuatana are among the site's best-known examples of this relationship between architecture, ritual and astronomical observation. The famous Inti Raymi festival around the June solstice reflects the importance of the sun in the Andean world. Standing among those ruins, I kept thinking:These people didn't have modern instruments.But they watched. Year after year. Generation after generation. They understood their environment because their survival depended on understanding it.
 
-No ticket uncertainty.
+**Circuit 2A Versus Circuit 1A.** Circuit 2A was very different from the previous afternoon. Circuit 1A gave us the **spectacle**. Circuit 2A gave us the **city**. It wasn't as relentlessly steep, but it was long—roughly 2½ to 3 hours for us. With a guide, the stones stopped being anonymous ruins. They became houses, ceremonial areas, agricultural terraces, water channels and evidence of a civilization. If I had to summarize the two experiences: **Day 3 allowed us to feel Machu Picchu & Day 4 allowed us to understand it.** Doing both was absolutely worthwhile.
 
-No passport-name drama.
+**Back to Aguas Calientes.** We returned to town around **10:30 AM**. We had arranged a late hotel checkout until approximately 12:30. That was one of our better decisions. We returned, showered, changed, reorganized everything and finally checked out. Then we walked toward the railway station. I had initially misunderstood exactly where the station was. It is effectively embedded in the market area where we had been shopping the previous evening. It was busy, colorful and surprisingly attractive. Unfortunately, because of the rush, we didn't take all the photographs we wanted. Another missed-photo memory.
 
-We boarded the bus.
+**PeruRail — Same Company, Completely Different Experience** Our return train left around **12:40 PM** and reached Ollantaytambo at approximately **2:35–2:40 PM**. The train immediately felt different from our early-morning Expedition journey. The carriage looked newer. Cleaner. More tourist-oriented. There was a light snack. And then something we hadn't expected: a cultural performance by members of the crew, followed by a fashion presentation featuring Peruvian-style clothing. Suddenly we understood why people speak so positively about the PeruRail experience.Our outbound train had felt purely functional. The return journey felt like part of the vacation.
 
-Day 3 had been about **seeing Machu Picchu**.
+The 8-Kilogram Lesson At the station we noticed baggage-sizing facilities and controls. That brought back all our pre-trip anxiety. Tourist trains to Machu Picchu have restrictive luggage policies, and the practical lesson from our experience is simple: **Travel light.** We had been fortunate that nobody seriously scrutinized our luggage on the early outbound train. I would not build a trip around that luck. For future travelers, my recommendation would be to leave large luggage at the Cusco or Sacred Valley hotel and take a backpack or genuinely small overnight bag to Machu Picchu. Every traveler carrying his or her own light backpack makes the entire experience easier.
 
-Day 4 would be about **understanding it**.
+**Ollantaytambo to Cusco.** Our hotel owner at Apu Lodge had arranged a driver. When we stepped off the train, he was waiting with my name on a board. He spoke essentially no English. It didn't matter. We communicated what we needed: **no shopping, no sightseeing—we wanted to get to Cusco as quickly as possible.** The drive was roughly 55 kilometers and took around two hours. During the drive I called our former Cusco hotel again to confirm that we could retrieve the luggage we had left there. They were completely accommodating. This seems to be a common and extremely useful practice around Cusco: hotels understand that travelers disappear toward Machu Picchu for a night or two and don't want to drag large suitcases with them.
 
-# Agricultural Machu Picchu and Urban Machu Picchu
+**The Great Baggage Repacking, Part II** We reached Cusco around **4:30 PM**. Then began another episode in what had become the recurring comedy of our Peru trip: **repacking luggage.** Our goal was to put one carry-on trolley inside our large checked suitcase so that JetSMART wouldn't charge us for one additional carry-on. We seriously considered trying to put two trolley bags inside the large suitcase. Physics won. One was possible. Two were not. We spent almost an hour rearranging everything. Only after that did we have time for a little last-minute Cusco shopping—coffee and a few souvenirs—before heading to the airport.
 
-Our guide explained that Machu Picchu can broadly be understood through agricultural and urban areas.
+**Cusco Airport and JetSMART, Round Two** Cusco airport surprised me. It was much smaller and more basic than the airports we are accustomed to in the United States. We arrived approximately three hours before departure. JetSMART didn't even have staff at the counter yet. Eventually the counter opened. Then our baggage was deemed oversized. More rearranging. But this time I had learned something. Instead of paying everything at the counter, I completed the process online. That saved us perhaps **$50–60**. Our approximate charges were around: $26 for a large checked bag,  $25 for a carry-on,  about $18 for a seat assignment. The original ticket had looked cheap. The final journey wasn't. That is probably my strongest airline advice from Peru: **If you fly JetSMART or another ultra-low-cost carrier, calculate baggage and seats before comparing fares.**
 
-That division is also reflected in official descriptions of the site: terraces and agricultural areas sit alongside residential, ceremonial and elite urban structures. UNESCO notes approximately 200 structures distributed across the steep ridge.
-
-We entered through the agricultural side and gradually moved toward the urban zone.
-
-The terraces weren't decorative landscaping.
-
-They were infrastructure.
-
-Agriculture.
-
-Drainage.
-
-Slope stabilization.
-
-Everything seemed to have multiple purposes.
-
-# Who Lived at Machu Picchu?
-
-Our guide described Machu Picchu as a place connected with the elite rather than an ordinary city.
-
-The exact purpose of Machu Picchu remains debated, but it is strongly associated with the Inca elite and Pachacuti's period. Estimates commonly put its resident population in the hundreds rather than thousands; a UNESCO-associated description notes a population above 500.
-
-Walking through the remains, it becomes easier to imagine a functioning community.
-
-Homes.
-
-Storage.
-
-Agriculture.
-
-Ceremonial spaces.
-
-Water.
-
-Roads.
-
-Everything a settlement needed—except that it existed on a mountain ridge in one of the most dramatic landscapes imaginable.
-
-# Engineering Without Modern Machinery
-
-The engineering fascinated me as much as the scenery.
-
-Water was distributed using gravity.
-
-Channels carried spring water through the settlement.
-
-Terraces managed both agriculture and the mountain itself.
-
-Buildings had trapezoidal doors and windows.
-
-Roofs would originally have been thatched, meaning what we see today is only the stone skeleton of a much more complete settlement.
-
-UNESCO calls Machu Picchu an achievement of architecture, urban planning and land use, and after walking through it, that doesn't sound like exaggeration.
-
-# Following the Sun
-
-Then came perhaps my favorite intellectual part of Machu Picchu.
-
-The sun.
-
-Our guide repeatedly showed us how structures were connected with solar observation.
-
-The Incas' agricultural calendar depended upon understanding seasonal cycles, and important ceremonial architecture was associated with solar events.
-
-The Temple of the Sun and Intihuatana are among the site's best-known examples of this relationship between architecture, ritual and astronomical observation.
-
-The famous Inti Raymi festival around the June solstice reflects the importance of the sun in the Andean world.
-
-Standing among those ruins, I kept thinking:
-
-These people didn't have modern instruments.
-
-But they watched.
-
-Year after year.
-
-Generation after generation.
-
-They understood their environment because their survival depended on understanding it.
-
-# Circuit 2A Versus Circuit 1A
-
-Circuit 2A was very different from the previous afternoon.
-
-Circuit 1A gave us the **spectacle**.
-
-Circuit 2A gave us the **city**.
-
-It wasn't as relentlessly steep, but it was long—roughly 2½ to 3 hours for us.
-
-With a guide, the stones stopped being anonymous ruins.
-
-They became houses, ceremonial areas, agricultural terraces, water channels and evidence of a civilization.
-
-If I had to summarize the two experiences:
-
-**Day 3 allowed us to feel Machu Picchu.
-Day 4 allowed us to understand it.**
-
-Doing both was absolutely worthwhile.
-
-# Back to Aguas Calientes
-
-We returned to town around **10:30 AM**.
-
-We had arranged a late hotel checkout until approximately 12:30.
-
-That was one of our better decisions.
-
-We returned, showered, changed, reorganized everything and finally checked out.
-
-Then we walked toward the railway station.
-
-I had initially misunderstood exactly where the station was.
-
-It is effectively embedded in the market area where we had been shopping the previous evening.
-
-It was busy, colorful and surprisingly attractive.
-
-Unfortunately, because of the rush, we didn't take all the photographs we wanted.
-
-Another missed-photo memory.
-
-# PeruRail — Same Company, Completely Different Experience
-
-Our return train left around **12:40 PM** and reached Ollantaytambo at approximately **2:35–2:40 PM**.
-
-The train immediately felt different from our early-morning Expedition journey.
-
-The carriage looked newer.
-
-Cleaner.
-
-More tourist-oriented.
-
-There was a light snack.
-
-And then something we hadn't expected:
-
-a cultural performance by members of the crew, followed by a fashion presentation featuring Peruvian-style clothing.
-
-Suddenly we understood why people speak so positively about the PeruRail experience.
-
-Our outbound train had felt purely functional.
-
-The return journey felt like part of the vacation.
-
-# The 8-Kilogram Lesson
-
-At the station we noticed baggage-sizing facilities and controls.
-
-That brought back all our pre-trip anxiety.
-
-Tourist trains to Machu Picchu have restrictive luggage policies, and the practical lesson from our experience is simple:
-
-**Travel light.**
-
-We had been fortunate that nobody seriously scrutinized our luggage on the early outbound train.
-
-I would not build a trip around that luck.
-
-For future travelers, my recommendation would be to leave large luggage at the Cusco or Sacred Valley hotel and take a backpack or genuinely small overnight bag to Machu Picchu.
-
-Every traveler carrying his or her own light backpack makes the entire experience easier.
-
-# Ollantaytambo to Cusco
-
-Our hotel owner at Apu Lodge had arranged a driver.
-
-When we stepped off the train, he was waiting with my name on a board.
-
-He spoke essentially no English.
-
-It didn't matter.
-
-We communicated what we needed: **no shopping, no sightseeing—we wanted to get to Cusco as quickly as possible.**
-
-The drive was roughly 55 kilometers and took around two hours.
-
-During the drive I called our former Cusco hotel again to confirm that we could retrieve the luggage we had left there.
-
-They were completely accommodating.
-
-This seems to be a common and extremely useful practice around Cusco: hotels understand that travelers disappear toward Machu Picchu for a night or two and don't want to drag large suitcases with them.
-
-# The Great Baggage Repacking, Part II
-
-We reached Cusco around **4:30 PM**.
-
-Then began another episode in what had become the recurring comedy of our Peru trip:
-
-**repacking luggage.**
-
-Our goal was to put one carry-on trolley inside our large checked suitcase so that JetSMART wouldn't charge us for one additional carry-on.
-
-We seriously considered trying to put two trolley bags inside the large suitcase.
-
-Physics won.
-
-One was possible.
-
-Two were not.
-
-We spent almost an hour rearranging everything.
-
-Only after that did we have time for a little last-minute Cusco shopping—coffee and a few souvenirs—before heading to the airport.
-
-# Cusco Airport and JetSMART, Round Two
-
-Cusco airport surprised me.
-
-It was much smaller and more basic than the airports we are accustomed to in the United States.
-
-We arrived approximately three hours before departure.
-
-JetSMART didn't even have staff at the counter yet.
-
-Eventually the counter opened.
-
-Then our baggage was deemed oversized.
-
-More rearranging.
-
-But this time I had learned something.
-
-Instead of paying everything at the counter, I completed the process online.
-
-That saved us perhaps **$50–60**.
-
-Our approximate charges were around:
-
-* $26 for a large checked bag
-* $25 for a carry-on
-* about $18 for a seat assignment
-
-The original ticket had looked cheap.
-
-The final journey wasn't.
-
-That is probably my strongest airline advice from Peru:
-
-**If you fly JetSMART or another ultra-low-cost carrier, calculate baggage and seats before comparing fares.**
-
-# Late-Night Arrival in Lima
-
-We landed in Lima late at night.
-
-The flight itself was fine.
-
-What surprised us was the walk.
-
-From our domestic gate to baggage claim felt endless—perhaps 15–25 minutes.
-
-By then we were exhausted.
-
-I checked Uber: approximately **78 soles**.
-
-The airport taxi offered the trip for about **60 soles**.
-
-For once, the official taxi was cheaper.
-
-We took it.
-
-By around **12:30 AM**, we were finally in our Lima hotel.
-
-Day 4 was over.
+**Late-Night Arrival in Lima** We landed in Lima late at night. The flight itself was fine. What surprised us was the walk. From our domestic gate to baggage claim felt endless—perhaps 15–25 minutes. By then we were exhausted. I checked Uber: approximately **78 soles**. The airport taxi offered the trip for about **60 soles**. For once, the official taxi was cheaper. We took it. By around **12:30 AM**, we were finally in our Lima hotel. Day 4 was over.
 
 # Day 5 — Lima: When the Tour Never Showed Up
 
-Our original plan for Lima was sensible.
+Our original plan for Lima was sensible. Sleep after the late arrival. Start around 11:30 AM. Hire a private guide for five or six hours. See the major sights efficiently. That plan completely failed. The previous evening I had collected tour pamphlets from the hotel reception and sent WhatsApp messages to several operators. Almost nobody responded. In the morning I called numbers from their websites. Nothing. The hotel gave me alternatives. Of three or four possibilities, only one responded and said they would get back to me within an hour. They didn't. At around **8:30 AM**, I decided: Forget the tour. **We would design Lima ourselves.** Looking at the tour-company pamphlets, I identified the obvious route: **Historic Lima → Chinatown/market → Barranco → Miraflores.** And in retrospect, I'm glad we did it that way.
 
-Sleep after the late arrival.
+**Historic Lima.** After breakfast and a relaxed morning, we started around **11:30 AM**. First destination: Lima's historic center. The contrast with the Sacred Valley was enormous. Spanish colonial architecture. Government buildings. Cathedrals. Large plazas. Pedestrian areas. The central area around Plaza Mayor/Plaza de Armas was beautiful and surprisingly pleasant to explore on foot. We spent around an hour simply walking, looking and photographing. No guide. No rush. No timetable.
 
-Start around 11:30 AM.
+**Chinatown — Organized Chaos** From the historic center we walked toward Lima's Chinatown and market district. And suddenly everything changed. People everywhere. Shops everywhere. Street vendors. Noise. Movement. Spanish everywhere. It reminded me of the kind of intensely crowded bazaar one might encounter in many developing-world cities. I had initially thought we might shop. We didn't. It wasn't that I felt particularly threatened. It was simply overwhelming. We lacked the language, energy and local shopping skills necessary to make the chaos enjoyable. So we called an Uber. Next stop: Barranco.
 
-Hire a private guide for five or six hours.
+**Barranco — Art, Graffiti and the Pacific.** Barranco had an entirely different personality. Color. Street art. Graffiti. Old lanes. A bohemian atmosphere. We walked for a couple of hours, taking photographs and gradually making our way toward the coast. The beach itself? I wasn't impressed. Coming from California, the Lima coastline wasn't going to win us over purely as a beach destination. But what surprised us were the **surfers**. Lots of them. The Pacific here clearly has a strong surfing culture. The word I initially kept using was “skiers,” but of course what I was seeing were surfers riding the waves below Lima's cliffs.
 
-See the major sights efficiently.
+**Miraflores — The Perfect Final Evening** We returned to the hotel for a short rest and then headed back out for our final destination: **Miraflores.** We visited the famous Parque del Amor and its enormous sculpture of a kissing couple. We walked along the Pacific. Then another short Uber ride took us to **Larcomar**. Larcomar is one of those malls that sounds ordinary until you see it. It is effectively built into the cliffs overlooking the ocean. Shopping wasn't really the highlight. The location was. After mountains, archaeological ruins, trains, markets and endless walking, we were hungry. We chose **Mangos** at Larcomar. It turned out to be the perfect final dinner. Good food. Beautiful ambience. Pacific Ocean outside. More fine-dining experience than casual meal. By approximately **9:30 PM**, we were back at the hotel. Our five-day Peru adventure was essentially finished.
 
-That plan completely failed.
+**Peru During Election Week** There was another layer to this journey that I hadn't anticipated. We happened to visit Peru immediately before its **2026 general election**. The election was scheduled for Sunday, April 12, and more than 27 million Peruvians were eligible to elect a president and vice presidents as well as senators, deputies and representatives to the Andean Parliament. Peru was also returning to a bicameral Congress. Everywhere we traveled, particularly along roads through the Sacred Valley and in the cities, we saw campaign signs. Faces. Party symbols. Candidate numbers. Posters painted or attached to walls. One thing I initially misunderstood was the voting system. The numbers we saw weren't simply presidential “numbers to press.” Peru's ballot allows voters to mark a presidential party symbol or candidate photograph, while numbers are also used for preferential votes in legislative contests. But as travelers, what interested us more was hearing people talk about politics. Some people we met expressed frustration that ordinary citizens—particularly younger people—weren't sufficiently engaged and that politics remained dominated by established political groups and interests. I treat that as exactly what it was: **opinions we heard from Peruvians during our visit**, not a scientific measurement of public opinion. Security was another recurring subject. Several people raised concerns about crime and Venezuelan migration. Again, I wouldn't generalize those conversations into a conclusion about migrants. One of our own Lima Uber drivers was Venezuelan—and happened to be the driver with whom we could communicate most easily in English. Travel has a useful way of complicating simple narratives. You hear one person's fear. Then you get into a car and meet one of the people being discussed. And suddenly the issue has a human face.
 
-The previous evening I had collected tour pamphlets from the hotel reception and sent WhatsApp messages to several operators.
+**A Thought About Young People** One experience at Machu Picchu made me think about youth and culture. While waiting for our Circuit 2A tickets, we encountered a large group of young travelers—perhaps 15 or 20 people in their early twenties. They were smoking, talking among themselves and repeatedly making the already chaotic queue more difficult. The following morning we encountered part of the same group at the Machu Picchu entrance. One young woman moved directly in front of me in the queue as though I weren't there. Our guide immediately challenged her. During their exchange, we learned that this particular group was from Israel. Our guide explained the common pattern of young Israelis traveling internationally after completing compulsory military service. At the time, I told my wife that I found the group's behavior arrogant. She offered a much simpler explanation: **“Young people everywhere behave like young people.”** She probably had the better perspective. Fifteen or twenty tourists certainly don't represent a country. What the encounter did make me notice, however, was the contrast with many of the young Peruvians we met working in hotels, restaurants, transportation and tourism. My impression of them was overwhelmingly positive. They seemed hardworking. Soft-spoken. Respectful. And ambitious. There was a certain grit in their faces that reminded me of India when we were younger—the feeling of a generation wanting to create something better than what their parents had. That is a personal impression, not an economic forecast. But it stayed with me.
 
-Almost nobody responded.
+**The People of Peru** If someone asked me what surprised me most about Peru, my answer wouldn't be Machu Picchu. I expected Machu Picchu to be spectacular. What I didn't expect was how much I would like the **people**. Throughout the trip we dealt with: cab drivers, hotel managers, porters, guides, shopkeepers, restaurant staff, airport workers, market vendors. Language frequently failed us. But communication somehow didn't. People were overwhelmingly patient. Soft-spoken. Helpful. Even when negotiating prices, I rarely felt aggression. Even when something went wrong, interactions generally remained calm. Remember my fall in the Aguas Calientes market? The local women who came over to help me are part of what I mean. Those little things shape your perception of a country more than any monument can.
 
-In the morning I called numbers from their websites.
+**Did We Feel Safe?** For the places and situations **we personally experienced**, yes. Very much so. That doesn't mean crime doesn't exist in Peru or that every neighborhood is safe. No traveler should make that assumption anywhere. But across Cusco, the Sacred Valley, Ollantaytambo, Aguas Calientes, Machu Picchu, central Lima, Barranco and Miraflores, our own experience was overwhelmingly comfortable. Even in the chaotic Chinatown market, I felt more overwhelmed than endangered. That distinction matters.
 
-Nothing.
+**What I Would Do Differently.**  No trip is perfect, and ours certainly wasn't. If I planned it again, several things would change.
 
-The hotel gave me alternatives.
+**First: I would investigate Rainbow Mountain before locking the itinerary.** Missing it genuinely disappointed me.
 
-Of three or four possibilities, only one responded and said they would get back to me within an hour.
+**Second: I would study airline baggage rules before purchasing domestic tickets.**The JetSMART fare looked attractive until baggage and seat fees were included.
 
-They didn't.
+**Third: I would pack specifically for Machu Picchu's train restrictions from home.**Trying to solve luggage problems during the trip wasted time and energy.
 
-At around **8:30 AM**, I decided:
+**Fourth: I would not assume that a Lima private tour can easily be booked on the morning of travel.**Our self-guided day worked beautifully, but anyone who definitely wants a guide should arrange one beforehand. And finally:
 
-Forget the tour.
+**I would still visit Machu Picchu twice.** That is one decision I would absolutely repeat.
 
-**We would design Lima ourselves.**
+**Practical Advice From Our Experience** For anyone planning a similar trip:
 
-Looking at the tour-company pamphlets, I identified the obvious route:
+* **Machu Picchu tickets:** Buy online as soon as your preferred circuit is released. If relying on Aguas Calientes' in-person system, arrive early and understand that availability is not guaranteed.
+* **Two circuits:** If possible, combine a panoramic Circuit 1 experience with Circuit 2. They are genuinely different.
+* **Guide:** We didn't need one for our panoramic Circuit 1A visit, but having a guide for Circuit 2A transformed the experience.
+* **Train luggage:** Take the restrictions seriously even if enforcement appears inconsistent. A backpack or very small overnight bag is far easier.
+* **Large luggage:** Ask your Cusco hotel to store it while you visit Machu Picchu.
+* **Altitude:** Cusco is around 3,400 meters. Walk slowly, hydrate and don't plan your first afternoon as though you have arrived at sea level.
+* **Spanish:** You can travel without speaking Spanish—we did—but translation apps are invaluable.
+* **Domestic flights:** Check baggage and seat fees before comparing low-cost fares.
+* **Lima:** Historic Center + Barranco + Miraflores makes a very satisfying one-day introduction even without a guide.
+* **Cash:** Small amounts of soles are extremely useful for markets, smaller purchases, tickets and tips, while cards work well in many tourist-facing establishments.
 
-**Historic Lima → Chinatown/market → Barranco → Miraflores.**
+**So, What Did Peru Leave With Me?**
 
-And in retrospect, I'm glad we did it that way.
+Before this trip, Peru was primarily one image in my mind: **Machu Picchu.** After five days, that feels unfair to Peru. I remember Pisac's terraces. Moray's extraordinary circles. Salt cascading down the mountainside at Maras. The narrow streets of Ollantaytambo. A porter moving our luggage through an alley where cars couldn't enter. Bajaj three-wheelers that unexpectedly reminded me of India. A 44-sol pizza arriving at our hotel. Standing behind a hundred people at seven in the morning wondering whether we would get tomorrow's Machu Picchu ticket. The relief when the ticket said: **Circuit 2A — 7:00 AM.** The exhausting climb on Circuit 1A. And then the moment when Machu Picchu appeared. Sitting on the grass with my wife and son after we had finished taking photographs. The yellow Inca Kola that I disliked. Falling while searching for the missing bottle. Women from the market helping me back up. The sound of the river during dinner. Waking at 5 AM to return to Machu Picchu. Watching water still follow channels engineered centuries ago. Repacking luggage in Cusco. Paying far too much money to JetSMART. Walking through Lima's crowded Chinatown. Street art in Barranco. Surfers below the cliffs. The kissing statue in Miraflores. And finally dinner overlooking the Pacific. Those are the memories. Not one moment. A collection of moments.
 
-# Historic Lima
-
-After breakfast and a relaxed morning, we started around **11:30 AM**.
-
-First destination: Lima's historic center.
-
-The contrast with the Sacred Valley was enormous.
-
-Spanish colonial architecture.
-
-Government buildings.
-
-Cathedrals.
-
-Large plazas.
-
-Pedestrian areas.
-
-The central area around Plaza Mayor/Plaza de Armas was beautiful and surprisingly pleasant to explore on foot.
-
-We spent around an hour simply walking, looking and photographing.
-
-No guide.
-
-No rush.
-
-No timetable.
-
-# Chinatown — Organized Chaos
-
-From the historic center we walked toward Lima's Chinatown and market district.
-
-And suddenly everything changed.
-
-People everywhere.
-
-Shops everywhere.
-
-Street vendors.
-
-Noise.
-
-Movement.
-
-Spanish everywhere.
-
-It reminded me of the kind of intensely crowded bazaar one might encounter in many developing-world cities.
-
-I had initially thought we might shop.
-
-We didn't.
-
-It wasn't that I felt particularly threatened. It was simply overwhelming.
-
-We lacked the language, energy and local shopping skills necessary to make the chaos enjoyable.
-
-So we called an Uber.
-
-Next stop:
-
-Barranco.
-
-# Barranco — Art, Graffiti and the Pacific
-
-Barranco had an entirely different personality.
-
-Color.
-
-Street art.
-
-Graffiti.
-
-Old lanes.
-
-A bohemian atmosphere.
-
-We walked for a couple of hours, taking photographs and gradually making our way toward the coast.
-
-The beach itself?
-
-I wasn't impressed.
-
-Coming from California, the Lima coastline wasn't going to win us over purely as a beach destination.
-
-But what surprised us were the **surfers**.
-
-Lots of them.
-
-The Pacific here clearly has a strong surfing culture.
-
-The word I initially kept using was “skiers,” but of course what I was seeing were surfers riding the waves below Lima's cliffs.
-
-# Miraflores — The Perfect Final Evening
-
-We returned to the hotel for a short rest and then headed back out for our final destination:
-
-**Miraflores.**
-
-We visited the famous Parque del Amor and its enormous sculpture of a kissing couple.
-
-We walked along the Pacific.
-
-Then another short Uber ride took us to **Larcomar**.
-
-Larcomar is one of those malls that sounds ordinary until you see it.
-
-It is effectively built into the cliffs overlooking the ocean.
-
-Shopping wasn't really the highlight.
-
-The location was.
-
-After mountains, archaeological ruins, trains, markets and endless walking, we were hungry.
-
-We chose **Mangos** at Larcomar.
-
-It turned out to be the perfect final dinner.
-
-Good food.
-
-Beautiful ambience.
-
-Pacific Ocean outside.
-
-More fine-dining experience than casual meal.
-
-By approximately **9:30 PM**, we were back at the hotel.
-
-Our five-day Peru adventure was essentially finished.
-
-# Peru During Election Week
-
-There was another layer to this journey that I hadn't anticipated.
-
-We happened to visit Peru immediately before its **2026 general election**.
-
-The election was scheduled for Sunday, April 12, and more than 27 million Peruvians were eligible to elect a president and vice presidents as well as senators, deputies and representatives to the Andean Parliament. Peru was also returning to a bicameral Congress.
-
-Everywhere we traveled, particularly along roads through the Sacred Valley and in the cities, we saw campaign signs.
-
-Faces.
-
-Party symbols.
-
-Candidate numbers.
-
-Posters painted or attached to walls.
-
-One thing I initially misunderstood was the voting system. The numbers we saw weren't simply presidential “numbers to press.” Peru's ballot allows voters to mark a presidential party symbol or candidate photograph, while numbers are also used for preferential votes in legislative contests.
-
-But as travelers, what interested us more was hearing people talk about politics.
-
-Some people we met expressed frustration that ordinary citizens—particularly younger people—weren't sufficiently engaged and that politics remained dominated by established political groups and interests.
-
-I treat that as exactly what it was: **opinions we heard from Peruvians during our visit**, not a scientific measurement of public opinion.
-
-Security was another recurring subject.
-
-Several people raised concerns about crime and Venezuelan migration.
-
-Again, I wouldn't generalize those conversations into a conclusion about migrants. One of our own Lima Uber drivers was Venezuelan—and happened to be the driver with whom we could communicate most easily in English.
-
-Travel has a useful way of complicating simple narratives.
-
-You hear one person's fear.
-
-Then you get into a car and meet one of the people being discussed.
-
-And suddenly the issue has a human face.
-
-# A Thought About Young People
-
-One experience at Machu Picchu made me think about youth and culture.
-
-While waiting for our Circuit 2A tickets, we encountered a large group of young travelers—perhaps 15 or 20 people in their early twenties.
-
-They were smoking, talking among themselves and repeatedly making the already chaotic queue more difficult.
-
-The following morning we encountered part of the same group at the Machu Picchu entrance.
-
-One young woman moved directly in front of me in the queue as though I weren't there.
-
-Our guide immediately challenged her.
-
-During their exchange, we learned that this particular group was from Israel.
-
-Our guide explained the common pattern of young Israelis traveling internationally after completing compulsory military service.
-
-At the time, I told my wife that I found the group's behavior arrogant.
-
-She offered a much simpler explanation:
-
-**“Young people everywhere behave like young people.”**
-
-She probably had the better perspective.
-
-Fifteen or twenty tourists certainly don't represent a country.
-
-What the encounter did make me notice, however, was the contrast with many of the young Peruvians we met working in hotels, restaurants, transportation and tourism.
-
-My impression of them was overwhelmingly positive.
-
-They seemed hardworking.
-
-Soft-spoken.
-
-Respectful.
-
-And ambitious.
-
-There was a certain grit in their faces that reminded me of India when we were younger—the feeling of a generation wanting to create something better than what their parents had.
-
-That is a personal impression, not an economic forecast.
-
-But it stayed with me.
-
-# The People of Peru
-
-If someone asked me what surprised me most about Peru, my answer wouldn't be Machu Picchu.
-
-I expected Machu Picchu to be spectacular.
-
-What I didn't expect was how much I would like the **people**.
-
-Throughout the trip we dealt with:
-
-cab drivers,
-
-hotel managers,
-
-porters,
-
-guides,
-
-shopkeepers,
-
-restaurant staff,
-
-airport workers,
-
-market vendors.
-
-Language frequently failed us.
-
-But communication somehow didn't.
-
-People were overwhelmingly patient.
-
-Soft-spoken.
-
-Helpful.
-
-Even when negotiating prices, I rarely felt aggression.
-
-Even when something went wrong, interactions generally remained calm.
-
-Remember my fall in the Aguas Calientes market?
-
-The local women who came over to help me are part of what I mean.
-
-Those little things shape your perception of a country more than any monument can.
-
-# Did We Feel Safe?
-
-For the places and situations **we personally experienced**, yes.
-
-Very much so.
-
-That doesn't mean crime doesn't exist in Peru or that every neighborhood is safe. No traveler should make that assumption anywhere.
-
-But across Cusco, the Sacred Valley, Ollantaytambo, Aguas Calientes, Machu Picchu, central Lima, Barranco and Miraflores, our own experience was overwhelmingly comfortable.
-
-Even in the chaotic Chinatown market, I felt more overwhelmed than endangered.
-
-That distinction matters.
-
-# What I Would Do Differently
-
-No trip is perfect, and ours certainly wasn't.
-
-If I planned it again, several things would change.
-
-**First: I would investigate Rainbow Mountain before locking the itinerary.**
-
-Missing it genuinely disappointed me.
-
-**Second: I would study airline baggage rules before purchasing domestic tickets.**
-
-The JetSMART fare looked attractive until baggage and seat fees were included.
-
-**Third: I would pack specifically for Machu Picchu's train restrictions from home.**
-
-Trying to solve luggage problems during the trip wasted time and energy.
-
-**Fourth: I would not assume that a Lima private tour can easily be booked on the morning of travel.**
-
-Our self-guided day worked beautifully, but anyone who definitely wants a guide should arrange one beforehand.
-
-And finally:
-
-**I would still visit Machu Picchu twice.**
-
-That is one decision I would absolutely repeat.
-
-# Practical Advice From Our Experience
-
-For anyone planning a similar trip:
-
-**Machu Picchu tickets:** Buy online as soon as your preferred circuit is released. If relying on Aguas Calientes' in-person system, arrive early and understand that availability is not guaranteed.
-
-**Two circuits:** If possible, combine a panoramic Circuit 1 experience with Circuit 2. They are genuinely different.
-
-**Guide:** We didn't need one for our panoramic Circuit 1A visit, but having a guide for Circuit 2A transformed the experience.
-
-**Train luggage:** Take the restrictions seriously even if enforcement appears inconsistent. A backpack or very small overnight bag is far easier.
-
-**Large luggage:** Ask your Cusco hotel to store it while you visit Machu Picchu.
-
-**Altitude:** Cusco is around 3,400 meters. Walk slowly, hydrate and don't plan your first afternoon as though you have arrived at sea level.
-
-**Spanish:** You can travel without speaking Spanish—we did—but translation apps are invaluable.
-
-**Domestic flights:** Check baggage and seat fees before comparing low-cost fares.
-
-**Lima:** Historic Center + Barranco + Miraflores makes a very satisfying one-day introduction even without a guide.
-
-**Cash:** Small amounts of soles are extremely useful for markets, smaller purchases, tickets and tips, while cards work well in many tourist-facing establishments.
-
-# So, What Did Peru Leave With Me?
-
-Before this trip, Peru was primarily one image in my mind:
-
-**Machu Picchu.**
-
-After five days, that feels unfair to Peru.
-
-I remember Pisac's terraces.
-
-Moray's extraordinary circles.
-
-Salt cascading down the mountainside at Maras.
-
-The narrow streets of Ollantaytambo.
-
-A porter moving our luggage through an alley where cars couldn't enter.
-
-Bajaj three-wheelers that unexpectedly reminded me of India.
-
-A 44-sol pizza arriving at our hotel.
-
-Standing behind a hundred people at seven in the morning wondering whether we would get tomorrow's Machu Picchu ticket.
-
-The relief when the ticket said:
-
-**Circuit 2A — 7:00 AM.**
-
-The exhausting climb on Circuit 1A.
-
-And then the moment when Machu Picchu appeared.
-
-Sitting on the grass with my wife and son after we had finished taking photographs.
-
-The yellow Inca Kola that I disliked.
-
-Falling while searching for the missing bottle.
-
-Women from the market helping me back up.
-
-The sound of the river during dinner.
-
-Waking at 5 AM to return to Machu Picchu.
-
-Watching water still follow channels engineered centuries ago.
-
-Repacking luggage in Cusco.
-
-Paying far too much money to JetSMART.
-
-Walking through Lima's crowded Chinatown.
-
-Street art in Barranco.
-
-Surfers below the cliffs.
-
-The kissing statue in Miraflores.
-
-And finally dinner overlooking the Pacific.
-
-Those are the memories.
-
-Not one monument.
-
-A collection of moments.
-
-# We Came for Machu Picchu. We Left Remembering Peru.
-
-Peru isn't perfect.
-
-No country is.
-
-It has economic challenges, political frustrations, infrastructure limitations and social debates that we could glimpse but certainly couldn't pretend to understand after five days.
-
-But I left with an overwhelmingly positive impression.
-
-I saw a country extraordinarily proud of its past without feeling trapped by it.
-
-I saw young people working hard in tourism and hospitality.
-
-I saw a civilization that understood mountains, water, agriculture and astronomy centuries before modern technology.
-
-And above all, I encountered people who, in my own experience, were remarkably humble, patient and kind.
-
-Machu Picchu was everything I hoped it would be.
-
-Perhaps more.
-
-But strangely, it isn't the only reason I would recommend Peru.
-
-We traveled thousands of miles to see one of the great wonders of the world.
-
-**We came home remembering the people who lived around it.**
-
-And perhaps that is the greatest compliment I can give Peru.
+**We Came for Machu Picchu. We Left Remembering Peru.** Peru isn't perfect. No country is. It has economic challenges, political frustrations, infrastructure limitations and social debates that we could glimpse but certainly couldn't pretend to understand after five days. But I left with an overwhelmingly positive impression. I saw a country extraordinarily proud of its past without feeling trapped by it. I saw young people working hard in tourism and hospitality. I saw a civilization that understood mountains, water, agriculture and astronomy centuries before modern technology. And above all, I encountered people who, in my own experience, were remarkably humble, patient and kind. Machu Picchu was everything I hoped it would be. Perhaps more. But strangely, it isn't the only reason I would recommend Peru. We traveled thousands of miles to see one of the great wonders of the world. **We came home remembering the people who lived around it.** And perhaps that is the greatest compliment I can give Peru.
