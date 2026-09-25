@@ -31,6 +31,7 @@ The app’s scheduled-task documentation is at [Scheduled tasks](https://learn.c
 | File | Responsibility |
 | --- | --- |
 | `backend/daybreak/config.json` | Required section order, five market-strip labels and disclosed public tracking universe |
+| `backend/daybreak/editorial-sources.md` | Required publisher rosters and the read, cluster, rank, corroborate, translate, synthesize and carry-forward editorial workflow |
 | `backend/daybreak/extract_portfolio.py` | Read first worksheet column A from XLSX using Python's standard library; emit ticker symbols only |
 | `backend/daybreak/fetch-prices.mjs` | Fetch Yahoo daily bars; preserve source dates and explicit errors |
 | `backend/daybreak/render.mjs` | Validate structured inputs and render one HTML string into latest/archive files |
