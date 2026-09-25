@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
-import {config, repo, sourceRosters, validateEdition} from './render.mjs';
+import {config, editionDigest, repo, sourceRosters, validateEdition} from './render.mjs';
 
 const str={type:'string'};
 const array=items=>({type:'array',items});
@@ -177,6 +177,18 @@ if(process.argv[1]===fileURLToPath(import.meta.url)) {
   const result=await research({request:createClient({key:process.env.OPENAI_API_KEY,model:process.env.DAYBREAK_OPENAI_MODEL}),date,previousStories,previousHeadlines});
   await fs.mkdir(path.dirname(destination),{recursive:true});
   await fs.writeFile(destination,JSON.stringify(result.edition,null,2));
-  await fs.writeFile(path.join(path.dirname(destination),'research-audit.json'),JSON.stringify(result,null,2));
+  const host=value=>new URL(value).hostname.replace(/^www\./,'');
+  const manifest={date:result.edition.date,researchedAt:result.edition.researchedAt,editionSha256:editionDigest(result.edition),sections:config.sections.map(title=>{
+    const desk=result.audit.find(x=>x.name===title),retrieved=desk?.allowedUrls||[];
+    const sources=sourceRosters.get(title.toLowerCase().replace(/[^a-z0-9]+/g,'')).map(source=>{
+      const articleUrls=retrieved.filter(x=>host(x)===host(source.url));
+      return {rosterUrl:source.url,status:articleUrls.length?'reviewed':'not_retrieved',checkedAt:result.edition.researchedAt,note:articleUrls.length?'':'No retrievable evidence URL from this publisher was returned in this run.',articleUrls};
+    });
+    const rosterArticles=new Set(sources.flatMap(x=>x.articleUrls));
+    const supplementalArticleUrls=result.edition.sections.find(x=>x.title===title).stories.flatMap(x=>x.sources.map(source=>source.url)).filter(url=>!rosterArticles.has(url));
+    return {title,sources,supplementalArticleUrls:[...new Set(supplementalArticleUrls)]};
+  })};
+  await fs.writeFile(path.join(path.dirname(destination),'research-audit.json'),JSON.stringify(manifest,null,2));
+  await fs.writeFile(path.join(path.dirname(destination),'research-debug.json'),JSON.stringify(result,null,2));
   console.log(`Fresh edition prepared at ${destination}; factual correctness is not guaranteed by source checks.`);
 }

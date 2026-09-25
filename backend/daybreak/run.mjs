@@ -4,11 +4,13 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import assert from 'node:assert/strict';
-import {repo,render,validateEdition} from './render.mjs';
+import {repo,render,validateAudit,validateEdition} from './render.mjs';
 const args=process.argv.slice(2);const arg=key=>args[args.indexOf(key)+1];
 assert(args.includes('--edition')&&(args.includes('--portfolio')!==args.includes('--portfolio-symbols')),'Required: --edition JSON and exactly one of --portfolio XLSX / --portfolio-symbols PRIVATE_JSON');
 assert(args.includes('--authorize-yahoo-portfolio'),'Explicit ticker-only Yahoo authorization flag required');
-const e=JSON.parse(await fs.readFile(path.resolve(arg('--edition'))));validateEdition(e);
+const editionPath=path.resolve(arg('--edition')),e=JSON.parse(await fs.readFile(editionPath));validateEdition(e);
+const auditPath=args.includes('--audit')?path.resolve(arg('--audit')):path.join(path.dirname(editionPath),'research-audit.json');
+const audit=JSON.parse(await fs.readFile(auditPath));validateAudit(audit,e);
 const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 assert.equal(e.date,today,'Refuse stale edition date');
 assert.equal(e.reviewComplete,true,'Agent must complete source, significance and event-dedup review');
@@ -32,7 +34,7 @@ const [market,portfolio]=await Promise.all([marketFile,portfolioFile].map(async 
 const output=publish?path.join(repo,'DAYBREAK'):path.join(work,'preview');
 const manifest=path.join(repo,'DAYBREAK/latest.json');const before=await fs.readFile(manifest);
 assert.deepEqual(JSON.parse(before),{file:'daybreak-latest.html'});
-const result=await render(e,market,portfolio,output);
+const result=await render(e,market,portfolio,output,audit);
 console.log(run('python3',['backend/daybreak/validate_html.py',output,result.archive]));
 assert(before.equals(await fs.readFile(manifest)),'latest.json changed unexpectedly');
 if(publish){

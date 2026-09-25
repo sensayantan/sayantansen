@@ -32,6 +32,7 @@ The app’s scheduled-task documentation is at [Scheduled tasks](https://learn.c
 | --- | --- |
 | `backend/daybreak/config.json` | Required section order, five market-strip labels and disclosed public tracking universe |
 | `backend/daybreak/editorial-sources.md` | Required publisher rosters and the read, cluster, rank, corroborate, translate, synthesize and carry-forward editorial workflow |
+| `backend/daybreak/audit.mjs` | Create and verify a private per-source research-audit manifest cryptographically bound to the exact edition |
 | `backend/daybreak/extract_portfolio.py` | Read first worksheet column A from XLSX using Python's standard library; emit ticker symbols only |
 | `backend/daybreak/fetch-prices.mjs` | Fetch Yahoo daily bars; preserve source dates and explicit errors |
 | `backend/daybreak/render.mjs` | Validate structured inputs and render one HTML string into latest/archive files |
@@ -47,7 +48,9 @@ No separate frontend framework/build is needed for this report. The renderer emb
 
 ## Editorial input contract
 
-The scheduled agent writes `.daybreak-work/edition.json` for the actual current Pacific date. All ten configured editorial sections must exist, including the Bay Area desk immediately after Top US News. Section counts are editorial targets rather than publication minimums: the agent searches toward them, but may publish fewer verified stories and the renderer discloses the shortfall. Configured maximums and the requirement that every included story cite at least two independent source domains remain hard gates; the pipeline never pads a section with weak or invented material.
+The scheduled agent writes `.daybreak-work/edition.json` for the actual current Pacific date. It must also write `.daybreak-work/research-audit.json`: every roster URL has an actual check time, explicit status and article URLs, and every published citation appears in either a roster source's article list or the section's supplemental article list. The audit contains a SHA-256 digest of the canonical edition JSON. Rendering and publication refuse a missing, stale, incomplete or mismatched audit, preventing a newly styled page from silently reusing old research.
+
+All ten configured editorial sections must exist, including the Bay Area desk immediately after Top US News. Section counts are editorial targets rather than publication minimums: the agent searches toward them, but may publish fewer verified stories. Configured maximums and the requirement that every included story cite at least two independent source domains remain hard gates; the pipeline never pads a section with weak or invented material. Story-count target shortfalls are not printed on the public page.
 
 Before overwriting the working edition, the research command reads the prior `.daybreak-work/edition.json` when it is from an earlier date. Prior stories become search leads, not publishable content. For a below-target desk, the researcher checks those events for a material current-window development and must build any continuing story from newly retrieved, two-domain evidence. Unchanged recaps, copied summaries and inherited timestamps are rejected by instruction; the normal freshness and source validators still apply.
 
@@ -92,6 +95,14 @@ Dependencies: Node.js 20+ (built-in fetch), Python 3 and Git. No npm packages or
 node backend/daybreak/test.mjs
 
 # After current verified edition.json has been prepared:
+node backend/daybreak/audit.mjs init \
+  .daybreak-work/edition.json \
+  .daybreak-work/research-audit.json
+# Replace each skeleton status with the actual per-source result, then verify:
+node backend/daybreak/audit.mjs verify \
+  .daybreak-work/edition.json \
+  .daybreak-work/research-audit.json
+
 node backend/daybreak/run.mjs \
   --edition .daybreak-work/edition.json \
   --portfolio /absolute/path/to/SayantanStockCode.xlsx \

@@ -13,6 +13,29 @@ for(const line of rosterMarkdown.split(/\r?\n/)) {
   const item=line.match(/^- \[([^\]]+)\]\((https:\/\/[^)]+)\)$/);if(item&&rosterTitle)sourceRosters.get(rosterTitle).push({label:item[1],url:item[2]});
 }
 for(const title of config.sections)assert(sourceRosters.get(rosterKey(title))?.length,`Missing editorial source roster for ${title}`);
+export const editionDigest=e=>crypto.createHash('sha256').update(JSON.stringify(e)).digest('hex');
+export function validateAudit(audit,e,{now=Date.now()}={}) {
+  assert(audit&&audit.date===e.date&&audit.researchedAt===e.researchedAt,'Research audit must match the edition date and cutoff');
+  assert.equal(audit.editionSha256,editionDigest(e),'Research audit does not match this edition content');
+  assert(Array.isArray(audit.sections)&&audit.sections.length===config.sections.length,'Research audit must cover every editorial section');
+  const allowed=new Set(['reviewed','blocked','paywalled','unavailable','stale','unreadable','not_retrieved']);
+  audit.sections.forEach((section,i)=>{
+    const title=config.sections[i],roster=sourceRosters.get(rosterKey(title));
+    assert.equal(section.title,title,'Research audit section order mismatch');
+    assert(Array.isArray(section.sources)&&section.sources.length===roster.length,`Research audit roster incomplete for ${title}`);
+    section.sources.forEach((source,j)=>{
+      assert.equal(source.rosterUrl,roster[j].url,`Research audit source mismatch for ${title}`);
+      assert(allowed.has(source.status),`Invalid research audit status for ${source.rosterUrl}`);
+      const age=now-Date.parse(source.checkedAt);assert(Number.isFinite(age)&&age>=-300000&&age<=24*3600000,`Stale research audit check for ${source.rosterUrl}`);
+      assert(source.status==='reviewed'||source.note,`Non-reviewed source requires an explanation: ${source.rosterUrl}`);
+      assert(Array.isArray(source.articleUrls)&&source.articleUrls.every(x=>new URL(x).protocol==='https:'),'Audit article URLs must be HTTPS');
+    });
+    assert(Array.isArray(section.supplementalArticleUrls)&&section.supplementalArticleUrls.every(x=>new URL(x).protocol==='https:'),`Invalid supplemental audit URLs for ${title}`);
+    const auditedArticles=new Set([...section.sources.flatMap(x=>x.articleUrls),...section.supplementalArticleUrls]);
+    for(const story of e.sections[i].stories)for(const source of story.sources)assert(auditedArticles.has(source.url),`Published source absent from research audit: ${source.url}`);
+  });
+  return audit;
+}
 const esc=x=>String(x??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const pct=x=>Number.isFinite(x)?`${x>=0?'+':''}${x.toFixed(1)}%`:'Source unavailable';
 const tone=x=>Number.isFinite(x)?(x>=0?'up':'down'):'na';
@@ -43,8 +66,8 @@ export function validateEdition(e) {
   e.metrics.forEach((m,i)=>{assert.equal(m.label,config.metrics[i]);assert(m.value&&m.asOf&&m.source,'Incomplete market metric');url(m.source);});
   assert(e.researchedAt&&e.marketAnalysis&&e.earnings,'Research timing, analysis and earnings required');
 }
-export async function render(e,market,portfolio,outputDir) {
-  validateEdition(e);
+export async function render(e,market,portfolio,outputDir,audit) {
+  validateEdition(e);validateAudit(audit,e);
   for(const data of [market,portfolio]){
     assert(data.generatedAt&&data.rows.length,'Missing structured prices');
     for(const row of data.rows)if(!row.error)assert(['price','week','month'].every(key=>Number.isFinite(row[key]))&&row.asOf&&row.quoteUrl,'Incomplete numeric row');
@@ -62,8 +85,8 @@ export async function render(e,market,portfolio,outputDir) {
   const unavailable=portfolio.rows.filter(x=>x.error);
   const editorial=e.sections.map((s,i)=>{
     const rule=config.sectionRules[s.title];
-    const roster=sourceRosters.get(rosterKey(s.title));
-    const rosterHtml=`<div class="sourceRoster" style="font:10px/1.45 Arial,sans-serif;color:#666;margin:-16px 0 24px"><strong>Research roster checked for this desk (availability varies):</strong> ${roster.map(src=>link(src.url,src.label)).join(' · ')}</div>`;
+    const roster=sourceRosters.get(rosterKey(s.title)),sourceAudit=audit.sections[i].sources;
+    const rosterHtml=`<div class="sourceRoster" style="font:10px/1.45 Arial,sans-serif;color:#666;margin:-16px 0 24px"><strong>Research source audit:</strong> ${roster.map((src,j)=>`${link(src.url,src.label)} <span>(${esc(sourceAudit[j].status.replace('_',' '))})</span>`).join(' · ')}</div>`;
     const empty=s.emptyReason||'No fresh story met the sourcing standard at this edition’s cutoff.';
     return `<section class="section" id="s${i}"><div class="sectionTitle"><p>${esc(s.deck||'')}</p><h2>${esc(s.title)}</h2></div>${rosterHtml}<div class="stories">${s.stories.map((x,j)=>`<article class="story"><span>${String(j+1).padStart(2,'0')}</span><div><small>${esc(x.category)} · ${esc(x.publishedAt.slice(0,10))}</small><h3>${esc(x.headline)}</h3><p>${esc(x.summary)}</p><div class="links">${x.sources.map(src=>link(src.url,src.label)).join(' ')}</div></div></article>`).join('')||`<p>${esc(empty)}</p>`}</div></section>`;
   }).join('');
@@ -81,7 +104,8 @@ export async function render(e,market,portfolio,outputDir) {
   return {archive,dateLabel:values.DATE_LABEL,sha256:crypto.createHash('sha256').update(html).digest('hex'),portfolioDownBoth:down.length};
 }
 if(process.argv[1]===fileURLToPath(import.meta.url)) {
-  const [editionPath,marketPath,portfolioPath,outputDir]=process.argv.slice(2);assert(outputDir,'Usage: node render.mjs EDITION MARKET PORTFOLIO OUTPUT_DIR');
-  const data=await Promise.all([editionPath,marketPath,portfolioPath].map(async p=>JSON.parse(await fs.readFile(p))));
-  console.log(JSON.stringify(await render(...data,path.resolve(outputDir))));
+  const [editionPath,marketPath,portfolioPath,auditPath,outputDir]=process.argv.slice(2);assert(outputDir,'Usage: node render.mjs EDITION MARKET PORTFOLIO AUDIT OUTPUT_DIR');
+  const data=await Promise.all([editionPath,marketPath,portfolioPath,auditPath].map(async p=>JSON.parse(await fs.readFile(p))));
+  const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Los_Angeles',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());assert.equal(data[0].date,today,'Refuse stale preview edition date');
+  console.log(JSON.stringify(await render(data[0],data[1],data[2],path.resolve(outputDir),data[3])));
 }
