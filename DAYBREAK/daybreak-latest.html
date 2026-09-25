@@ -20,6 +20,30 @@
 html{scroll-behavior:smooth}
 .dbMethod{margin:0;padding:11px 5% 13px;background:#fff;border-bottom:1px solid #e6eaf1;font-size:11px;line-height:1.65;color:#6b7a94}
 .dbMethod strong{color:#46587a}
+/* The generator styles its own site header white, with its own padding and
+   its own blue. Every other page uses the navy pill nav, so clicking
+   "Today's News" made the header jump. These match it: same navy, same
+   accent, same type, and left/right padding reproducing the .container-wide
+   box (1480px, centred, 1.25rem gutter) the rest of the site uses. */
+.siteHeader{background:#163172;border-bottom:1px solid rgba(255,255,255,.12);
+  /* min-height:76px from the generator made this header 4px taller than
+     every other page's, which is visible as a jump when navigating. The
+     1rem padding reproduces .pillnav-row and lands on the same height. */
+  min-height:0;padding-top:1rem;padding-bottom:1rem;
+  padding-left:max(1.25rem,calc((100% - 1480px) / 2 + 1.25rem));
+  padding-right:max(1.25rem,calc((100% - 1480px) / 2 + 1.25rem))}
+.siteName{color:#fff;font-size:1.1rem;font-weight:700}
+/* The generator centres this nav with margin:auto and balances it with a
+   118px spacer. Every other page pushes it to the right edge instead, so
+   centring it here moved every link sideways on navigation. */
+.siteNav{gap:.4rem;margin:0 0 0 auto}
+.siteSpacer{display:none}
+/* line-height too: the site's body sets 1.6, and without it these links
+   come out 6px shorter, which is exactly how much the header was off. */
+.siteNav a{gap:.45rem;padding:.55rem 1rem;font-size:.85rem;font-weight:600;line-height:1.6;color:rgba(255,255,255,.75)}
+.siteNav svg{width:16px;height:16px;flex-shrink:0}
+.siteNav a:hover,.siteNav a:focus{background:rgba(255,255,255,.12);color:#fff}
+.siteNav a.active,.siteNav a.active:hover{background:#2451b3;color:#fff}
 /* margin-left:auto pushes the whole group to the right edge; the generator
    put that on .edition, which now sits inside this group and so no longer
    reaches the header. */
@@ -46,7 +70,9 @@ body{padding-bottom:64px}
 .dbSiteFooter a{color:#fff;text-decoration:none}
 .dbSiteFooter a:hover,.dbSiteFooter a:focus{text-decoration:underline}
 .dbSiteFooterCopy{margin:0;color:#fff}
-@media(max-width:850px){.dbCategoryBar{padding:0 5%}.dbCategoryBar a{padding:10px 11px;font-size:10px}
+@media(max-width:850px){.dbCategoryBar{padding:0 5%}
+.siteHeader{flex-direction:row;align-items:center;gap:12px}
+.siteNav{width:auto;margin:0 0 0 auto}.dbCategoryBar a{padding:10px 11px;font-size:10px}
 .dbMasthead-tools{gap:10px}.dbArchiveLink{padding:5px 10px;font-size:11px}
 /* Three stacked rows at this width, measured, so the clearance matches. */
 body{padding-bottom:132px}

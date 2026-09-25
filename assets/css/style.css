@@ -1001,7 +1001,22 @@ a:hover {
 
 .experiment-page {
   padding: 2rem 1.25rem 3rem;
-  max-width: 900px;
+  /* Matches the blog post page: the shell takes the width, and the prose
+     inside it is held to a column rather than stretching the full 1180px.
+     .container-wide would otherwise allow 1480px here. */
+  max-width: 1180px;
+  --experiment-measure: 1000px;
+}
+
+/* One measure for every text block on the page. The lede and the sections
+   each carried their own max-width of 46rem, so widening the shell alone
+   left three different column widths stacked down the page. */
+.experiment-page > .experiment-warning,
+.experiment-page > h1,
+.experiment-page > .experiment-intro,
+.experiment-page > .experiment-lede,
+.experiment-page > .experiment-section {
+  max-width: var(--experiment-measure);
 }
 
 .experiment-warning {
@@ -1034,12 +1049,10 @@ a:hover {
   font-size: 1.22rem;
   line-height: 1.6;
   color: var(--color-muted);
-  max-width: 46rem;
   margin: 0 0 2.5rem;
 }
 
 .experiment-section {
-  max-width: 46rem;
   margin: 0 0 2.75rem;
 }
 
@@ -1103,7 +1116,9 @@ a:hover {
    curious rather than as something a parent has to get through before
    reaching the two search tools. */
 .tech-section {
-  max-width: 46rem;
+  /* Same measure as the rest of the page: it stays set apart by being
+     smaller and quieter, not by being a different width. */
+  max-width: var(--experiment-measure, 46rem);
   margin: 3.5rem 0 1rem;
   padding-top: 1.5rem;
   border-top: 2px solid var(--color-border);
