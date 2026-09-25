@@ -1,19 +1,27 @@
-/* SenProjectDocumentation — renders data/project-docs.json as a backlog.
+/* SenProjectDocumentation — renders data/project-docs.json as a backlog, and
+ * lets a signed-in owner add, edit and delete Backlog table rows in place.
  *
- * Epics are collapsible groups holding stories; each story shows its
- * narrative, acceptance criteria and assumptions. Grouped by project, so a
- * second independently numbered set can be appended to the source file
- * without either set being renumbered.
+ * Epics and stories are read-only here and come from data/project-docs.json,
+ * which backend/render_project_docs.py already converted from Markdown to
+ * HTML — those are edited through the admin's Project Documentation
+ * collection instead of here, because their nested acceptance-criteria and
+ * assumption lists are much easier to get wrong with hand-rolled text
+ * surgery than the flat, five-field Backlog rows are.
  *
- * The rendered strings come from backend/render_project_docs.py, which has
- * already converted Markdown to HTML. Everything that is not deliberate
- * Markdown is set with textContent rather than innerHTML.
+ * The Backlog table is different: once signed in, it is read from and
+ * written straight back to content/project-docs.yml on GitHub, using the
+ * exact same GitHub Contents API Decap's own admin uses, and the exact same
+ * OAuth token this page's own sign-in already obtained. Saving edits only
+ * the `backlog:` block of that file — every byte before and after it,
+ * including the schema comments at the top of the file and every epic and
+ * story, is left untouched.
  */
 (function () {
   "use strict";
 
   var DATA_URL = "data/project-docs.json";
   var STATUSES = ["Done", "In progress", "Blocked"];
+  var BACKLOG_TYPES = ["Technical Debt", "Feature Enhancement", "Feature Development"];
 
   // Reuses the exact OAuth Worker and popup handshake the admin interface
   // (/admin) already uses — see oauth-proxy/src/{auth,callback}.js. This is a
@@ -27,6 +35,16 @@
   var OWNER_LOGIN = "sensayantan";
   var SESSION_KEY = "senProjectDocsAuth";
 
+  // The Backlog editor talks to this repo directly over the GitHub REST API,
+  // using the same repo-scoped token Decap's own login already carries —
+  // this adds no new capability the token did not already have.
+  var REPO_OWNER = "sensayantan";
+  var REPO_NAME = "sayantansen";
+  var CONTENT_PATH = "content/project-docs.yml";
+  var CONTENT_BRANCH = "main";
+  var CONTENT_API = "https://api.github.com/repos/" + REPO_OWNER + "/" + REPO_NAME +
+    "/contents/" + CONTENT_PATH;
+
   var gate = document.getElementById("doc-gate");
   var app = document.getElementById("doc-app");
   var signinButton = document.getElementById("doc-gate-signin");
@@ -38,6 +56,7 @@
   if (!root || !gate || !app) return;
 
   var active = null; // null means "no filter"
+  var knownEpicTitles = []; // filled from data.projects once loaded, used by the Add/Edit form
 
   function readSession() {
     try {
@@ -160,6 +179,10 @@
     return "chip chip-" + String(name).toLowerCase().replace(/[^a-z]+/g, "-");
   }
 
+  function typeClass(name) {
+    return "chip chip-type-" + String(name).toLowerCase().replace(/[^a-z]+/g, "-");
+  }
+
   function list(className, items, label) {
     if (!items || !items.length) return null;
     var wrap = el("div", className);
@@ -244,9 +267,21 @@
         active = value;
         renderFilters(container);
         applyFilter();
+        // The toolbar sits above a long, seven-epic page; without this a
+        // click had no visible effect unless the reader happened to already
+        // be scrolled down to the epics themselves.
+        root.scrollIntoView({ behavior: "smooth", block: "start" });
       });
       container.appendChild(button);
     });
+
+    var jump = el("button", "backlog-filter backlog-filter-jump", "Backlog ↓");
+    jump.type = "button";
+    jump.addEventListener("click", function () {
+      var table = document.getElementById("backlog-table-section");
+      if (table) table.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    container.appendChild(jump);
   }
 
   function appendix(container, data) {
@@ -281,9 +316,18 @@
     }
   }
 
-  function renderBacklogTable(container, items) {
+  // ---------------------------------------------------------------------
+  // Backlog table: rendering (read-only rows, plus edit controls when the
+  // page can write back to GitHub) and the GitHub read/write plumbing.
+  // ---------------------------------------------------------------------
+
+  function renderBacklogTable(container, items, opts) {
+    opts = opts || {};
     container.textContent = "";
-    if (!items || !items.length) return;
+    items = (items || []).slice().sort(function (a, b) {
+      var da = a.date || "", db = b.date || "";
+      return da < db ? 1 : da > db ? -1 : 0;
+    });
 
     var section = el("section", "backlog-table-block");
     section.id = "backlog-table";
@@ -293,39 +337,402 @@
       "Identified work that has not been built yet, most recently identified first."
     ));
 
-    var table = el("table", "backlog-table");
-    var thead = el("thead");
-    var headRow = el("tr");
-    ["Epic name", "Backlog description", "Type", "Date of backlog"].forEach(function (label) {
-      headRow.appendChild(el("th", null, label));
-    });
-    thead.appendChild(headRow);
-    table.appendChild(thead);
+    if (opts.note) section.appendChild(el("p", "backlog-table-note", opts.note));
 
-    var tbody = el("tbody");
-    items.forEach(function (item) {
-      var row = el("tr");
-      row.appendChild(el("td", "backlog-table-epic", item.epic));
+    if (opts.editable) {
+      var add = el("button", "backlog-add-button", "+ Add backlog item");
+      add.type = "button";
+      add.addEventListener("click", function () { openBacklogEditor(null); });
+      section.appendChild(add);
+    }
 
-      var descCell = el("td", "backlog-table-desc");
-      descCell.appendChild(el("p", "backlog-table-title", item.title));
-      if (item.description) descCell.appendChild(rich("p", "backlog-table-body", item.description));
-      row.appendChild(descCell);
+    if (items && items.length) {
+      var table = el("table", "backlog-table");
+      var thead = el("thead");
+      var headRow = el("tr");
+      ["Epic name", "Backlog description", "Type", "Date of backlog"].forEach(function (label) {
+        headRow.appendChild(el("th", null, label));
+      });
+      if (opts.editable) headRow.appendChild(el("th", null, " "));
+      thead.appendChild(headRow);
+      table.appendChild(thead);
 
-      var typeCell = el("td");
-      typeCell.appendChild(el("span", typeClass(item.type) + (item.known_type ? "" : " chip-other"), item.type));
-      row.appendChild(typeCell);
+      var tbody = el("tbody");
+      items.forEach(function (item) {
+        var row = el("tr");
+        row.appendChild(el("td", "backlog-table-epic", item.epic));
 
-      row.appendChild(el("td", "backlog-table-date", item.date || "—"));
-      tbody.appendChild(row);
-    });
-    table.appendChild(tbody);
-    section.appendChild(table);
+        var descCell = el("td", "backlog-table-desc");
+        descCell.appendChild(el("p", "backlog-table-title", item.title));
+        // opts.editable rows come straight from YAML (plain text); rows from
+        // the static JSON fallback already have Markdown rendered to HTML.
+        if (item.description) {
+          descCell.appendChild(
+            opts.editable
+              ? el("p", "backlog-table-body", item.description)
+              : rich("p", "backlog-table-body", item.description)
+          );
+        }
+        row.appendChild(descCell);
+
+        var typeCell = el("td");
+        typeCell.appendChild(el("span", typeClass(item.type) + (item.known_type === false ? " chip-other" : ""), item.type));
+        row.appendChild(typeCell);
+
+        row.appendChild(el("td", "backlog-table-date", item.date || "—"));
+
+        if (opts.editable) {
+          var actionsCell = el("td", "backlog-table-actions");
+          var editBtn = el("button", "backlog-row-action", "Edit");
+          editBtn.type = "button";
+          editBtn.addEventListener("click", function () { openBacklogEditor(item); });
+          var delBtn = el("button", "backlog-row-action backlog-row-danger", "Delete");
+          delBtn.type = "button";
+          delBtn.addEventListener("click", function () { confirmDeleteBacklogItem(item); });
+          actionsCell.appendChild(editBtn);
+          actionsCell.appendChild(delBtn);
+          row.appendChild(actionsCell);
+        }
+
+        tbody.appendChild(row);
+      });
+      table.appendChild(tbody);
+      section.appendChild(table);
+    } else if (!opts.editable) {
+      return; // nothing to show and nothing to add — match the old behaviour
+    }
+
     container.appendChild(section);
   }
 
-  function typeClass(name) {
-    return "chip chip-type-" + String(name).toLowerCase().replace(/[^a-z]+/g, "-");
+  function utf8ToBase64(str) {
+    var bytes = new TextEncoder().encode(str);
+    var binary = "";
+    var chunk = 0x8000;
+    for (var i = 0; i < bytes.length; i += chunk) {
+      binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+    }
+    return btoa(binary);
+  }
+
+  function base64ToUtf8(b64) {
+    var binary = atob(String(b64).replace(/\n/g, ""));
+    var bytes = new Uint8Array(binary.length);
+    for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return new TextDecoder("utf-8").decode(bytes);
+  }
+
+  function githubHeaders(token) {
+    return { Authorization: "token " + token, Accept: "application/vnd.github+json" };
+  }
+
+  function getContentFile(token) {
+    return fetch(CONTENT_API + "?ref=" + CONTENT_BRANCH, { headers: githubHeaders(token), cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("Could not read " + CONTENT_PATH + " (" + r.status + ")");
+        return r.json();
+      })
+      .then(function (json) {
+        return { text: base64ToUtf8(json.content), sha: json.sha };
+      });
+  }
+
+  function putContentFile(token, text, sha, message) {
+    return fetch(CONTENT_API, {
+      method: "PUT",
+      headers: Object.assign({ "Content-Type": "application/json" }, githubHeaders(token)),
+      body: JSON.stringify({
+        message: message,
+        content: utf8ToBase64(text),
+        sha: sha,
+        branch: CONTENT_BRANCH,
+      }),
+    }).then(function (r) {
+      if (!r.ok) {
+        return r.json().catch(function () { return {}; }).then(function (body) {
+          var err = new Error((body && body.message) || ("Could not save (" + r.status + ")"));
+          err.status = r.status;
+          throw err;
+        });
+      }
+      return r.json();
+    });
+  }
+
+  function dateToIso(value) {
+    if (value && typeof value === "object" && typeof value.toISOString === "function") {
+      return value.toISOString().slice(0, 10);
+    }
+    return value ? String(value) : "";
+  }
+
+  // window.jsyaml parses any valid YAML the admin's own Decap form might
+  // have written, even if its own serialization style differs from ours —
+  // only the WRITE side below has to match a fixed shape, not this read side.
+  function parseBacklogFromYamlText(text) {
+    var parsed;
+    try {
+      parsed = window.jsyaml.load(text);
+    } catch (err) {
+      throw new Error("The stored file is not valid YAML: " + err.message);
+    }
+    var items = (parsed && parsed.backlog) || [];
+    return items.map(function (item) {
+      return {
+        epic: String(item.epic || ""),
+        title: String(item.title || ""),
+        description: String(item.description || ""),
+        type: String(item.type || "Feature Development"),
+        date: dateToIso(item.date),
+      };
+    });
+  }
+
+  function yamlQuote(str) {
+    // A double-quoted YAML scalar. JSON's escaping (backslash, double-quote,
+    // control characters) is a valid subset of YAML double-quoted escaping,
+    // so JSON.stringify always produces a safe, single-line YAML scalar here
+    // — verified against both js-yaml and PyYAML, including a title and
+    // description containing embedded quotes, a backslash and a newline.
+    return JSON.stringify(String(str == null ? "" : str));
+  }
+
+  function serializeBacklogYaml(items) {
+    var sorted = items.slice().sort(function (a, b) {
+      return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
+    });
+    var lines = ["backlog:"];
+    sorted.forEach(function (item) {
+      lines.push("  - epic: " + yamlQuote(item.epic));
+      lines.push("    title: " + yamlQuote(item.title));
+      lines.push("    description: " + yamlQuote(item.description || ""));
+      lines.push("    type: " + item.type);
+      lines.push("    date: " + item.date);
+    });
+    return lines.join("\n") + "\n";
+  }
+
+  // Rewrites only the `backlog:` block. Everything before it (the schema
+  // comments, `document:`, every epic and story) and everything after it
+  // (`definition_of_done:`, `out_of_scope:`) is passed through untouched —
+  // verified byte-for-byte against the real file before this shipped.
+  function replaceBacklogBlock(rawText, items) {
+    var newBlock = serializeBacklogYaml(items);
+    var startMatch = /^backlog:[ \t]*$/m.exec(rawText);
+    if (!startMatch) {
+      var anchor = /^definition_of_done:[ \t]*$/m.exec(rawText) || /^out_of_scope:[ \t]*$/m.exec(rawText);
+      if (anchor) return rawText.slice(0, anchor.index) + newBlock + "\n" + rawText.slice(anchor.index);
+      return rawText.replace(/\n?$/, "\n\n" + newBlock);
+    }
+    var afterStart = startMatch.index + startMatch[0].length;
+    var nextKey = /\n([A-Za-z_][A-Za-z0-9_]*):[ \t]*\n/g;
+    nextKey.lastIndex = afterStart;
+    var m = nextKey.exec(rawText);
+    var endIndex = m ? m.index + 1 : rawText.length;
+    return rawText.slice(0, startMatch.index) + newBlock + "\n" + rawText.slice(endIndex);
+  }
+
+  function itemsEqual(a, b) {
+    return a.epic === b.epic && a.title === b.title && a.description === b.description &&
+      a.type === b.type && a.date === b.date;
+  }
+
+  // Re-fetches the file fresh immediately before every save, and applies the
+  // intended change against THAT copy rather than a possibly-stale one held
+  // since the page loaded — narrowing, though not eliminating, the window
+  // for a lost concurrent edit made through the admin in another tab.
+  function withFreshBacklog(token, mutate) {
+    return getContentFile(token).then(function (file) {
+      var items = parseBacklogFromYamlText(file.text);
+      var result = mutate(items);
+      if (result === null) return null; // mutate() signals "nothing to do"
+      var newText = replaceBacklogBlock(file.text, result.items);
+      return putContentFile(token, newText, file.sha, result.message).then(function () {
+        return result.items;
+      });
+    });
+  }
+
+  function saveBacklogItem(existingItem, values) {
+    var session = readSession();
+    if (!session) return Promise.reject(new Error("Not signed in."));
+    return withFreshBacklog(session.token, function (fresh) {
+      if (existingItem) {
+        var index = -1;
+        for (var i = 0; i < fresh.length; i++) {
+          if (itemsEqual(fresh[i], existingItem)) { index = i; break; }
+        }
+        if (index === -1) {
+          throw new Error("This item changed since the page loaded. Reloading the current backlog — please try your edit again.");
+        }
+        var next = fresh.slice();
+        next[index] = values;
+        return { items: next, message: "Update backlog item: " + values.title };
+      }
+      return { items: fresh.concat([values]), message: "Add backlog item: " + values.title };
+    });
+  }
+
+  function deleteBacklogItemRemote(item) {
+    var session = readSession();
+    if (!session) return Promise.reject(new Error("Not signed in."));
+    return withFreshBacklog(session.token, function (fresh) {
+      var next = fresh.filter(function (x) { return !itemsEqual(x, item); });
+      if (next.length === fresh.length) {
+        // Already gone — nothing to delete, but still worth re-rendering
+        // against the fresh list in case something else changed too.
+        return { items: fresh, message: "" };
+      }
+      return { items: next, message: "Delete backlog item: " + item.title };
+    });
+  }
+
+  function confirmDeleteBacklogItem(item) {
+    if (!window.confirm('Delete "' + item.title + '" from the backlog?')) return;
+    deleteBacklogItemRemote(item)
+      .then(function (items) {
+        renderBacklogTable(document.getElementById("backlog-table-section"), items, { editable: true });
+      })
+      .catch(function (err) {
+        console.error(err);
+        window.alert("Could not delete that item: " + err.message);
+      });
+  }
+
+  var editorOverlay = null;
+
+  function closeBacklogEditor() {
+    if (editorOverlay && editorOverlay.parentNode) editorOverlay.parentNode.removeChild(editorOverlay);
+    editorOverlay = null;
+  }
+
+  function field(labelText, inputEl) {
+    var wrap = el("label", "backlog-editor-field");
+    wrap.appendChild(el("span", "backlog-editor-label", labelText));
+    wrap.appendChild(inputEl);
+    return wrap;
+  }
+
+  function openBacklogEditor(existingItem) {
+    closeBacklogEditor();
+
+    var isEdit = !!existingItem;
+    var today = new Date().toISOString().slice(0, 10);
+
+    var epicSelect = document.createElement("select");
+    var epicOptions = knownEpicTitles.slice();
+    if (isEdit && epicOptions.indexOf(existingItem.epic) === -1) epicOptions.unshift(existingItem.epic);
+    epicOptions.forEach(function (title) {
+      var opt = document.createElement("option");
+      opt.value = title; opt.textContent = title;
+      epicSelect.appendChild(opt);
+    });
+    if (isEdit) epicSelect.value = existingItem.epic;
+
+    var titleInput = document.createElement("input");
+    titleInput.type = "text"; titleInput.required = true; titleInput.maxLength = 200;
+    titleInput.value = isEdit ? existingItem.title : "";
+
+    var descInput = document.createElement("textarea");
+    descInput.rows = 4;
+    descInput.value = isEdit ? existingItem.description : "";
+
+    var typeSelect = document.createElement("select");
+    BACKLOG_TYPES.forEach(function (t) {
+      var opt = document.createElement("option");
+      opt.value = t; opt.textContent = t;
+      typeSelect.appendChild(opt);
+    });
+    typeSelect.value = isEdit ? existingItem.type : "Feature Development";
+
+    var dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.value = isEdit ? existingItem.date : today;
+
+    var form = el("form", "backlog-editor-form");
+    form.appendChild(field("Epic", epicSelect));
+    form.appendChild(field("Title", titleInput));
+    form.appendChild(field("Backlog description", descInput));
+    form.appendChild(field("Type", typeSelect));
+    form.appendChild(field("Date of backlog", dateInput));
+
+    var editorStatus = el("p", "backlog-editor-status");
+
+    var saveBtn = el("button", "backlog-editor-save", isEdit ? "Save changes" : "Add to backlog");
+    saveBtn.type = "submit";
+    var cancelBtn = el("button", "backlog-editor-cancel", "Cancel");
+    cancelBtn.type = "button";
+    cancelBtn.addEventListener("click", closeBacklogEditor);
+
+    var actions = el("div", "backlog-editor-actions");
+    actions.appendChild(saveBtn);
+    actions.appendChild(cancelBtn);
+    form.appendChild(actions);
+    form.appendChild(editorStatus);
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var values = {
+        epic: epicSelect.value,
+        title: titleInput.value.trim(),
+        description: descInput.value.trim(),
+        type: typeSelect.value,
+        date: dateInput.value,
+      };
+      if (!values.title || !values.epic || !values.date) {
+        editorStatus.textContent = "Epic, title and date are all required.";
+        return;
+      }
+      saveBtn.disabled = true;
+      editorStatus.textContent = "Saving to GitHub…";
+      saveBacklogItem(isEdit ? existingItem : null, values)
+        .then(function (items) {
+          renderBacklogTable(document.getElementById("backlog-table-section"), items, { editable: true });
+          closeBacklogEditor();
+        })
+        .catch(function (err) {
+          console.error(err);
+          saveBtn.disabled = false;
+          editorStatus.textContent = err.message || "Could not save. Please try again.";
+        });
+    });
+
+    var panel = el("div", "backlog-editor-panel");
+    panel.appendChild(el("h3", null, isEdit ? "Edit backlog item" : "Add backlog item"));
+    panel.appendChild(form);
+
+    editorOverlay = el("div", "backlog-editor-overlay");
+    editorOverlay.appendChild(panel);
+    editorOverlay.addEventListener("click", function (event) {
+      if (event.target === editorOverlay) closeBacklogEditor();
+    });
+    document.body.appendChild(editorOverlay);
+    titleInput.focus();
+  }
+
+  // Tried once per page load, right after sign-in. A failure here (network,
+  // an expired token, GitHub rate limiting) falls back to the same read-only
+  // table the page has always shown, built from data/project-docs.json —
+  // editing is simply unavailable until the next successful load.
+  function refreshEditableBacklog(fallbackItems) {
+    var container = document.getElementById("backlog-table-section");
+    var session = readSession();
+    if (!session || typeof window.jsyaml === "undefined") {
+      renderBacklogTable(container, fallbackItems, { editable: false });
+      return;
+    }
+    getContentFile(session.token)
+      .then(function (file) {
+        var items = parseBacklogFromYamlText(file.text);
+        renderBacklogTable(container, items, { editable: true });
+      })
+      .catch(function (err) {
+        console.error(err);
+        renderBacklogTable(container, fallbackItems, {
+          editable: false,
+          note: "Editing is unavailable right now (" + err.message + "). Showing the last published backlog instead.",
+        });
+      });
   }
 
   function loadAndRender() {
@@ -351,6 +758,7 @@
         renderFilters(document.getElementById("backlog-filters"));
 
         root.textContent = "";
+        knownEpicTitles = [];
         (data.projects || []).forEach(function (project) {
           var section = el("section", "backlog-project");
           // Only label the project when there is more than one, so a single
@@ -358,11 +766,14 @@
           if ((data.projects || []).length > 1) {
             section.appendChild(el("h2", "backlog-project-name", project.name));
           }
-          project.epics.forEach(function (e) { section.appendChild(renderEpic(e)); });
+          project.epics.forEach(function (e) {
+            section.appendChild(renderEpic(e));
+            knownEpicTitles.push(e.title);
+          });
           root.appendChild(section);
         });
 
-        renderBacklogTable(document.getElementById("backlog-table-section"), data.backlog);
+        refreshEditableBacklog(data.backlog);
         appendix(document.getElementById("backlog-appendix"), data);
         applyFilter();
       })

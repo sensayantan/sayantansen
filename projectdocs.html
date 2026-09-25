@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=29">
+  <link rel="stylesheet" href="assets/css/style.css?v=30">
 </head>
 <body>
 
@@ -111,7 +111,11 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=29"></script>
-  <script src="assets/js/projectdocs.js?v=29"></script>
+  <!-- Used only to read/write the Backlog table's YAML source directly from
+       GitHub. Same CDN admin/index.html already loads Decap CMS from, so
+       nothing new is trusted here that the admin doesn't already trust. -->
+  <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="assets/js/main.js?v=30"></script>
+  <script src="assets/js/projectdocs.js?v=30"></script>
 </body>
 </html>
