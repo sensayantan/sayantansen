@@ -27,7 +27,21 @@ collections:
     format: "frontmatter"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        hint: "The day the post is about. No clock — a blog post does not need one."
+      - label: "End date"
+        name: "end_date"
+        widget: "datetime"
+        required: false
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        hint: "Optional. For a trip or anything spanning days, the last day. The blog list then shows a range, e.g. April 3-7, 2026. Leave empty for a single date."
       - label: "Banner Image"
         name: "banner"
         widget: "image"
@@ -37,7 +51,9 @@ collections:
         name: "tags"
         widget: "list"
         required: false
-        hint: "Your hashtags, e.g. cricket, travel — no # needed here."
+        # No `field`/`fields` key: that is what makes Decap render a single
+        # comma-separated box rather than an add-one-at-a-time list.
+        hint: "Type several separated by commas, e.g. travel, peru, machu picchu — no # needed."
       - label: "Layout"
         name: "layout"
         widget: "select"
@@ -69,7 +85,12 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
-        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
+        # "image" puts an insert-image control in the body toolbar, so a
+        # picture can sit between two paragraphs instead of only in the
+        # Images list below, which always renders as a block at the end.
+        buttons: ["bold", "italic", "link", "image", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
+        editor_components: ["image"]
+        hint: "Use the image button to place a picture inline, where the cursor is. The Images field below is for a gallery at the end of the post."
 
   - name: "about"
     label: "About Me Page"

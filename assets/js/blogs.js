@@ -20,7 +20,11 @@ async function loadBlogs() {
   const container = document.getElementById("blog-grid");
   const emptyState = document.getElementById("blog-empty-state");
   try {
-    const response = await fetch("data/blogs.json");
+    // no-store matters here: GitHub Pages' CDN happily serves a cached
+    // blogs.json for a long time, so a freshly published post looks like it
+    // never arrived. Every other data fetch on the site already does this;
+    // this one was the exception.
+    const response = await fetch("data/blogs.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`Failed to load blogs.json (${response.status})`);
     const data = await response.json();
 
