@@ -141,8 +141,8 @@ collections:
               - label: "Status"
                 name: "status"
                 widget: "select"
-                default: "Open"
-                options: ["Done", "In progress", "Open", "Blocked"]
+                default: "In progress"
+                options: ["Done", "In progress", "Blocked"]
               - label: "Stories"
                 name: "stories"
                 widget: "list"
@@ -154,8 +154,9 @@ collections:
                   - label: "Status"
                     name: "status"
                     widget: "select"
-                    default: "Open"
-                    options: ["Done", "In progress", "Open", "Blocked"]
+                    default: "In progress"
+                    options: ["Done", "In progress", "Blocked"]
+                    hint: "Not built yet? Use the Backlog list below instead of a story here."
                   - { label: "Narrative", name: "narrative", widget: "text", required: false, hint: "As a ..., I want ..., so that ..." }
                   - label: "Acceptance criteria"
                     name: "acceptance_criteria"
@@ -168,6 +169,33 @@ collections:
                     required: false
                     field: { label: "Assumption", name: "assumption", widget: "text" }
                   - { label: "Notes", name: "notes", widget: "text", required: false }
+          - label: "Backlog"
+            name: "backlog"
+            widget: "list"
+            required: false
+            label_singular: "Backlog item"
+            summary: "{{fields.date}} — {{fields.title}}"
+            hint: "Identified work that has not been built. Shows on the page as a table, separate from the epics above."
+            fields:
+              - label: "Epic"
+                name: "epic"
+                widget: "string"
+                hint: "Must match an epic's Title exactly, so the table can group by it."
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                default: "Feature Development"
+                options: ["Technical Debt", "Feature Enhancement", "Feature Development"]
+              - label: "Date of backlog"
+                name: "date"
+                widget: "datetime"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                format: "YYYY-MM-DD"
+                hint: "The day this item was identified, not a due date."
+
           - label: "Definition of done"
             name: "definition_of_done"
             widget: "list"
