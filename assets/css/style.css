@@ -1001,11 +1001,13 @@ a:hover {
 
 .experiment-page {
   padding: 2rem 1.25rem 3rem;
-  /* Matches the blog post page: the shell takes the width, and the prose
-     inside it is held to a column rather than stretching the full 1180px.
-     .container-wide would otherwise allow 1480px here. */
-  max-width: 1180px;
-  --experiment-measure: 1000px;
+  /* Deliberately wide, to leave little empty space either side. The text
+     fills the shell rather than sitting in a narrower column inside it, so
+     there is only one width on the page. That runs long — roughly 170
+     characters a line at 1400px, against the ~75 usually recommended — and
+     is a chosen trade, the same one the blog post page makes. */
+  max-width: 1400px;
+  --experiment-measure: 100%;
 }
 
 /* One measure for every text block on the page. The lede and the sections
