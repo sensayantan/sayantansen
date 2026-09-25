@@ -692,6 +692,125 @@ backlog:
     type: Feature Development
     date: 2026-09-25
 
+  - epic: Pipeline and safeguards
+    title: Give every feature area its own regression-test contract, enforced in the build
+    description: >-
+      Each feature area should have one feature-specific Markdown file of
+      regression instructions — one for the autism research search, one for
+      Daybreak, one for blog posts — and every build pipeline should run
+      those instructions rather than relying on a person remembering to
+      check by hand. Needs the folder and file layout defined first, since
+      today there is no agreed place for a feature's own regression contract
+      to live.
+    type: Technical Debt
+    date: 2026-09-25
+
+  - epic: Blog authoring and publishing
+    title: Finish the one-time migration of remaining posts from the old Google Blogger site
+    description: >-
+      This blog originally lived on Google's Blogger platform before this
+      site existed, and part of that content was migrated over as a
+      one-time task; some of it is still outstanding. Needs an inventory of
+      what has and hasn't been ported yet, then a one-time pass to bring the
+      rest across in the existing blog post format.
+    type: Technical Debt
+    date: 2026-09-25
+
+  - epic: Blog authoring and publishing
+    title: Let readers comment via Google, Facebook, X or other social sign-in
+    description: >-
+      Comments currently require a GitHub sign-in, which is a real barrier
+      for ordinary blog readers who have no reason to hold a GitHub account.
+      Needs a comment identity path that accepts Google, Facebook, X or
+      similar social sign-in, alongside or instead of the current
+      GitHub-only flow.
+    type: Feature Enhancement
+    date: 2026-09-25
+
+  - epic: Blog authoring and publishing
+    title: Add like / dislike / angry reactions to blog content
+    description: >-
+      A lightweight reaction control — like, dislike, angry — for a reader
+      to respond to a post without writing a comment. Needs somewhere to
+      store reaction counts, a way to stop trivial repeat-voting, and a
+      decision on whether reacting requires the same sign-in as commenting.
+    type: Feature Development
+    date: 2026-09-25
+
+  - epic: Admin console and authenticated access
+    title: Track site traffic from the Admin page and store it in a flat file
+    description: >-
+      The Admin console has no visibility today into who visits the site or
+      which pages get read. Needs a lightweight traffic-tracking mechanism
+      that writes to a flat file rather than standing up a database, plus a
+      monitoring tool on top of that file so the data gets looked at instead
+      of just accumulating.
+    type: Feature Development
+    date: 2026-09-25
+
+  - epic: Pipeline and safeguards
+    title: Move hosting off a github.io URL onto a standalone domain, at minimal cost
+    description: >-
+      The site is currently served from a GitHub Pages URL. Needs research
+      into low-cost standalone hosting and domain options that keep the same
+      GitHub Pages-driven publish flow, or an equivalent, while minimizing
+      the recurring fee.
+    type: Technical Debt
+    date: 2026-09-25
+
+  - epic: My Passion
+    title: Build "My Passion" — a historical extravaganza of Soccer, Cricket and Hockey World Cup history
+    description: >-
+      A brand-new page, not yet its own epic, collecting facts, embedded
+      videos, interviews and controversies from Soccer, Cricket and Hockey
+      World Cup history for readers interested in these sports' pasts.
+      Needs its own content model, separate from a blog post, since it mixes
+      narrative text with embedded video and per-event detail.
+    type: Feature Development
+    date: 2026-09-25
+
+  - epic: Autism research search
+    title: Find simple ways to grow the corpus beyond its current ~1,900 records
+    description: >-
+      My Experiment currently draws on roughly 1,900 records. Needs a survey
+      of simple, publicly available sources that could be folded in to grow
+      the corpus and sharpen what the search can surface, without requiring
+      a large new ingestion pipeline to do it.
+    type: Feature Enhancement
+    date: 2026-09-25
+
+  - epic: Autism research search
+    title: Build a location-based directory of autism-spectrum support providers
+    description: >-
+      For a given location anywhere in the world, build a database of
+      qualified therapists, nutritionists, schools and similar providers who
+      support the autism spectrum, surfaced alongside My Experiment's
+      existing research search. Needs a data-sourcing strategy, since no
+      single public API is likely to cover this comprehensively.
+    type: Feature Development
+    date: 2026-09-25
+
+  - epic: Reading experience
+    title: Add personal, handwritten-style content to the page design
+    description: >-
+      A page-design story to work personal, handwritten-style content into
+      the site's presentation rather than only typeset text. Needs a
+      decision on where it appears and how it's produced — scanned
+      handwriting, a handwriting-style font, or something else.
+    type: Feature Enhancement
+    date: 2026-09-25
+
+  - epic: Project documentation
+    title: Auto-update project documentation when a backlog item moves into implementation
+    description: >-
+      When a backlog item is picked up for implementation, that event should
+      add the right detail straight into this page's epic/story tree instead
+      of relying on a separate manual write-up, and should also produce the
+      feature-specific .md regression documentation described in the
+      "regression-test contract" backlog item above.
+    type: Feature Development
+    date: 2026-09-25
+
 definition_of_done:
   - The change is measured or tested in a real browser or against real data, not assumed to work from reading the code alone.
   - Generated output — rendered pages, JSON data files — is produced by a script and never hand-edited directly, since hand-edits to generated output do not survive the next run of that script.
