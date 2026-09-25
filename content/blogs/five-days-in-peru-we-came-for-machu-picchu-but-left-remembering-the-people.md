@@ -1,7 +1,7 @@
 ---
 title: "Five Days in Peru: We Came for Machu Picchu, but Left Remembering the People"
 date: 2026-04-03T06:00:00.000-07:00
-banner: assets/images/blog/chatgpt-image-sep-25-2026-11_15_29-am.png
+banner: assets/images/blog/five-days-in-peru-we-came-for-machu-picchu-but-left-remembering-the-people/chatgpt-image-sep-25-2026-11_15_29-am.png
 tags:
   - vacation
   - senfamily

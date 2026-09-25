@@ -47,7 +47,27 @@ def parse_frontmatter(text: str) -> tuple[dict, str]:
     return front, match.group(2)
 
 
+# This site is served from a GitHub Pages project path, not a domain root,
+# so an absolute "/assets/..." would resolve one level too high. Decap's
+# public_folder carries the base path so its own image previews resolve;
+# everything rendered here strips it back off. Keeping it in one constant
+# means a move to a custom domain touches exactly this line.
+SITE_BASE = "/sayantansen/"
+
+
 def strip_leading_slash(path: str) -> str:
+    """A stored media path reduced to one relative to the site root.
+
+    Tolerates every form Decap has written into content here: bare
+    "assets/...", root-absolute "/assets/...", and base-prefixed
+    "/sayantansen/assets/...". Older posts keep working untouched.
+    """
+    if not path:
+        return path
+    if path.startswith(("http://", "https://", "//")):
+        return path
+    if path.startswith(SITE_BASE):
+        path = path[len(SITE_BASE):]
     return path[1:] if path.startswith("/") else path
 
 

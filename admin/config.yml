@@ -25,6 +25,18 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
+    # One folder per post. Decap does not uniquify uploads: a second file
+    # with the same name lands on the same path and replaces the first,
+    # silently changing the picture in whatever post already pointed there.
+    # Camera and browser defaults collide constantly — "images.jpeg" and
+    # "IMG_1234.jpg" are the usual culprits. Per-post folders keep those
+    # apart. Two files of the same name in the SAME post still collide, so
+    # rename before uploading when it matters.
+    #
+    # public_folder carries the Pages base path so Decap's own previews
+    # resolve; backend/render_blogs.py strips it back off for the site.
+    media_folder: "assets/images/blog/{{slug}}"
+    public_folder: "/sayantansen/assets/images/blog/{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - label: "Date"
@@ -95,6 +107,11 @@ collections:
 
   - name: "about"
     label: "About Me Page"
+    # Stays on the shared folder, where its two photos already live. Without
+    # this it would inherit the global folder and its picker would still
+    # work, but naming it here keeps it from drifting if that global changes.
+    media_folder: "assets/images/blog"
+    public_folder: "/sayantansen/assets/images/blog"
     files:
       - name: "about"
         label: "About Me"
