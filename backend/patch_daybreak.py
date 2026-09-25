@@ -78,6 +78,26 @@ BARE_SCRIPT = (
     + BARE_END + "</script>"
 )
 
+# The generator labels each category with the section's full title. Eleven of
+# those will not fit one row at any readable size — they total roughly 1450px
+# of text against about 1200px of bar — so the bar carries a short menu label
+# and the section heading keeps the full name.
+CATEGORY_LABELS = {
+    "Top News": "Top News",
+    "Top US News": "US",
+    "Local US Bay-Area News": "Bay Area",
+    "Top India & Asia-Pacific News": "India & APAC",
+    "Top India &amp; Asia-Pacific News": "India &amp; APAC",
+    "Top News from the Middle-East": "Middle East",
+    "Top News from Europe": "Europe",
+    "Top News from Latin America": "Latin America",
+    "Top News from Africa": "Africa",
+    "Technology & AI": "Tech & AI",
+    "Technology &amp; AI": "Tech &amp; AI",
+    "Health and Research": "Health",
+    "Markets": "Markets",
+}
+
 POPUP_START = "/*site-popup-start*/"
 POPUP_END = "/*site-popup-end*/"
 
@@ -86,6 +106,20 @@ POPUP_END = "/*site-popup-end*/"
 # normal user-initiated navigation and is not blocked.
 POPUP_SCRIPT = (
     "<script>" + POPUP_START + """
+// The generator's .siteHeader is itself position:sticky at top:0, so the
+// category bar has to pin below it rather than on top of it. Its height
+// changes with width (it stacks on a narrow screen) and is zero in the
+// pop-up, where the header is hidden — so measure it instead of guessing.
+(function(){
+  var header=document.querySelector(".siteHeader");
+  function offset(){
+    var h=header?Math.round(header.getBoundingClientRect().height):0;
+    document.documentElement.style.setProperty("--dbStickyTop",h+"px");
+  }
+  offset();
+  window.addEventListener("resize",offset);
+  window.addEventListener("load",offset);
+})();
 (function(){
   var link=document.querySelector(".dbArchiveLink");
   if(!link)return;
@@ -162,9 +196,23 @@ CSS_START = "/*site-patch-start*/"
 CSS_END = "/*site-patch-end*/"
 
 EXTRA_CSS = CSS_START + """
-.dbCategoryBar{display:flex;flex-wrap:wrap;gap:8px 18px;padding:13px 5%;background:#f4f6fa;border-bottom:1px solid #d7dce5}
-.dbCategoryBar a{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:#46587a;white-space:nowrap}
-.dbCategoryBar a:hover,.dbCategoryBar a:focus{color:#2759bd;text-decoration:underline}
+/* Sticks to the top so a reader can jump between sections without scrolling
+   back up. One row: nowrap plus overflow-x, so a narrow window scrolls the
+   menu sideways rather than stacking it into two or three rows. */
+.dbCategoryBar{position:sticky;top:var(--dbStickyTop,76px);z-index:40;display:flex;flex-wrap:nowrap;overflow-x:auto;
+  gap:0;padding:0 5%;background:#163172;border-bottom:1px solid #0f2454;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none}
+.dbCategoryBar::-webkit-scrollbar{display:none}
+.dbCategoryBar a{flex:0 0 auto;padding:11px 14px;font-size:10.5px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;text-decoration:none;color:#c3d3f2;white-space:nowrap;
+  border-bottom:2px solid transparent}
+/* A divider between items so eleven short labels read as separate menu
+   entries rather than one run-on line. */
+.dbCategoryBar a+a{box-shadow:inset 1px 0 0 rgba(255,255,255,.14)}
+.dbCategoryBar a:hover,.dbCategoryBar a:focus{color:#fff;background:#1d3f8a;border-bottom-color:#8fb4ff}
+/* Anchor jumps otherwise land underneath the pinned bar. */
+.section,[id^="s"]{scroll-margin-top:calc(var(--dbStickyTop,76px) + 46px)}
+html{scroll-behavior:smooth}
 .dbMethod{margin:0;padding:11px 5% 13px;background:#fff;border-bottom:1px solid #e6eaf1;font-size:11px;line-height:1.65;color:#6b7a94}
 .dbMethod strong{color:#46587a}
 /* margin-left:auto pushes the whole group to the right edge; the generator
@@ -175,6 +223,7 @@ EXTRA_CSS = CSS_START + """
 /* Pop-up view: no site nav and no site footer. The generator's
    "Daybreak - date - Generated" line stays, since it is content. */
 .is-bare .siteHeader,.is-bare .dbSiteFooter{display:none}
+.is-bare .dbCategoryBar{top:0}
 html.is-bare body{padding-bottom:0}
 .dbPopupBlocked{margin:0;padding:10px 5%;background:#fff4d6;border-bottom:1px solid #e8d391;font-size:12px;color:#6b5312}
 .dbPopupBlocked a{color:#8a5a00;font-weight:700}
@@ -192,7 +241,7 @@ body{padding-bottom:64px}
 .dbSiteFooter a{color:#fff;text-decoration:none}
 .dbSiteFooter a:hover,.dbSiteFooter a:focus{text-decoration:underline}
 .dbSiteFooterCopy{margin:0;color:#fff}
-@media(max-width:850px){.dbCategoryBar{gap:7px 13px;padding:11px 5%}.dbCategoryBar a{font-size:11px}
+@media(max-width:850px){.dbCategoryBar{padding:0 5%}.dbCategoryBar a{padding:10px 11px;font-size:10px}
 .dbMasthead-tools{gap:10px}.dbArchiveLink{padding:5px 10px;font-size:11px}
 /* Three stacked rows at this width, measured, so the clearance matches. */
 body{padding-bottom:132px}
@@ -302,6 +351,36 @@ def add_popup_script(html: str) -> tuple[str, bool]:
     if "</body>" not in html:
         return html, False
     return html.replace("</body>", POPUP_SCRIPT + "</body>", 1), True
+
+
+def shorten_category_labels(html: str) -> tuple[str, bool]:
+    """Swaps each category label for its short form, keeping the full one as
+    the link's title so hovering still explains it.
+
+    Idempotent because the short labels are not themselves keys in the map.
+    """
+    bar = re.search(r'(<nav class="dbCategoryBar"[^>]*>)(.*?)(</nav>)', html, re.S)
+    if not bar:
+        return html, False
+
+    changed = False
+
+    def relabel(match: re.Match[str]) -> str:
+        nonlocal changed
+        opening, text = match.group(1), match.group(2)
+        short = CATEGORY_LABELS.get(text.strip())
+        if not short or short == text.strip():
+            return match.group(0)
+        changed = True
+        if "title=" not in opening:
+            opening = opening[:-1] + f' title="{text.strip()}">'
+        return opening + short + "</a>"
+
+    inner = re.sub(r'(<a\b[^>]*>)([^<]+)</a>', relabel, bar.group(2))
+    if not changed:
+        return html, False
+    replaced = bar.group(1) + inner + bar.group(3)
+    return html[: bar.start()] + replaced + html[bar.end():], True
 
 
 def add_site_footer(html: str) -> tuple[str, bool]:
@@ -418,6 +497,7 @@ def patch(path: Path) -> list[str]:
         ("experiment-link", add_experiment_link),
         ("category-bar", move_category_links),
         ("archive-link", add_archive_link),
+        ("short-categories", shorten_category_labels),
         ("site-footer", add_site_footer),
         ("bare-mode", add_bare_mode),
         ("popup-script", add_popup_script),
