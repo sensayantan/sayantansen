@@ -66,6 +66,18 @@ ARCHIVE_LINK = (
     "Past editions</a>"
 )
 
+BARE_START = "/*site-bare-start*/"
+BARE_END = "/*site-bare-end*/"
+
+# Must be the first thing in <head>: set from the body-end script instead,
+# the header and footer would paint and then be pulled away.
+BARE_SCRIPT = (
+    "<script>" + BARE_START
+    + 'if(location.search.indexOf("chrome=")>-1)'
+    + 'document.documentElement.className+=" is-bare";'
+    + BARE_END + "</script>"
+)
+
 POPUP_START = "/*site-popup-start*/"
 POPUP_END = "/*site-popup-end*/"
 
@@ -77,6 +89,12 @@ POPUP_SCRIPT = (
 (function(){
   var link=document.querySelector(".dbArchiveLink");
   if(!link)return;
+  // Already inside the pop-up: going back to the archive should reuse this
+  // window, not try to open a second one on top of it.
+  if(document.documentElement.classList.contains("is-bare")){
+    link.target="";
+    return;
+  }
   var notice=null;
   link.addEventListener("click",function(e){
     e.preventDefault();
@@ -154,6 +172,10 @@ EXTRA_CSS = CSS_START + """
    reaches the header. */
 .dbMasthead-tools{display:flex;align-items:center;gap:16px;margin-left:auto}
 .dbMasthead-tools .edition{margin-left:0}
+/* Pop-up view: no site nav and no site footer. The generator's
+   "Daybreak - date - Generated" line stays, since it is content. */
+.is-bare .siteHeader,.is-bare .dbSiteFooter{display:none}
+html.is-bare body{padding-bottom:0}
 .dbPopupBlocked{margin:0;padding:10px 5%;background:#fff4d6;border-bottom:1px solid #e8d391;font-size:12px;color:#6b5312}
 .dbPopupBlocked a{color:#8a5a00;font-weight:700}
 .dbArchiveLink{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid #c9d2e2;border-radius:999px;background:#fff;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:#2759bd;white-space:nowrap}
@@ -240,6 +262,28 @@ def add_archive_link(html: str) -> tuple[str, bool]:
     return html[: edition.start()] + tools + html[edition.end():], True
 
 
+def add_bare_mode(html: str) -> tuple[str, bool]:
+    """Lets an edition render without site chrome when opened in the pop-up.
+
+    The archive pop-up passes chrome=off through to the edition it opens, so
+    the whole pop-up reads as one chrome-less surface instead of the archive
+    losing its header and the edition getting it back.
+    """
+    existing = re.search(
+        re.escape("<script>" + BARE_START) + ".*?" + re.escape(BARE_END + "</script>"),
+        html,
+        re.S,
+    )
+    if existing:
+        if existing.group(0) == BARE_SCRIPT:
+            return html, False
+        return html[: existing.start()] + BARE_SCRIPT + html[existing.end():], True
+    head = re.search(r"<head[^>]*>", html)
+    if not head:
+        return html, False
+    return html[: head.end()] + BARE_SCRIPT + html[head.end():], True
+
+
 def add_popup_script(html: str) -> tuple[str, bool]:
     """Opens the archive in a sized window, and says so when that is blocked.
 
@@ -266,8 +310,15 @@ def add_site_footer(html: str) -> tuple[str, bool]:
     The generator's own footer carries the generation timestamp and stays
     where it is, in the flow; this one is chrome and sits below it.
     """
+    # An edition hand-edited before this script existed carries its own copy
+    # of the site footer, with the LinkedIn and Facebook URLs that were later
+    # corrected and no Substack link. Replace it rather than adding a second
+    # one beside it — daybreak-2026-Sep-10.html showed two stacked footers.
+    stale = re.search(r'<footer><div class="footer-connect">.*?</footer>', html, re.S)
+    if stale:
+        html = html[: stale.start()] + html[stale.end():]
     if 'class="dbSiteFooter"' in html:
-        return html, False
+        return html, bool(stale)
     if "</body>" not in html:
         return html, False
     return html.replace("</body>", SITE_FOOTER + "</body>", 1), True
@@ -368,6 +419,7 @@ def patch(path: Path) -> list[str]:
         ("category-bar", move_category_links),
         ("archive-link", add_archive_link),
         ("site-footer", add_site_footer),
+        ("bare-mode", add_bare_mode),
         ("popup-script", add_popup_script),
         ("method-note", add_method_note),
     ):
