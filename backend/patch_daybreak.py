@@ -50,7 +50,37 @@ SITE = "https://sensayantan.github.io/sayantansen"
 # archive index converts them once here rather than in the browser.
 EDITION_RE = re.compile(r"^daybreak-(\d{4})-([A-Z][a-z]{2})-(\d{2})\.html$")
 
-ARCHIVE_LINK = f'<a class="dbArchiveLink" href="{SITE}/archive.html">Archive</a>'
+# Sits in the masthead beside the edition date, not in the category bar.
+# In the bar it was the 12th of 12 links and read as another news section
+# rather than a control, which is why it went unnoticed.
+ARCHIVE_LINK = (
+    f'<a class="dbArchiveLink" href="{SITE}/archive.html">'
+    '<svg viewBox="0 0 20 20" aria-hidden="true">'
+    '<rect x="3" y="4" width="14" height="4" rx="1"/>'
+    '<path d="M4.5 8.5V16h11V8.5M8 11.5h4"/></svg>'
+    "Past editions</a>"
+)
+
+# The site footer the rest of the site carries. The generator emits only a
+# one-line "Daybreak - date - Generated" footer, and the Daybreak pages are
+# a separate design system, so the site footer has never reached them.
+FOOTER_LINKS = [
+    ("https://www.linkedin.com/in/sayantansenusa/", "LinkedIn"),
+    ("https://www.instagram.com/sen.sayantan1", "Instagram"),
+    ("https://www.facebook.com/sen.sayantan1", "Facebook"),
+    ("https://x.com/sensayantan", "X"),
+    ("https://substack.com/@sayantansen", "Substack"),
+]
+SITE_FOOTER = (
+    '<footer class="dbSiteFooter"><div class="dbSiteFooterRow">'
+    '<div class="dbSiteFooterLinks"><span class="dbSiteFooterLabel">Connect</span>'
+    + "".join(
+        f'<a href="{href}" target="_blank" rel="noopener">{label}</a>'
+        for href, label in FOOTER_LINKS
+    )
+    + '</div><p class="dbSiteFooterCopy">&copy; 2026 Sayantan Sen</p>'
+    "</div></footer>"
+)
 
 EXPERIMENT_LINK = (
     f'<a href="{SITE}/autism.html">'
@@ -78,7 +108,26 @@ EXTRA_CSS = CSS_START + """
 .dbCategoryBar a:hover,.dbCategoryBar a:focus{color:#2759bd;text-decoration:underline}
 .dbMethod{margin:0;padding:11px 5% 13px;background:#fff;border-bottom:1px solid #e6eaf1;font-size:11px;line-height:1.65;color:#6b7a94}
 .dbMethod strong{color:#46587a}
-@media(max-width:850px){.dbCategoryBar{gap:7px 13px;padding:11px 5%}.dbCategoryBar a{font-size:11px}}
+.dbMasthead-tools{display:flex;align-items:center;gap:16px}
+.dbArchiveLink{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid #c9d2e2;border-radius:999px;background:#fff;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:#2759bd;white-space:nowrap}
+.dbArchiveLink svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6}
+.dbArchiveLink:hover,.dbArchiveLink:focus{background:#2759bd;border-color:#2759bd;color:#fff}
+/* Fixed, matching the site footer on every other page. The generator's own
+   one-line footer stays in the flow above it; body padding keeps the last
+   of the page clear of this bar. */
+body{padding-bottom:64px}
+.dbSiteFooter{position:fixed;left:0;right:0;bottom:0;z-index:50;background:#163172;color:#fff;padding:14px 5%;font-size:13px}
+.dbSiteFooterRow{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 20px}
+.dbSiteFooterLinks{display:flex;align-items:center;flex-wrap:wrap;gap:20px}
+.dbSiteFooterLabel{font-weight:700}
+.dbSiteFooter a{color:#fff;text-decoration:none}
+.dbSiteFooter a:hover,.dbSiteFooter a:focus{text-decoration:underline}
+.dbSiteFooterCopy{margin:0;color:#fff}
+@media(max-width:850px){.dbCategoryBar{gap:7px 13px;padding:11px 5%}.dbCategoryBar a{font-size:11px}
+.dbMasthead-tools{gap:10px}.dbArchiveLink{padding:5px 10px;font-size:11px}
+/* Three stacked rows at this width, measured, so the clearance matches. */
+body{padding-bottom:132px}
+.dbSiteFooterRow{justify-content:flex-start;gap:4px 16px}.dbSiteFooterLinks{gap:16px}}
 """ + CSS_END
 
 
@@ -112,19 +161,45 @@ def move_category_links(html: str) -> tuple[str, bool]:
 
 
 def add_archive_link(html: str) -> tuple[str, bool]:
-    """Adds the archive link to the end of the category bar.
+    """Puts the archive link in the masthead, beside the edition date.
 
-    Runs after move_category_links, so the bar exists by now. The archive
-    is the only way back to an older edition, and an edition page carries
-    no other site chrome that could hold the link.
+    An earlier version appended it to the category bar, where it was the
+    last of twelve links and looked like one more news section. In the
+    masthead it reads as what it is: a way out of today's edition.
     """
-    if 'class="dbArchiveLink"' in html:
+    # Clear the old placement so an already-patched edition moves the link
+    # rather than ending up with two.
+    stale = re.search(r'<a class="dbArchiveLink".*?</a>', html, re.S)
+    if stale and 'class="dbMasthead-tools"' not in html:
+        html = html[: stale.start()] + html[stale.end():]
+    elif stale:
         return html, False
-    bar = re.search(r'(<nav class="dbCategoryBar"[^>]*>)(.*?)(</nav>)', html, re.S)
-    if not bar:
+
+    # The masthead is <header class="top">brand + edition</header> by the
+    # time move_category_links has run.
+    edition = re.search(r'<div class="edition">.*?</div>', html, re.S)
+    if not edition:
         return html, False
-    replaced = bar.group(1) + bar.group(2) + ARCHIVE_LINK + bar.group(3)
-    return html[: bar.start()] + replaced + html[bar.end():], True
+    tools = (
+        '<div class="dbMasthead-tools">'
+        + ARCHIVE_LINK
+        + edition.group(0)
+        + "</div>"
+    )
+    return html[: edition.start()] + tools + html[edition.end():], True
+
+
+def add_site_footer(html: str) -> tuple[str, bool]:
+    """Adds the site footer, fixed to the bottom as on every other page.
+
+    The generator's own footer carries the generation timestamp and stays
+    where it is, in the flow; this one is chrome and sits below it.
+    """
+    if 'class="dbSiteFooter"' in html:
+        return html, False
+    if "</body>" not in html:
+        return html, False
+    return html.replace("</body>", SITE_FOOTER + "</body>", 1), True
 
 
 def edition_date(name: str) -> dt.date | None:
@@ -221,6 +296,7 @@ def patch(path: Path) -> list[str]:
         ("experiment-link", add_experiment_link),
         ("category-bar", move_category_links),
         ("archive-link", add_archive_link),
+        ("site-footer", add_site_footer),
         ("method-note", add_method_note),
     ):
         html, changed = fn(html)
