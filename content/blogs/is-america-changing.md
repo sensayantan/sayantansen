@@ -1,6 +1,7 @@
 ---
-title: "IS AMERICA CHANGING?"
+title: IS AMERICA CHANGING?
 date: 2017-01-16T23:51:00.001Z
+banner: assets/images/blog/usa.jpeg
 tags: []
 layout: standard
 images: []
