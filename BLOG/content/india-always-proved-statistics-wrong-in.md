@@ -13,7 +13,7 @@ images: []
 weaknesses, it is quite ironical that whenever India has performed well in WC,
 it was against statistics and history.*
 
-![India will be defending champions in the ICC World Cup 2015 © Getty Images](http://st2.cricketcountry.com/wp-content/uploads/2014/12/India-celebrate-World-Cup-2011-triumph.jpg)
+![India will be defending champions in the ICC World Cup 2015 © Getty Images](https://st2.cricketcountry.com/wp-content/uploads/2014/12/India-celebrate-World-Cup-2011-triumph.jpg)
 
 Out of 11 WC played till now, India
 has hardly performed to their potential 3 times (1983 and 2011 winners and 2003

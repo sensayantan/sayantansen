@@ -2,10 +2,10 @@
 
 The actual schedule remains in the Codex app, attached to the existing conversation. This file documents it; it does not register another scheduler.
 
-The existing app automation was successfully updated on 17-Sep-2026 to use this runner. The user explicitly authorized ticker-only Yahoo Finance transmission and generated HTML commits/pushes to GitHub main, now and on scheduled runs. The schedule remains Monday through Saturday at 10:00 AM Pacific. Runtime, network, credentials and validation remain execution dependencies.
+The existing app automation was successfully updated on 17-Sep-2026 to use this runner. The user explicitly authorized ticker-only Yahoo Finance transmission and generated HTML commits/pushes to GitHub main, now and on scheduled runs. The schedule is Monday through Saturday at 7:30 AM Pacific (changed from 10:00 AM; confirmed by the owner on 29-Sep-2026). Runtime, network, credentials and validation remain execution dependencies.
 
 - Automation ID: `publish-daybreak-news`
-- Monday through Saturday, 10:00 AM Pacific (`America/Los_Angeles`); no Sunday run.
+- Monday through Saturday, 7:30 AM Pacific (`America/Los_Angeles`); no Sunday run.
 - Repository: `/Users/sayantan.sen/Documents/Codex/daybreak-publisher`
 - Portfolio input: `/Users/sayantan.sen/Documents/Codex/2026-07-24/create-a-scheduled-task-called-weekday/SayantanStockCode.xlsx` (the retained local copy; the original Desktop file no longer exists)
 - Runner: `DAYBREAK/pipeline/run.mjs`

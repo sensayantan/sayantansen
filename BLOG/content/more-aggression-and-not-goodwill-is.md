@@ -14,7 +14,7 @@ images: []
 is probably bringing out a new image of India and author wants to provide a
 perspective and tell whether it is at all necessary.*
 
-![Mitchell Johnson (left) and Virat Kohli were involved in a verbal argument © Getty Images](http://st2.cricketcountry.com/wp-content/uploads/2014/12/Virat-Kohli-of-India-exchanges-words-with-bowler-Mitchell-Johnson1.jpg)
+![Mitchell Johnson (left) and Virat Kohli were involved in a verbal argument © Getty Images](https://st2.cricketcountry.com/wp-content/uploads/2014/12/Virat-Kohli-of-India-exchanges-words-with-bowler-Mitchell-Johnson1.jpg)
 
 Boxing Day Test cricket at
 Melbourne cricket ground is a great cricketing event and every cricketing

@@ -21,7 +21,7 @@ data, plus a `README.md` explaining how that feature works end to end.
 
 ```
                         ┌──────────────── writers ────────────────┐
-  Site owner in /admin  │  Codex automation (Mon–Sat 10 AM PT)     │  GitHub Actions cron (monthly)
+  Site owner in /admin  │  Codex automation (Mon–Sat 7:30 AM PT)   │  GitHub Actions cron (monthly)
   (Decap CMS)           │  researches + renders an edition         │  refresh-corpus.yml
         │               │                │                         │         │
   oauth-proxy Worker    │                │                         │         │

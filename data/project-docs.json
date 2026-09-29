@@ -201,10 +201,26 @@
                 "The generator's own site header is already configured as sticky at the very top of the page, so the category bar's own stickiness has to measure that header's actual rendered height at runtime rather than assume a fixed value."
               ],
               "notes": "At the 390px mobile width, the Daybreak header still measures 75px against 63px everywhere else on the site. The rest of the site collapses its navigation into a hamburger menu at that width, and a Daybreak edition currently has no hamburger menu to collapse into. Matching the header exactly at mobile width would require injecting a working hamburger menu, including its JavaScript, into every edition \u2014 judged out of scope for this pass and left open."
+            },
+            {
+              "number": "2.5",
+              "title": "An edition that fits a phone screen",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader on a phone, I want the Daybreak edition to fit the screen, so that reading it never means dragging the page sideways to see the edge of a sentence or a number.",
+              "acceptance_criteria": [
+                "At 320 and 390 pixels wide, no edition \u2014 the latest or any dated one \u2014 is wider than the screen; content that is meant to scroll sideways, such as wide tables and the category bar, scrolls inside its own container instead of moving the page.",
+                "New editions carry the fix from the template itself, and editions published before it receive it from the patch script, which already re-applies its styles to every edition.",
+                "An edition rendered from the template with a long market value, the case that caused the overflow, was checked at both widths."
+              ],
+              "assumptions": [
+                "The cause was the market strip, not the tables: on phones it becomes a two-column grid, and plain 1fr columns cannot shrink below their longest word. On days with long values such as -0.2% intraday in the 30-pixel figure, the strip pushed 37 pixels past the screen and the whole page scrolled sideways; on days with short values it fit, which is why only some editions showed it. The columns now use minmax(0,1fr), long values wrap, and the figure drops to 24 pixels at that width."
+              ],
+              "notes": ""
             }
           ],
-          "done": 4,
-          "total": 4
+          "done": 5,
+          "total": 5
         },
         {
           "project": "SenSite",
@@ -319,10 +335,25 @@
                 "Anything committed to this repository is publicly served by GitHub Pages, whether or not a page links to it. The export holds personal data \u2014 the owner's contact details, followers, and commenters' names and words \u2014 so it stays off the repository entirely rather than being partly filtered, and the same rule applies to any future reader data such as comments or reactions."
               ],
               "notes": ""
+            },
+            {
+              "number": "3.7",
+              "title": "No broken pictures on older posts",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader of the older cricket posts, I want every picture on the page to load, rather than meeting an empty broken-image frame where a photograph used to be.",
+              "acceptance_criteria": [
+                "No post references an image that no longer loads. The two dead references, a Sourav Ganguly photo on deccanchronicle.com (returning 404) and an MS Dhoni photo on cricketcosmic.com (no longer answering), are removed from their posts.",
+                "Every remaining third-party image is loaded over HTTPS, so none depends on the browser upgrading an insecure request."
+              ],
+              "assumptions": [
+                "Both dead images belonged to other publishers and were never in the Blogger export, so there was no copy to restore, and copying a replacement from another site into this public repository was ruled out on copyright grounds. Both posts keep their own banner image, so neither is left without a picture."
+              ],
+              "notes": ""
             }
           ],
-          "done": 6,
-          "total": 6
+          "done": 7,
+          "total": 7
         },
         {
           "project": "SenSite",
@@ -438,10 +469,25 @@
                 "daybreak.yml is dormant, so its upgraded actions have not yet run anywhere. Its only job is gated on the DAYBREAK_CLOUD_ENABLED repository variable, which is not set, and every scheduled run is skipped. Daily editions are instead published by the Codex app's local automation (see backend/daybreak/scheduled-task.md), which runs backend/daybreak/run.mjs on the owner's machine and pushes to main; that push exercises render-content.yml and GitHub's built-in Pages deployment, neither of which uses the Daybreak-specific actions. If DAYBREAK_CLOUD_ENABLED is ever turned on, its first run is where setup-node v5, upload-artifact v6 and the Pages actions are first exercised and should be checked for the same annotation."
               ],
               "notes": ""
+            },
+            {
+              "number": "5.5",
+              "title": "Choose when the build machines change, rather than inherit it",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want the operating system the site's workflows run on to change only when I decide it should, so that GitHub moving its default runner to a new Ubuntu release cannot silently break rendering, the corpus refresh or the Daybreak cloud path on a day nobody is watching.",
+              "acceptance_criteria": [
+                "render-content.yml, refresh-corpus.yml and daybreak.yml all run on an explicitly named image, ubuntu-24.04, instead of ubuntu-latest, with a comment saying why.",
+                "The pinned image is the one every run so far has used, confirmed from a run's own log (Image ubuntu-24.04), so pinning changes nothing about today's behaviour."
+              ],
+              "assumptions": [
+                "GitHub announced ubuntu-latest moves to Ubuntu 26 from 2026-10-19. Pinning defers that move rather than testing it; adopting Ubuntu 26 later should be its own change, with one run of each workflow checked on it. Ubuntu 24.04 remains a supported runner image well beyond that date."
+              ],
+              "notes": ""
             }
           ],
-          "done": 4,
-          "total": 4
+          "done": 5,
+          "total": 5
         },
         {
           "project": "SenSite",
@@ -469,7 +515,7 @@
             {
               "number": "6.2",
               "title": "One folder per menu item, each explaining its own architecture",
-              "status": "Done",
+              "status": "In progress",
               "known_status": true,
               "narrative": "As the site owner, I want the repository organised the way the site is \u2014 one folder for each main menu item, holding that feature's page, code, content and data \u2014 with a document in each folder explaining how that feature works and one overarching document tying them together, so that anyone opening the repository can find a feature and understand its flow without tracing paths scattered across backend/, content/, data/ and assets/.",
               "acceptance_criteria": [
@@ -478,7 +524,8 @@
                 "A root ARCHITECTURE.md maps the four features, the shared pieces, the writers and workflows that feed them, the external services, and the rule that no personal or reader data is ever committed.",
                 "Every pre-move page URL (news.html, archive.html, blogs.html, each blogs/<slug>.html, autism.html) still works, forwarding to the new location with its query string and anchor intact.",
                 "Every page was checked in a real browser at desktop and mobile widths with no failed requests, script errors, broken images or dead internal links, and the Daybreak pipeline's offline tests pass.",
-                "The Blogger export sits at BLOG/takeout, still local-only and gitignored."
+                "The Blogger export sits at BLOG/takeout, still local-only and gitignored.",
+                "Open: the backend/daybreak compatibility symlink is removed once the Codex automation publishes from DAYBREAK/pipeline paths. This needs the automation's prompt updated in the Codex app and one scheduled edition to publish through the new paths; it is the only part of this story not yet done."
               ],
               "assumptions": [
                 "The About Me page stays at the site root index.html rather than moving into AboutMe/, because the root must serve a page and making it a redirect would add a hop to every visit; the rest of the feature lives in AboutMe/.",
@@ -492,7 +539,7 @@
               "notes": ""
             }
           ],
-          "done": 2,
+          "done": 1,
           "total": 2
         },
         {
@@ -593,14 +640,6 @@
     }
   ],
   "backlog": [
-    {
-      "epic": "Daybreak daily news brief",
-      "title": "Point the Codex automation at DAYBREAK/pipeline and remove the backend/daybreak symlink",
-      "description": "The Daybreak pipeline moved to DAYBREAK/pipeline, and backend/daybreak is a symlink kept only because the Codex app automation (publish-daybreak-news) and its clone at ~/Documents/Codex/daybreak-publisher still call the old paths. Update the automation's prompt to the DAYBREAK/pipeline paths (run.mjs, audit.mjs, editorial-sources.md), confirm one scheduled run publishes through them, then delete the symlink.",
-      "type": "Technical Debt",
-      "known_type": true,
-      "date": "2026-09-29"
-    },
     {
       "epic": "Project documentation",
       "title": "Merge in the Daybreak project's own epics and stories",
@@ -738,8 +777,8 @@
   ],
   "totals": {
     "epics": 7,
-    "stories": 28,
-    "done": 28,
-    "backlog": 16
+    "stories": 31,
+    "done": 30,
+    "backlog": 15
   }
 }
