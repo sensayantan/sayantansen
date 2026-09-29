@@ -1,7 +1,7 @@
 {
   "meta": {
     "model": "BAAI/bge-small-en-v1.5",
-    "generated": "2026-09-22",
+    "generated": "2026-09-29",
     "document_count": 1900,
     "counts": {
       "pubmed": 1500,
@@ -148,16 +148,6 @@
       "question": "What screening tools are used for toddlers?",
       "results": [
         {
-          "score": 0.712,
-          "title": "Detection of ASD at the 1st Birthday as Standard of Care: The Get SET Early Model",
-          "text": "Conditions: Autism Spectrum Disorder. According to a recent report from the Centers for Disease Control, most children with ASD do not receive a diagnosis and begin receiving treatment until well after their 4th birthday, which is unfortunate given that many connections between brain cells have already been established by that age. This program will test a model called Get S.E.T. Early (S=Screen, E=Evaluate, T=Treat) in both San Diego and Phoenix, designed to detect, evaluate, and treat ASD within the first 2 years of life. In this proposal 7,500 toddlers from the general population will be screened in San Diego and Phoenix (total 15,000) using the CSBS IT Checklist (Wetherby \\& Prizant, 2002) at well baby check-ups using a \"triple screen\" approach wherein toddlers are screened at three ages starting at 12 months. Investigators predict that providing screening tools with clear cut-off scores and guidelines for automatic referral for both evaluation and treatment will result in dramatically lowering mean age of detection in Phoenix from 4-5 years down to 1-2 years. Investigators also predict that using repeat screening at 12, 18, \\& 24 months in combination with automatic referral options via technology (i-Pads) will result in an increase in the number of ASD toddlers detected by 24 months relative to a single time point screen using traditional paper screens.",
-          "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT02463422",
-          "publication_date": "2014-08",
-          "authors": "University of California, San Diego",
-          "venue": "ClinicalTrials.gov"
-        },
-        {
           "score": 0.699,
           "title": "Comparative screening accuracy of the Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-Chat-R/F) for early autism spectrum disorder: a systematic review.",
           "text": "Objective: Early screening for autism spectrum disorder (ASD) is critical for timely intervention, making the Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-CHAT-R/F) a widely adopted tool globally. However, a recent systematic synthesis of its comparative accuracy is lacking. This review aimed to evaluate the screening accuracy of the M-CHAT-R/F against other ASD screening instruments. Design: A systematic review was conducted in accordance with Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines. A narrative synthesis was employed to integrate findings across diverse study designs and methodological quality was assessed using the Joanna Briggs Institute checklist. Eligibility Criteria: Peer-reviewed, English-language observational studies published between January 2020 and October 2025 that compared the accuracy metrics of the M-CHAT-R/F with alternative screening tools. Information Sources: Scopus, PubMed, ScienceDirect and ProQuest. Results: From 172 identified articles, six high-quality studies encompassing 12 633 participants aged 12-48 months were analysed. The synthesis revealed a complex performance profile for the M-CHAT-R/F. While its sensitivity for detecting potential cases was highly inconsistent, its negative predictive value remained consistently high, reliably identifying children who screened negative. Conversely, the tool demonstrated variable specificity and a persistently low positive predictive value, indicating a substantial false-positive burden and reduced confidence in positive results. Furthermore, the M-CHAT-R/F's accuracy was highly age-dependent, with performance degrading outside the optimal 16-30-month window compared with other specialised tools. Conclusions: The M-CHAT-R/F may not be an optimal instrument in every clinical setting. Its clinical utility may be limited by variable sensitivity and a lower positive predictive value, potentially creating a higher false-positive burden. Clinicians and health systems should consider adopting age-specific, tiered screening protocols to improve diagnostic efficiency and better allocate intervention resources.",
@@ -186,12 +176,32 @@
           "publication_date": "2026-08",
           "authors": "Sheldrick RC, Hooker JL, Davignon M et al.",
           "venue": "Academic pediatrics"
+        },
+        {
+          "score": 0.685,
+          "title": "Recommending Autism Detection in Early Childhood (ADEC) for use in low- and middle-income countries.",
+          "text": "Early detection of autism spectrum disorder (ASD) is vital for early intervention; however, access to feasible and reliable screening tools remains a challenge in many low- and middle-income countries. The purpose of this letter is to highlight Autism Detection in Early Childhood (ADEC), a play-based observational and clinician-administered instrument for children aged 12-36 months with strong cross-cultural evidence of validity, specificity, and sensitivity. We are pleased to announce that, for the first time since its development in 2007, ADEC is now freely available to clinicians and researchers worldwide. LAY ABSTRACT: Early autism identification is crucial to help children and families access services and interventions early, which are more likely to be effective (Wankhede et al., 2024; Sadeghi et al., 2019; Sadeghi and Pouretemad, 2022). Many low- and middle-income countries, however, lack access to commonly used autism screening and diagnostic tools because these tools are costly, time-consuming, or require extensive training. Consequently, diagnosis and treatment may be delayed. The Autism Detection in Early Childhood (ADEC) is a short, play-based observational assessment for children between the ages of 12 and 36 months. It consists of 16 items that address social, communication, and behavioral aspects of autism. It has been demonstrated that the ADEC can accurately identify autistic children in multiple countries, including the United States, Mexico, Ecuador, Indonesia, and Japan. The brief and virtual versions of the tool is also available, making it suitable for use in clinics, telehealth services, and remote or underserved settings. It's our pleasure to announce that the ADEC is now available free and openly for clinicians and researchers worldwide for the first time since its development in 2007. The ADEC offers a practical, reliable, and cost-effective option for early autism detection by removing financial and access barriers. This tool can be used and further validated by clinicians and researchers worldwide, especially in developing countries, to improve early identification of autism.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42054888/",
+          "publication_date": "2026-06",
+          "authors": "Young R, Sadeghi S",
+          "venue": "Asian journal of psychiatry"
         }
       ]
     },
     {
       "question": "How effective is parent-mediated early intervention?",
       "results": [
+        {
+          "score": 0.78,
+          "title": "Parent-mediated and Telehealth Intervention for Children With Autism Spectrum Disorder",
+          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. This study has two purposes: Aim 1: To develop a Telehealth Early Intervention Program (TEIP) for children with ASD that will be carried out by parents at home when interact with their children; and to train parents in delivering developmental and behavioral techniques to their children. The participating families will be randomized in parallel to treatment and comparison groups for teaching the knowledge and techniques: (1) Treatment group: providing the training of TEIP for parents via telehealth modalities as they learn critical skills with their child with the goal of increasing multidimensional child developments. Intervention provider will provide the training for parent-child dyad interaction to work with parents to implement these strategies at home environment; and (2) Comparison group: provide general care consultation of child development for parents. Aim 2: To evaluate this program's effectiveness by measuring changes in a child's developments and behaviors. Investigator will evaluate child outcomes on the symptoms of ASD and multidimensional developmental functioning. Furthermore, investigator will measure the changes in the parent's knowledge and behaviors of parent-child interaction. Moreover, investigator will determine if parental participation in the intervention is associated with an improvement in parenting competences and decreased levels of stress.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT05810675",
+          "publication_date": "2022-08-19",
+          "authors": "National Taiwan University Hospital",
+          "venue": "ClinicalTrials.gov"
+        },
         {
           "score": 0.777,
           "title": "Predictors of Parent Engagement in Part C Early Intervention for Autism: The Role of Single Parenthood and Initial Motivation.",
@@ -204,6 +214,16 @@
         },
         {
           "score": 0.776,
+          "title": "Through Parents' Eyes: Perspectives on Child Development and Family Experience During ESDM Intervention.",
+          "text": "Early intensive intervention for autistic children aims to support developmental progress in social and communication domains. Although outcomes are typically assessed using standardized measures of child development, parental perspectives during early intervention remain largely understudied. Here, we examined parental perceptions after 6 months of intensive Early Start Denver Model (ESDM) intervention. Participants were parents of 104 autistic children aged 1.3-3.5 years enrolled in an individualized therapist-delivered ESDM intervention following diagnosis confirmation. Child development was assessed at entry (baseline) and 6 months later (follow-up). At follow-up, parents completed an 18-item questionnaire capturing their perceptions of child progress across twelve domains as well as changes in parenting skills, personal well-being, and family life. Descriptive analyses, item-level correlations, and principal component analysis (PCA) were conducted to identify underlying components. Parents generally indicated improvements across all domains, with aggravation rarely reported. PCA revealed three intercorrelated components (Social Communication, Nonverbal Social Engagement, and Positive Parental Experience), each showing distinct associations with child or parent measures. Parental perceptions of child development were strongly correlated with standardized developmental assessments, particularly in social communication. While parents also reported enhanced parenting skills and positive personal and familial impacts, these experiences were not associated with child developmental gains but with parental education and the number of siblings in the household. These findings underscore the importance of integrating parental perspectives alongside clinical assessments when evaluating early intervention outcomes. Future research should investigate how parental perceptions evolve over longer periods and how they may inform family-centered care and post-intervention support.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42500921/",
+          "publication_date": "2026-09",
+          "authors": "Latr\u00e8che K, Journal F, Godel M et al.",
+          "venue": "Autism research : official journal of the International Society for Autism Research"
+        },
+        {
+          "score": 0.776,
           "title": "Implementing a parent-mediated intervention for toddlers with ASD within the Chinese child healthcare system: a real-world study.",
           "text": "Background: Behavioural interventions remain the cornerstone of evidence-based practice for addressing the core symptoms of autism spectrum disorder (ASD). The Skill Training Program for Parents with ASD Children (STPAC) is a group intervention programme for parents and the first parent-mediated intervention programme developed by Chinese clinical practitioners. This study was conducted to evaluate the feasibility and effectiveness of STPAC within the context of routine child healthcare services in China. Methods: This is a real-world, multi-site implementation study employed a single-arm, pre-post design. Between July 2023 and June 2025, 128 families of toddlers (aged 18-54 months) with suspected or diagnosed ASD were enrolled from two child healthcare settings. Participants received the 8-week, group-based parent training programme, which integrated didactic lessons, video modelling and individualised coaching. Outcomes were assessed at baseline and post-intervention using parent-reported measures: the Knowledge of Autism Intervention Questionnaire (KAIQ), the Communication and Symbolic Behavior Scales Developmental Profile (CSBS DP) and the Parenting Stress Index-Short Form (PSI-SF). Statistical analysis included paired-samples t-tests to evaluate within-group changes, with effect sizes (Cohen's d) calculated to quantify the magnitude of improvement. Results: Parental knowledge of autism intervention strategies increased substantially (mean improvement=6.26 points, p<0.001; d=1.17). Child communication and symbolic skills also improved, with the CSBS DP total score rising from 35.30 to 40.88 (p<0.001; d=0.99), representing an overall improvement rate of 85.7%. Furthermore, parenting stress decreased from clinically significant to normal levels (mean reduction=3.70 points, p=0.005). The intervention was equally effective across diverse family demographics, and baseline child communication ability was the strongest predictor of post-intervention gains. Conclusions: Despite an attrition rate of approximately 30%, STPAC demonstrated feasibility as a parent-mediated intervention delivered by trained local clinicians within routine child healthcare settings. Participation in the programme was associated with improvements in parental knowledge, child social communication and parenting stress. These findings provide preliminary evidence supporting the potential of STPAC to expand access to early ASD intervention, though confirmation in a randomised controlled trial is warranted.",
           "source": "pubmed",
@@ -211,26 +231,6 @@
           "publication_date": "2026-07-29",
           "authors": "Li H, Long X, Huang X et al.",
           "venue": "BMJ paediatrics open"
-        },
-        {
-          "score": 0.773,
-          "title": "A nonrandomised feasibility evaluation of a home\u2011based intervention for parents of adolescents with learning disabilities, with or without autism.",
-          "text": "Unlabelled: This study aims to determine the feasibility and acceptability of delivering ACHIEVE-a home\u2011based, parent\u2011coached OT/SLT intervention-in everyday UK practice and to describe recruitment/retention, data completeness, working alliance, delivery logistics, and exploratory changes in parent\u2011reported functional, behavioural, communication and stress outcomes. Single\u2011arm, non\u2011randomised feasibility study aligned with CONSORT pilot/feasibility guidance. Thirty\u2011six families of adolescents (11-19 years) with moderate-severe learning disabilities (many also autistic) were recruited via three special schools. Individually tailored OT/SLT sessions focussed on parent\u2011nominated goals in self\u2011care/daily living, communication, and behaviour. Hybrid delivery (home visits + secure video); feasibility and acceptability were primary outcomes; exploratory secondary outcomes included DBC, HSQ, APSI, COPM, and GAS. Recruitment via schools was via a convenience sample (36 families). Attendance was high (159/190 sessions; 83.7%) with 99 home and 59 video sessions. Endpoint data were obtained for 22 families. Parents reported strong alliance (WAI median 89.5, IQR 73.0-91.0). Exploratory signals suggested improvement: DBC T\u2011score - 3.90 (p = 0.004; n = 19); HSQ mean severity - 0.71 (p = 0.018; n = 19); APSI total - 6.80 (p = 0.046; n = 20). COPM median change + 3.0 (performance) and + 4.0 (satisfaction) (both p < 0.001; n = 17). GAS modelling suggested dose effects: ~ 7 sessions linked to ~ 80% probability of achieving expected goals, and ~ 10 to exceeding them (n = 31). Conclusion: ACHIEVE was feasible and acceptable in UK practice with high engagement and manageable data collection. Dose-response signals and alliance strength support a minimum session count and continued coaching emphasis. Findings inform outcome selection, dose, and schedules for a definitive trial; clinical changes remain exploratory. What Is Known: \u2022 Adolescents with learning disabilities (often with co-occurring autism) and their families struggle to access practical home\u2011based support; robust evidence is limited. \u2022 Family\u2011centred, parent\u2011coached allied\u2011health interventions are promising but under\u2011studied for adolescents and in home/hybrid formats. What Is New: \u2022 ACHIEVE-a home\u2011based Occupational therapy/Speech & Language Therapy, parent\u2011nominated goal programme-proved feasible and acceptable with strong therapeutic alliance for families of adolescents with learning disabilities with or without autism. \u2022 Exploratory improvements and a dose signal (~7-10 sessions) guide scheduling and outcomes for a future comparative trial.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42469481/",
-          "publication_date": "2026-07-17",
-          "authors": "Absoud M, Rush C, Mackey L et al.",
-          "venue": "European journal of pediatrics"
-        },
-        {
-          "score": 0.77,
-          "title": "I-PCIT Engagement and Outcomes in Children With Neurodevelopmental Disorders.",
-          "text": "Parent Child Interaction Therapy (PCIT) is an evidence-based behavioral parent training program that has shown efficacy in reducing disruptive behaviors for children with neurodevelopmental disorders (NDDs) including autism spectrum disorder (ASD), attention-deficit/hyperactivity disorder (ADHD), and developmental delays. The current study examined the impact of child and parent characteristics on (a) treatment completion and engagement (b) child behavioral outcomes, and (c) parenting outcomes. Participants included 68 parent-child dyads (children aged 2-6) with NDD diagnoses who participated in a time-limited version of internet-delivered PCIT (I-PCIT). Measures included treatment attrition, homework completion, parent reports of parenting strategies, child behavior, and parenting stress, as well as coded observations of parent use of treatment skills and child compliance. Treatment engagement findings indicated that parents of children with a diagnosis of ADHD and children with higher receptive language levels were more likely to complete treatment. Few predictors of child treatment outcomes were identified. Child ASD diagnosis was predictive of lesser improvement in only parent-reported outcome (i.e., laxness) but not observed outcomes. Parents with a diagnosis of depression demonstrated the greatest engagement and positive outcomes as defined by higher rates of treatment completion and greater improvement in parenting practices. Results underscore that I-PCIT is a robust treatment option with relatively comparable outcomes across diagnostic populations, and highlight that certain clinical presentations may facilitate treatment completion and outcomes. Future work should explore how clinical characteristics and factors may be useful in matching patients to treatment delivery modality.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42660578/",
-          "publication_date": "2026-09",
-          "authors": "Gomez Batista S, Marsden A, Carpenter L et al.",
-          "venue": "Behavior therapy"
         }
       ]
     },
@@ -268,14 +268,14 @@
           "venue": "Autism research : official journal of the International Society for Autism Research"
         },
         {
-          "score": 0.739,
-          "title": "Gender-related differences in characteristics and treatment response between attention-deficit/hyperactivity disorder Japanese children with and without autism spectrum disorder: a single-center retrospective study.",
-          "text": "Aim: Patients with attention-deficit/hyperactivity disorder (ADHD) as well as those with comorbid autism spectrum disorder (ASD), often experience intellectual developmental challenges, social immaturity and social difficulties. However, there have been few detailed reports on the gender differences in these factors among Japanese children. To compare gender-based differences in characteristics and treatment responsiveness between ADHD children without ASD and those with ASD, we undertook a clinical survey of ADHD children. Methods: Patients were divided into two groups based on the presence of ASD and by gender; ASD-based groups were further subdivided by gender, and the gender-based groups were further subdivided by ASD status. We compared patient background, including body mass index (BMI), ADHD characteristics, intelligence quotient (IQ), and treatment response between these groups. Results: Age at first examination and social intelligence quotient (SQ) were significantly lower in the male patients than in the female patients. ADHD Rating Scale (ADHD-RS) scores for hyperactivity disorder and total before treatment and ADHD-RS scores for hyperactivity disorder at the most recent follow-up in the male patients were higher than those in the female patients. In male patients, the initial IQ and SQ of the ASD-comorbidity group were lower than those of the ADHD-only group, but there were no significant differences in each ADHD-RS score, or BMI-standard deviation score. Conclusion: These results suggest that male with ADHD tend to have stronger hyperactivity and impulsivity, with such hyperactivity and impulsivity persisting despite treatment and requiring adequate long-term management.",
+          "score": 0.747,
+          "title": "Adaptive Functioning, Sensory Processing, and Behavioral Problems in Autistic Children: The Moderating Role of Gender.",
+          "text": "Children with autism spectrum disorder (ASD) frequently experience elevated emotional and behavioral difficulties, yet factors associated with variability remain incompletely understood. Adaptive functioning and sensory processing differences have been linked to behavioral problems, but little is known about whether associations differ between boys and girls. This study examined relationships between adaptive functioning, sensory processing, and behavioral problems in children with ASD, focusing on gender as a moderator. The purposive sampling included 110 autistic children (M age = 85.61 months, SD = 31.51; 50 boys and 60 girls) and their primary caregivers. Adaptive functioning was assessed using the Vineland Adaptive Behavior Scales-Third Edition, sensory processing using the Short Sensory Profile, and behavioral problems using the C hild Behavior Checklist. Gender differences were examined with Mann-Whitney tests, associations with Spearman's correlations, and moderation analyses using PROCESS with bootstrap resampling. Girls demonstrated higher internalizing and externalizing behavioral problems than boys, whereas boys showed greater sensory processing differences. Correlational analyses revealed distinct patterns: adaptive functioning showed stronger associations with behavioral difficulties among girls, whereas sensory processing differences were associated with behavioral problems among boys. Moderation analyses indicated that gender moderated the relationship between adaptive functioning and behavioral problems, such that higher adaptive functioning was associated with fewer behavioral difficulties among girls but not boys. These findings highlight gender-specific patterns in associations between functional abilities and behavior profiles in autism, underscoring the importance of considering gender in developmental pathways and intervention approaches.",
           "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42214913/",
-          "publication_date": "2026-08",
-          "authors": "Kawasaki Y, Suzuki Y, Miyazaki K et al.",
-          "venue": "Brain & development"
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42527388/",
+          "publication_date": "2026-09",
+          "authors": "Shulman C, Bitton D, Nir Z",
+          "venue": "Autism research : official journal of the International Society for Autism Research"
         }
       ]
     },
@@ -428,13 +428,23 @@
           "venue": "Neurotherapeutics : the journal of the American Society for Experimental NeuroTherapeutics"
         },
         {
-          "score": 0.762,
-          "title": "Integrated Platform for Measuring and Reducing Symptoms of Autism Spectrum Disorder",
-          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. This study will consist of a randomized, double-blind, sham-controlled clinical trial at SUNY Upstate Medical University and Mt. Sinai Medical Center with 80 autistic children evaluating the effects of transcranial photobiomodulation (tPBM) on multiple clinically validated scales.",
+          "score": 0.768,
+          "title": "Evaluation of a Clinical Transitional Program in Autism",
+          "text": "Conditions: Autism Spectrum Disorder (ASD). Phase: NA. Clinical trial without drug, randomized: Comparison of a specific and integrative clinical protocol for young adults with autism to usual treatment. It will include both low and high-functioning participants.",
           "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT06006637",
-          "publication_date": "2023-10-17",
-          "authors": "State University of New York - Upstate Medical University",
+          "source_url": "https://clinicaltrials.gov/study/NCT03392870",
+          "publication_date": "2017-03-01",
+          "authors": "Corporacion Parc Tauli",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
+          "score": 0.759,
+          "title": "A Trial of CM-AT in Children With Autism",
+          "text": "Conditions: Autism. Phase: PHASE3. The purpose of this study is to determine whether CM-AT is safe and effective in treating the core symptoms of autism.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT00881452",
+          "publication_date": "2009-05",
+          "authors": "Curemark",
           "venue": "ClinicalTrials.gov"
         },
         {
@@ -446,16 +456,6 @@
           "publication_date": "2026-09",
           "authors": "Bourin M",
           "venue": "Pakistan journal of pharmaceutical sciences"
-        },
-        {
-          "score": 0.756,
-          "title": "Drug development in autism spectrum disorder: genetic heterogeneity, failed trials, and the case for stratified pharmacotherapy.",
-          "text": "Despite three decades of clinical trials, no pharmacological treatment has shown consistent efficacy for the core features of autism spectrum disorder (ASD), and regulatory approvals remain limited to risperidone and aripiprazole for severe irritability. This limited efficacy likely reflects a mismatch between underlying biology and broad trial designs. ASD is a clinically defined neurodevelopmental condition with marked etiologic heterogeneity, shaped by highly polygenic liability and a long tail of rare, often de novo , high-impact variants. Genomic studies implicate synaptic signaling, chromatin regulation, and excitatory-inhibitory processes, but this partial biological convergence does not support a single therapeutic target across the diagnostic spectrum. Debate over environmental risk factors, including prenatal acetaminophen exposure, also shows how weak causal inference can distort research priorities. We propose three priorities for ASD pharmacotherapy: genetically stratified mechanism-linked interventions, pharmacogenomics-informed symptomatic prescribing, and trials using validated or biomarker-informed endpoints that capture outcomes regarded as meaningful by autistic people.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42127326/",
-          "publication_date": "2026-09-01",
-          "authors": "Bortoletto R, Fanelli G, Colizzi M",
-          "venue": "International clinical psychopharmacology"
         }
       ]
     },
