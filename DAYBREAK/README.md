@@ -1,6 +1,6 @@
 # Today's News — Daybreak
 
-A researched morning news brief, published Monday to Saturday at 10:00 AM
+A researched morning news brief, published Monday to Saturday at 7:30 AM
 Pacific as a standalone HTML page. The site's **Today's News** menu opens
 the latest edition; an archive calendar opens any earlier one.
 
@@ -25,7 +25,7 @@ durable fixes in `patch_daybreak.py` or `pipeline/template.html`.
 ## How an edition reaches a reader
 
 ```
-Codex app automation "publish-daybreak-news"  (Mon–Sat 10:00 AM Pacific,
+Codex app automation "publish-daybreak-news"  (Mon–Sat 7:30 AM Pacific,
    │  runs in the separate clone ~/Documents/Codex/daybreak-publisher)
    │  researches → .daybreak-work/edition.json + research-audit.json (private)
    ▼
@@ -74,7 +74,7 @@ sections below describe the Codex-driven path that publishes today.
 Daybreak is a hybrid editorial and code pipeline. The Codex scheduled task does source-first internet research and prepares verified, structured inputs. Repository code fetches prices, calculates trends, renders a standalone HTML page, validates it and publishes it through Git. GitHub Pages serves the finished files; visitors do not make model or finance API calls.
 
 ```text
-Codex app scheduled task (Mon–Sat, 10:00 AM America/Los_Angeles)
+Codex app scheduled task (Mon–Sat, 7:30 AM America/Los_Angeles)
   → current research + event deduplication → private edition.json
   → run.mjs
        → read XLSX locally → ticker-only JSON

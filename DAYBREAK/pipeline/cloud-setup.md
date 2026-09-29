@@ -32,7 +32,7 @@ API usage is separate from the in-app subscription. Set project billing limits/a
 4. Set Pages source to **GitHub Actions** before publishing. This workflow explicitly deploys the tracked static site; bot `GITHUB_TOKEN` pushes do not trigger another workflow.
 5. After live preview succeeds, disable the existing Codex automation to avoid duplicate editions, then enable `DAYBREAK_API_PUBLISH_ENABLED`.
 
-The timer uses 17:00 and 18:00 UTC with a Pacific 10 AM Mon–Sat gate for DST, excluding Sunday. GitHub Actions may delay/miss runs: no exact-time guarantee. Repository rules must permit bot main commits and Pages deployment. Concurrent main changes stop safely rather than force-pushing. Generated HTML is checked in as latest + dated archive; latest.json stays static. Deployment is explicitly performed before live URL verification.
+The timer uses 14:30 and 15:30 UTC with a Pacific 7 AM-hour Mon–Sat gate for DST (so it fires at 7:30 AM Pacific in both PDT and PST), excluding Sunday. GitHub Actions may delay/miss runs: no exact-time guarantee. Repository rules must permit bot main commits and Pages deployment. Concurrent main changes stop safely rather than force-pushing. Generated HTML is checked in as latest + dated archive; latest.json stays static. Deployment is explicitly performed before live URL verification.
 
 ## Local use
 

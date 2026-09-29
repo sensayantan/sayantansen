@@ -7,8 +7,10 @@ on:
         type: boolean
         default: false
   schedule:
-    # Both offsets; local-time gate accounts for Pacific DST. GitHub may delay runs.
-    - cron: '0 17,18 * * 1-6'
+    # 7:30 AM Pacific, matching the Codex automation. Both UTC offsets fire;
+    # the local-time gate below keeps only the one that is 7:xx in Pacific
+    # time, whichever of PDT or PST is in effect. GitHub may delay runs.
+    - cron: '30 14,15 * * 1-6'
 permissions:
   contents: write
   pages: write
@@ -46,7 +48,7 @@ jobs:
           import fs from 'node:fs';
           const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'short',hour:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
           const get=k=>p.find(x=>x.type===k).value;
-          const run=process.env.EVENT==='workflow_dispatch'||(get('weekday')!=='Sun'&&get('hour')==='10');
+          const run=process.env.EVENT==='workflow_dispatch'||(get('weekday')!=='Sun'&&get('hour')==='07');
           fs.appendFileSync(process.env.GITHUB_OUTPUT,`run=${run}\n`);
           JS
       - name: Offline tests
