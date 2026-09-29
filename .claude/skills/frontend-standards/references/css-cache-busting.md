@@ -14,7 +14,7 @@ of relying on memory.
 
 ## Every place the version string lives
 
-- `index.html`, `projectdocs.html`
+- `index.html`, `ProjectDocs/index.html`
 - `BLOG/index.html`, `DAYBREAK/index.html`, `DAYBREAK/archive.html`,
   `MyExperiment/index.html`
 - `BLOG/render_blogs.py` (the `POST_PAGE_TEMPLATE` string — bump this,
@@ -22,7 +22,8 @@ of relying on memory.
   under `BLOG/posts/*.html` picks it up)
 
 Page-specific scripts (`AboutMe/about.js`, `BLOG/blogs.js`,
-`BLOG/comments.js`, `DAYBREAK/archive.js`, `MyExperiment/autism.js`) share
+`BLOG/comments.js`, `DAYBREAK/archive.js`, `MyExperiment/autism.js`,
+`ProjectDocs/projectdocs.js`) share
 the same counter as `assets/`.
 
 ## The actual workflow

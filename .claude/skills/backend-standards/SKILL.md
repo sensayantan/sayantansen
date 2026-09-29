@@ -1,13 +1,15 @@
 ---
 name: backend-standards
-description: Backend coding standards for the sayantansen repo's Python scripts (render/patch scripts in AboutMe/, BLOG/, DAYBREAK/, MyExperiment/rag/, and shared ones in backend/) and the render/publish pipeline. Use when writing or editing any of those, .github/workflows/*.yml, or admin/config.yml.
+description: Backend coding standards for the sayantansen repo's Python scripts (render/patch scripts in AboutMe/, BLOG/, DAYBREAK/, MyExperiment/rag/, ProjectDocs/, and admin/check_cms_config.py) and the render/publish pipeline. Use when writing or editing any of those, .github/workflows/*.yml, or admin/config.yml.
 ---
 
 The backend is a set of small, independent Python scripts — not a
 framework, not a long-running service. Each lives in the feature folder it
 serves (`AboutMe/render_about.py`, `BLOG/render_blogs.py`,
-`DAYBREAK/patch_daybreak.py`, `MyExperiment/rag/*.py`); only scripts shared
-across features stay in `backend/`. Keep additions in that spirit:
+`DAYBREAK/patch_daybreak.py`, `MyExperiment/rag/*.py`,
+`ProjectDocs/render_project_docs.py`), and the admin config check lives
+with the admin in `admin/check_cms_config.py`. There is no shared
+`backend/` folder; put a new script beside what it serves. Keep additions in that spirit:
 a script that does one job and exits, not a new service to operate.
 
 ## The render_*.py pattern
@@ -48,7 +50,7 @@ change to it; don't rely on the GitHub Action alone to validate.
 
 - `.github/workflows/render-content.yml` re-runs the render scripts and
   commits the output back to `main` on every push touching `AboutMe/**`,
-  `BLOG/**`, `DAYBREAK/**`, `content/**` or `admin/**`,
+  `BLOG/**`, `DAYBREAK/**`, `ProjectDocs/**` or `admin/**`,
   using `git commit -m "... [skip ci]"` to avoid re-triggering itself.
   Follow that same pattern (`[skip ci]`) for any new workflow that commits
   generated output back to the repo.
@@ -58,6 +60,6 @@ change to it; don't rely on the GitHub Action alone to validate.
 
 ## Dependencies
 
-Add new Python dependencies to `backend/requirements.txt`, pinned loosely
+Add new Python dependencies to the root `requirements.txt`, pinned loosely
 (no dependency has an exact-version pin today — match that unless a specific
 version is required to avoid a known bug).

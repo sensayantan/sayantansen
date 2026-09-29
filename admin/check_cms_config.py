@@ -14,7 +14,7 @@ cheap to encode and expensive to get wrong; it is not a full port of
 Decap's schema.
 
 Run manually:
-    python3 backend/check_cms_config.py
+    python3 admin/check_cms_config.py
 
 It also runs in .github/workflows/render-content.yml on any push touching
 admin/**, so a bad config fails CI instead of reaching the browser.

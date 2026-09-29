@@ -72,7 +72,7 @@ the move keep working.
 ## Run it locally
 
 ```
-pip install -r backend/requirements.txt
+pip install -r requirements.txt
 python BLOG/render_blogs.py
 python3 -m http.server 8000      # from the folder above the repo
 ```

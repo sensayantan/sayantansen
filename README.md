@@ -12,6 +12,9 @@ step. Four sections, one folder each:
 | Sayantan Blogs | `BLOG/` | [BLOG/README.md](BLOG/README.md) |
 | My Experiment | `MyExperiment/` | [MyExperiment/README.md](MyExperiment/README.md) |
 
+The project documentation (epics, stories, backlog) lives in `ProjectDocs/`
+— see [ProjectDocs/README.md](ProjectDocs/README.md).
+
 **Start with [ARCHITECTURE.md](ARCHITECTURE.md)** for how the pieces fit
 together: what writes content, what renders it, what serves it, and the two
 Cloudflare Workers behind admin login and live search.
@@ -40,10 +43,10 @@ Then open `http://localhost:8000/sayantansen/`.
 To regenerate content after editing source files:
 
 ```
-pip install -r backend/requirements.txt
+pip install -r requirements.txt
 python AboutMe/render_about.py
 python BLOG/render_blogs.py
-python backend/render_project_docs.py
+python ProjectDocs/render_project_docs.py
 python DAYBREAK/patch_daybreak.py
 ```
 

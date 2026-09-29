@@ -16,6 +16,7 @@ data, plus a `README.md` explaining how that feature works end to end.
 | Today's News | [`DAYBREAK/`](DAYBREAK/) | A researched daily brief, Mon–Sat, plus an archive calendar | [DAYBREAK/README.md](DAYBREAK/README.md) |
 | Sayantan Blogs | [`BLOG/`](BLOG/) | Blog posts written in `/admin`, rendered to static pages | [BLOG/README.md](BLOG/README.md) |
 | My Experiment | [`MyExperiment/`](MyExperiment/) | Retrieval search over ~1,900 autism research records, with live summaries | [MyExperiment/README.md](MyExperiment/README.md) |
+| *(not a menu item)* | [`ProjectDocs/`](ProjectDocs/) | Epics, stories and backlog for the site itself; GitHub sign-in required | [ProjectDocs/README.md](ProjectDocs/README.md) |
 
 ## The whole system
 
@@ -30,12 +31,12 @@ data, plus a `README.md` explaining how that feature works end to end.
         ▼                                ▼                                   ▼
   AboutMe/content/            DAYBREAK/daybreak-*.html          MyExperiment/data/autism-faq.json
   BLOG/content/  + images     (commit + push to main)           MyExperiment/worker/public/worker-index/
-  content/project-docs.yml                                      (commit to main)
+  ProjectDocs/content/                                          (commit to main)
         │                                │                                   │
         └───────────────┬────────────────┘                                   │
                         ▼                                                    │
         render-content.yml  (on push to AboutMe/, BLOG/, DAYBREAK/,          │
-                             content/, admin/)                               │
+                             ProjectDocs/, admin/)                           │
           validate admin/config.yml · render About · render blog posts ·     │
           render project docs · patch Daybreak editions                      │
           → commit generated files back to main  [skip ci]                   │
@@ -66,10 +67,9 @@ Three patterns repeat across every feature:
 | `index.html` | The About Me page and the site root. |
 | `assets/css/style.css` | The one stylesheet for all site pages (Daybreak editions carry their own). |
 | `assets/js/main.js` | Mobile nav toggle and footer year, on every page. |
-| `admin/` | The Decap CMS editor at `/admin`. `config.yml` defines the About Me, Blog Posts and Project Documentation forms and where each writes. |
+| `admin/` | The Decap CMS editor at `/admin`. `config.yml` defines the About Me, Blog Posts and Project Documentation forms and where each writes; `check_cms_config.py` catches a config that would take `/admin` down. |
 | `oauth-proxy/` | Cloudflare Worker that exchanges a GitHub login for a token, so `/admin` can commit. Holds the OAuth client secret; see its README. |
-| `backend/` | Shared scripts: `check_cms_config.py` (catches an admin config that would take `/admin` down) and `render_project_docs.py`. |
-| `projectdocs.html`, `content/project-docs.yml`, `data/project-docs.json` | The project documentation page: epics, stories and backlog. GitHub sign-in required to view. |
+| `requirements.txt` | Python packages for the render scripts (the autism pipeline has its own in `MyExperiment/rag/`). |
 | `.github/workflows/` | `render-content.yml` (every content push), `refresh-corpus.yml` (monthly), `daybreak.yml` (dormant cloud Daybreak). |
 | `ARCHITECTURE.md` | This file. |
 
@@ -77,7 +77,7 @@ Three patterns repeat across every feature:
 
 Every page carries the same header and footer, copy-pasted rather than
 templated (there is no build step to include them): root `index.html`,
-`projectdocs.html`, `BLOG/index.html`, `DAYBREAK/index.html`,
+`ProjectDocs/index.html`, `BLOG/index.html`, `DAYBREAK/index.html`,
 `DAYBREAK/archive.html`, `MyExperiment/index.html`, and the post template
 inside `BLOG/render_blogs.py`. A change to the header or footer must be made
 in all of them. Daybreak editions get their nav from
@@ -100,6 +100,7 @@ any `?query` and `#anchor`:
 | `blogs.html` | `BLOG/index.html` |
 | `blogs/<slug>.html` | `BLOG/posts/<slug>.html` |
 | `autism.html` | `MyExperiment/index.html` |
+| `projectdocs.html` | `ProjectDocs/index.html` |
 
 `backend/daybreak` remains as a symlink to `DAYBREAK/pipeline` until the
 Codex automation's prompt is updated to the new path (see

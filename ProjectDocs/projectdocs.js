@@ -1,15 +1,16 @@
-/* SenProjectDocumentation — renders data/project-docs.json as a backlog, and
+/* SenProjectDocumentation — renders ProjectDocs/data/project-docs.json as a backlog, and
  * lets a signed-in owner add, edit and delete Backlog table rows in place.
  *
- * Epics and stories are read-only here and come from data/project-docs.json,
- * which backend/render_project_docs.py already converted from Markdown to
+ * Epics and stories are read-only here and come from data/project-docs.json
+ * (beside this script, in ProjectDocs/),
+ * which ProjectDocs/render_project_docs.py already converted from Markdown to
  * HTML — those are edited through the admin's Project Documentation
  * collection instead of here, because their nested acceptance-criteria and
  * assumption lists are much easier to get wrong with hand-rolled text
  * surgery than the flat, five-field Backlog rows are.
  *
  * The Backlog table is different: once signed in, it is read from and
- * written straight back to content/project-docs.yml on GitHub, using the
+ * written straight back to ProjectDocs/content/project-docs.yml on GitHub, using the
  * exact same GitHub Contents API Decap's own admin uses, and the exact same
  * OAuth token this page's own sign-in already obtained. Saving edits only
  * the `backlog:` block of that file — every byte before and after it,
@@ -28,7 +29,7 @@
   // client-side login wall, not a server-side access control: the JSON this
   // page fetches after sign-in is still an ordinary static file on GitHub
   // Pages, reachable directly by anyone who knows its URL. That trade is
-  // deliberate and is documented in content/project-docs.yml, story 7.5 —
+  // deliberate and is documented in ProjectDocs/content/project-docs.yml, story 7.5 —
   // nothing on this page is sensitive enough to justify a Worker that
   // proxies and gates the file server-side.
   var AUTH_URL = "https://sayantansen-oauth.sen-sayantan.workers.dev/api/auth";
@@ -40,7 +41,7 @@
   // this adds no new capability the token did not already have.
   var REPO_OWNER = "sensayantan";
   var REPO_NAME = "sayantansen";
-  var CONTENT_PATH = "content/project-docs.yml";
+  var CONTENT_PATH = "ProjectDocs/content/project-docs.yml";
   var CONTENT_BRANCH = "main";
   var CONTENT_API = "https://api.github.com/repos/" + REPO_OWNER + "/" + REPO_NAME +
     "/contents/" + CONTENT_PATH;
