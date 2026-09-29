@@ -116,7 +116,7 @@ collections:
     files:
       - name: "projectdocs"
         label: "SenProjectDocumentation"
-        file: "content/project-docs.yml"
+        file: "ProjectDocs/content/project-docs.yml"
         fields:
           - label: "Document"
             name: "document"

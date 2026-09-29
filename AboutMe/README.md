@@ -50,7 +50,7 @@ preview resolves them.
 ## Run it locally
 
 ```
-pip install -r backend/requirements.txt
+pip install -r requirements.txt
 python AboutMe/render_about.py
 python3 -m http.server 8000      # from the folder above the repo
 ```
@@ -63,7 +63,7 @@ not opened as a file: browsers block `fetch()` from `file://`.
 - **Old text after publishing**: check the render workflow ran and committed
   `AboutMe/data/about.json`; then hard-refresh.
 - **Admin shows an error instead of the editor**: `admin/config.yml` is
-  invalid. `backend/check_cms_config.py` runs in the render workflow to catch
+  invalid. `admin/check_cms_config.py` runs in the render workflow to catch
   this before it ships.
 - **A photo is missing**: its `image` path must start with
   `/sayantansen/AboutMe/images/`.

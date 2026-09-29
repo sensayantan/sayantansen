@@ -1,6 +1,6 @@
 ---
 name: frontend-standards
-description: Front-end coding standards for the sayantansen website (HTML/CSS/JS). Use when writing or editing index.html, projectdocs.html, any page or script in the AboutMe/, BLOG/, DAYBREAK/ or MyExperiment/ folders, blog post pages, assets/css/style.css, or assets/js/*.js.
+description: Front-end coding standards for the sayantansen website (HTML/CSS/JS). Use when writing or editing index.html, any page or script in the AboutMe/, BLOG/, DAYBREAK/, MyExperiment/ or ProjectDocs/ folders, blog post pages, assets/css/style.css, or assets/js/*.js.
 ---
 
 This file covers what to keep in mind while writing front-end code. For the
@@ -18,7 +18,7 @@ much bigger change.
 ## Shared chrome is duplicated, not templated
 
 The site header (`.site-header` / `.pillnav-row`) and footer (`.site-footer`
-/ `.footer-row`) are copy-pasted into `index.html`, `projectdocs.html`,
+/ `.footer-row`) are copy-pasted into `index.html`, `ProjectDocs/index.html`,
 `BLOG/index.html`, `DAYBREAK/index.html`, `DAYBREAK/archive.html` and
 `MyExperiment/index.html`, and generated into every blog post via the
 template string in `BLOG/render_blogs.py`. There is no shared include. **Any change to the

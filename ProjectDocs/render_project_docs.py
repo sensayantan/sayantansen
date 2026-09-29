@@ -1,6 +1,7 @@
 """
-Turns content/project-docs.yml into data/project-docs.json for
-projectdocs.html (SenProjectDocumentation).
+Turns ProjectDocs/content/project-docs.yml into
+ProjectDocs/data/project-docs.json for ProjectDocs/index.html
+(SenProjectDocumentation).
 
 The shape mirrors DAYBREAK-EPICS-AND-STORIES.md — document purpose, product
 vision, core principles, then epics numbered 1..N holding stories numbered
@@ -14,10 +15,10 @@ rendered here rather than in the browser, so the page needs no markdown
 library.
 
 Run manually:
-    python3 backend/render_project_docs.py
+    python3 ProjectDocs/render_project_docs.py
 
 In production this runs from .github/workflows/render-content.yml on any
-push touching content/**.
+push touching ProjectDocs/**.
 """
 
 from __future__ import annotations
@@ -30,8 +31,8 @@ import markdown as markdown_lib
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
-SOURCE = ROOT / "content" / "project-docs.yml"
-DATA_PATH = ROOT / "data" / "project-docs.json"
+SOURCE = ROOT / "ProjectDocs" / "content" / "project-docs.yml"
+DATA_PATH = ROOT / "ProjectDocs" / "data" / "project-docs.json"
 
 # Anything outside this set is rendered as a neutral chip rather than being
 # dropped, so a status Codex introduces still displays.
