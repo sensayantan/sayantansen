@@ -659,7 +659,7 @@
     {
       "epic": "Blog authoring and publishing",
       "title": "Let readers comment via Google, Facebook, X or other social sign-in",
-      "description": "Comments currently require a GitHub sign-in, which is a real barrier for ordinary blog readers who have no reason to hold a GitHub account. Needs a comment identity path that accepts Google, Facebook, X or similar social sign-in, alongside or instead of the current GitHub-only flow.",
+      "description": "Comments currently require a GitHub sign-in, which is a real barrier for ordinary blog readers who have no reason to hold a GitHub account. Needs a comment identity path that accepts Google, Facebook, X or similar social sign-in, alongside or instead of the current GitHub-only flow. Evaluate if there is any cost involved.",
       "type": "Feature Enhancement",
       "known_type": true,
       "date": "2026-09-25"
