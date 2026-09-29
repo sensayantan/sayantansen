@@ -4,8 +4,8 @@ __pycache__/
 .venv/
 /.daybreak-work/
 /SayantanStockCode.xlsx
-experiments/autism-rag/index.pkl
-experiments/autism-rag/corpus/
+MyExperiment/rag/index.pkl
+MyExperiment/rag/corpus/
 
 # Personal Claude Code permissions, not shared
 .claude/settings.local.json

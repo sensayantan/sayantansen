@@ -1,117 +1,16 @@
 <!DOCTYPE html>
+<!-- This page moved to DAYBREAK/index.html when the site was reorganised
+     into one folder per menu item. GitHub Pages cannot send a real redirect,
+     so this stub forwards the reader, keeping any query string and #anchor. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sayantan Sen — Today's News</title>
-  <meta name="description" content="Daily curated news brief for Sayantan Sen.">
-  <script>
-    // This pointer is intentionally static. The publishing job overwrites
-    // DAYBREAK/daybreak-latest.html and archives a separate dated copy.
-    fetch("DAYBREAK/latest.json", { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`Latest report lookup failed (${response.status})`);
-        return response.json();
-      })
-      .then((latest) => {
-        if (latest.file !== "daybreak-latest.html") {
-          throw new Error("Invalid latest report filename");
-        }
-        const reportUrl = new URL(`DAYBREAK/${latest.file}`, window.location.href);
-        // The filename stays stable, while the changing query string prevents
-        // browsers and the GitHub Pages CDN from reusing yesterday's HTML.
-        reportUrl.searchParams.set("edition", Date.now().toString());
-        window.location.replace(reportUrl);
-      })
-      .catch((error) => {
-        console.error(error);
-        document.documentElement.classList.add("latest-report-error");
-      });
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=30">
+  <title>Today&#x27;s News — moved</title>
+  <link rel="canonical" href="https://sensayantan.github.io/sayantansen/DAYBREAK/index.html">
+  <script>location.replace("DAYBREAK/index.html" + location.search + location.hash);</script>
+  <meta http-equiv="refresh" content="0; url=DAYBREAK/index.html">
 </head>
 <body>
-
-  <noscript>
-    <p class="container"><a href="DAYBREAK/daybreak-latest.html">Open the latest Daybreak report</a></p>
-  </noscript>
-
-  <header class="site-header">
-    <div class="container container-wide pillnav-row">
-      <a href="index.html" class="brand">Sayantan Sen</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="pillnav" id="nav-links">
-        <a href="index.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5 10 3l7 6.5"/><path d="M5 8.5V17h10V8.5"/></svg>
-          About Me
-        </a>
-        <a href="news.html" class="pill active">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M6 7.5h8M6 10.5h8M6 13.5h5"/></svg>
-          Today's News
-        </a>
-        <a href="blogs.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16.5 4.7 13 14 3.7l2.3 2.3L7 15.3l-3.5.7Z"/></svg>
-          Sayantan Blogs
-        </a>
-        <a href="autism.html" class="pill">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 3h5"/><path d="M9 3v5.5L4.5 16h11L11 8.5V3"/></svg>
-          My Experiment
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="daybreak">
-
-    <!-- Masthead: this page's own internal nav, separate from the site-level pill nav above -->
-    <div class="db-masthead">
-      <div class="container db-masthead-row">
-        <div class="db-logo"><span class="db-logo-mark">D</span> DAYBREAK</div>
-        <nav class="db-categories" id="db-categories" aria-label="News categories">
-          <!-- filled in by news.js from data/news.json -->
-        </nav>
-        <div class="db-edition" id="db-edition"></div>
-      </div>
-    </div>
-
-    <div class="db-hero">
-      <div class="container">
-        <p class="db-kicker">Your researched morning brief</p>
-        <h1 id="db-hero-title">Loading today's brief…</h1>
-      </div>
-    </div>
-
-    <div class="db-stats container" id="db-stats">
-      <!-- filled in by news.js -->
-    </div>
-
-    <div class="container" id="db-sections">
-      <!-- news sections filled in by news.js -->
-      <p class="placeholder" id="db-loading">Loading news…</p>
-    </div>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container container-wide footer-row">
-      <div class="footer-connect">
-        <span class="footer-label">Connect</span>
-        <a href="https://www.linkedin.com/in/sayantansenusa/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.instagram.com/sen.sayantan1" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/sen.sayantan1" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://x.com/sensayantan" target="_blank" rel="noopener">X</a>
-        <a href="https://substack.com/@sayantansen" target="_blank" rel="noopener">Substack</a>
-      </div>
-      <p class="footer-copyright">&copy; <span id="year"></span> Sayantan Sen</p>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js?v=30"></script>
-  <script src="assets/js/news.js?v=30"></script>
+  <p>This page has moved to <a href="DAYBREAK/index.html">https://sensayantan.github.io/sayantansen/DAYBREAK/index.html</a>.</p>
 </body>
 </html>
