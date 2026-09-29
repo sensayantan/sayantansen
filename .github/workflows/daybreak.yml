@@ -19,7 +19,10 @@ concurrency:
 jobs:
   generate:
     if: vars.DAYBREAK_CLOUD_ENABLED == 'true'
-    runs-on: ubuntu-latest
+    # Pinned rather than ubuntu-latest, which moves to Ubuntu 26 from
+    # 2026-10-19. 24.04 is what every run so far has used; moving to a new
+    # image should be a deliberate, tested change, not a silent one.
+    runs-on: ubuntu-24.04
     timeout-minutes: 40
     environment:
       name: github-pages

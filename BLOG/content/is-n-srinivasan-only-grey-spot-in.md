@@ -16,7 +16,6 @@ images: []
 to know whether there was any lean period in his otherwise ever rising true "star
 like" career.*
 
-![](http://www.cricketcosmic.com/wp-content/uploads/2014/08/Mahendra-Singh-Dhoni.jpg)
 
 MS Dhoni declared his retirement from
 International Test Cricket. Everyone wants to comment on the timing of his

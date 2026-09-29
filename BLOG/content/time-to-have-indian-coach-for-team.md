@@ -17,7 +17,6 @@ high, authors also feels that it is the time to think beyond Duncan Fletcher,
 current India coach for Team India whose tenure will end post 2015 ICC Cricket
 WC  .*
 
-![](http://archives.deccanchronicle.com/sites/default/files/mediaimages/gallery/2012/Sep/sourav-ganguly.jpg)
 
 BCCI is cash rich, and it shows off
 when it comes towards identifying the coach and support stuff of Indian Cricket

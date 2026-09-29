@@ -277,7 +277,13 @@ body{padding-bottom:64px}
 .dbMasthead-tools{gap:10px}.dbArchiveLink{padding:5px 10px;font-size:11px}
 /* Three stacked rows at this width, measured, so the clearance matches. */
 body{padding-bottom:132px}
-.dbSiteFooterRow{justify-content:flex-start;gap:4px 16px}.dbSiteFooterLinks{gap:16px}}
+.dbSiteFooterRow{justify-content:flex-start;gap:4px 16px}.dbSiteFooterLinks{gap:16px}
+/* The market strip drops to two columns here. Plain 1fr columns cannot
+   shrink below their longest word, so a long value such as "-0.2% intraday"
+   in the 30px figure pushed the strip past the screen and the whole page
+   scrolled sideways. minmax(0,1fr) lets the columns shrink; the text wraps. */
+.indexStrip{grid-template-columns:repeat(2,minmax(0,1fr))}
+.metric{padding:18px 16px;overflow-wrap:anywhere}.metric strong{font-size:24px}}
 """ + CSS_END
 
 
