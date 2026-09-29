@@ -571,6 +571,33 @@ epics:
         assumptions:
           - Because this was written after the work rather than planned before it, a story's status reflects what was actually shipped and verified, not an estimate or an intention.
 
+      - number: "6.2"
+        title: One folder per menu item, each explaining its own architecture
+        status: Done
+        narrative: >-
+          As the site owner, I want the repository organised the way the site
+          is — one folder for each main menu item, holding that feature's
+          page, code, content and data — with a document in each folder
+          explaining how that feature works and one overarching document
+          tying them together, so that anyone opening the repository can find
+          a feature and understand its flow without tracing paths scattered
+          across backend/, content/, data/ and assets/.
+        acceptance_criteria:
+          - The repository has AboutMe/, BLOG/, DAYBREAK/ and MyExperiment/, each holding its feature's pages, page-specific script, source content, generator and generated data. Only genuinely shared pieces stay outside them (the site root page, the stylesheet and nav script, the admin, the OAuth Worker, shared backend scripts and the project documentation).
+          - Each folder has a README.md covering the folder layout, the end-to-end flow from source to reader, how to run it locally and what to check when it breaks. The MyExperiment document covers both flows — building the corpus offline and answering a question live — including the score thresholds and why they differ between the two scoring models.
+          - A root ARCHITECTURE.md maps the four features, the shared pieces, the writers and workflows that feed them, the external services, and the rule that no personal or reader data is ever committed.
+          - Every pre-move page URL (news.html, archive.html, blogs.html, each blogs/<slug>.html, autism.html) still works, forwarding to the new location with its query string and anchor intact.
+          - Every page was checked in a real browser at desktop and mobile widths with no failed requests, script errors, broken images or dead internal links, and the Daybreak pipeline's offline tests pass.
+          - The Blogger export sits at BLOG/takeout, still local-only and gitignored.
+        assumptions:
+          - The About Me page stays at the site root index.html rather than moving into AboutMe/, because the root must serve a page and making it a redirect would add a hop to every visit; the rest of the feature lives in AboutMe/.
+          - Daybreak editions keep their existing DAYBREAK/ URLs. Only the pipeline code, patch script, archive page and landing page moved in beside them.
+          - The Codex automation publishes from a separate clone and calls backend/daybreak paths, and its runner fast-forwards that clone partway through a run. backend/daybreak is therefore kept as a symlink to DAYBREAK/pipeline so every old path resolves, including mid-run, until the automation's own prompt is updated.
+          - The unused original news pipeline (generate_news.py, claude_news.py, openai_news.py, state.py, config.py, news.js, and its data) was deleted rather than moved; Daybreak replaced it, and git history keeps it.
+          - GitHub Pages cannot issue real redirects, so old URLs are small pages that forward with a script and a meta refresh.
+          - Blog comments are giscus threads matched on page pathname, so moving the posts would detach existing threads. None existed at the time of the move, so nothing was lost; post URLs should stay put from here on.
+          - The autism-search Worker's Cloudflare build root directory must be changed to MyExperiment/worker in the Cloudflare dashboard, outside this repository; until then its builds fail while the already-deployed Worker keeps serving.
+
 
   - project: SenSite
     number: 7
@@ -831,6 +858,19 @@ backlog:
       "regression-test contract" backlog item above.
     type: Feature Development
     date: 2026-09-25
+
+  - epic: Daybreak daily news brief
+    title: Point the Codex automation at DAYBREAK/pipeline and remove the backend/daybreak symlink
+    description: >-
+      The Daybreak pipeline moved to DAYBREAK/pipeline, and backend/daybreak
+      is a symlink kept only because the Codex app automation
+      (publish-daybreak-news) and its clone at
+      ~/Documents/Codex/daybreak-publisher still call the old paths. Update
+      the automation's prompt to the DAYBREAK/pipeline paths (run.mjs,
+      audit.mjs, editorial-sources.md), confirm one scheduled run publishes
+      through them, then delete the symlink.
+    type: Technical Debt
+    date: 2026-09-29
 
 definition_of_done:
   - The change is measured or tested in a real browser or against real data, not assumed to work from reading the code alone.

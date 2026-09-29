@@ -49,8 +49,8 @@ jobs:
       - name: Offline tests
         if: steps.gate.outputs.run == 'true'
         run: |
-          node backend/daybreak/test.mjs
-          node --test backend/daybreak/research.test.mjs
+          node DAYBREAK/pipeline/test.mjs
+          node --test DAYBREAK/pipeline/research.test.mjs
       - name: Research, summarize and generate
         if: steps.gate.outputs.run == 'true'
         env:
@@ -63,9 +63,9 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           if [ "$PUBLISH" = true ] && [ "$ALLOW_PUBLISH" = true ]; then
-            node backend/daybreak/cloud.mjs --publish --defer-pages-verification
+            node DAYBREAK/pipeline/cloud.mjs --publish --defer-pages-verification
           else
-            node backend/daybreak/cloud.mjs
+            node DAYBREAK/pipeline/cloud.mjs
           fi
       - name: Upload preview (never raw research or ticker files)
         if: steps.gate.outputs.run == 'true' && success()
@@ -94,4 +94,4 @@ jobs:
         uses: actions/deploy-pages@v5
       - name: Verify live edition after deployment
         if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
-        run: node backend/daybreak/verify-pages.mjs
+        run: node DAYBREAK/pipeline/verify-pages.mjs

@@ -1,6 +1,6 @@
 ---
 name: frontend-standards
-description: Front-end coding standards for the sayantansen website (HTML/CSS/JS). Use when writing or editing index.html, blogs.html, news.html, blog post pages, assets/css/style.css, or assets/js/*.js.
+description: Front-end coding standards for the sayantansen website (HTML/CSS/JS). Use when writing or editing index.html, projectdocs.html, any page or script in the AboutMe/, BLOG/, DAYBREAK/ or MyExperiment/ folders, blog post pages, assets/css/style.css, or assets/js/*.js.
 ---
 
 This file covers what to keep in mind while writing front-end code. For the
@@ -18,11 +18,12 @@ much bigger change.
 ## Shared chrome is duplicated, not templated
 
 The site header (`.site-header` / `.pillnav-row`) and footer (`.site-footer`
-/ `.footer-row`) are copy-pasted into `index.html`, `blogs.html`, `news.html`,
-and generated into every blog post via the template string in
-`backend/render_blogs.py`. There is no shared include. **Any change to the
+/ `.footer-row`) are copy-pasted into `index.html`, `projectdocs.html`,
+`BLOG/index.html`, `DAYBREAK/index.html`, `DAYBREAK/archive.html` and
+`MyExperiment/index.html`, and generated into every blog post via the
+template string in `BLOG/render_blogs.py`. There is no shared include. **Any change to the
 header or footer must be applied to all of these places**, then blog posts
-regenerated (`python3 backend/render_blogs.py`) so they pick it up. This is
+regenerated (`python3 BLOG/render_blogs.py`) so they pick it up. This is
 the most common way a change on this site "half-ships."
 
 The Daybreak report (`DAYBREAK/*.html`) is a *separate* design system with
@@ -32,7 +33,7 @@ site-wide chrome change does not automatically reach it.
 
 **Never hand-edit a Daybreak edition.** A fresh one lands most mornings and
 overwrites it, which is how the same fixes kept silently reverting. Put the
-change in `backend/patch_daybreak.py` instead — it re-applies this site's
+change in `DAYBREAK/patch_daybreak.py` instead — it re-applies this site's
 conventions (the "My Experiment" nav link, the category bar, the method
 note) to every edition, and `.github/workflows/render-content.yml` runs it
 on any push touching `DAYBREAK/**`, so a new edition is patched within a
@@ -82,11 +83,16 @@ to it — the generator's structure drifts between versions.
 ## JS conventions
 
 - No dependencies; plain DOM APIs (`document.getElementById`, etc.) only.
-- Fetch any JSON the page depends on (`data/about.json`, `data/blogs.json`)
+- Fetch any JSON the page depends on (`AboutMe/data/about.json`, `BLOG/data/blogs.json`)
   with `{ cache: "no-store" }` — GitHub Pages' caching has repeatedly served
   stale JSON to users otherwise.
-- Keep one `.js` file's responsibility narrow and matched to one page
-  (`about.js`, `blogs.js`, `news.js`, `main.js` for cross-page nav behavior).
+- Keep one `.js` file's responsibility narrow and matched to one page, and
+  keep a page's script in that page's feature folder (`AboutMe/about.js`,
+  `BLOG/blogs.js`, `DAYBREAK/archive.js`, `MyExperiment/autism.js`).
+  Only cross-page scripts live in `assets/js/` (`main.js` for nav behavior).
+- Pages in a feature folder are one level below the site root, and blog
+  posts (`BLOG/posts/`) two, so their links to shared assets and other
+  sections carry `../` or `../../`.
 
 ## Before calling a visual change done
 

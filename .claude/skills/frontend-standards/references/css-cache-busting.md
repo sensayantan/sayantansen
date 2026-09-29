@@ -14,18 +14,22 @@ of relying on memory.
 
 ## Every place the version string lives
 
-- `index.html`
-- `blogs.html`
-- `news.html`
-- `backend/render_blogs.py` (the `POST_PAGE_TEMPLATE` string — bump this,
-  then re-run `python3 backend/render_blogs.py` so every generated post
-  under `blogs/*.html` picks it up)
+- `index.html`, `projectdocs.html`
+- `BLOG/index.html`, `DAYBREAK/index.html`, `DAYBREAK/archive.html`,
+  `MyExperiment/index.html`
+- `BLOG/render_blogs.py` (the `POST_PAGE_TEMPLATE` string — bump this,
+  then re-run `python3 BLOG/render_blogs.py` so every generated post
+  under `BLOG/posts/*.html` picks it up)
+
+Page-specific scripts (`AboutMe/about.js`, `BLOG/blogs.js`,
+`BLOG/comments.js`, `DAYBREAK/archive.js`, `MyExperiment/autism.js`) share
+the same counter as `assets/`.
 
 ## The actual workflow
 
 1. Change `assets/css/style.css`.
 2. Bump every `?v=N` above to `N+1`.
-3. Re-run `python3 backend/render_blogs.py`.
+3. Re-run `python3 BLOG/render_blogs.py`.
 4. Run `python3 .claude/skills/frontend-standards/scripts/check_css_version.py`
    — it exits non-zero and lists exactly which file is out of step if you
    missed one.

@@ -1,6 +1,3 @@
-anthropic
-openai
-python-dotenv
 markdown
 markdownify
 PyYAML

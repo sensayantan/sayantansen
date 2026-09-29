@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sayantan Sen — Autism Retrieval Experiment</title>
+  <meta name="description" content="An experiment in retrieval: picking a question and seeing which documents a TF-IDF search returns, and how well it scores them.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css?v=30">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container container-wide pillnav-row">
+      <a href="../index.html" class="brand">Sayantan Sen</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="pillnav" id="nav-links">
+        <a href="../index.html" class="pill">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5 10 3l7 6.5"/><path d="M5 8.5V17h10V8.5"/></svg>
+          About Me
+        </a>
+        <a href="../DAYBREAK/index.html" class="pill">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="12" rx="1"/><path d="M6 7.5h8M6 10.5h8M6 13.5h5"/></svg>
+          Today's News
+        </a>
+        <a href="../BLOG/index.html" class="pill">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16.5 4.7 13 14 3.7l2.3 2.3L7 15.3l-3.5.7Z"/></svg>
+          Sayantan Blogs
+        </a>
+        <a href="../MyExperiment/index.html" class="pill active">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 3h5"/><path d="M9 3v5.5L4.5 16h11L11 8.5V3"/></svg>
+          My Experiment
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container container-wide experiment-page">
+
+    <div class="experiment-warning" id="experiment-warning">
+      <strong>This is a research search tool, not health information.</strong>
+      What you see below are published abstracts and trial records returned by a
+      similarity search — not reviewed, not ranked for quality, and not checked
+      against current clinical consensus. Nothing here should inform a decision
+      about a real child. For that, talk to a paediatrician or a developmental
+      specialist.
+    </div>
+
+    <h1>Asking research questions about autism</h1>
+
+    <p class="experiment-lede">
+      A search over roughly 1,900 real research papers and clinical trial
+      records, built to answer the questions families actually ask — and to
+      show its working, so every answer traces back to the paper it came from.
+    </p>
+
+    <section class="experiment-section">
+      <h2>Why this experiment</h2>
+      <p>
+        Autism is being identified at a rate that would have been
+        unrecognisable twenty years ago. Part of that is broader diagnostic
+        criteria and better recognition of children who were previously missed
+        entirely; part of it may be a genuine increase. Researchers argue about
+        the proportions, and the argument matters — but not to a family at the
+        beginning of this.
+      </p>
+      <p>
+        What is striking, against that expansion, is how little has been
+        settled underneath it. Decades of research have implicated hundreds of
+        genes and a long list of prenatal and early-life factors, and produced
+        no single cause. There is no treatment that addresses autism itself —
+        what exists is support and intervention aimed at specific difficulties,
+        which is a different thing and worth not confusing. An enormous amount
+        is now known, and almost none of it resolves into the answer a parent
+        is actually looking for.
+      </p>
+      <p>
+        So the questions families arrive with are rarely exotic. <em>Is it
+        genetic? Did something I do cause this? What does the evidence actually
+        say about early intervention? What is being trialled right now, and
+        where?</em> Honest answers to all of them exist in published research —
+        which is precisely where most people give up. It is written in
+        unfamiliar vocabulary, scattered across tens of thousands of papers,
+        and the readable summaries in between are too often produced by someone
+        with something to sell.
+      </p>
+      <p>
+        This page is a small attempt at narrowing that gap: pointing a family
+        at the actual literature on the question they asked, in the words the
+        researchers used, with a link to every source. It answers nothing on
+        its own authority, and it is not a substitute for a paediatrician or a
+        developmental specialist.
+      </p>
+    </section>
+
+    <section class="experiment-section" id="prepared">
+      <h2>Frequently asked questions</h2>
+      <p class="section-note">
+        The questions people ask most often. Each runs the same search as the
+        box below: a short summary of what the best-matching research says,
+        with the sources it came from listed underneath.
+      </p>
+
+      <label class="experiment-label" for="question-select" id="select-label">Choose a question</label>
+      <select id="question-select" class="experiment-select">
+        <option value="">— select —</option>
+      </select>
+
+      <div id="prepared-answer"></div>
+      <div id="results"></div>
+    </section>
+
+    <section class="experiment-section" id="ask">
+      <h2>Ask your own question</h2>
+      <p class="section-note">
+        Anything you type is matched against the same 1,900 records. The
+        citations in the summary link straight to the paper each claim came
+        from.
+      </p>
+
+      <form class="ask-form" id="ask-form" hidden>
+        <label class="experiment-label" for="ask-input">Your question</label>
+        <div class="ask-row">
+          <input type="text" id="ask-input" class="ask-input" maxlength="300"
+                 autocomplete="off" placeholder="e.g. does early intervention help with language?">
+          <button type="submit" class="ask-button" id="ask-button">Ask</button>
+        </div>
+      </form>
+
+      <p class="ask-unavailable" id="ask-unavailable">
+        <strong>Not connected yet.</strong> The search service has not been
+        wired up, so free-text questions are unavailable. The questions above
+        still work — they fall back to stored results, ranked but without a
+        summary.
+      </p>
+
+      <div id="answer"></div>
+      <div id="ask-results"></div>
+    </section>
+
+    <details class="tech-section">
+      <summary class="tech-summary">How this is built<span class="tech-summary-hint">the sources, the models, the cost</span></summary>
+
+      <p class="experiment-provenance" id="experiment-provenance"></p>
+
+      <h3>Where the data comes from</h3>
+      <p>
+        Two public sources. No scraping, no paywalled content, nothing private,
+        and no paid API.
+      </p>
+      <table class="source-table">
+        <thead>
+          <tr><th>Source</th><th>What it holds</th><th>How it is accessed</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a><span class="source-owner">US National Library of Medicine</span></td>
+            <td>~1,500 abstracts of peer-reviewed autism research</td>
+            <td>The free <strong>E-utilities</strong> HTTP API, in two calls: <code>esearch</code> returns the record IDs matching a search term, <code>efetch</code> returns those records as XML. No key, no account.</td>
+          </tr>
+          <tr>
+            <td><a href="https://clinicaltrials.gov/" target="_blank" rel="noopener">ClinicalTrials.gov</a><span class="source-owner">US National Institutes of Health</span></td>
+            <td>~400 registered trials — what is being tried, by whom, and where</td>
+            <td>Its public <strong>v2 JSON API</strong>, paged through with a cursor. No key, no account.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        A scheduled GitHub Actions job re-fetches both sources monthly and
+        rebuilds everything below, so the corpus does not quietly go stale.
+      </p>
+
+      <h3>Finding the right papers</h3>
+      <p>
+        Keyword search fails people here, because a worried parent and a
+        journal abstract do not use the same words. "Will my son ever talk?"
+        shares almost no vocabulary with a paper titled "Predictors of
+        expressive language outcomes in minimally verbal children."
+      </p>
+      <p>
+        So each record is converted into a list of 384 numbers — an
+        <strong>embedding</strong> — using <code>BAAI/bge-small-en-v1.5</code>,
+        an open-weight model small enough to run on a laptop CPU. The numbers
+        represent what the text means rather than which words it contains. A
+        question is converted the same way, and the records whose numbers sit
+        closest are returned, ranked by how close. That similarity score is
+        printed on every result, because a number you can check is more honest
+        than a confident answer you cannot.
+      </p>
+      <p>
+        There is no vector database. At 1,900 records the whole index is 2.8 MB
+        — small enough to hold in memory and compare by brute force in well
+        under a millisecond. A managed vector database would earn its keep at a
+        scale this is nowhere near, and would add a paid dependency to
+        something that currently costs nothing.
+      </p>
+
+      <h3>Why the second section needs a server</h3>
+      <p>
+        This site is static: GitHub Pages hands out files exactly as they sit
+        in the repository and cannot run code. That is fine for the prepared
+        questions, whose answers are computed offline and shipped as a data
+        file. A question someone types cannot work that way, because nobody
+        knew the question in advance — it has to be turned into numbers at the
+        moment it is asked.
+      </p>
+      <p>
+        That runs on a <strong>Cloudflare Worker</strong>: a small piece of
+        code that wakes on each request at whichever data centre is nearest the
+        visitor. It embeds the question through
+        <code>@cf/baai/bge-small-en-v1.5</code> — the same model that built the
+        index, which matters, because a question embedded by a different model
+        lands in a different space and every score becomes meaningless while
+        still looking plausible. It ranks the 1,900 records, then passes the
+        best four to <code>@cf/mistral/mistral-7b-instruct-v0.2-lora</code> to
+        write the summary.
+      </p>
+      <p>
+        Both models run on Cloudflare's free tier, which allows 10,000 neurons
+        a day — a question costs a small fraction of one percent of that. The
+        whole thing, end to end, runs at no cost.
+      </p>
+
+      <h3>What the model is and is not allowed to do</h3>
+      <p>
+        The summariser sees only the retrieved records, never its own training
+        knowledge. It is instructed to put a citation marker after every
+        factual sentence, to say plainly when the sources do not answer the
+        question, and never to give medical advice or suggest a diagnosis. If
+        the search finds nothing above a relevance threshold, the model is not
+        called at all — asking it to answer from no sources is inviting it to
+        invent one.
+      </p>
+      <p>
+        Those are instructions, and instructions get ignored. So the page
+        checks too: a citation is only turned into a link when it points at a
+        source that is genuinely on the page, and the summary is styled
+        distinctly from the result cards below it — those are quoted verbatim
+        from real papers, the summary was written by a model, and a reader
+        should never have to guess which is which.
+      </p>
+
+      <h3>What is still missing</h3>
+      <p>
+        The corpus is deliberately narrow: research abstracts and trials,
+        nothing else. The obvious additions are prevalence and demographic
+        figures from the CDC's monitoring network, each carrying its own
+        citation, and the trial locations already sitting unused in the data,
+        which could become a map of who is doing this work and where.
+      </p>
+    </details>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container container-wide footer-row">
+      <div class="footer-connect">
+        <span class="footer-label">Connect</span>
+        <a href="https://www.linkedin.com/in/sayantansenusa/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/sen.sayantan1" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/sen.sayantan1" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/sensayantan" target="_blank" rel="noopener">X</a>
+        <a href="https://substack.com/@sayantansen" target="_blank" rel="noopener">Substack</a>
+      </div>
+      <p class="footer-copyright">&copy; <span id="year"></span> Sayantan Sen</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js?v=30"></script>
+  <script src="autism.js?v=30"></script>
+</body>
+</html>

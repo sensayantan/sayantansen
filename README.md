@@ -1,178 +1,54 @@
 # sayantansen
 
-Personal website — bio, blog, and a daily tech news feed. Built step by step
-while learning web development.
+Sayantan Sen's personal website — https://sensayantan.github.io/sayantansen/
 
-See [architecture-daybreak.md](architecture-daybreak.md) for the current Daybreak architecture and a walkthrough of
-how the backend and frontend fit together — start there if you're trying
-to understand how the pieces connect, not just how to run them.
+A static site on GitHub Pages: plain HTML, CSS and JavaScript, no build
+step. Four sections, one folder each:
 
-## Status: Step 3 — news generator backend (7 of 8 sections working)
+| Menu | Folder | How it works |
+|---|---|---|
+| About Me | `AboutMe/` (page: `index.html`) | [AboutMe/README.md](AboutMe/README.md) |
+| Today's News | `DAYBREAK/` | [DAYBREAK/README.md](DAYBREAK/README.md) |
+| Sayantan Blogs | `BLOG/` | [BLOG/README.md](BLOG/README.md) |
+| My Experiment | `MyExperiment/` | [MyExperiment/README.md](MyExperiment/README.md) |
 
-Frontend is plain HTML/CSS/JS, no build tools. Three pages sharing one nav:
+**Start with [ARCHITECTURE.md](ARCHITECTURE.md)** for how the pieces fit
+together: what writes content, what renders it, what serves it, and the two
+Cloudflare Workers behind admin login and live search.
 
-- `index.html` — About Me
-- `news.html` — Today's News (the "Daybreak" template)
-- `blogs.html` — Sayantan Blogs (placeholder)
-- `assets/css/style.css` — all styling (blue pill nav + Daybreak news template)
-- `assets/js/main.js` — mobile nav toggle, footer year
-- `assets/js/news.js` — fetches `data/news.json` and renders the news page
-- `data/news.json` — the content shown on Today's News. Currently placeholder
-  data — see below to generate a real edition.
+## Editing content
 
-Backend (Python), in `backend/`:
-
-- `config.py` — defines the 7 AI-researched sections (Top News, US News,
-  World News, India News, Technology & Innovation, AI Model & Product
-  Updates, Sports) — their labels and preferred sources
-- `claude_news.py` — calls Claude with the web search tool for one section,
-  parses the response into stories with real source citations
-- `state.py` — tracks the last successful run so each edition only
-  searches for news since then (falls back to 3 days for the first run)
-- `generate_news.py` — orchestrates all sections and writes `data/news.json`
-- `requirements.txt`, `.env.example` — dependencies and API key template
-
-**Money/Markets is not yet wired up.** Stock prices and index levels need a
-real market-data API (for accurate, timestamped numbers) rather than AI
-web-search synthesis — building that is a separate phase once a data
-provider is chosen.
-
-### Generate a real edition
-
-```
-cd backend
-pip install -r requirements.txt
-cp .env.example .env   # then fill in ANTHROPIC_API_KEY
-python generate_news.py
-```
-
-This calls the Claude API (costs apply) and overwrites `data/news.json`.
-Refresh `news.html` (served, not opened directly — see "Run it locally"
-below) to see the real edition.
-
-**Realistic cost per day:** web search is billed at $10 per *1,000*
-searches, not $10 per search or per run — each of the 7 sections is capped
-at 4-6 searches (`max_searches` in `config.py`), so one full edition uses
-at most ~30 searches ≈ **$0.30**, plus token costs for reading results and
-writing summaries. Using `claude-sonnet-5` (the default), that's roughly
-another **$0.20-0.40/day**. Expect well under $1/day, not $10 — check your
-actual spend at [console.anthropic.com](https://console.anthropic.com) →
-Usage after your first run. If you want the cost even lower, drop
-`max_searches` further in `config.py`, or switch a section's model to
-`claude-haiku-4-5`.
-
-### Still to come
-
-- Money/Markets section (needs a market-data API)
-- Automatic daily scheduling (GitHub Actions cron)
-- Auto-deploy (commit + push `data/news.json` after each run)
-
-## Blog admin (in progress)
-
-Blog posts can be written/edited two ways:
-
-1. **The one-time Blogger migration** (`backend/migrate_blogger.py`) —
-   already run; produced the 13 existing posts.
-2. **The `/admin` editor** (Decap CMS) — for new posts going forward.
-   `admin/config.yml` defines the post form: title, date, tags, an image
-   layout choice (standard/hero/gallery), multiple images with captions,
-   an optional PDF attachment, and a plain-text markdown body.
-
-When a post is saved in `/admin`, Decap commits a Markdown file to
-`content/blogs/` directly on `main`. The same admin also has an
-**"About Me Page"** entry (`content/about.yml`) covering the three
-sections on `index.html` — About Me, My Family / My World, and My
-Professional Journey — including profile/family photos (with an
-"AI-generated" flag per photo, shown as a badge).
-
-Either way, a GitHub Action (`.github/workflows/render-content.yml`)
-automatically runs `backend/render_blogs.py` and `backend/render_about.py`
-whenever anything under `content/` changes, turning that source content
-into the real static pages/data (`blogs/*.html`, `data/blogs.json`,
-`data/about.json`) and committing the result — no manual step needed
-after clicking Publish.
-
-**OAuth setup:** `/admin` needs a GitHub OAuth App and a small hosted
-proxy before login works — GitHub Pages can't run that part itself. The
-proxy code lives in `oauth-proxy/`; see
-[oauth-proxy/README.md](oauth-proxy/README.md) for the exact one-time
-setup steps (Cloudflare Pages project + GitHub OAuth App).
+About Me and blog posts are edited in the browser at
+[`/admin`](https://sensayantan.github.io/sayantansen/admin/) (Decap CMS,
+GitHub sign-in). Publishing commits straight to `main`; a GitHub Action
+renders the pages within a minute. Admin login needs the Worker in
+[`oauth-proxy/`](oauth-proxy/README.md).
 
 ## Run it locally
 
-`index.html` and `blogs.html` can be opened directly as files. `news.html`
-needs to be served over HTTP (browsers block `fetch()` of local files), so
-from the project folder run:
+Pages load their content with `fetch()`, which browsers block for
+`file://`, so serve the site. It is published under the `/sayantansen/`
+path, so serve from the folder *above* this repository:
 
 ```
+cd ..
 python3 -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Then open `http://localhost:8000/sayantansen/`.
 
-## Publish it (GitHub Pages)
+To regenerate content after editing source files:
 
-1. On GitHub, go to the repo's **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to "Deploy from a branch".
-3. Pick the `main` branch and `/ (root)` folder, then save.
-4. GitHub will give you a URL like `https://<username>.github.io/sayantansen/`
-   within a minute or two.
+```
+pip install -r backend/requirements.txt
+python AboutMe/render_about.py
+python BLOG/render_blogs.py
+python backend/render_project_docs.py
+python DAYBREAK/patch_daybreak.py
+```
 
-## Blog comments
+## Publishing
 
-Each blog post has a comments section powered by
-[giscus](https://giscus.app), which stores comments as GitHub Discussions in
-this repository. No server, no database, no cost — moderation is the repo's
-Discussions tab, and readers are not tracked beyond what GitHub already
-knows. The trade-off is that leaving a comment requires a GitHub account.
-
-`assets/js/comments.js` hides the section entirely until it is configured,
-so an unfinished setup shows nothing rather than an empty "Comments" heading
-on every post.
-
-### Setup, once
-
-1. **Enable Discussions**: repo **Settings** → **General** → **Features** →
-   tick **Discussions**.
-2. **Install the giscus app**: [github.com/apps/giscus](https://github.com/apps/giscus)
-   → **Install** → grant it access to `sensayantan/sayantansen` only.
-3. **Get the category id**: open [giscus.app](https://giscus.app), enter
-   `sensayantan/sayantansen` as the repository, pick **Announcements** as the
-   category, and copy the `data-category-id` value out of the generated
-   snippet. That id only exists once step 1 is done, which is why it is not
-   already in the file.
-4. Paste it into `categoryId` in `assets/js/comments.js`, commit and push.
-
-Announcements is the right category because only maintainers can open a
-discussion there: every comment arrives as a reply to a thread giscus
-created for that post, rather than as a new top-level discussion anyone can
-start.
-
-Threads are matched on **pathname**, so a post keeps its comments when
-retitled but loses them if its slug changes.
-
-## Autism retrieval experiment
-
-`/autism.html` searches ~1900 real PubMed abstracts and ClinicalTrials.gov
-records by meaning rather than keyword, and can summarise the top matches
-with citations back to the source papers.
-
-| Folder | What it is |
-|---|---|
-| [`experiments/autism-rag/`](experiments/autism-rag/) | The offline pipeline: fetch, embed, export. **Start here** — its README has the architecture overview. |
-| [`autism-search/`](autism-search/) | A Cloudflare Worker answering typed questions live, since GitHub Pages cannot run code. |
-
-Refreshed monthly by `.github/workflows/refresh-corpus.yml`.
-
-## Roadmap
-
-1. ✅ Vanilla HTML/CSS/JS site with placeholder content
-2. ✅ "Today's News" UI template (blue pill nav, Daybreak-style layout, driven by `data/news.json`)
-3. ✅ `backend/generate_news.py` — Claude + web search researches and writes 7 of 8 sections
-4. Money/Markets section (needs a market-data API — decision pending)
-5. Automate news generation to run daily (scheduled GitHub Action)
-6. Auto-deploy: commit + push `data/news.json` after each generated edition
-7. Fill in real bio content and personal branding on About Me
-8. Add an admin view for About Me and Sayantan Blogs (draft/edit/publish without touching code)
-9. Rebuild the frontend in React once there's a real API/backend to talk to
-10. Link the site from LinkedIn, Instagram, and Facebook profiles
+GitHub Pages serves the `main` branch from the repository root
+(**Settings → Pages → Deploy from a branch → `main` / root**). Changes
+reach `main` through a branch and pull request.

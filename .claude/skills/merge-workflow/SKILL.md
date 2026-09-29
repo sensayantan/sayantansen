@@ -21,9 +21,10 @@ directly to `main`, even for a one-line fix.
      take a Playwright screenshot (desktop *and* mobile width) before
      claiming it works. This repo has shipped visual bugs that a screenshot
      would have caught immediately.
-   - Any change to `content/*.yml` or the render pipeline: re-run the
-     matching `backend/render_*.py` script and check the diff to `data/*.json`
-     or `blogs/*.html` is exactly what's expected.
+   - Any change to source content (`AboutMe/content/`, `BLOG/content/`,
+     `content/*.yml`) or the render pipeline: re-run the matching `render_*.py`
+     script and check the diff to the generated `data/*.json` or
+     `BLOG/posts/*.html` is exactly what's expected.
    - Any change to `assets/css/style.css`: bump the `?v=N` query string on
      every reference, regenerate blog posts, then run
      `python3 .claude/skills/frontend-standards/scripts/check_css_version.py`

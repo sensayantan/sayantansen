@@ -1,17 +1,19 @@
-# Runs automatically whenever a commit touches content/ or DAYBREAK/.
+# Runs automatically whenever a commit touches a feature folder
+# (AboutMe/, BLOG/, DAYBREAK/), content/ or admin/.
 #
-# content/** is what the admin at /admin writes (Decap CMS commits
-# Markdown/YAML straight to `main`); this workflow turns that into static
-# pages and data via backend/render_blogs.py and backend/render_about.py,
+# AboutMe/content/, BLOG/content/ and content/ are what the admin at /admin
+# writes (Decap CMS commits Markdown/YAML straight to `main`); this workflow
+# turns that into static pages and data via BLOG/render_blogs.py,
+# AboutMe/render_about.py and backend/render_project_docs.py,
 # so publishing needs no manual step beyond clicking Publish.
 #
-# DAYBREAK/** is written by the external news generator, which knows
+# DAYBREAK/*.html is written by the external news generator, which knows
 # nothing about this site's conventions — it omits the "My Experiment" nav
 # link and crams the category links into the masthead. Every hand-fix to an
 # edition used to be lost the next morning when a fresh one landed;
-# backend/patch_daybreak.py re-applies them here instead, which is what
-# makes them survive. That script also writes data/daybreak-index.json,
-# the list of editions archive.html's calendar reads, which is why that
+# DAYBREAK/patch_daybreak.py re-applies them here instead, which is what
+# makes them survive. That script also writes DAYBREAK/data/daybreak-index.json,
+# the list of editions DAYBREAK/archive.html's calendar reads, which is why that
 # file is in the commit list below — without it the index is rebuilt every
 # run and never shipped. The [skip ci] on the commit below matters more than
 # usual now: without it, committing a patched edition back to DAYBREAK/**
@@ -23,6 +25,8 @@ on:
     branches: [main]
     paths:
       - "content/**"
+      - "AboutMe/**"
+      - "BLOG/**"
       - "DAYBREAK/**"
       # Decap validates config.yml in the browser, and a value it rejects
       # replaces the whole admin with an error rather than degrading. So a
@@ -30,7 +34,7 @@ on:
       # means a push that breaks it fails CI instead.
       - "admin/**"
   # Run on demand from the Actions tab. The push trigger above only fires on
-  # content/** and DAYBREAK/**, so a change to this workflow or to one of the
+  # the content and feature folders, so a change to this workflow or to one of the
   # render scripts cannot exercise itself — it otherwise waits for the next
   # edition or Publish before anyone finds out it is broken.
   workflow_dispatch:
@@ -56,21 +60,21 @@ jobs:
         run: python backend/check_cms_config.py
 
       - name: Render blog posts
-        run: python backend/render_blogs.py
+        run: python BLOG/render_blogs.py
 
       - name: Render About Me page
-        run: python backend/render_about.py
+        run: python AboutMe/render_about.py
 
       - name: Render project documentation
         run: python backend/render_project_docs.py
 
       - name: Re-apply site conventions to Daybreak editions
-        run: python backend/patch_daybreak.py
+        run: python DAYBREAK/patch_daybreak.py
 
       - name: Commit rendered output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add blogs/ data/blogs.json data/about.json data/daybreak-index.json data/project-docs.json DAYBREAK/
+          git add BLOG/posts/ BLOG/data/blogs.json AboutMe/data/about.json data/project-docs.json DAYBREAK/
           git diff --cached --quiet || git commit -m "Render site content [skip ci]"
           git push

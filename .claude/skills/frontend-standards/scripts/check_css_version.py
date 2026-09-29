@@ -27,11 +27,23 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
-PATTERN = re.compile(r"assets/(?:css/style\.css|js/[a-z-]+\.js)\?v=(\d+)")
+# The shared stylesheet, plus any local script: shared ones under assets/js/
+# and page-specific ones that live beside their page in a feature folder.
+PATTERN = re.compile(r'(?:assets/css/style\.css|(?:src|href)="(?![a-z]+:|//)[^"?]*\.js)\?v=(\d+)')
 
 # Any file that can reference the stylesheet or a script: top-level pages,
-# every generated blog post, and the template that generates them.
-CANDIDATE_GLOBS = ["*.html", "blogs/*.html", "backend/render_blogs.py"]
+# each feature folder's pages, every generated blog post, and the template
+# that generates them. Daybreak editions are excluded: they carry their own
+# inline CSS and no site assets.
+CANDIDATE_GLOBS = [
+    "*.html",
+    "BLOG/*.html",
+    "BLOG/posts/*.html",
+    "DAYBREAK/index.html",
+    "DAYBREAK/archive.html",
+    "MyExperiment/*.html",
+    "BLOG/render_blogs.py",
+]
 
 
 def find_versions() -> dict[Path, list[str]]:
@@ -45,7 +57,7 @@ def find_versions() -> dict[Path, list[str]]:
     return found
 
 
-UNVERSIONED = re.compile(r'(?:src|href)="(?:\.\./)?assets/(?:js/[a-z-]+\.js|css/style\.css)"')
+UNVERSIONED = re.compile(r'(?:src|href)="(?:(?![a-z]+:|//)[^"?]*\.js|(?:\.\./)*assets/css/style\.css)"')
 
 
 def find_unversioned() -> dict[Path, int]:
