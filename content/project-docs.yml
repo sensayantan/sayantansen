@@ -402,6 +402,29 @@ epics:
         assumptions:
           - The editor still does not generate a unique filename on upload; a second file uploaded with the exact same name as an existing one, within the same post's folder, still overwrites the first — per-post folders solve the far more common case of a name colliding across two unrelated posts, not every possible collision.
 
+      - number: "3.6"
+        title: Finish moving the old Google Blogger blog onto this site
+        status: Done
+        narrative: >-
+          As the site owner, I want everything from my old Google Blogger
+          blog to live on this site itself — the posts and the pictures in
+          them — so that a post here never depends on Blogger continuing to
+          host its images, and nothing the original post showed a reader was
+          quietly lost when it was first copied across.
+        acceptance_criteria:
+          - The Blogger export (Google Takeout) is kept locally as the source record for the migration and is excluded from the repository by .gitignore, so it is never published through GitHub Pages; only the images the posts actually use are copied into the site.
+          - Every live post in the export has a matching post in content/blogs; the inventory found all 13 already migrated, and there were no drafts in the export.
+          - No post loads an image from Blogger's CDN. The seven Blogger-hosted references across four posts point instead to copies in that post's own assets/images/blog/<slug>/ folder, taken from the export's album.
+          - Images the first migration silently dropped are restored where the original post had them — Test1 and Test2 with their photo credits in the Test-cricket post's comparison table, and Turkey and Greece at their original positions in the Turkey & Greece travelogue.
+          - Each affected post was re-rendered and checked in a real browser at desktop and mobile widths, with every image loading and no horizontal scroll.
+        assumptions:
+          - The first migration kept only the first image of each post, as front matter that the standard layout never draws inside the article, so those posts appeared migrated while missing pictures. Comparing each post's original HTML image by image against its Markdown is what found them.
+          - The export's Turkey and Greece files were PNGs named .jpeg, about 3 MB each; they were converted to real JPEGs at the same dimensions, about 0.6 MB each.
+          - The Pitch Factor post's image was a 320-pixel thumbnail on Blogger and now spans the article column, because the Markdown image syntax used here has no width control.
+          - The six live comments in the export were not migrated. This site's comments are posted under a GitHub identity, and re-posting them would attribute them to the wrong account.
+          - Images older posts load from third-party sites were out of scope, since they are not in the export. Two of them no longer load (deccanchronicle.com's Ganguly photo and cricketcosmic.com's Dhoni photo) and need separate follow-up.
+          - Anything committed to this repository is publicly served by GitHub Pages, whether or not a page links to it. The export holds personal data — the owner's contact details, followers, and commenters' names and words — so it stays off the repository entirely rather than being partly filtered, and the same rule applies to any future reader data such as comments or reactions.
+
   - project: SenSite
     number: 4
     title: Reading experience
@@ -711,17 +734,6 @@ backlog:
       check by hand. Needs the folder and file layout defined first, since
       today there is no agreed place for a feature's own regression contract
       to live.
-    type: Technical Debt
-    date: 2026-09-25
-
-  - epic: Blog authoring and publishing
-    title: Finish the one-time migration of remaining posts from the old Google Blogger site
-    description: >-
-      This blog originally lived on Google's Blogger platform before this
-      site existed, and part of that content was migrated over as a
-      one-time task; some of it is still outstanding. Needs an inventory of
-      what has and hasn't been ported yet, then a one-time pass to bring the
-      rest across in the existing blog post format.
     type: Technical Debt
     date: 2026-09-25
 

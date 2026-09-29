@@ -296,10 +296,33 @@
                 "The editor still does not generate a unique filename on upload; a second file uploaded with the exact same name as an existing one, within the same post's folder, still overwrites the first \u2014 per-post folders solve the far more common case of a name colliding across two unrelated posts, not every possible collision."
               ],
               "notes": ""
+            },
+            {
+              "number": "3.6",
+              "title": "Finish moving the old Google Blogger blog onto this site",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want everything from my old Google Blogger blog to live on this site itself \u2014 the posts and the pictures in them \u2014 so that a post here never depends on Blogger continuing to host its images, and nothing the original post showed a reader was quietly lost when it was first copied across.",
+              "acceptance_criteria": [
+                "The Blogger export (Google Takeout) is kept locally as the source record for the migration and is excluded from the repository by .gitignore, so it is never published through GitHub Pages; only the images the posts actually use are copied into the site.",
+                "Every live post in the export has a matching post in content/blogs; the inventory found all 13 already migrated, and there were no drafts in the export.",
+                "No post loads an image from Blogger's CDN. The seven Blogger-hosted references across four posts point instead to copies in that post's own assets/images/blog/<slug>/ folder, taken from the export's album.",
+                "Images the first migration silently dropped are restored where the original post had them \u2014 Test1 and Test2 with their photo credits in the Test-cricket post's comparison table, and Turkey and Greece at their original positions in the Turkey &amp; Greece travelogue.",
+                "Each affected post was re-rendered and checked in a real browser at desktop and mobile widths, with every image loading and no horizontal scroll."
+              ],
+              "assumptions": [
+                "The first migration kept only the first image of each post, as front matter that the standard layout never draws inside the article, so those posts appeared migrated while missing pictures. Comparing each post's original HTML image by image against its Markdown is what found them.",
+                "The export's Turkey and Greece files were PNGs named .jpeg, about 3 MB each; they were converted to real JPEGs at the same dimensions, about 0.6 MB each.",
+                "The Pitch Factor post's image was a 320-pixel thumbnail on Blogger and now spans the article column, because the Markdown image syntax used here has no width control.",
+                "The six live comments in the export were not migrated. This site's comments are posted under a GitHub identity, and re-posting them would attribute them to the wrong account.",
+                "Images older posts load from third-party sites were out of scope, since they are not in the export. Two of them no longer load (deccanchronicle.com's Ganguly photo and cricketcosmic.com's Dhoni photo) and need separate follow-up.",
+                "Anything committed to this repository is publicly served by GitHub Pages, whether or not a page links to it. The export holds personal data \u2014 the owner's contact details, followers, and commenters' names and words \u2014 so it stays off the repository entirely rather than being partly filtered, and the same rule applies to any future reader data such as comments or reactions."
+              ],
+              "notes": ""
             }
           ],
-          "done": 5,
-          "total": 5
+          "done": 6,
+          "total": 6
         },
         {
           "project": "SenSite",
@@ -562,14 +585,6 @@
     },
     {
       "epic": "Blog authoring and publishing",
-      "title": "Finish the one-time migration of remaining posts from the old Google Blogger site",
-      "description": "This blog originally lived on Google's Blogger platform before this site existed, and part of that content was migrated over as a one-time task; some of it is still outstanding. Needs an inventory of what has and hasn't been ported yet, then a one-time pass to bring the rest across in the existing blog post format.",
-      "type": "Technical Debt",
-      "known_type": true,
-      "date": "2026-09-25"
-    },
-    {
-      "epic": "Blog authoring and publishing",
       "title": "Let readers comment via Google, Facebook, X or other social sign-in",
       "description": "Comments currently require a GitHub sign-in, which is a real barrier for ordinary blog readers who have no reason to hold a GitHub account. Needs a comment identity path that accepts Google, Facebook, X or similar social sign-in, alongside or instead of the current GitHub-only flow.",
       "type": "Feature Enhancement",
@@ -689,8 +704,8 @@
   ],
   "totals": {
     "epics": 7,
-    "stories": 26,
-    "done": 25,
-    "backlog": 16
+    "stories": 27,
+    "done": 26,
+    "backlog": 15
   }
 }

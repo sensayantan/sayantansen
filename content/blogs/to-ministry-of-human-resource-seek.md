@@ -4,7 +4,7 @@ date: 2014-10-30T14:20:00Z
 tags: []
 layout: standard
 images:
-  - image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XkvsrgY0hjc_JhlMyTfrMY6rCM6KbJacEYcA5jnd9VGflD4QGbt7wR6pPnOdZNuq1XC2Wg_Pyyjs8Ffy8sulvVaf2pud0D25UkAM4K9-SzIy59vrsir5wY0BxNdch-uvN1QyBKFTl66k/s1600/download.jpg"
+  - image: "/sayantansen/assets/images/blog/to-ministry-of-human-resource-seek/download.jpg"
     caption: ""
 ---
 
@@ -22,7 +22,7 @@ and supply and survival of the fittest, but is that humanity all about. Should s
 not be more tolerant, more expressive to support the poor and weaker section?
 Please note that the ask is not to show empathy, but to be more embracing.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XkvsrgY0hjc_JhlMyTfrMY6rCM6KbJacEYcA5jnd9VGflD4QGbt7wR6pPnOdZNuq1XC2Wg_Pyyjs8Ffy8sulvVaf2pud0D25UkAM4K9-SzIy59vrsir5wY0BxNdch-uvN1QyBKFTl66k/s1600/download.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XkvsrgY0hjc_JhlMyTfrMY6rCM6KbJacEYcA5jnd9VGflD4QGbt7wR6pPnOdZNuq1XC2Wg_Pyyjs8Ffy8sulvVaf2pud0D25UkAM4K9-SzIy59vrsir5wY0BxNdch-uvN1QyBKFTl66k/s1600/download.jpg)
+[![](/sayantansen/assets/images/blog/to-ministry-of-human-resource-seek/download.jpg)](/sayantansen/assets/images/blog/to-ministry-of-human-resource-seek/download.jpg)
 
 Yes, I am talking here of children
 with various disabilities. These gifted children have not come to this world

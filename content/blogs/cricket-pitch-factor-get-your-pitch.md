@@ -4,7 +4,7 @@ date: 2023-11-23T14:38:00Z
 tags: []
 layout: standard
 images:
-  - image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFrhwIRHyXnMXlD7RTSXALgNdQHfpgb6MaV2mAuTTT6UsvXF3cUrGqRL92ixgdp_FOtJZIxRLbRW_tvxXy8oGY3d0LUT527lh2IkYjyLOjbt-mk1CqpUY1PMuRnKKcLexkVUIFd0mcEiuTc2_jS2nESiKB8H6MEdhtAo1QhJdOEcUp1muipqApb1F_zRC7/w320-h213/ICC-Cricket-World-Cup.jpg"
+  - image: "/sayantansen/assets/images/blog/cricket-pitch-factor-get-your-pitch/ICC-Cricket-World-Cup.jpg"
     caption: ""
 ---
 
@@ -65,4 +65,4 @@ I hope to see that depending on "PITCH WISDOM INDEX", the cricket team coach has
 
   
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFrhwIRHyXnMXlD7RTSXALgNdQHfpgb6MaV2mAuTTT6UsvXF3cUrGqRL92ixgdp_FOtJZIxRLbRW_tvxXy8oGY3d0LUT527lh2IkYjyLOjbt-mk1CqpUY1PMuRnKKcLexkVUIFd0mcEiuTc2_jS2nESiKB8H6MEdhtAo1QhJdOEcUp1muipqApb1F_zRC7/w320-h213/ICC-Cricket-World-Cup.jpg)
+![](/sayantansen/assets/images/blog/cricket-pitch-factor-get-your-pitch/ICC-Cricket-World-Cup.jpg)
