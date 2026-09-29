@@ -396,10 +396,28 @@
                 "The workflow's automatic trigger watches only specific content-related folders for changes, which meant a change to the workflow file itself, or to one of the scripts it calls, previously had no way to exercise or verify itself short of waiting for unrelated real content to change and trigger a run."
               ],
               "notes": ""
+            },
+            {
+              "number": "5.4",
+              "title": "Keep every workflow's actions on a supported Node.js runtime",
+              "status": "In progress",
+              "known_status": true,
+              "narrative": "As the site owner, I want every GitHub Actions workflow that builds, refreshes or publishes this site to run on actions that target a Node.js runtime GitHub still supports, so that the render pipeline, the monthly corpus refresh and the daily Daybreak publish do not stop working on the day GitHub removes the old runtime from its runners \u2014 a deadline that, until now, was only announced in a warning banner on each run that nobody was reading.",
+              "acceptance_criteria": [
+                "Every action used by render-content.yml, refresh-corpus.yml and daybreak.yml is on a major version whose own action definition declares the Node.js 24 runtime \u2014 checkout v5, setup-python v6, setup-node v5, cache v5, upload-artifact v6, configure-pages v6, deploy-pages v5 \u2014 or, for upload-pages-artifact (a composite action with no runtime of its own), on v5, the first major whose nested upload-artifact step is itself on Node.js 24.",
+                "A real run of each of the three workflows after the change completes successfully and carries no \"Node.js 20 is deprecated\" annotation \u2014 confirmed from the run's own annotations, not inferred from the version numbers in the file.",
+                "Daybreak's own scripts keep running under the Node.js 22 LTS release that daybreak.yml already pins; only the runtime of the actions themselves changes."
+              ],
+              "assumptions": [
+                "The backlog item this story came from described the workflows as pinning an older Node.js version and proposed bumping to Node 20. On inspection that was inaccurate: daybreak.yml already pinned Node 22 for its own scripts, and the other two workflows run no Node step at all. The real exposure was the actions' own runtime \u2014 every run was being flagged because checkout v4, setup-python v5, cache v4 and the Pages actions all target Node.js 20, which GitHub has deprecated and was already force-running on Node.js 24. Bumping to Node 20 would have been a downgrade and would not have cleared the warning.",
+                "The lowest major version of each action that targets Node.js 24 was chosen rather than the newest, to keep the change to the runtime alone rather than also absorbing unrelated later breaking changes.",
+                "upload-pages-artifact v4 and later exclude dotfiles from the published site. The only tracked dotfiles are .nojekyll, .gitignore, .gitkeep placeholders and backend/.env.example; none of them is served to a reader, and .nojekyll has no effect on an Actions-based Pages deployment, so dropping them from Daybreak's deploy artifact is accepted."
+              ],
+              "notes": ""
             }
           ],
           "done": 3,
-          "total": 3
+          "total": 4
         },
         {
           "project": "SenSite",
@@ -639,14 +657,6 @@
       "date": "2026-09-24"
     },
     {
-      "epic": "Daybreak daily news brief",
-      "title": "Bump the Node.js runtime used by the GitHub Actions workflows",
-      "description": "render-content.yml, daybreak.yml and refresh-corpus.yml all currently pin an older Node.js version for their JavaScript steps. Needs bumping to Node 20 across all three workflows, with each one re-verified after the change since Daybreak's own render and test scripts run under Node.",
-      "type": "Technical Debt",
-      "known_type": true,
-      "date": "2026-09-23"
-    },
-    {
       "epic": "Autism research search",
       "title": "Correct the corpus imbalance between abstracts and trial records",
       "description": "Clinical trial records make up about 21% of the search corpus but produce only about 9% of results shown to readers, most likely because protocol and eligibility language sits further from natural phrasing, in embedding space, than an abstract's prose does. Likely needs either a per-source scoring adjustment or a query-rewriting step; not yet designed.",
@@ -679,8 +689,8 @@
   ],
   "totals": {
     "epics": 7,
-    "stories": 25,
+    "stories": 26,
     "done": 25,
-    "backlog": 17
+    "backlog": 16
   }
 }

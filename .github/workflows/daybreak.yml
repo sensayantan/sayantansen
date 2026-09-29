@@ -24,14 +24,14 @@ jobs:
     environment:
       name: github-pages
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: main
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Pacific schedule gate
@@ -69,7 +69,7 @@ jobs:
           fi
       - name: Upload preview (never raw research or ticker files)
         if: steps.gate.outputs.run == 'true' && success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: daybreak-preview
           path: .daybreak-work/preview/*.html
@@ -78,7 +78,7 @@ jobs:
       # GITHUB_TOKEN pushes do not trigger a second Pages workflow. Explicitly deploy.
       - name: Configure Pages
         if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Package site without private inputs
         if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
         run: |
@@ -86,12 +86,12 @@ jobs:
           git archive HEAD | tar -x -C /tmp/daybreak-public-site
       - name: Upload site
         if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: /tmp/daybreak-public-site
       - name: Deploy site
         if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
       - name: Verify live edition after deployment
         if: steps.gate.outputs.run == 'true' && (github.event_name == 'schedule' || inputs.publish) && vars.DAYBREAK_API_PUBLISH_ENABLED == 'true'
         run: node backend/daybreak/verify-pages.mjs
