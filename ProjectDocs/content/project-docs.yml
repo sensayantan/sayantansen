@@ -35,6 +35,16 @@ document:
     actual sequence of requests and the fixes those requests produced, not
     from a plan drafted in advance — which is why several stories describe a
     problem discovered only after an earlier fix half-shipped it.
+
+    It covers two projects on one page. SenSite is the website itself.
+    Daybreak is the daily news and markets report the site publishes — a
+    trustworthy, personalised morning report combining world and regional
+    news, technology, health and autism research, markets, earnings and
+    portfolio trends, so that the important developments can be reviewed on
+    one transparent page. Daybreak's epics were written separately in
+    Codex's workspace (DAYBREAK-EPICS-AND-STORIES.md) and merged here on
+    2026-09-29 with their own numbering; their statuses were set from the
+    pipeline code and the published editions, not copied from that document.
   vision: >-
     As the site owner, I want a personal site I can publish to from a
     browser, that carries an automated daily brief and a research search I
@@ -87,6 +97,32 @@ document:
       cryptographic guarantee — the reasoning is written into the code or
       this document, so a future reader does not mistake the choice for an
       oversight and "fix" it back.
+    - >-
+      **Daybreak — Evidence before volume.** A story is published only when
+      its important claims are supported by reliable evidence.
+    - >-
+      **Daybreak — Multiple-source synthesis.** Every published news story
+      uses at least two genuinely independent source domains, and its headline
+      and summary are synthesised across them rather than copied from one
+      publisher.
+    - >-
+      **Daybreak — No silent gaps.** Unavailable metrics and incomplete
+      coverage are represented honestly, never guessed.
+    - >-
+      **Daybreak — Human impact first, once.** Major disasters, mass-casualty
+      events and humanitarian emergencies can rise into Top News regardless of
+      geography, and an event in Top News does not appear again in another
+      section.
+    - >-
+      **Daybreak — Freshness with continuity.** Previous editions may supply
+      leads, but an old story returns only when current research finds a
+      material new development.
+    - >-
+      **Daybreak — Transparent provenance.** Readers can see the publisher
+      roster for each desk and the links supporting every story.
+    - >-
+      **Daybreak — Private by construction.** Only authorised portfolio ticker
+      symbols ever leave the owner's machine for quote retrieval.
 
 epics:
   - project: SenSite
@@ -632,6 +668,23 @@ epics:
           - Every page was checked in a real browser at desktop and mobile widths with no failed requests, script errors, broken images or dead internal links, and the Daybreak pipeline's offline tests pass.
           - The Blogger export sits at BLOG/takeout, still local-only and gitignored.
           - "Open: the backend/daybreak compatibility symlink is removed once the Codex automation publishes from DAYBREAK/pipeline paths. This needs the automation's prompt updated in the Codex app and one scheduled edition to publish through the new paths; it is the only part of this story not yet done."
+
+      - number: "6.3"
+        title: "Daybreak's own epics and stories on the same page"
+        status: Done
+        narrative: >-
+          As the site owner, I want the Daybreak report's product epics and
+          stories kept in this document alongside the website's, so that both
+          projects' delivered work and open proposals are visible in one place
+          instead of in a file only one tool can see.
+        acceptance_criteria:
+          - "Daybreak's twelve epics and forty-five stories from DAYBREAK-EPICS-AND-STORIES.md, plus story 9.4 made from its daily-edition definition of done, are in this file under project: Daybreak, with their own numbering; the page shows them as a second project after SenSite, and nothing in SenSite was renumbered."
+          - "Each Daybreak story's status was set by checking the pipeline code (DAYBREAK/pipeline/render.mjs and config.json) and the latest published edition, not copied from the source document. Only 1.3, whose notifications live in the Codex app, is In progress; Epic 12's three proposals are Open."
+          - "Details that had changed since the source document were corrected during the merge: the 7:30 AM schedule, the DAYBREAK/pipeline and DAYBREAK/README.md paths, the My Experiment nav link, and the Large-cap decrease label."
+          - "Daybreak's product principles and out-of-scope list are merged into this document's own lists, each labelled Daybreak; its daily-edition definition of done became Daybreak story 9.4."
+        assumptions:
+          - "The source document stays in Codex's workspace; this file is now the maintained copy."
+          - "The source document names the portfolio workbook and says it holds 96 tickers but lists no tickers, balances or account data, so nothing private moved into this public repository. The workbook's file name was left out of the merged text anyway."
         assumptions:
           - The About Me page stays at the site root index.html rather than moving into AboutMe/, because the root must serve a page and making it a redirect would add a hop to every visit; the rest of the feature lives in AboutMe/.
           - Daybreak editions keep their existing DAYBREAK/ URLs. Only the pipeline code, patch script, archive page and landing page moved in beside them.
@@ -735,12 +788,708 @@ epics:
           - "This is a client-side, browser-enforced login wall, not a server-side access control: the page's underlying data file is still an ordinary static file hosted on GitHub Pages, and GitHub Pages has no mechanism to restrict who can fetch a specific static file by URL. A visitor who already knows or guesses the data file's exact path, and who chooses to fetch it directly rather than through this page, can still read its contents without ever signing in. This limitation is accepted deliberately here because nothing in this document is sensitive; a genuine server-side guarantee would require introducing a Worker to proxy and gate the file itself, which was judged out of proportion to the actual sensitivity of a project backlog."
           - The GitHub OAuth token this page obtains carries the same repository-write scope Decap's own login already carries; holding it in the browser for the duration of a session is an accepted, pre-existing risk of this whole login approach, not a new one introduced specifically by this story.
 
+  - project: Daybreak
+    number: 1
+    title: "Automated publication and scheduling"
+    summary: >-
+      The daily edition is researched, rendered, validated, published and
+      verified in one unattended run.
+    status: In progress
+    stories:
+      - number: "1.1"
+        title: "Scheduled morning edition"
+        status: Done
+        narrative: >-
+          As the report owner, I want Daybreak generated automatically at 7:30
+          a.m. Pacific so that I receive a current report without manual
+          intervention.
+        acceptance_criteria:
+          - "The automation runs at 7:30 a.m. in the America/Los_Angeles timezone."
+          - "It runs Monday through Saturday and does not run on Sunday."
+          - "Daylight-saving changes are handled by the Pacific timezone rather than a fixed UTC offset."
+          - "The automation remains attached to the Codex task so completion or failure can be reported there."
+          - "A successful run provides the deployed page URL."
+          - "A failed run clearly identifies the failed stage and never claims successful publication."
+        assumptions:
+          - "The source document specified 10:00 a.m.; the owner confirmed 7:30 a.m. on 2026-09-29, when the automation's stored schedule was also corrected to exclude Sundays."
+
+      - number: "1.2"
+        title: "End-to-end unattended operation"
+        status: Done
+        narrative: >-
+          As the report owner, I want research, generation, validation, Git
+          synchronization, publication, and deployment verification to happen in
+          one run.
+        acceptance_criteria:
+          - "The run synchronizes safely with origin/main before changing generated files."
+          - "It never overwrites unrelated work."
+          - "It performs current research, builds the edition data, retrieves authorized financial data, renders HTML, validates the result, commits only generated report files, pushes main, and verifies GitHub Pages."
+          - "Git or deployment failures stop the workflow rather than leaving a partial edition presented as complete."
+          - "Routine scheduled HTML publication does not require a new approval each day because authorization has already been granted."
+
+      - number: "1.3"
+        title: "Completion notification"
+        status: In progress
+        narrative: >-
+          As the report owner, I want a notification when the new edition is ready
+          or when action is required.
+        acceptance_criteria:
+          - "Successful publication produces a concise completion notification containing the live URL."
+          - "Failures that require intervention produce an actionable notification."
+          - "The automation does not generate unnecessary progress notifications while the run is healthy and incomplete."
+        assumptions:
+          - "Notifications are sent by the Codex app, outside this repository, so nothing here can show whether they work. Mark this Done once a success and a failure notification have both been seen."
+
+  - project: Daybreak
+    number: 2
+    title: "Stable website integration and archival model"
+    summary: >-
+      A fixed latest-edition URL, a permanent dated archive, and the site's
+      navigation kept on every edition.
+    status: Done
+    stories:
+      - number: "2.1"
+        title: "Permanent latest-edition URL"
+        status: Done
+        narrative: >-
+          As a website visitor, I want Today's News to open a stable file so that
+          the site does not need a daily code or JSON update.
+        acceptance_criteria:
+          - "Today's News opens DAYBREAK/index.html, which reads the static DAYBREAK/latest.json and forwards to DAYBREAK/daybreak-latest.html."
+          - "Every successful run overwrites daybreak-latest.html."
+          - "The integration does not require daily modification of latest.json; run.mjs checks it and fails if it changed."
+          - "The page adds a cache-busting query parameter, but the underlying path remains stable."
+
+      - number: "2.2"
+        title: "Date-stamped archive"
+        status: Done
+        narrative: >-
+          As the report owner, I want every edition archived so that past reports
+          remain available.
+        acceptance_criteria:
+          - "Every run also writes DAYBREAK/daybreak-YYYY-MMM-DD.html."
+          - "The archive and daybreak-latest.html have identical bytes and matching SHA-256 checksums for that run."
+          - "Archive filenames use an unambiguous English month abbreviation."
+          - "Historical files are never overwritten by later editions."
+
+      - number: "2.3"
+        title: "Preserve permanent site navigation"
+        status: Done
+        narrative: >-
+          As a website visitor, I want the primary navigation to remain visible on
+          Today's News so that I can move between the site's sections.
+        acceptance_criteria:
+          - "The Daybreak page retains the website's permanent top header."
+          - "Links to About Me, Today's News, Sayantan Blogs and My Experiment remain visible and usable; the My Experiment link is added by DAYBREAK/patch_daybreak.py."
+          - "The report does not replace the website shell with a headerless standalone experience."
+
+      - number: "2.4"
+        title: "Browser cache resilience"
+        status: Done
+        narrative: >-
+          As a visitor, I want the newest report to load without a hard refresh.
+        acceptance_criteria:
+          - "Navigation to Today's News adds a fresh cache-busting edition value."
+          - "The deployment workflow verifies the public URL using a fresh cache-busting query."
+          - "The site does not depend on the user manually clearing the browser cache."
+
+  - project: Daybreak
+    number: 3
+    title: "Editorial structure and visual design"
+    summary: >-
+      A personalised, consistently ordered, calm edition whose sources are
+      visible to the reader.
+    status: Done
+    stories:
+      - number: "3.1"
+        title: "Personalized masthead"
+        status: Done
+        narrative: >-
+          As the report owner, I want the report clearly personalized and dated.
+        acceptance_criteria:
+          - "The main heading is left-aligned."
+          - "It follows the form: Today's Curated News for Sayantan Sen \u2014 DD-MMM-YY."
+          - "A red subheader appears immediately below the heading."
+          - "All section headings are left-aligned."
+
+      - number: "3.2"
+        title: "Required editorial desks"
+        status: Done
+        narrative: >-
+          As a reader, I want coverage organized consistently so that I can scan
+          the same subject areas each day.
+        acceptance_criteria:
+          - "Sections appear in this order: Top News, Top US News, Local US Bay-Area News, Top India & Asia-Pacific News, Top News from the Middle-East, Top News from Europe, Top News from Latin America, Top News from Africa, Technology & AI, Health and Research, then Money / Markets."
+          - "Disaster coverage is not isolated in a permanent Disaster Recovery section; qualifying events are ranked into Top News."
+          - "The first desk is labeled exactly Top News."
+        assumptions:
+          - "The ten editorial desks and their order live in DAYBREAK/pipeline/config.json, and the renderer rejects an edition whose sections differ."
+
+      - number: "3.3"
+        title: "Visual hierarchy"
+        status: Done
+        narrative: >-
+          As a reader, I want a calm editorial design that separates content areas
+          without visual clutter.
+        acceptance_criteria:
+          - "Editorial sections use different shades of grey."
+          - "Money / Markets uses a black-and-white treatment."
+          - "Tables remain readable on common desktop widths."
+          - "The layout remains usable on smaller screens, including side-by-side sections collapsing, with no sideways page scroll at phone widths."
+        assumptions:
+          - "Phone-width overflow in the market strip was fixed on 2026-09-29; see SenSite story 2.5."
+
+      - number: "3.4"
+        title: "Transparent source roster"
+        status: Done
+        narrative: >-
+          As a reader, I want to know which publishers are considered for each
+          desk.
+        acceptance_criteria:
+          - "Fine-print source-roster links appear immediately below each applicable section heading."
+          - "The visible roster is generated from the checked-in editorial source policy."
+          - "Displaying a publisher in the roster does not falsely imply that it was successfully read during that run."
+          - "Internal audit status distinguishes reviewed, blocked, paywalled, unavailable, stale, unreadable, and not retrieved sources."
+          - "Internal editorial shortfall messages such as \"0 fresh stories met the sourcing standard\" are not shown to readers."
+
+  - project: Daybreak
+    number: 4
+    title: "Source-first research and neutral synthesis"
+    summary: >-
+      Every desk is researched against a defined publisher roster, and every
+      story is a neutral synthesis of at least two independent sources.
+    status: Done
+    stories:
+      - number: "4.1"
+        title: "Mandatory publisher sweep"
+        status: Done
+        narrative: >-
+          As the report owner, I want each editorial desk researched against a
+          defined publisher roster so that coverage is broad and repeatable.
+        acceptance_criteria:
+          - "The system attempts every relevant roster entry for each desk."
+          - "Reachable current top-news pages and candidate articles are opened and read."
+          - "Blocked or unreadable pages are recorded honestly rather than treated as reviewed."
+          - "Google News may be used for discovery but is not cited in place of the original publisher."
+          - "Syndicated copies of the same wire story do not count as independent corroboration."
+        assumptions:
+          - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
+
+      - number: "4.2"
+        title: "Multi-source story synthesis"
+        status: Done
+        narrative: >-
+          As a reader, I want each story based on multiple independent reports so
+          that the result is more neutral than a single-article summary.
+        acceptance_criteria:
+          - "Every published story cites at least two independent source domains."
+          - "The system clusters articles describing the same underlying event."
+          - "It compares agreements, discrepancies, provisional numbers, and disputed claims."
+          - "It creates an original neutral headline."
+          - "It produces a combined summary no longer than 200 words."
+          - "Every article materially used is linked."
+          - "Claims that remain disputed or provisional are explicitly attributed."
+        assumptions:
+          - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself. The two-domain rule is enforced in code; the 200-word limit is an editorial rule."
+
+      - number: "4.3"
+        title: "Non-English reporting"
+        status: Done
+        narrative: >-
+          As a reader, I want important reporting considered even when its
+          original publication is not in English.
+        acceptance_criteria:
+          - "An official English edition is preferred when available."
+          - "Otherwise, readable original-language reporting may be translated during research."
+          - "Links continue to point to the original article."
+          - "Translation does not remove attribution or turn uncertain language into a definite claim."
+        assumptions:
+          - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
+
+      - number: "4.4"
+        title: "Freshness and continuing stories"
+        status: Done
+        narrative: >-
+          As a reader, I want current developments without artificial filler.
+        acceptance_criteria:
+          - "Section counts are soft targets, not permission to publish weak stories."
+          - "When a desk is below target, the previous edition supplies continuing-story leads."
+          - "Each lead is re-researched using current sources."
+          - "A story returns only for a material development such as a decision, verified impact change, filing, escalation, result, or resolution."
+          - "Rewritten headlines, opinion, recaps, and unchanged background do not qualify."
+          - "Yesterday's summary, sources, and timestamp are never copied into today's edition."
+        assumptions:
+          - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
+
+      - number: "4.5"
+        title: "Cross-section deduplication"
+        status: Done
+        narrative: >-
+          As a reader, I want each event presented once so that the report does
+          not feel repetitive.
+        acceptance_criteria:
+          - "Top News is selected before regional sections."
+          - "Events chosen for Top News are removed from all other desks."
+          - "Deduplication considers event identity, substantially equivalent headlines, and source URLs."
+          - "Separate events are not accidentally removed merely because they appear on the same publisher index or roundup page."
+
+      - number: "4.6"
+        title: "Tamper-evident research audit"
+        status: Done
+        narrative: >-
+          As the report owner, I want every edition bound to a current audit so
+          that stale or invented research cannot be rendered accidentally.
+        acceptance_criteria:
+          - "A private research-audit.json is generated for the edition."
+          - "It matches the edition date and research timestamp."
+          - "It records each roster source, check time, status, notes where needed, and candidate article URLs."
+          - "It covers every URL cited in the edition."
+          - "It stores the SHA-256 digest of the canonical edition data."
+          - "Missing, stale, incomplete, or digest-mismatched audits fail rendering and publication."
+
+  - project: Daybreak
+    number: 5
+    title: "Coverage volume and desk-specific discovery"
+    summary: >-
+      Broad daily coverage from independently searched regional and specialist
+      desks, without lowering the verification standard.
+    status: Done
+    stories:
+      - number: "5.1"
+        title: "Soft editorial targets"
+        status: Done
+        narrative: >-
+          As the report owner, I want broad daily coverage without lowering the
+          verification standard.
+        acceptance_criteria:
+          - "Targets and maximums per desk: Top News 5/10; Top US News 5/8; Local US Bay-Area News 3/5; Top India & Asia-Pacific News 5/8; Middle-East 2/4; Europe 5/8; Latin America 2/4; Africa 2/4; Technology & AI 2/4; Health and Research 2/4."
+          - "Targets guide expanded searching and prior-edition follow-up."
+          - "Maximums and two-source verification are hard gates."
+          - "Reader-facing pages do not expose internal target-shortfall diagnostics."
+        assumptions:
+          - "The targets and maximums live in DAYBREAK/pipeline/config.json; the renderer rejects a section over its maximum."
+
+      - number: "5.2"
+        title: "Worldwide breaking-event sweep"
+        status: Done
+        narrative: >-
+          As a reader, I want major human-impact events surfaced even when they
+          occur outside high-volume news markets.
+        acceptance_criteria:
+          - "Every run independently searches for earthquakes, floods, tsunamis, cyclones, landslides, wildfires, mass shootings, massacres, terror attacks, major accidents, and humanitarian emergencies."
+          - "Ranking considers human impact, scale, urgency, international significance, and new developments."
+          - "Major verified disasters and mass-casualty events can enter Top News regardless of geography."
+          - "Casualty figures use authoritative or local sources plus independent reporting where possible."
+          - "Provisional casualty counts are labeled as provisional."
+        assumptions:
+          - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
+
+      - number: "5.3"
+        title: "US and Bay Area coverage"
+        status: Done
+        narrative: >-
+          As a Bay Area reader, I want national US news plus locally relevant
+          reporting.
+        acceptance_criteria:
+          - "Top US News includes national policy, courts, economy, society, security, and other major developments."
+          - "Local searches cover San Francisco, Oakland, San Jose, the Peninsula, North Bay, and East Bay."
+          - "Local sources include a diverse mix such as The Mercury News, San Francisco Chronicle, KQED, ABC7/KGO, NBC Bay Area/KNTV, KTVU, KRON4, KPIX, SFGATE, and public agencies."
+
+      - number: "5.4"
+        title: "India and Asia-Pacific coverage"
+        status: Done
+        narrative: >-
+          As a reader with interests in India and the wider region, I want the
+          desk to extend beyond India-only headlines.
+        acceptance_criteria:
+          - "Searches cover India, Nepal and South Asia, China, Hong Kong, Taiwan, Japan, the Koreas, Southeast Asia, Australia, New Zealand, and Pacific islands."
+          - "The desk title is Top India & Asia-Pacific News."
+          - "The roster includes major Indian sources and regional specialists such as CNA, NHK World-Japan, Arirang, TaiwanPlus, CNBC Asia, Bloomberg Asia, and others documented in the editorial source policy."
+
+      - number: "5.5"
+        title: "Independent regional desks"
+        status: Done
+        narrative: >-
+          As a global-news reader, I want the Middle East, Europe, Latin America,
+          and Africa searched independently rather than populated from leftover
+          global headlines.
+        acceptance_criteria:
+          - "Each region receives its own queries and publisher-roster sweep."
+          - "International wires are combined with credible regional and local sources."
+          - "Latin America explicitly includes the Caribbean."
+          - "Regional reporting may be translated when an English version is unavailable."
+
+      - number: "5.6"
+        title: "Technology freshness"
+        status: Done
+        narrative: >-
+          As a reader, I want meaningful Technology & AI developments rather than
+          the same product-release story repeated across editions.
+        acceptance_criteria:
+          - "Recycled announcements are excluded unless there is a genuinely new development."
+          - "Coverage may include AI research, safety, products, regulation, infrastructure, cybersecurity, semiconductors, and other material technology developments."
+          - "Marketing claims are attributed and not stated as independently proven facts."
+        assumptions:
+          - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
+
+  - project: Daybreak
+    number: 6
+    title: "Health, research, and autism coverage"
+    summary: >-
+      Health and research developments reported with scientific caution, and
+      autism coverage searched in every run.
+    status: Done
+    stories:
+      - number: "6.1"
+        title: "Evidence-led health research"
+        status: Done
+        narrative: >-
+          As a reader, I want important health and research developments
+          summarized with appropriate scientific caution.
+        acceptance_criteria:
+          - "Preferred sources include peer-reviewed journals, primary research, systematic reviews, clinical guidance, universities, and independent health reporting."
+          - "Every research story identifies the study type and meaningful limitations."
+          - "Association is distinguished from causation."
+          - "Preprints are distinguished from peer-reviewed work."
+          - "Animal findings are distinguished from human evidence."
+          - "Early-stage results are distinguished from clinical guidance."
+          - "The section does not provide diagnosis or treatment advice."
+        assumptions:
+          - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
+
+      - number: "6.2"
+        title: "Dedicated autism search"
+        status: Done
+        narrative: >-
+          As the report owner, I want autism spectrum disorder coverage included
+          in every research cycle.
+        acceptance_criteria:
+          - "Every run searches for new autism research, healthcare access, screening, support, education, community achievements, and inspirational human-interest stories."
+          - "Human-interest stories are clearly labeled and are not presented as scientific evidence."
+          - "Language is respectful and does not imply that autism requires a cure."
+          - "Research limitations and population differences are made clear."
+        assumptions:
+          - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
+
+  - project: Daybreak
+    number: 7
+    title: "Market snapshot and financial context"
+    summary: >-
+      A sourced market strip, mover tables, market analysis and verified
+      earnings, each value with its observation time and source.
+    status: Done
+    stories:
+      - number: "7.1"
+        title: "Market strip below the masthead"
+        status: Done
+        narrative: >-
+          As a reader, I want an immediate market snapshot at the top of the
+          report.
+        acceptance_criteria:
+          - "The strip contains, in order: S&P 500, Dow, Nasdaq, 10-year US Treasury yield, and Federal Reserve target range."
+          - "Every value includes an observation timestamp and source link."
+          - "Stale data is labeled with its actual observation time."
+          - "A value that cannot be verified displays an explicit source-unavailable label rather than zero or an estimate."
+
+      - number: "7.2"
+        title: "Top gainers and losers"
+        status: Done
+        narrative: >-
+          As a market reader, I want concise trend tables showing notable movers.
+        acceptance_criteria:
+          - "The report shows exactly five Top gainers and five Top losers."
+          - "Each row includes price, exchange, 7-day move, 1-month move, catalyst or analysis, and quote link."
+          - "\"Top\" is defined against the disclosed tracking universe, not falsely represented as the entire exchange."
+          - "The discontinued One-week leaders section does not appear."
+
+      - number: "7.3"
+        title: "Side-by-side large-cap comparison"
+        status: Done
+        narrative: >-
+          As a market reader, I want rising and declining large-cap stocks
+          compared in one place.
+        acceptance_criteria:
+          - "One section shows Large-cap increase and Large-cap decrease side by side."
+          - "Each side contains ten stocks when data is available."
+          - "Each row includes price, exchange, 7-day move, 1-month move, catalyst, and quote link."
+          - "Missing numeric fields are labeled explicitly instead of being omitted."
+
+      - number: "7.4"
+        title: "Market internals and mover analysis"
+        status: Done
+        narrative: >-
+          As a reader, I want context explaining what is driving the market rather
+          than tables alone.
+        acceptance_criteria:
+          - "The report contains market-internals context and mover analysis."
+          - "Analysis distinguishes observations from hypotheses."
+          - "Market data timestamps and methodologies are disclosed."
+
+      - number: "7.5"
+        title: "S&P 500 earnings newsroom"
+        status: Done
+        narrative: >-
+          As an investor, I want verified earnings developments for S&P 500
+          companies.
+        acceptance_criteria:
+          - "Each included item provides a concise results summary."
+          - "It links to the company's official earnings report and an independent news source."
+          - "The report never claims complete S&P 500 coverage unless a constituent-wide sweep was actually completed."
+          - "Missing or unverified figures are not inferred."
+
+  - project: Daybreak
+    number: 8
+    title: "Private portfolio trend monitoring"
+    summary: >-
+      Holdings that fell over both a week and a month flagged for review,
+      using only ticker symbols from a local workbook.
+    status: Done
+    stories:
+      - number: "8.1"
+        title: "Authorized holdings import"
+        status: Done
+        narrative: >-
+          As the portfolio owner, I want Daybreak to read the ticker list from my
+          spreadsheet.
+        acceptance_criteria:
+          - "The source workbook stays on the owner's machine and is never added to the repository."
+          - "The system extracts only the 96 authorized ticker symbols."
+          - "Quantities, balances, account identifiers, cost basis, and other workbook data are never transmitted."
+          - "Only ticker symbols may be sent to Yahoo Finance for price and trend retrieval."
+
+      - number: "8.2"
+        title: "Dual-period downside screen"
+        status: Done
+        narrative: >-
+          As the portfolio owner, I want holdings that declined over both one week
+          and one month highlighted for review.
+        acceptance_criteria:
+          - "The section appears immediately after the large-cap increase/decrease comparison."
+          - "It lists every holding with negative 7-day and negative 1-month price trends."
+          - "Each row includes current price, both trend percentages, and a quote link."
+          - "Each row includes a clearly labeled review priority."
+          - "The section explicitly states that the priority is not a buy/sell recommendation."
+        assumptions:
+          - "The published edition shows these holdings' symbols and prices, and is public on GitHub Pages; no balances or account data appear in it."
+
+      - number: "8.3"
+        title: "Price methodology disclosure"
+        status: Done
+        narrative: >-
+          As the portfolio owner, I want to understand how trend values are
+          calculated.
+        acceptance_criteria:
+          - "The page explains that unadjusted Yahoo daily bars are used."
+          - "Comparisons use the nearest available close on or before seven and thirty calendar days earlier."
+          - "It notes that the current daily bar may be intraday and mutual funds may have an earlier NAV."
+          - "It warns that splits and distributions can affect unadjusted returns."
+
+  - project: Daybreak
+    number: 9
+    title: "Quality assurance and hallucination controls"
+    summary: >-
+      Unsupported claims constrained, invalid editions blocked before
+      publication, and behaviour protected by automated tests.
+    status: Done
+    stories:
+      - number: "9.1"
+        title: "No unsupported factual claims"
+        status: Done
+        narrative: >-
+          As the report owner, I want hallucination risk actively constrained.
+        acceptance_criteria:
+          - "The system never invents facts, prices, catalysts, dates, casualty figures, medical findings, or earnings results."
+          - "Retrieved source URLs constrain which URLs may appear in generated content."
+          - "Source provenance checks reject invented URLs."
+          - "Provisional or disputed claims are attributed."
+          - "Numeric fields are never silently omitted."
+        assumptions:
+          - "Every cited URL must appear in the research audit, which is how invented URLs are rejected; this is a guardrail, not proof that every claim is true."
+
+      - number: "9.2"
+        title: "Edition validation"
+        status: Done
+        narrative: >-
+          As the report owner, I want invalid reports blocked before publication.
+        acceptance_criteria:
+          - "Validation checks required section order and maximum story counts."
+          - "Every story has a unique event identity and two independent source domains."
+          - "Cross-section duplicates are rejected."
+          - "The five required market metrics exist in the required order."
+          - "HTML structure and required tables are validated."
+          - "Latest and archive checksums must match."
+          - "A failure blocks publication of the partial edition."
+
+      - number: "9.3"
+        title: "Regression testing"
+        status: Done
+        narrative: >-
+          As a maintainer, I want repeatable automated tests so that fixes do not
+          break established behavior.
+        acceptance_criteria:
+          - "Tests cover source provenance, ranking, stale and future event filtering, duplicate removal, Pacific-date rollover, request-budget failures, and full configured-section generation."
+          - "The mandatory audit path is tested positively and negatively."
+          - "A local preview can be generated without publishing to GitHub."
+        assumptions:
+          - "DAYBREAK/pipeline/test.mjs and research.test.mjs; both run offline and never publish."
+
+      - number: "9.4"
+        title: "Definition of done for a daily edition"
+        status: Done
+        narrative: >-
+          As the report owner, I want one checklist that decides whether a day's
+          edition is complete, so that "published" always means the same thing.
+        acceptance_criteria:
+          - "The local repository is safely synchronized with origin/main."
+          - "The required instruction and editorial-policy documents have been read."
+          - "Every editorial desk has received its own source-roster-driven research pass."
+          - "The worldwide disaster and mass-casualty sweep is complete."
+          - "Every published story has at least two independent source domains."
+          - "Headlines and summaries are neutral syntheses, not copies of one article."
+          - "Cross-section duplicate events have been removed."
+          - "The current edition data and private research audit agree and share a valid digest."
+          - "Market metrics, market tables, portfolio analysis, and earnings are refreshed or explicitly labeled unavailable."
+          - "The HTML validator and automated tests pass."
+          - "daybreak-latest.html and the date-stamped archive are byte-identical."
+          - "Only the two intended HTML files are staged for the scheduled report commit."
+          - "The commit reaches GitHub main without overwriting unrelated work."
+          - "GitHub Pages serves the new edition at a cache-busted URL."
+          - "The completion message contains the verified deployed URL."
+
+  - project: Daybreak
+    number: 10
+    title: "Git, deployment, and change safety"
+    summary: >-
+      Publication that never loses unrelated work and commits only the
+      expected report output.
+    status: Done
+    stories:
+      - number: "10.1"
+        title: "Safe synchronization"
+        status: Done
+        narrative: >-
+          As a maintainer working alongside Claude Code and VS Code, I want
+          Daybreak changes synchronized without losing unrelated work.
+        acceptance_criteria:
+          - "The workflow fetches before editing or publishing."
+          - "Diverged branches are reconciled by a safe merge or rebase; force-push is not used by default."
+          - "Existing unrelated files and commits are preserved."
+          - "Merge conflicts stop automation for review."
+        assumptions:
+          - "The publisher runs from its own clone, ~/Documents/Codex/daybreak-publisher, which fast-forwards from origin/main and refuses to publish from an unclean checkout."
+
+      - number: "10.2"
+        title: "Minimal generated commit"
+        status: Done
+        narrative: >-
+          As a repository owner, I want automated commits limited to the expected
+          report output.
+        acceptance_criteria:
+          - "Scheduled publication stages only DAYBREAK/daybreak-latest.html and that day's archive HTML."
+          - "Untracked folders and unrelated source files are not accidentally committed."
+          - "The generated report commit is pushed to main only after all validation passes."
+
+      - number: "10.3"
+        title: "Deployability without an OpenAI API key"
+        status: Done
+        narrative: >-
+          As the report owner, I want the current Codex-hosted workflow to avoid
+          personal API usage charges.
+        acceptance_criteria:
+          - "Broad web research and synthesis run within the Codex scheduled task using the owner's Codex subscription and available tools."
+          - "The repository does not require an OpenAI API key for the current hosted automation."
+          - "The documentation makes clear that moving autonomous model-based research into GitHub Actions or another independent server would require an API/service credential or a different deterministic data pipeline."
+        assumptions:
+          - "That alternative exists but is dormant: .github/workflows/daybreak.yml runs only when DAYBREAK_CLOUD_ENABLED is set (SenSite story 5.4)."
+
+  - project: Daybreak
+    number: 11
+    title: "Documentation and maintainability"
+    summary: >-
+      One current architecture document, a checked-in editorial policy, and a
+      preview path that uses the same code as publication.
+    status: Done
+    stories:
+      - number: "11.1"
+        title: "Single authoritative architecture document"
+        status: Done
+        narrative: >-
+          As a maintainer, I want one current architecture document so that
+          duplicate documentation does not drift.
+        acceptance_criteria:
+          - "Only the actively maintained Daybreak architecture document is retained: DAYBREAK/README.md."
+          - "It explains research, edition data, audit, financial retrieval, rendering, validation, publication, and website integration."
+          - "Obsolete duplicate architecture documents are removed."
+        assumptions:
+          - "The document was architecture-daybreak.md at the repository root until the 2026-09-29 folder reorganisation (SenSite story 6.2) moved it to DAYBREAK/README.md."
+
+      - number: "11.2"
+        title: "Editorial source policy"
+        status: Done
+        narrative: >-
+          As an editor, I want publisher rosters and research rules checked into
+          source control.
+        acceptance_criteria:
+          - "DAYBREAK/pipeline/editorial-sources.md lists source rosters by section with online links."
+          - "It documents discovery, reading, clustering, ranking, synthesis, translation, prior-day follow-up, deduplication, and audit expectations."
+          - "The scheduled task reads the policy before each run."
+
+      - number: "11.3"
+        title: "Reproducible local review"
+        status: Done
+        narrative: >-
+          As the report owner, I want to inspect a report locally before deciding
+          whether to publish it.
+        acceptance_criteria:
+          - "The pipeline supports preview mode without --publish."
+          - "Preview output is written under .daybreak-work/preview."
+          - "The preview uses the same rendering and validation path as publication."
+          - "Review runs do not alter the public website unless explicitly requested."
+
+  - project: Daybreak
+    number: 12
+    title: "Future enhancements"
+    summary: >-
+      Proposals from the product document that have not been started. Their
+      acceptance criteria are proposed, not agreed.
+    stories:
+      - number: "12.1"
+        title: "MCP-backed specialist retrieval"
+        narrative: >-
+          As a maintainer, I want structured connectors for specialist data so
+          that source retrieval becomes more reliable and auditable.
+        acceptance_criteria:
+          - "Continue using broad Codex web search for breaking and regional news."
+          - "Introduce MCP integrations first for health research, official earnings, authoritative market metrics, and archive deduplication."
+          - "MCP results preserve source identity, timestamps, and URLs."
+          - "Connector failure degrades honestly to the existing source-first workflow rather than inventing data."
+
+      - number: "12.2"
+        title: "Archive search and retrieval"
+        narrative: >-
+          As the report owner, I want to find past stories across archived
+          editions.
+        acceptance_criteria:
+          - "A lightweight archive index is generated from date-stamped HTML or structured edition data."
+          - "Search can be implemented in the personal website without requiring the Codex scheduler for every query."
+          - "Archive retrieval distinguishes historical reporting from current updates."
+        assumptions:
+          - "Partly in place: DAYBREAK/data/daybreak-index.json already lists every edition for the archive calendar; searching inside editions is not built."
+
+      - number: "12.3"
+        title: "Handwriting-inspired visual edition"
+        narrative: >-
+          As the report owner, I want the option to use a custom font derived from
+          handwriting samples.
+        acceptance_criteria:
+          - "Handwriting samples are supplied with sufficient alphabet, numeral, and punctuation coverage."
+          - "The resulting font remains legible and accessible at normal reading sizes."
+          - "A conventional fallback font remains available."
+          - "Font use is optional and does not compromise report rendering or performance."
+        assumptions:
+          - "Overlaps the SenSite backlog item \"Add personal, handwritten-style content to the page design\"; one font could serve both."
+
 backlog:
-  - epic: "Project documentation"
-    title: "Merge in the Daybreak project's own epics and stories"
-    description: "Codex has documented Daybreak's own epics and stories separately (DAYBREAK-EPICS-AND-STORIES.md). Append them to this file's top-level `epics` list with project: Daybreak and their own numbering, and to this `backlog` list for any of their own open items, so both projects' work is visible on one page without either set needing to be renumbered."
-    type: Feature Development
-    date: 2026-09-25
   - epic: "Pipeline and safeguards"
     title: "Give every feature area its own regression-test contract, enforced in the build"
     description: "Each feature area should have one feature-specific Markdown file of regression instructions — one for the autism research search, one for Daybreak, one for blog posts — and every build pipeline should run those instructions rather than relying on a person remembering to check by hand. Needs the folder and file layout defined first, since today there is no agreed place for a feature's own regression contract to live."
@@ -825,3 +1574,13 @@ out_of_scope:
   - A build step, a bundler, or a front-end framework of any kind.
   - Presenting autism search results as health information, medical advice, or a substitute for a clinician.
   - A server-side, cryptographically enforced access control on the project documentation page's underlying data file; the login gate on that page is a client-side convenience, documented as such in story 7.5.
+  - "Daybreak: publishing uncorroborated stories merely to reach a target count."
+  - "Daybreak: treating Google News or syndicated mirrors as independent primary publishers."
+  - "Daybreak: reusing yesterday's summary without a material current development."
+  - "Daybreak: guessing missing prices, casualty counts, earnings, research findings, or catalysts."
+  - "Daybreak: sending portfolio quantities, balances, identifiers, or cost basis to external services."
+  - "Daybreak: requiring a daily manual change to latest.json, or a browser hard-refresh to see a new edition."
+  - "Daybreak: removing the personal website's permanent navigation header."
+  - "Daybreak: restoring the discontinued One-week leaders section."
+  - "Daybreak: presenting portfolio review priority as investment advice."
+  - "Daybreak: claiming a complete S&P 500 earnings sweep when one was not performed."
