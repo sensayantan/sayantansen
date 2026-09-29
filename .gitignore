@@ -6,3 +6,10 @@ __pycache__/
 /SayantanStockCode.xlsx
 experiments/autism-rag/index.pkl
 experiments/autism-rag/corpus/
+
+# Personal Claude Code permissions, not shared
+.claude/settings.local.json
+
+# Raw Google Takeout export: contains personal data (emails, followers,
+# commenters). Kept locally only; never publish it via GitHub Pages.
+takeout/

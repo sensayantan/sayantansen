@@ -5,7 +5,7 @@ date: 2025-08-11T01:39:00.000Z
 tags: []
 layout: standard
 images:
-  - image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiG1u06LOoxQr8YJetloFqFQNoQ4t9P2NZrSg0yQonaLNi3XWHH5gnMusneNtmkP89fJilhqMGk5XiWfmdQHS63fDzlxHdZIIpqPLsyPk-tLttjkFhM-A_9VsLHq9G3xPAW_KRIkh0EdFi1A5EXISMc5RcNupFs_LQmI0DLLgh5fgRRN0WyNO5U4q1j7CZh/s1600/Turkey.jpeg
+  - image: /sayantansen/assets/images/blog/11-days-two-countries-countless/Turkey.jpeg
     caption: ""
 video: https://youtu.be/P7_8H7AXjzQ
 ---
@@ -40,6 +40,8 @@ during an accident can cost **180,000 TRY** in fines.
 
 The hour-long drive to **Arts Taksim Hotel** gave us our first look at the sprawling,
 traffic-heavy city.
+
+![Turkey](/sayantansen/assets/images/blog/11-days-two-countries-countless/Turkey.jpeg)
 
 - - -
 
@@ -337,6 +339,8 @@ we resisted the temptation this time, unlike our pottery and carpet splurges ear
 3. Don’t miss the Nike carving and the communal latrines — small but memorable details.
 4. The House of the Virgin Mary is serene and worth visiting, even if you’re not religious.
 5. Leather factory visits are fun, but don’t feel pressured to buy — prices are high despite discounts.
+
+![Greece](/sayantansen/assets/images/blog/11-days-two-countries-countless/Greece.jpeg)
 
 - - -
 
