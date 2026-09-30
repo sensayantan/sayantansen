@@ -926,10 +926,31 @@
               ],
               "assumptions": [],
               "notes": ""
+            },
+            {
+              "number": "2.49",
+              "title": "Search past Daybreak stories",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As a reader, I want to search every past Daybreak story by keyword, so that I can find how a subject was reported across editions without opening each day's brief in turn from the calendar.",
+              "acceptance_criteria": [
+                "The Daybreak archive page has a search box above the calendar. Every word typed must start a word in a story's headline, summary, category or section, ignoring case and accents, so \"fed\" finds Fed and federal but not confederation, and \"Inacio\" finds In\u00e1cio.",
+                "Results are newest first, capped at 40 with the total shown, each dated with its edition and section so it reads as past reporting, with the matched words highlighted and a link straight to that section of that edition.",
+                "It works in the archive pop-up opened from an edition, keeping the chrome-free view on the edition it opens.",
+                "It needs no server or search service. DAYBREAK/patch_daybreak.py, which already runs whenever an edition lands, also writes DAYBREAK/data/daybreak-stories.json from every dated edition, and the page filters that file in the browser, fetching it only once the reader starts typing.",
+                "The first index covers all 231 stories across the 14 dated editions, and was checked in a real browser at desktop and phone widths."
+              ],
+              "assumptions": [
+                "This is keyword search, not a question-answering search. Answering questions would need embeddings and a server, the pattern My Experiment's Worker already uses; the story index is the input such a search would start from.",
+                "daybreak-latest.html is not indexed, because it is a byte-identical copy of the day's dated edition and would list each of today's stories twice.",
+                "A continuing story appears once per edition that carried it, because each edition reported it afresh; results are dated so the repeats read as a timeline.",
+                "The index grows by roughly 8 KB per edition, a few megabytes a year; it is fetched only when someone searches."
+              ],
+              "notes": ""
             }
           ],
-          "done": 48,
-          "total": 48
+          "done": 49,
+          "total": 49
         },
         {
           "project": "Sayantan Sen website Project Documentation",
@@ -1376,14 +1397,6 @@
       "date": "2026-09-30"
     },
     {
-      "epic": "Daybreak daily news brief",
-      "title": "Search past Daybreak stories across archived editions",
-      "description": "Let a reader find a past story across all editions, from the personal website, without running the Codex scheduler per query, and make clear that archived reporting is historical. Partly in place: DAYBREAK/data/daybreak-index.json already lists every edition for the archive calendar; searching inside editions is not built. From Daybreak's product document (proposal 12.2).",
-      "type": "Feature Development",
-      "known_type": true,
-      "date": "2026-09-30"
-    },
-    {
       "epic": "Pipeline and safeguards",
       "title": "Give every feature area its own regression-test contract, enforced in the build",
       "description": "Each feature area should have one feature-specific Markdown file of regression instructions \u2014 one for the autism research search, one for Daybreak, one for blog posts \u2014 and every build pipeline should run those instructions rather than relying on a person remembering to check by hand. Needs the folder and file layout defined first, since today there is no agreed place for a feature's own regression contract to live.",
@@ -1522,8 +1535,8 @@
   ],
   "totals": {
     "epics": 7,
-    "stories": 75,
-    "done": 75,
-    "backlog": 16
+    "stories": 76,
+    "done": 76,
+    "backlog": 15
   }
 }

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css?v=30">
+  <link rel="stylesheet" href="../assets/css/style.css?v=31">
   <script>
     // Runs before the body paints. Setting this from archive.js would let the
     // header and footer render first and then vanish.
@@ -49,10 +49,18 @@
   <main class="container archive-page">
     <h1 class="archive-title">Daybreak archive</h1>
     <p class="archive-intro">
-      Pick a date to read that morning's brief. Daybreak doesn't run on
-      Sundays, and a few weekdays are missing too — only the days with an
-      edition are selectable.
+      Search every past story, or pick a date to read that morning's brief.
+      Daybreak doesn't run on Sundays, and a few weekdays are missing too —
+      only the days with an edition are selectable.
     </p>
+
+    <form class="archive-search" role="search" onsubmit="return false">
+      <label class="archive-search-label" for="archive-q">Search past stories</label>
+      <input class="archive-search-input" id="archive-q" type="search"
+             placeholder="e.g. earthquake, Fed rates, autism" autocomplete="off">
+      <p class="archive-search-status" id="archive-search-status" aria-live="polite"></p>
+      <ol class="archive-results" id="archive-results"></ol>
+    </form>
 
     <div class="archive-calendar" id="archive-calendar" aria-live="polite">
       <p class="archive-status" id="archive-status">Loading editions…</p>
@@ -77,7 +85,8 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=30"></script>
-  <script src="archive.js?v=30"></script>
+  <script src="../assets/js/main.js?v=31"></script>
+  <script src="archive.js?v=31"></script>
+  <script src="archive-search.js?v=31"></script>
 </body>
 </html>

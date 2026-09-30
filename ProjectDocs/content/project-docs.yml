@@ -928,6 +928,25 @@ epics:
           - "The preview uses the same rendering and validation path as publication."
           - "Review runs do not alter the public website unless explicitly requested."
 
+      - number: "2.49"
+        title: Search past Daybreak stories
+        status: Done
+        narrative: >-
+          As a reader, I want to search every past Daybreak story by keyword,
+          so that I can find how a subject was reported across editions
+          without opening each day's brief in turn from the calendar.
+        acceptance_criteria:
+          - "The Daybreak archive page has a search box above the calendar. Every word typed must start a word in a story's headline, summary, category or section, ignoring case and accents, so \"fed\" finds Fed and federal but not confederation, and \"Inacio\" finds Inácio."
+          - Results are newest first, capped at 40 with the total shown, each dated with its edition and section so it reads as past reporting, with the matched words highlighted and a link straight to that section of that edition.
+          - It works in the archive pop-up opened from an edition, keeping the chrome-free view on the edition it opens.
+          - It needs no server or search service. DAYBREAK/patch_daybreak.py, which already runs whenever an edition lands, also writes DAYBREAK/data/daybreak-stories.json from every dated edition, and the page filters that file in the browser, fetching it only once the reader starts typing.
+          - The first index covers all 231 stories across the 14 dated editions, and was checked in a real browser at desktop and phone widths.
+        assumptions:
+          - This is keyword search, not a question-answering search. Answering questions would need embeddings and a server, the pattern My Experiment's Worker already uses; the story index is the input such a search would start from.
+          - daybreak-latest.html is not indexed, because it is a byte-identical copy of the day's dated edition and would list each of today's stories twice.
+          - A continuing story appears once per edition that carried it, because each edition reported it afresh; results are dated so the repeats read as a timeline.
+          - The index grows by roughly 8 KB per edition, a few megabytes a year; it is fetched only when someone searches.
+
   - project: "Sayantan Sen website Project Documentation"
     number: 3
     title: Blog authoring and publishing
@@ -1437,11 +1456,6 @@ backlog:
     title: "Use MCP connectors for Daybreak's specialist sources"
     description: "Keep broad Codex web search for breaking and regional news, but fetch health research, official earnings, authoritative market metrics and archive deduplication through structured MCP connectors, so retrieval is more reliable and auditable. Connector results must keep source identity, timestamps and URLs, and a connector failure must fall back honestly to today's source-first workflow rather than invent data. From Daybreak's product document (proposal 12.1)."
     type: Feature Enhancement
-    date: 2026-09-30
-  - epic: "Daybreak daily news brief"
-    title: "Search past Daybreak stories across archived editions"
-    description: "Let a reader find a past story across all editions, from the personal website, without running the Codex scheduler per query, and make clear that archived reporting is historical. Partly in place: DAYBREAK/data/daybreak-index.json already lists every edition for the archive calendar; searching inside editions is not built. From Daybreak's product document (proposal 12.2)."
-    type: Feature Development
     date: 2026-09-30
 
 definition_of_done:

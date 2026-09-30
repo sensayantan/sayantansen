@@ -1621,6 +1621,89 @@ a:hover {
   margin: 0 0 2rem;
 }
 
+/* Keyword search over every past story (archive-search.js). Sits above the
+   calendar; results are dated because they are past reporting. */
+.archive-search {
+  margin: 0 0 2.5rem;
+}
+
+.archive-search-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--color-text);
+}
+
+.archive-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.archive-search-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.archive-search-status {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin: 0.6rem 0 0;
+  min-height: 1.2em;
+}
+
+.archive-results {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.archive-result {
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.archive-result-meta {
+  margin: 0 0 0.2rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.archive-result-headline {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-accent-dark);
+  text-decoration: none;
+}
+
+.archive-result-headline:hover,
+.archive-result-headline:focus {
+  text-decoration: underline;
+}
+
+.archive-result-summary {
+  margin: 0.3rem 0 0;
+  font-size: 0.92rem;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+.archive-result mark {
+  background: var(--color-accent-soft);
+  color: inherit;
+  padding: 0 0.1em;
+  border-radius: 2px;
+}
+
 /* Square cells across a 760px container would be ~104px each, which reads
    as oversized next to the mobile view. Capping the calendar keeps the day
    cells at a normal size without narrowing the page text. */
