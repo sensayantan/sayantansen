@@ -55,8 +55,9 @@ index.html → projectdocs.js
   else still renders, as a neutral chip.
 - Everything is one project: every epic's `project` is "Sayantan Sen website Project Documentation". The page
   shows a heading per distinct `project` value, so a different value would
-  split the page in two. Epics 1–7 are the website, 8–19 are the Daybreak
-  report (titled "Daybreak — …"); add new epics with the next number.
+  split the page in two. Daybreak, the report, is Epic 2 in full: its
+  site-side stories (2.1–2.5) and the report's own (2.6–2.48). Add new epics
+  with the next number.
 
 ## Run it locally
 
