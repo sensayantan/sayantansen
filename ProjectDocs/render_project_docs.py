@@ -1,7 +1,7 @@
 """
 Turns ProjectDocs/content/project-docs.yml into
 ProjectDocs/data/project-docs.json for ProjectDocs/index.html
-(SenProjectDocumentation).
+(Sayantan Sen website Project Documentation).
 
 The shape mirrors DAYBREAK-EPICS-AND-STORIES.md — document purpose, product
 vision, core principles, then epics numbered 1..N holding stories numbered
