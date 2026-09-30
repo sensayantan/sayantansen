@@ -522,7 +522,7 @@
             {
               "number": "6.2",
               "title": "One folder per menu item, each explaining its own architecture",
-              "status": "In progress",
+              "status": "Done",
               "known_status": true,
               "narrative": "As the site owner, I want the repository organised the way the site is \u2014 one folder for each main menu item, holding that feature's page, code, content and data \u2014 with a document in each folder explaining how that feature works and one overarching document tying them together, so that anyone opening the repository can find a feature and understand its flow without tracing paths scattered across backend/, content/, data/ and assets/.",
               "acceptance_criteria": [
@@ -532,7 +532,7 @@
                 "Every pre-move page URL (news.html, archive.html, blogs.html, each blogs/<slug>.html, autism.html, projectdocs.html) still works, forwarding to the new location with its query string and anchor intact.",
                 "Every page was checked in a real browser at desktop and mobile widths with no failed requests, script errors, broken images or dead internal links, and the Daybreak pipeline's offline tests pass.",
                 "The Blogger export sits at BLOG/takeout, still local-only and gitignored.",
-                "Open: the backend/daybreak compatibility symlink is removed once the Codex automation publishes from DAYBREAK/pipeline paths. This needs the automation's prompt updated in the Codex app and one scheduled edition to publish through the new paths; it is the only part of this story not yet done."
+                "The backend/daybreak compatibility symlink is removed. The Codex automation's prompt was updated to the DAYBREAK/pipeline paths and its clone pulled on 2026-09-29; the 2026-09-30 edition published through them at 07:37 PT, touching only its two HTML files, and the site patched and deployed it."
               ],
               "assumptions": [],
               "notes": ""
@@ -561,7 +561,7 @@
               "notes": ""
             }
           ],
-          "done": 2,
+          "done": 3,
           "total": 3
         },
         {
@@ -1701,7 +1701,7 @@
   "totals": {
     "epics": 19,
     "stories": 78,
-    "done": 73,
+    "done": 74,
     "backlog": 14
   }
 }

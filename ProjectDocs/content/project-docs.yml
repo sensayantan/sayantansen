@@ -651,7 +651,7 @@ epics:
 
       - number: "6.2"
         title: One folder per menu item, each explaining its own architecture
-        status: In progress
+        status: Done
         narrative: >-
           As the site owner, I want the repository organised the way the site
           is — one folder for each main menu item, holding that feature's
@@ -667,7 +667,7 @@ epics:
           - Every pre-move page URL (news.html, archive.html, blogs.html, each blogs/<slug>.html, autism.html, projectdocs.html) still works, forwarding to the new location with its query string and anchor intact.
           - Every page was checked in a real browser at desktop and mobile widths with no failed requests, script errors, broken images or dead internal links, and the Daybreak pipeline's offline tests pass.
           - The Blogger export sits at BLOG/takeout, still local-only and gitignored.
-          - "Open: the backend/daybreak compatibility symlink is removed once the Codex automation publishes from DAYBREAK/pipeline paths. This needs the automation's prompt updated in the Codex app and one scheduled edition to publish through the new paths; it is the only part of this story not yet done."
+          - "The backend/daybreak compatibility symlink is removed. The Codex automation's prompt was updated to the DAYBREAK/pipeline paths and its clone pulled on 2026-09-29; the 2026-09-30 edition published through them at 07:37 PT, touching only its two HTML files, and the site patched and deployed it."
 
       - number: "6.3"
         title: "Daybreak's own epics and stories on the same page"

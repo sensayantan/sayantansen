@@ -102,8 +102,8 @@ any `?query` and `#anchor`:
 | `autism.html` | `MyExperiment/index.html` |
 | `projectdocs.html` | `ProjectDocs/index.html` |
 
-`backend/daybreak` remains as a symlink to `DAYBREAK/pipeline` until the
-Codex automation's prompt is updated to the new path (see
+The Daybreak pipeline's old path, `backend/daybreak`, is gone: the Codex
+automation calls `DAYBREAK/pipeline/` directly (see
 [DAYBREAK/README.md](DAYBREAK/README.md)).
 
 ## Privacy rule
