@@ -49,14 +49,14 @@ idempotent and safe to re-run over every edition. It patches only edition
 files (`daybreak-latest.html` and the dated ones), never this folder's own
 `index.html` or `archive.html`.
 
-### The old `backend/daybreak` path
+### Where the pipeline used to live
 
-The pipeline moved here from `DAYBREAK/pipeline/` when the site was
-reorganised. The Codex automation's prompt and its clone still call the old
-path, and `run.mjs` fast-forwards that clone partway through a run, so
-`backend/daybreak` is kept as a **symlink to `DAYBREAK/pipeline`**. Every old
-command keeps working. Once the automation's prompt has been updated to the
-`DAYBREAK/pipeline/` paths, the symlink can be deleted.
+The pipeline was in `backend/daybreak/` until the 2026-09-29 folder
+reorganisation. Because the Codex automation's prompt called that path, and
+`run.mjs` fast-forwards its clone partway through a run, `backend/daybreak`
+was kept for one day as a symlink to `DAYBREAK/pipeline`. The automation's
+prompt now calls `DAYBREAK/pipeline/` directly; the 2026-09-30 edition was
+the first published that way, and the symlink was then removed.
 
 ### The optional cloud path
 
