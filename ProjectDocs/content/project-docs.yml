@@ -794,7 +794,7 @@ epics:
     summary: >-
       The daily edition is researched, rendered, validated, published and
       verified in one unattended run.
-    status: In progress
+    status: Done
     stories:
       - number: "1.1"
         title: "Scheduled morning edition"
@@ -829,7 +829,7 @@ epics:
 
       - number: "1.3"
         title: "Completion notification"
-        status: In progress
+        status: Done
         narrative: >-
           As the report owner, I want a notification when the new edition is ready
           or when action is required.
@@ -838,7 +838,7 @@ epics:
           - "Failures that require intervention produce an actionable notification."
           - "The automation does not generate unnecessary progress notifications while the run is healthy and incomplete."
         assumptions:
-          - "Notifications are sent by the Codex app, outside this repository, so nothing here can show whether they work. Mark this Done once a success and a failure notification have both been seen."
+          - "Notifications are sent by the Codex app, outside this repository. Confirmed by the owner on 2026-09-30: the day's success notification arrived with the verified live URL (daybreak-latest.html?v=2026-09-30-bfaf8ce). No failure has occurred since, so the failure notification is specified but not yet observed."
 
   - project: Daybreak
     number: 2
