@@ -13,7 +13,9 @@ the latest edition; an archive calendar opens any earlier one.
 | `daybreak-latest.html` | Today's edition. Overwritten each morning. |
 | `daybreak-YYYY-Mon-DD.html` | Dated copy of each edition, kept permanently. |
 | `archive.html` + `archive.js` | The **Past editions** calendar. Only days with a file are selectable. |
+| `archive-search.js` | Keyword search over every past story, above the calendar. Every word typed must start a word in a story's headline, summary, category or section (case- and accent-insensitive); results are newest first, dated, and link to the story's section in its edition. Runs in the browser, and only fetches its data once the reader starts typing. |
 | `data/daybreak-index.json` | The list of editions that exist, which the calendar reads. Generated. |
+| `data/daybreak-stories.json` | Every story from every dated edition (date, file, section, category, headline, summary), which the search filters. Generated; about 110 KB for the first 14 editions, growing roughly 8 KB per edition. |
 | `patch_daybreak.py` | Re-applies this site's conventions to every edition after it lands (see below). |
 | `pipeline/` | The code that researches, renders, validates and publishes an edition. |
 
@@ -38,7 +40,7 @@ DAYBREAK/pipeline/run.mjs --publish
    │    rewrites links to the site's current page URLs
    │    adds the My Experiment nav link, the category bar, the archive
    │    link, the site footer and the "How this is made" note
-   │    rebuilds DAYBREAK/data/daybreak-index.json
+   │    rebuilds DAYBREAK/data/daybreak-index.json and daybreak-stories.json
    │  commits the patched files with [skip ci]
    ▼
 GitHub Pages  →  DAYBREAK/index.html → latest.json → daybreak-latest.html

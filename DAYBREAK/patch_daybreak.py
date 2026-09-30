@@ -26,7 +26,8 @@ using the old template link straight to the right page.
 
 It also writes DAYBREAK/data/daybreak-index.json, the list of editions that
 exist, which DAYBREAK/archive.html reads to decide which calendar days are
-selectable.
+selectable, and DAYBREAK/data/daybreak-stories.json, every story from every
+dated edition, which the archive's search box filters.
 
 Every step checks for its own marker first, so running this twice is a
 no-op and running it on an already-patched archive changes nothing.
@@ -42,6 +43,7 @@ is what makes the changes survive a new edition.
 from __future__ import annotations
 
 import datetime as dt
+import html as html_lib
 import json
 import re
 from pathlib import Path
@@ -49,6 +51,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DAYBREAK_DIR = ROOT / "DAYBREAK"
 INDEX_PATH = DAYBREAK_DIR / "data" / "daybreak-index.json"
+STORIES_PATH = DAYBREAK_DIR / "data" / "daybreak-stories.json"
 SITE = "https://sensayantan.github.io/sayantansen"
 
 # daybreak-2026-Sep-24.html -> 2026-09-24. Editions are named with an
@@ -501,6 +504,64 @@ def write_index(files: list[Path]) -> bool:
     return True
 
 
+SECTION_RE = re.compile(
+    r'<section class="section" id="(s\d+)">.*?<h2>(.*?)</h2>(.*?)</section>', re.S
+)
+STORY_RE = re.compile(
+    r'<article class="story">.*?<small>(.*?)</small>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>', re.S
+)
+
+
+def plain(fragment: str) -> str:
+    """Tag-free, entity-decoded, whitespace-collapsed text."""
+    return " ".join(html_lib.unescape(re.sub(r"<[^>]+>", " ", fragment)).split())
+
+
+def stories_in(path: Path) -> list[dict]:
+    """The news stories in one edition, in page order.
+
+    Only <article class="story"> blocks count: earnings items and market
+    rows share the <h3> tag but are not stories a reader searches for. Every
+    edition since the first uses this markup, so no fallback is needed.
+    """
+    html = path.read_text()
+    found = []
+    for section_id, title, body in SECTION_RE.findall(html):
+        for category, headline, summary in STORY_RE.findall(body):
+            found.append({
+                "section": plain(title),
+                "anchor": section_id,
+                "category": plain(category),
+                "headline": plain(headline),
+                "summary": plain(summary),
+            })
+    return found
+
+
+def write_story_index(files: list[Path]) -> bool:
+    """Writes the searchable list of every story in every dated edition.
+
+    daybreak-latest.html is skipped: it is a byte-identical copy of today's
+    dated edition, and indexing both would list each of today's stories
+    twice. Newest edition first, stories in page order, so results read in
+    the order a reader would meet them.
+    """
+    stories = []
+    for path in files:
+        date = edition_date(path.name)
+        if not date:
+            continue
+        for story in stories_in(path):
+            stories.append({"date": date.isoformat(), "file": path.name, **story})
+    stories.sort(key=lambda s: s["date"], reverse=True)  # stable: keeps page order
+    payload = json.dumps({"stories": stories}, ensure_ascii=False, separators=(",", ":")) + "\n"
+    if STORIES_PATH.exists() and STORIES_PATH.read_text() == payload:
+        return False
+    STORIES_PATH.parent.mkdir(parents=True, exist_ok=True)
+    STORIES_PATH.write_text(payload)
+    return True
+
+
 def add_method_note(html: str) -> tuple[str, bool]:
     """Puts the note directly below the masthead (and its category bar).
 
@@ -595,6 +656,10 @@ def main() -> None:
         print(f"\nWrote {INDEX_PATH.relative_to(ROOT)}")
     else:
         print(f"\n{INDEX_PATH.relative_to(ROOT)}: already up to date")
+    if write_story_index(files):
+        print(f"Wrote {STORIES_PATH.relative_to(ROOT)}")
+    else:
+        print(f"{STORIES_PATH.relative_to(ROOT)}: already up to date")
     print(f"Patched {touched} of {len(files)} editions.")
 
 
