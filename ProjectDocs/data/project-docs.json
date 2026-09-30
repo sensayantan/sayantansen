@@ -1389,6 +1389,14 @@
   ],
   "backlog": [
     {
+      "epic": "Pipeline and safeguards",
+      "title": "Publish a privacy policy page",
+      "description": "Step 2. Part of the 2026-09-30 plan, done in order: 1) custom domain, 2) privacy policy page, 3) visitor analytics, 4) social-sign-in comments. Nothing paid except the domain. A plain-language page at /privacy, linked from every page's footer, saying what the site collects and why: visitor counts with no IP addresses or cookies (step 3); for comments (step 4), the name, profile picture, provider user ID, time and comment text, where they are kept, that nothing is sold or shared, how a reader asks for their comments to be deleted, and how to contact the owner. Google and Facebook sign-in both require a privacy policy URL, and Facebook also requires a data-deletion instructions URL, which this page can provide.",
+      "type": "Feature Development",
+      "known_type": true,
+      "date": "2026-09-30"
+    },
+    {
       "epic": "Daybreak daily news brief",
       "title": "Use MCP connectors for Daybreak's specialist sources",
       "description": "Keep broad Codex web search for breaking and regional news, but fetch health research, official earnings, authoritative market metrics and archive deduplication through structured MCP connectors, so retrieval is more reliable and auditable. Connector results must keep source identity, timestamps and URLs, and a connector failure must fall back honestly to today's source-first workflow rather than invent data. From Daybreak's product document (proposal 12.1).",
@@ -1407,7 +1415,7 @@
     {
       "epic": "Blog authoring and publishing",
       "title": "Let readers comment via Google, Facebook, X or other social sign-in",
-      "description": "Comments currently require a GitHub sign-in, which is a real barrier for ordinary blog readers who have no reason to hold a GitHub account. Needs a comment identity path that accepts Google, Facebook, X or similar social sign-in, alongside or instead of the current GitHub-only flow. Evaluate if there is any cost involved.",
+      "description": "Step 4. Part of the 2026-09-30 plan, done in order: 1) custom domain, 2) privacy policy page, 3) visitor analytics, 4) social-sign-in comments. Nothing paid except the domain. Decided: readers sign in with Google, Facebook, X or GitHub (Instagram is not possible \u2014 its login for ordinary users was shut down in December 2024), using each provider's own sign-in page, so no password or credential ever reaches the site. A Cloudflare Worker with a free D1 database stores, per comment, the reader's name, profile picture, the provider's opaque user ID (never shown; used to honour deletion requests and block abuse), the time and the comment \u2014 never in this public repository. Every comment is held until the owner approves it, from a queue in /admin. Comments appear on blog posts, Daybreak editions (added by the patch script) and My Experiment, and replace giscus. Cost: free \u2014 Google and GitHub apps are free; Facebook needs the privacy policy (step 2) and a data-deletion page; X's free sign-in access is the least dependable of the four.",
       "type": "Feature Enhancement",
       "known_type": true,
       "date": "2026-09-25"
@@ -1415,23 +1423,23 @@
     {
       "epic": "Blog authoring and publishing",
       "title": "Add like / dislike / angry reactions to blog content",
-      "description": "A lightweight reaction control \u2014 like, dislike, angry \u2014 for a reader to respond to a post without writing a comment. Needs somewhere to store reaction counts, a way to stop trivial repeat-voting, and a decision on whether reacting requires the same sign-in as commenting.",
+      "description": "A lightweight reaction control \u2014 like, dislike, angry \u2014 for a reader to respond to a post without writing a comment. Best built after social-sign-in comments (step 4 of the 2026-09-30 plan) so it can reuse the same sign-in and the same free Cloudflare D1 database for counts; signing in is also the simplest way to stop repeat-voting. Needs a decision on whether reacting requires sign-in at all.",
       "type": "Feature Development",
       "known_type": true,
       "date": "2026-09-25"
     },
     {
       "epic": "Admin console and authenticated access",
-      "title": "Track site traffic from the Admin page and store it in a flat file",
-      "description": "The Admin console has no visibility today into who visits the site or which pages get read. Needs a lightweight traffic-tracking mechanism that writes to a flat file rather than standing up a database, plus a monitoring tool on top of that file so the data gets looked at instead of just accumulating.",
+      "title": "Add free visitor analytics without storing IP addresses",
+      "description": "Step 3. Part of the 2026-09-30 plan, done in order: 1) custom domain, 2) privacy policy page, 3) visitor analytics, 4) social-sign-in comments. Nothing paid except the domain. Decided: counts only \u2014 page views, visitors, top pages, referrers, countries and devices \u2014 using free Cloudflare Web Analytics, a small script on every page, viewed in the Cloudflare dashboard. No IP addresses are stored and no cookies are set, which keeps the privacy obligations light. This replaces the earlier idea of logging each visit with its IP address into a flat file and an admin page: storing IP addresses is personal data under privacy law and would need retention and deletion rules.",
       "type": "Feature Development",
       "known_type": true,
       "date": "2026-09-25"
     },
     {
       "epic": "Pipeline and safeguards",
-      "title": "Move hosting off a github.io URL onto a standalone domain, at minimal cost",
-      "description": "The site is currently served from a GitHub Pages URL. Needs research into low-cost standalone hosting and domain options that keep the same GitHub Pages-driven publish flow, or an equivalent, while minimizing the recurring fee.",
+      "title": "Move the site to the custom domain sensayantan.com",
+      "description": "Step 1. Part of the 2026-09-30 plan, done in order: 1) custom domain, 2) privacy policy page, 3) visitor analytics, 4) social-sign-in comments. Nothing paid except the domain. Decided: buy sensayantan.com through Cloudflare Registrar (about $10-11 a year, at cost, the only paid item; sayantansen.com is taken) and keep hosting on GitHub Pages, free, with the custom domain, so every old sensayantan.github.io/sayantansen/ link redirects to the same page automatically. DNS records at Cloudflare must be DNS-only (proxy off) so GitHub Pages can issue the HTTPS certificate. The site moves from the /sayantansen/ path to the root, so every hard-coded /sayantansen/ changes with it: post and About Me image paths, the admin's upload paths, SITE in DAYBREAK/patch_daybreak.py, run.mjs's Pages verification URL, and the Workers' allowed origins. That change ships only after the domain resolves.",
       "type": "Technical Debt",
       "known_type": true,
       "date": "2026-09-25"
@@ -1537,6 +1545,6 @@
     "epics": 7,
     "stories": 76,
     "done": 76,
-    "backlog": 15
+    "backlog": 16
   }
 }
