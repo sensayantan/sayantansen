@@ -107,7 +107,7 @@ collections:
         editor_components: ["image", "code-block"]
         hint: "Use the image button to place a picture inline, where the cursor is. The Images field below is for a gallery at the end of the post."
 
-  # SenProjectDocumentation. Nested lists (epic -> stories -> criteria) are
+  # Sayantan Sen website Project Documentation. Nested lists (epic -> stories -> criteria) are
   # workable in the CMS but clumsy; the file is also meant to be edited
   # directly, by Codex when it appends the Daybreak epics. Both routes write
   # the same YAML.
@@ -115,7 +115,7 @@ collections:
     label: "Project Documentation"
     files:
       - name: "projectdocs"
-        label: "SenProjectDocumentation"
+        label: "Sayantan Sen website Project Documentation"
         file: "ProjectDocs/content/project-docs.yml"
         fields:
           - label: "Document"
@@ -136,7 +136,7 @@ collections:
             label_singular: "Epic"
             summary: "Epic {{fields.number}} — {{fields.title}} ({{fields.project}})"
             fields:
-              - { label: "Project", name: "project", widget: "string", default: "SenSite" }
+              - { label: "Project", name: "project", widget: "string", default: "Sayantan Sen website Project Documentation", hint: "Keep this exactly as is: a different value splits the page into a second project." }
               - { label: "Epic number", name: "number", widget: "number", value_type: "int" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Summary", name: "summary", widget: "text", required: false }

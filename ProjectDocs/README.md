@@ -1,6 +1,6 @@
 # Project documentation
 
-SenProjectDocumentation: the record of the work behind the site, as epics,
+Sayantan Sen website Project Documentation: the record of the work behind the site and its Daybreak report, as epics,
 stories (with acceptance criteria and assumptions) and a backlog of work
 identified but not yet built. It is not a menu item; it lives at
 `/sayantansen/ProjectDocs/` and asks for a GitHub sign-in before showing
@@ -53,8 +53,10 @@ index.html → projectdocs.js
 - **Statuses** are `Done`, `In progress` or `Blocked`; backlog types are
   `Technical Debt`, `Feature Enhancement` or `Feature Development`. Anything
   else still renders, as a neutral chip.
-- Epics are grouped by their `project` field, so another project's epics
-  (e.g. Daybreak's own) can be appended with their own numbering.
+- Everything is one project: every epic's `project` is "Sayantan Sen website Project Documentation". The page
+  shows a heading per distinct `project` value, so a different value would
+  split the page in two. Epics 1–7 are the website, 8–19 are the Daybreak
+  report (titled "Daybreak — …"); add new epics with the next number.
 
 ## Run it locally
 

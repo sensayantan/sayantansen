@@ -1,4 +1,4 @@
-/* SenProjectDocumentation — renders ProjectDocs/data/project-docs.json as a backlog, and
+/* Sayantan Sen website Project Documentation — renders ProjectDocs/data/project-docs.json as a backlog, and
  * lets a signed-in owner add, edit and delete Backlog table rows in place.
  *
  * Epics and stories are read-only here and come from data/project-docs.json

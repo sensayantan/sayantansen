@@ -1,18 +1,17 @@
-# SenProjectDocumentation — the backlog behind this site.
+# Sayantan Sen website Project Documentation — the backlog behind this site.
 #
-# Shaped to match DAYBREAK-EPICS-AND-STORIES.md so both sets can live on one
-# page: document purpose, product vision, core principles, then epics
-# numbered 1..N containing stories numbered N.M, each with a narrative and
-# acceptance criteria. A separate top-level `backlog` list holds identified
-# work that has not been built — the JIRA-style backlog table, not nested
-# inside any epic's story list.
+# Document purpose, product vision, core principles, then epics numbered
+# 1..N containing stories numbered N.M, each with a narrative, acceptance
+# criteria and assumptions. A separate top-level `backlog` list holds
+# identified work that has not been built — the JIRA-style backlog table,
+# not nested inside any epic's story list.
 #
-# CODEX: append the Daybreak epics to the `epics` list with project: Daybreak
-# and your own numbering starting at 1 — the page groups epics by the
-# `project` field, so nothing here needs renumbering. Required keys on an
-# epic: project, number, title, stories. Required on a story: number, title.
-# If Daybreak has its own backlog items, append them to the top-level
-# `backlog` list with an `epic` value that names one of your epic titles.
+# Everything is ONE project: every epic's `project` is "Sayantan Sen website Project Documentation".
+# The page shows a heading per distinct project value, so a different value
+# splits the page in two. Epics 1-7 are the website; 8-19 are the Daybreak
+# report, titled "Daybreak — ...". Add new epics with the next number.
+# Required keys on an epic: project, number, title, stories. Required on a
+# story: number, title. A backlog item's `epic` names an epic title.
 #
 # This page is gated behind the same GitHub OAuth login used by /admin (see
 # ProjectDocs/projectdocs.js). That is a client-side login wall, not a secret
@@ -22,7 +21,7 @@
 # rather than building a Worker to proxy and gate the file server-side.
 
 document:
-  title: SenProjectDocumentation
+  title: "Sayantan Sen website Project Documentation"
   purpose: >-
     This document consolidates the requirements expressed while designing,
     building, testing and operating sensayantan.github.io — a static personal
@@ -36,15 +35,16 @@ document:
     from a plan drafted in advance — which is why several stories describe a
     problem discovered only after an earlier fix half-shipped it.
 
-    It covers two projects on one page. SenSite is the website itself.
-    Daybreak is the daily news and markets report the site publishes — a
-    trustworthy, personalised morning report combining world and regional
-    news, technology, health and autism research, markets, earnings and
-    portfolio trends, so that the important developments can be reviewed on
-    one transparent page. Daybreak's epics were written separately in
-    Codex's workspace (DAYBREAK-EPICS-AND-STORIES.md) and merged here on
-    2026-09-29 with their own numbering; their statuses were set from the
-    pipeline code and the published editions, not copied from that document.
+    It covers the website and Daybreak, the daily news and markets report
+    the site publishes — a trustworthy, personalised morning report
+    combining world and regional news, technology, health and autism
+    research, markets, earnings and portfolio trends, so that the important
+    developments can be reviewed on one transparent page. Epics 1–7 are the
+    website; epics 8–19, titled "Daybreak — …", are the report itself. Those
+    were written separately in Codex's workspace
+    (DAYBREAK-EPICS-AND-STORIES.md) and merged here on 2026-09-29; their
+    statuses were set from the pipeline code and the published editions,
+    not copied from that document.
   vision: >-
     As the site owner, I want a personal site I can publish to from a
     browser, that carries an automated daily brief and a research search I
@@ -125,7 +125,7 @@ document:
       symbols ever leave the owner's machine for quote retrieval.
 
 epics:
-  - project: SenSite
+  - project: "Sayantan Sen website Project Documentation"
     number: 1
     title: Autism research search
     summary: >-
@@ -247,7 +247,7 @@ epics:
           - A reader arriving at this page by search or by link may have no research background at all, and the page's tone and warnings are written for that reader specifically, not for a clinician who would read it differently.
 
 
-  - project: SenSite
+  - project: "Sayantan Sen website Project Documentation"
     number: 2
     title: Daybreak daily news brief
     summary: >-
@@ -354,7 +354,7 @@ epics:
         assumptions:
           - "The cause was the market strip, not the tables: on phones it becomes a two-column grid, and plain 1fr columns cannot shrink below their longest word. On days with long values such as -0.2% intraday in the 30-pixel figure, the strip pushed 37 pixels past the screen and the whole page scrolled sideways; on days with short values it fit, which is why only some editions showed it. The columns now use minmax(0,1fr), long values wrap, and the figure drops to 24 pixels at that width."
 
-  - project: SenSite
+  - project: "Sayantan Sen website Project Documentation"
     number: 3
     title: Blog authoring and publishing
     summary: >-
@@ -487,7 +487,7 @@ epics:
         assumptions:
           - Both dead images belonged to other publishers and were never in the Blogger export, so there was no copy to restore, and copying a replacement from another site into this public repository was ruled out on copyright grounds. Both posts keep their own banner image, so neither is left without a picture.
 
-  - project: SenSite
+  - project: "Sayantan Sen website Project Documentation"
     number: 4
     title: Reading experience
     summary: >-
@@ -531,7 +531,7 @@ epics:
         assumptions:
           - The footer wraps to three stacked lines at mobile width and is consequently taller there than a glance at its desktop appearance would suggest, which is exactly why measuring rather than eyeballing the clearance mattered here.
 
-  - project: SenSite
+  - project: "Sayantan Sen website Project Documentation"
     number: 5
     title: Pipeline and safeguards
     summary: >-
@@ -624,7 +624,7 @@ epics:
         assumptions:
           - GitHub announced ubuntu-latest moves to Ubuntu 26 from 2026-10-19. Pinning defers that move rather than testing it; adopting Ubuntu 26 later should be its own change, with one run of each workflow checked on it. Ubuntu 24.04 remains a supported runner image well beyond that date.
 
-  - project: SenSite
+  - project: "Sayantan Sen website Project Documentation"
     number: 6
     title: Project documentation
     summary: >-
@@ -669,6 +669,15 @@ epics:
           - The Blogger export sits at BLOG/takeout, still local-only and gitignored.
           - "The backend/daybreak compatibility symlink is removed. The Codex automation's prompt was updated to the DAYBREAK/pipeline paths and its clone pulled on 2026-09-29; the 2026-09-30 edition published through them at 07:37 PT, touching only its two HTML files, and the site patched and deployed it."
 
+        assumptions:
+          - The About Me page stays at the site root index.html rather than moving into AboutMe/, because the root must serve a page and making it a redirect would add a hop to every visit; the rest of the feature lives in AboutMe/.
+          - Daybreak editions keep their existing DAYBREAK/ URLs. Only the pipeline code, patch script, archive page and landing page moved in beside them.
+          - The Codex automation publishes from a separate clone and called backend/daybreak paths, and its runner fast-forwards that clone partway through a run. backend/daybreak was therefore kept as a symlink to DAYBREAK/pipeline for one day, so every old path resolved even mid-run, until the automation's own prompt was updated.
+          - The unused original news pipeline (generate_news.py, claude_news.py, openai_news.py, state.py, config.py, news.js, and its data) was deleted rather than moved; Daybreak replaced it, and git history keeps it.
+          - GitHub Pages cannot issue real redirects, so old URLs are small pages that forward with a script and a meta refresh.
+          - Blog comments are giscus threads matched on page pathname, so moving the posts would detach existing threads. None existed at the time of the move, so nothing was lost; post URLs should stay put from here on.
+          - The autism-search Worker's Cloudflare build root directory was changed to MyExperiment/worker in the Cloudflare dashboard, outside this repository, before the reorganisation was merged; its first build from the new directory succeeded.
+
       - number: "6.3"
         title: "Daybreak's own epics and stories on the same page"
         status: Done
@@ -678,24 +687,15 @@ epics:
           projects' delivered work and open proposals are visible in one place
           instead of in a file only one tool can see.
         acceptance_criteria:
-          - "Daybreak's twelve epics and forty-five stories from DAYBREAK-EPICS-AND-STORIES.md, plus story 9.4 made from its daily-edition definition of done, are in this file under project: Daybreak, with their own numbering; the page shows them as a second project after SenSite, and nothing in SenSite was renumbered."
-          - "Each Daybreak story's status was set by checking the pipeline code (DAYBREAK/pipeline/render.mjs and config.json) and the latest published edition, not copied from the source document. Only 1.3, whose notifications live in the Codex app, is In progress; Epic 12's three proposals are Open."
+          - "Daybreak's twelve epics and forty-five stories from DAYBREAK-EPICS-AND-STORIES.md, plus story 16.4 made from its daily-edition definition of done, are in this file as epics 8–19, titled \"Daybreak — …\", after the website's own epics 1–7, all in one project; the website's epics kept their numbers."
+          - "Each Daybreak story's status was set by checking the pipeline code (DAYBREAK/pipeline/render.mjs and config.json) and the latest published edition, not copied from the source document. Story 8.3, whose notifications live in the Codex app, was closed once the owner confirmed one arrived; Epic 19's three proposals are Open."
           - "Details that had changed since the source document were corrected during the merge: the 7:30 AM schedule, the DAYBREAK/pipeline and DAYBREAK/README.md paths, the My Experiment nav link, and the Large-cap decrease label."
-          - "Daybreak's product principles and out-of-scope list are merged into this document's own lists, each labelled Daybreak; its daily-edition definition of done became Daybreak story 9.4."
+          - "Daybreak's product principles and out-of-scope list are merged into this document's own lists, each labelled Daybreak; its daily-edition definition of done became story 16.4."
         assumptions:
           - "The source document stays in Codex's workspace; this file is now the maintained copy."
           - "The source document names the portfolio workbook and says it holds 96 tickers but lists no tickers, balances or account data, so nothing private moved into this public repository. The workbook's file name was left out of the merged text anyway."
-        assumptions:
-          - The About Me page stays at the site root index.html rather than moving into AboutMe/, because the root must serve a page and making it a redirect would add a hop to every visit; the rest of the feature lives in AboutMe/.
-          - Daybreak editions keep their existing DAYBREAK/ URLs. Only the pipeline code, patch script, archive page and landing page moved in beside them.
-          - The Codex automation publishes from a separate clone and calls backend/daybreak paths, and its runner fast-forwards that clone partway through a run. backend/daybreak is therefore kept as a symlink to DAYBREAK/pipeline so every old path resolves, including mid-run, until the automation's own prompt is updated.
-          - The unused original news pipeline (generate_news.py, claude_news.py, openai_news.py, state.py, config.py, news.js, and its data) was deleted rather than moved; Daybreak replaced it, and git history keeps it.
-          - GitHub Pages cannot issue real redirects, so old URLs are small pages that forward with a script and a meta refresh.
-          - Blog comments are giscus threads matched on page pathname, so moving the posts would detach existing threads. None existed at the time of the move, so nothing was lost; post URLs should stay put from here on.
-          - The autism-search Worker's Cloudflare build root directory must be changed to MyExperiment/worker in the Cloudflare dashboard, outside this repository; until then its builds fail while the already-deployed Worker keeps serving.
 
-
-  - project: SenSite
+  - project: "Sayantan Sen website Project Documentation"
     number: 7
     title: Admin console and authenticated access
     summary: >-
@@ -788,15 +788,15 @@ epics:
           - "This is a client-side, browser-enforced login wall, not a server-side access control: the page's underlying data file is still an ordinary static file hosted on GitHub Pages, and GitHub Pages has no mechanism to restrict who can fetch a specific static file by URL. A visitor who already knows or guesses the data file's exact path, and who chooses to fetch it directly rather than through this page, can still read its contents without ever signing in. This limitation is accepted deliberately here because nothing in this document is sensitive; a genuine server-side guarantee would require introducing a Worker to proxy and gate the file itself, which was judged out of proportion to the actual sensitivity of a project backlog."
           - The GitHub OAuth token this page obtains carries the same repository-write scope Decap's own login already carries; holding it in the browser for the duration of a session is an accepted, pre-existing risk of this whole login approach, not a new one introduced specifically by this story.
 
-  - project: Daybreak
-    number: 1
-    title: "Automated publication and scheduling"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 8
+    title: "Daybreak — Automated publication and scheduling"
     summary: >-
       The daily edition is researched, rendered, validated, published and
       verified in one unattended run.
     status: Done
     stories:
-      - number: "1.1"
+      - number: "8.1"
         title: "Scheduled morning edition"
         status: Done
         narrative: >-
@@ -813,7 +813,7 @@ epics:
         assumptions:
           - "The source document specified 10:00 a.m.; the owner confirmed 7:30 a.m. on 2026-09-29, when the automation's stored schedule was also corrected to exclude Sundays."
 
-      - number: "1.2"
+      - number: "8.2"
         title: "End-to-end unattended operation"
         status: Done
         narrative: >-
@@ -827,7 +827,7 @@ epics:
           - "Git or deployment failures stop the workflow rather than leaving a partial edition presented as complete."
           - "Routine scheduled HTML publication does not require a new approval each day because authorization has already been granted."
 
-      - number: "1.3"
+      - number: "8.3"
         title: "Completion notification"
         status: Done
         narrative: >-
@@ -840,15 +840,15 @@ epics:
         assumptions:
           - "Notifications are sent by the Codex app, outside this repository. Confirmed by the owner on 2026-09-30: the day's success notification arrived with the verified live URL (daybreak-latest.html?v=2026-09-30-bfaf8ce). No failure has occurred since, so the failure notification is specified but not yet observed."
 
-  - project: Daybreak
-    number: 2
-    title: "Stable website integration and archival model"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 9
+    title: "Daybreak — Stable website integration and archival model"
     summary: >-
       A fixed latest-edition URL, a permanent dated archive, and the site's
       navigation kept on every edition.
     status: Done
     stories:
-      - number: "2.1"
+      - number: "9.1"
         title: "Permanent latest-edition URL"
         status: Done
         narrative: >-
@@ -860,7 +860,7 @@ epics:
           - "The integration does not require daily modification of latest.json; run.mjs checks it and fails if it changed."
           - "The page adds a cache-busting query parameter, but the underlying path remains stable."
 
-      - number: "2.2"
+      - number: "9.2"
         title: "Date-stamped archive"
         status: Done
         narrative: >-
@@ -872,7 +872,7 @@ epics:
           - "Archive filenames use an unambiguous English month abbreviation."
           - "Historical files are never overwritten by later editions."
 
-      - number: "2.3"
+      - number: "9.3"
         title: "Preserve permanent site navigation"
         status: Done
         narrative: >-
@@ -883,7 +883,7 @@ epics:
           - "Links to About Me, Today's News, Sayantan Blogs and My Experiment remain visible and usable; the My Experiment link is added by DAYBREAK/patch_daybreak.py."
           - "The report does not replace the website shell with a headerless standalone experience."
 
-      - number: "2.4"
+      - number: "9.4"
         title: "Browser cache resilience"
         status: Done
         narrative: >-
@@ -893,15 +893,15 @@ epics:
           - "The deployment workflow verifies the public URL using a fresh cache-busting query."
           - "The site does not depend on the user manually clearing the browser cache."
 
-  - project: Daybreak
-    number: 3
-    title: "Editorial structure and visual design"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 10
+    title: "Daybreak — Editorial structure and visual design"
     summary: >-
       A personalised, consistently ordered, calm edition whose sources are
       visible to the reader.
     status: Done
     stories:
-      - number: "3.1"
+      - number: "10.1"
         title: "Personalized masthead"
         status: Done
         narrative: >-
@@ -912,7 +912,7 @@ epics:
           - "A red subheader appears immediately below the heading."
           - "All section headings are left-aligned."
 
-      - number: "3.2"
+      - number: "10.2"
         title: "Required editorial desks"
         status: Done
         narrative: >-
@@ -925,7 +925,7 @@ epics:
         assumptions:
           - "The ten editorial desks and their order live in DAYBREAK/pipeline/config.json, and the renderer rejects an edition whose sections differ."
 
-      - number: "3.3"
+      - number: "10.3"
         title: "Visual hierarchy"
         status: Done
         narrative: >-
@@ -937,9 +937,9 @@ epics:
           - "Tables remain readable on common desktop widths."
           - "The layout remains usable on smaller screens, including side-by-side sections collapsing, with no sideways page scroll at phone widths."
         assumptions:
-          - "Phone-width overflow in the market strip was fixed on 2026-09-29; see SenSite story 2.5."
+          - "Phone-width overflow in the market strip was fixed on 2026-09-29; see story 2.5."
 
-      - number: "3.4"
+      - number: "10.4"
         title: "Transparent source roster"
         status: Done
         narrative: >-
@@ -952,15 +952,15 @@ epics:
           - "Internal audit status distinguishes reviewed, blocked, paywalled, unavailable, stale, unreadable, and not retrieved sources."
           - "Internal editorial shortfall messages such as \"0 fresh stories met the sourcing standard\" are not shown to readers."
 
-  - project: Daybreak
-    number: 4
-    title: "Source-first research and neutral synthesis"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 11
+    title: "Daybreak — Source-first research and neutral synthesis"
     summary: >-
       Every desk is researched against a defined publisher roster, and every
       story is a neutral synthesis of at least two independent sources.
     status: Done
     stories:
-      - number: "4.1"
+      - number: "11.1"
         title: "Mandatory publisher sweep"
         status: Done
         narrative: >-
@@ -975,7 +975,7 @@ epics:
         assumptions:
           - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
 
-      - number: "4.2"
+      - number: "11.2"
         title: "Multi-source story synthesis"
         status: Done
         narrative: >-
@@ -992,7 +992,7 @@ epics:
         assumptions:
           - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself. The two-domain rule is enforced in code; the 200-word limit is an editorial rule."
 
-      - number: "4.3"
+      - number: "11.3"
         title: "Non-English reporting"
         status: Done
         narrative: >-
@@ -1006,7 +1006,7 @@ epics:
         assumptions:
           - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
 
-      - number: "4.4"
+      - number: "11.4"
         title: "Freshness and continuing stories"
         status: Done
         narrative: >-
@@ -1021,7 +1021,7 @@ epics:
         assumptions:
           - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
 
-      - number: "4.5"
+      - number: "11.5"
         title: "Cross-section deduplication"
         status: Done
         narrative: >-
@@ -1033,7 +1033,7 @@ epics:
           - "Deduplication considers event identity, substantially equivalent headlines, and source URLs."
           - "Separate events are not accidentally removed merely because they appear on the same publisher index or roundup page."
 
-      - number: "4.6"
+      - number: "11.6"
         title: "Tamper-evident research audit"
         status: Done
         narrative: >-
@@ -1047,15 +1047,15 @@ epics:
           - "It stores the SHA-256 digest of the canonical edition data."
           - "Missing, stale, incomplete, or digest-mismatched audits fail rendering and publication."
 
-  - project: Daybreak
-    number: 5
-    title: "Coverage volume and desk-specific discovery"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 12
+    title: "Daybreak — Coverage volume and desk-specific discovery"
     summary: >-
       Broad daily coverage from independently searched regional and specialist
       desks, without lowering the verification standard.
     status: Done
     stories:
-      - number: "5.1"
+      - number: "12.1"
         title: "Soft editorial targets"
         status: Done
         narrative: >-
@@ -1069,7 +1069,7 @@ epics:
         assumptions:
           - "The targets and maximums live in DAYBREAK/pipeline/config.json; the renderer rejects a section over its maximum."
 
-      - number: "5.2"
+      - number: "12.2"
         title: "Worldwide breaking-event sweep"
         status: Done
         narrative: >-
@@ -1084,7 +1084,7 @@ epics:
         assumptions:
           - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
 
-      - number: "5.3"
+      - number: "12.3"
         title: "US and Bay Area coverage"
         status: Done
         narrative: >-
@@ -1095,7 +1095,7 @@ epics:
           - "Local searches cover San Francisco, Oakland, San Jose, the Peninsula, North Bay, and East Bay."
           - "Local sources include a diverse mix such as The Mercury News, San Francisco Chronicle, KQED, ABC7/KGO, NBC Bay Area/KNTV, KTVU, KRON4, KPIX, SFGATE, and public agencies."
 
-      - number: "5.4"
+      - number: "12.4"
         title: "India and Asia-Pacific coverage"
         status: Done
         narrative: >-
@@ -1106,7 +1106,7 @@ epics:
           - "The desk title is Top India & Asia-Pacific News."
           - "The roster includes major Indian sources and regional specialists such as CNA, NHK World-Japan, Arirang, TaiwanPlus, CNBC Asia, Bloomberg Asia, and others documented in the editorial source policy."
 
-      - number: "5.5"
+      - number: "12.5"
         title: "Independent regional desks"
         status: Done
         narrative: >-
@@ -1119,7 +1119,7 @@ epics:
           - "Latin America explicitly includes the Caribbean."
           - "Regional reporting may be translated when an English version is unavailable."
 
-      - number: "5.6"
+      - number: "12.6"
         title: "Technology freshness"
         status: Done
         narrative: >-
@@ -1132,15 +1132,15 @@ epics:
         assumptions:
           - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
 
-  - project: Daybreak
-    number: 6
-    title: "Health, research, and autism coverage"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 13
+    title: "Daybreak — Health, research, and autism coverage"
     summary: >-
       Health and research developments reported with scientific caution, and
       autism coverage searched in every run.
     status: Done
     stories:
-      - number: "6.1"
+      - number: "13.1"
         title: "Evidence-led health research"
         status: Done
         narrative: >-
@@ -1157,7 +1157,7 @@ epics:
         assumptions:
           - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
 
-      - number: "6.2"
+      - number: "13.2"
         title: "Dedicated autism search"
         status: Done
         narrative: >-
@@ -1171,15 +1171,15 @@ epics:
         assumptions:
           - "Rules in this story are carried out by the scheduled research agent under DAYBREAK/pipeline/editorial-sources.md and recorded in the private research audit; the renderer enforces the parts that can be checked mechanically (sources, domains, duplicates, audit coverage), not editorial judgement itself."
 
-  - project: Daybreak
-    number: 7
-    title: "Market snapshot and financial context"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 14
+    title: "Daybreak — Market snapshot and financial context"
     summary: >-
       A sourced market strip, mover tables, market analysis and verified
       earnings, each value with its observation time and source.
     status: Done
     stories:
-      - number: "7.1"
+      - number: "14.1"
         title: "Market strip below the masthead"
         status: Done
         narrative: >-
@@ -1191,7 +1191,7 @@ epics:
           - "Stale data is labeled with its actual observation time."
           - "A value that cannot be verified displays an explicit source-unavailable label rather than zero or an estimate."
 
-      - number: "7.2"
+      - number: "14.2"
         title: "Top gainers and losers"
         status: Done
         narrative: >-
@@ -1202,7 +1202,7 @@ epics:
           - "\"Top\" is defined against the disclosed tracking universe, not falsely represented as the entire exchange."
           - "The discontinued One-week leaders section does not appear."
 
-      - number: "7.3"
+      - number: "14.3"
         title: "Side-by-side large-cap comparison"
         status: Done
         narrative: >-
@@ -1214,7 +1214,7 @@ epics:
           - "Each row includes price, exchange, 7-day move, 1-month move, catalyst, and quote link."
           - "Missing numeric fields are labeled explicitly instead of being omitted."
 
-      - number: "7.4"
+      - number: "14.4"
         title: "Market internals and mover analysis"
         status: Done
         narrative: >-
@@ -1225,7 +1225,7 @@ epics:
           - "Analysis distinguishes observations from hypotheses."
           - "Market data timestamps and methodologies are disclosed."
 
-      - number: "7.5"
+      - number: "14.5"
         title: "S&P 500 earnings newsroom"
         status: Done
         narrative: >-
@@ -1237,15 +1237,15 @@ epics:
           - "The report never claims complete S&P 500 coverage unless a constituent-wide sweep was actually completed."
           - "Missing or unverified figures are not inferred."
 
-  - project: Daybreak
-    number: 8
-    title: "Private portfolio trend monitoring"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 15
+    title: "Daybreak — Private portfolio trend monitoring"
     summary: >-
       Holdings that fell over both a week and a month flagged for review,
       using only ticker symbols from a local workbook.
     status: Done
     stories:
-      - number: "8.1"
+      - number: "15.1"
         title: "Authorized holdings import"
         status: Done
         narrative: >-
@@ -1257,7 +1257,7 @@ epics:
           - "Quantities, balances, account identifiers, cost basis, and other workbook data are never transmitted."
           - "Only ticker symbols may be sent to Yahoo Finance for price and trend retrieval."
 
-      - number: "8.2"
+      - number: "15.2"
         title: "Dual-period downside screen"
         status: Done
         narrative: >-
@@ -1272,7 +1272,7 @@ epics:
         assumptions:
           - "The published edition shows these holdings' symbols and prices, and is public on GitHub Pages; no balances or account data appear in it."
 
-      - number: "8.3"
+      - number: "15.3"
         title: "Price methodology disclosure"
         status: Done
         narrative: >-
@@ -1284,15 +1284,15 @@ epics:
           - "It notes that the current daily bar may be intraday and mutual funds may have an earlier NAV."
           - "It warns that splits and distributions can affect unadjusted returns."
 
-  - project: Daybreak
-    number: 9
-    title: "Quality assurance and hallucination controls"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 16
+    title: "Daybreak — Quality assurance and hallucination controls"
     summary: >-
       Unsupported claims constrained, invalid editions blocked before
       publication, and behaviour protected by automated tests.
     status: Done
     stories:
-      - number: "9.1"
+      - number: "16.1"
         title: "No unsupported factual claims"
         status: Done
         narrative: >-
@@ -1306,7 +1306,7 @@ epics:
         assumptions:
           - "Every cited URL must appear in the research audit, which is how invented URLs are rejected; this is a guardrail, not proof that every claim is true."
 
-      - number: "9.2"
+      - number: "16.2"
         title: "Edition validation"
         status: Done
         narrative: >-
@@ -1320,7 +1320,7 @@ epics:
           - "Latest and archive checksums must match."
           - "A failure blocks publication of the partial edition."
 
-      - number: "9.3"
+      - number: "16.3"
         title: "Regression testing"
         status: Done
         narrative: >-
@@ -1333,7 +1333,7 @@ epics:
         assumptions:
           - "DAYBREAK/pipeline/test.mjs and research.test.mjs; both run offline and never publish."
 
-      - number: "9.4"
+      - number: "16.4"
         title: "Definition of done for a daily edition"
         status: Done
         narrative: >-
@@ -1356,15 +1356,15 @@ epics:
           - "GitHub Pages serves the new edition at a cache-busted URL."
           - "The completion message contains the verified deployed URL."
 
-  - project: Daybreak
-    number: 10
-    title: "Git, deployment, and change safety"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 17
+    title: "Daybreak — Git, deployment, and change safety"
     summary: >-
       Publication that never loses unrelated work and commits only the
       expected report output.
     status: Done
     stories:
-      - number: "10.1"
+      - number: "17.1"
         title: "Safe synchronization"
         status: Done
         narrative: >-
@@ -1378,7 +1378,7 @@ epics:
         assumptions:
           - "The publisher runs from its own clone, ~/Documents/Codex/daybreak-publisher, which fast-forwards from origin/main and refuses to publish from an unclean checkout."
 
-      - number: "10.2"
+      - number: "17.2"
         title: "Minimal generated commit"
         status: Done
         narrative: >-
@@ -1389,7 +1389,7 @@ epics:
           - "Untracked folders and unrelated source files are not accidentally committed."
           - "The generated report commit is pushed to main only after all validation passes."
 
-      - number: "10.3"
+      - number: "17.3"
         title: "Deployability without an OpenAI API key"
         status: Done
         narrative: >-
@@ -1400,17 +1400,17 @@ epics:
           - "The repository does not require an OpenAI API key for the current hosted automation."
           - "The documentation makes clear that moving autonomous model-based research into GitHub Actions or another independent server would require an API/service credential or a different deterministic data pipeline."
         assumptions:
-          - "That alternative exists but is dormant: .github/workflows/daybreak.yml runs only when DAYBREAK_CLOUD_ENABLED is set (SenSite story 5.4)."
+          - "That alternative exists but is dormant: .github/workflows/daybreak.yml runs only when DAYBREAK_CLOUD_ENABLED is set (story 5.4)."
 
-  - project: Daybreak
-    number: 11
-    title: "Documentation and maintainability"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 18
+    title: "Daybreak — Documentation and maintainability"
     summary: >-
       One current architecture document, a checked-in editorial policy, and a
       preview path that uses the same code as publication.
     status: Done
     stories:
-      - number: "11.1"
+      - number: "18.1"
         title: "Single authoritative architecture document"
         status: Done
         narrative: >-
@@ -1421,9 +1421,9 @@ epics:
           - "It explains research, edition data, audit, financial retrieval, rendering, validation, publication, and website integration."
           - "Obsolete duplicate architecture documents are removed."
         assumptions:
-          - "The document was architecture-daybreak.md at the repository root until the 2026-09-29 folder reorganisation (SenSite story 6.2) moved it to DAYBREAK/README.md."
+          - "The document was architecture-daybreak.md at the repository root until the 2026-09-29 folder reorganisation (story 6.2) moved it to DAYBREAK/README.md."
 
-      - number: "11.2"
+      - number: "18.2"
         title: "Editorial source policy"
         status: Done
         narrative: >-
@@ -1434,7 +1434,7 @@ epics:
           - "It documents discovery, reading, clustering, ranking, synthesis, translation, prior-day follow-up, deduplication, and audit expectations."
           - "The scheduled task reads the policy before each run."
 
-      - number: "11.3"
+      - number: "18.3"
         title: "Reproducible local review"
         status: Done
         narrative: >-
@@ -1446,14 +1446,14 @@ epics:
           - "The preview uses the same rendering and validation path as publication."
           - "Review runs do not alter the public website unless explicitly requested."
 
-  - project: Daybreak
-    number: 12
-    title: "Future enhancements"
+  - project: "Sayantan Sen website Project Documentation"
+    number: 19
+    title: "Daybreak — Future enhancements"
     summary: >-
       Proposals from the product document that have not been started. Their
       acceptance criteria are proposed, not agreed.
     stories:
-      - number: "12.1"
+      - number: "19.1"
         title: "MCP-backed specialist retrieval"
         narrative: >-
           As a maintainer, I want structured connectors for specialist data so
@@ -1464,7 +1464,7 @@ epics:
           - "MCP results preserve source identity, timestamps, and URLs."
           - "Connector failure degrades honestly to the existing source-first workflow rather than inventing data."
 
-      - number: "12.2"
+      - number: "19.2"
         title: "Archive search and retrieval"
         narrative: >-
           As the report owner, I want to find past stories across archived
@@ -1476,7 +1476,7 @@ epics:
         assumptions:
           - "Partly in place: DAYBREAK/data/daybreak-index.json already lists every edition for the archive calendar; searching inside editions is not built."
 
-      - number: "12.3"
+      - number: "19.3"
         title: "Handwriting-inspired visual edition"
         narrative: >-
           As the report owner, I want the option to use a custom font derived from
@@ -1487,7 +1487,7 @@ epics:
           - "A conventional fallback font remains available."
           - "Font use is optional and does not compromise report rendering or performance."
         assumptions:
-          - "Overlaps the SenSite backlog item \"Add personal, handwritten-style content to the page design\"; one font could serve both."
+          - "Overlaps the backlog item \"Add personal, handwritten-style content to the page design\"; one font could serve both."
 
 backlog:
   - epic: "Pipeline and safeguards"
