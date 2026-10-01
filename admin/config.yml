@@ -16,7 +16,7 @@ publish_mode: simple
 # Each feature folder keeps its own media; this global default is only a
 # fallback for a collection that names none.
 media_folder: "/BLOG/images"
-public_folder: "/sayantansen/BLOG/images"
+public_folder: "/BLOG/images"
 
 collections:
   - name: "blog"
@@ -35,10 +35,10 @@ collections:
     # apart. Two files of the same name in the SAME post still collide, so
     # rename before uploading when it matters.
     #
-    # public_folder carries the Pages base path so Decap's own previews
-    # resolve; BLOG/render_blogs.py strips it back off for the site.
+    # The site is served from the root of sensayantan.com, so public_folder
+    # is root-absolute; BLOG/render_blogs.py makes it relative for each page.
     media_folder: "/BLOG/images/{{slug}}"
-    public_folder: "/sayantansen/BLOG/images/{{slug}}"
+    public_folder: "/BLOG/images/{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - label: "Date"
@@ -95,7 +95,7 @@ collections:
         widget: "file"
         required: false
         media_folder: "/BLOG/files"
-        public_folder: "/sayantansen/BLOG/files"
+        public_folder: "/BLOG/files"
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -214,7 +214,7 @@ collections:
     # AboutMe/images holds its two photos. Named here so the picker shows
     # them rather than the blog images the global default points at.
     media_folder: "/AboutMe/images"
-    public_folder: "/sayantansen/AboutMe/images"
+    public_folder: "/AboutMe/images"
     files:
       - name: "about"
         label: "About Me"

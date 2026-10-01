@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 const html=await fs.readFile('DAYBREAK/daybreak-latest.html','utf8');
 const title=html.match(/<title>([^<]+)<\/title>/)?.[0];assert(title,'Missing edition title');
 const commit=execFileSync('git',['rev-parse','--short','HEAD'],{encoding:'utf8'}).trim();
-const url=`https://sensayantan.github.io/sayantansen/DAYBREAK/daybreak-latest.html?v=${commit}`;
+const url=`https://sensayantan.com/DAYBREAK/daybreak-latest.html?v=${commit}`;
 for(let i=0;i<12;i++) {
   try {
     const r=await fetch(`${url}-${i}`,{cache:'no-store',signal:AbortSignal.timeout(15000)});

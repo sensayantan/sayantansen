@@ -22,11 +22,15 @@
 // it is still received. A short timer sends one either way, and `sent` keeps
 // the two paths from firing twice.
 //
-// The token is posted to an explicit site origin rather than "*", so only the
+// The token is posted to explicit site origins rather than "*", so only the
 // admin page can read it — a "*" here would hand a GitHub token to whatever
-// happened to open the popup.
+// happened to open the popup. SITE_ORIGIN may list several origins, comma-
+// separated (the custom domain and the old github.io address during a move).
+// The popup cannot read its opener's origin, so it posts to each listed
+// origin; the browser delivers a message only when the target origin matches
+// the opener's real one, so a page on any other origin still receives nothing.
 
-const DEFAULT_SITE_ORIGIN = "https://sensayantan.github.io";
+const DEFAULT_SITE_ORIGIN = "https://sensayantan.com,https://sensayantan.github.io";
 
 // The payload is interpolated into a <script> block, so it has to be safe as
 // both JS and HTML. JSON.stringify handles quoting; escaping "<" additionally
@@ -35,28 +39,32 @@ function embed(value) {
   return JSON.stringify(value).replace(/</g, "\\u003c");
 }
 
-function resultPage(status, payload, siteOrigin) {
+function resultPage(status, payload, siteOrigins) {
   const message = `authorization:github:${status}:${JSON.stringify(payload)}`;
   const html = `<!DOCTYPE html><html><body><script>
     (function () {
       var message = ${embed(message)};
-      var siteOrigin = ${embed(siteOrigin)};
+      var siteOrigins = ${embed(siteOrigins)};
       var sent = false;
 
-      function send(targetOrigin) {
+      function send(targetOrigins) {
         if (sent || !window.opener) return;
         sent = true;
         window.removeEventListener("message", onReply, false);
-        window.opener.postMessage(message, targetOrigin);
+        targetOrigins.forEach(function (origin) {
+          window.opener.postMessage(message, origin);
+        });
       }
 
       function onReply(event) {
-        if (event.origin === siteOrigin) send(event.origin);
+        if (siteOrigins.indexOf(event.origin) !== -1) send([event.origin]);
       }
 
       window.addEventListener("message", onReply, false);
-      window.opener.postMessage("authorizing:github", siteOrigin);
-      setTimeout(function () { send(siteOrigin); }, 500);
+      siteOrigins.forEach(function (origin) {
+        window.opener.postMessage("authorizing:github", origin);
+      });
+      setTimeout(function () { send(siteOrigins); }, 500);
     })();
   </script></body></html>`;
   return new Response(html, {
@@ -74,7 +82,10 @@ function getCookie(request, name) {
 export async function handleCallback(request, env) {
   const clientId = env.GITHUB_CLIENT_ID;
   const clientSecret = env.GITHUB_CLIENT_SECRET;
-  const siteOrigin = env.SITE_ORIGIN || DEFAULT_SITE_ORIGIN;
+  const siteOrigins = (env.SITE_ORIGIN || DEFAULT_SITE_ORIGIN)
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
 
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
@@ -82,7 +93,7 @@ export async function handleCallback(request, env) {
   const expectedState = getCookie(request, "oauth_state");
 
   if (!returnedState || !expectedState || returnedState !== expectedState) {
-    return resultPage("error", { message: "OAuth state mismatch — please try logging in again." }, siteOrigin);
+    return resultPage("error", { message: "OAuth state mismatch — please try logging in again." }, siteOrigins);
   }
 
   try {
@@ -97,11 +108,11 @@ export async function handleCallback(request, env) {
     const result = await tokenResponse.json();
 
     if (result.error || !result.access_token) {
-      return resultPage("error", result, siteOrigin);
+      return resultPage("error", result, siteOrigins);
     }
 
-    return resultPage("success", { token: result.access_token, provider: "github" }, siteOrigin);
+    return resultPage("success", { token: result.access_token, provider: "github" }, siteOrigins);
   } catch (error) {
-    return resultPage("error", { message: error.message }, siteOrigin);
+    return resultPage("error", { message: error.message }, siteOrigins);
   }
 }

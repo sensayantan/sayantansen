@@ -19,8 +19,9 @@ applies three changes, and writes it back:
      an older edition.
   4. Inserts the short note explaining how the brief is produced.
 
-Before those, it rewrites links to the site's pages from their pre-move
-root URLs (news.html, blogs.html, autism.html, archive.html) to the
+Before those, it rewrites links to the site's pages from the old
+sensayantan.github.io/sayantansen address to sensayantan.com, and from their
+pre-move root URLs (news.html, blogs.html, autism.html, archive.html) to the
 feature folders they now live in, so older editions and a generator still
 using the old template link straight to the right page.
 
@@ -52,7 +53,11 @@ ROOT = Path(__file__).resolve().parent.parent
 DAYBREAK_DIR = ROOT / "DAYBREAK"
 INDEX_PATH = DAYBREAK_DIR / "data" / "daybreak-index.json"
 STORIES_PATH = DAYBREAK_DIR / "data" / "daybreak-stories.json"
-SITE = "https://sensayantan.github.io/sayantansen"
+SITE = "https://sensayantan.com"
+# Where the site lived before the custom domain. GitHub Pages redirects it to
+# SITE, but editions should link straight to the domain rather than through a
+# hop, so update_site_links rewrites it.
+OLD_SITE = "https://sensayantan.github.io/sayantansen"
 
 # daybreak-2026-Sep-24.html -> 2026-09-24. Editions are named with an
 # abbreviated month, which does not sort or compare as a date, so the
@@ -301,8 +306,8 @@ MOVED_PAGES = {
 
 
 def update_site_links(html: str) -> tuple[str, bool]:
-    """Points links at the pages' feature-folder URLs."""
-    updated = html
+    """Points links at the site's current domain and feature-folder URLs."""
+    updated = html.replace(f'"{OLD_SITE}/', f'"{SITE}/').replace(f'"{OLD_SITE}"', f'"{SITE}/"')
     for old, new in MOVED_PAGES.items():
         updated = updated.replace(f'"{old}"', f'"{new}"').replace(f'"{old}?', f'"{new}?')
     return updated, updated != html

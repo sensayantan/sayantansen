@@ -3,7 +3,7 @@
 Sayantan Sen website Project Documentation: the record of the work behind the site and its Daybreak report, as epics,
 stories (with acceptance criteria and assumptions) and a backlog of work
 identified but not yet built. It is not a menu item; it lives at
-`/sayantansen/ProjectDocs/` and asks for a GitHub sign-in before showing
+`https://sensayantan.com/ProjectDocs/` and asks for a GitHub sign-in before showing
 anything.
 
 ## Folder layout

@@ -69,7 +69,7 @@ and the live search never drift apart.
 reader picks a prepared question, or types one (max 300 chars)
    │
    ▼  autism.js  POST {question}
-Worker /api/ask   (CORS: sensayantan.github.io + localhost; 20 questions / IP / minute)
+Worker /api/ask   (CORS: sensayantan.com, sensayantan.github.io + localhost; 20 / IP / minute)
    │  1. embed the question — Workers AI @cf/baai/bge-small-en-v1.5
    │     (must be the same model that built the index, or every score is noise;
    │      search.js refuses to run if docs.json names a different model)
@@ -132,8 +132,8 @@ python3 export_worker_index.py
 python3 test_parsers.py        # offline parser tests
 ```
 
-Then serve the site (`python3 -m http.server 8000` from the folder above
-the repo) and open `http://localhost:8000/sayantansen/MyExperiment/`.
+Then serve the site (`python3 -m http.server 8000` from the repo folder)
+and open `http://localhost:8000/MyExperiment/`.
 Localhost is an allowed origin, so the live Worker answers there too.
 
 ## When it breaks

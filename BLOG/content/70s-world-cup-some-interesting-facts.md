@@ -1,7 +1,7 @@
 ---
 title: 70's World Cup, some interesting facts ?
 date: 2014-12-16T10:05:00.003Z
-banner: /sayantansen/BLOG/images/70s-world-cup-some-interesting-facts/west_indies_cricket_collage.png
+banner: /BLOG/images/70s-world-cup-some-interesting-facts/west_indies_cricket_collage.png
 tags: []
 layout: standard
 images: []

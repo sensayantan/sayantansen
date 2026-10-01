@@ -5,7 +5,7 @@ date: 2025-08-11T01:39:00.000Z
 tags: []
 layout: standard
 images:
-  - image: /sayantansen/BLOG/images/11-days-two-countries-countless/Turkey.jpeg
+  - image: /BLOG/images/11-days-two-countries-countless/Turkey.jpeg
     caption: ""
 video: https://youtu.be/P7_8H7AXjzQ
 ---
@@ -41,7 +41,7 @@ during an accident can cost **180,000 TRY** in fines.
 The hour-long drive to **Arts Taksim Hotel** gave us our first look at the sprawling,
 traffic-heavy city.
 
-![Turkey](/sayantansen/BLOG/images/11-days-two-countries-countless/Turkey.jpeg)
+![Turkey](/BLOG/images/11-days-two-countries-countless/Turkey.jpeg)
 
 - - -
 
@@ -340,7 +340,7 @@ we resisted the temptation this time, unlike our pottery and carpet splurges ear
 4. The House of the Virgin Mary is serene and worth visiting, even if you’re not religious.
 5. Leather factory visits are fun, but don’t feel pressured to buy — prices are high despite discounts.
 
-![Greece](/sayantansen/BLOG/images/11-days-two-countries-countless/Greece.jpeg)
+![Greece](/BLOG/images/11-days-two-countries-countless/Greece.jpeg)
 
 - - -
 

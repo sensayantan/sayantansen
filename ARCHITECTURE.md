@@ -1,6 +1,6 @@
 # Architecture
 
-`https://sensayantan.github.io/sayantansen/` is a static site on GitHub
+`https://sensayantan.com/` is a static site on GitHub
 Pages: plain HTML, CSS and JavaScript, no framework, no build step, no
 bundler. Everything a reader sees is a file in this repository. The few
 things that need a running server — admin login and live autism search —

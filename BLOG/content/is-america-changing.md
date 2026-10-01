@@ -1,7 +1,7 @@
 ---
 title: IS AMERICA CHANGING?
 date: 2017-01-16T23:51:00.001Z
-banner: /sayantansen/BLOG/images/is-america-changing/usa.jpeg
+banner: /BLOG/images/is-america-changing/usa.jpeg
 tags: []
 layout: standard
 images: []

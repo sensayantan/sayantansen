@@ -19,10 +19,11 @@
   "vars": {
     "GITHUB_CLIENT_ID": "Ov23liLzR26bbpevnXz5",
 
-    // Where the access token is allowed to be delivered. callback.js posts
-    // it to this exact origin rather than "*", so only the admin page can
-    // read it. Change this if the site ever moves to a custom domain.
-    "SITE_ORIGIN": "https://sensayantan.github.io"
+    // Where the access token is allowed to be delivered: a comma-separated
+    // list of exact origins, never "*", so only the admin page can read it.
+    // The custom domain first; github.io stays listed because old links
+    // redirect from it and a tab opened before the move may still be on it.
+    "SITE_ORIGIN": "https://sensayantan.com,https://sensayantan.github.io"
   },
 
   "assets": {
