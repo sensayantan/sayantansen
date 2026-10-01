@@ -41,10 +41,10 @@ post page is fully static HTML — no script is needed to read it.
 
 ## Paths and the site base
 
-The site is served from `https://sensayantan.github.io/sayantansen/`, not a
-domain root. Image paths are stored in front matter with the `/sayantansen/`
-prefix so the admin's own preview can resolve them; `render_blogs.py`
-strips it and re-prefixes each path for where it is used:
+The site is served from the root of `https://sensayantan.com/`. Image paths
+are stored root-absolute (`/BLOG/images/<slug>/…`), and `render_blogs.py`
+re-prefixes each path for where it is used (it also strips the pre-domain
+`/sayantansen/` prefix, should an old path turn up):
 
 - post pages sit two levels down, so root paths get `../../` (`POST_TO_ROOT`)
 - `data/blogs.json` tile images are made relative to `BLOG/index.html`
@@ -74,16 +74,16 @@ the move keep working.
 ```
 pip install -r requirements.txt
 python BLOG/render_blogs.py
-python3 -m http.server 8000      # from the folder above the repo
+python3 -m http.server 8000      # from the repo folder
 ```
 
-Open `http://localhost:8000/sayantansen/BLOG/`.
+Open `http://localhost:8000/BLOG/`.
 
 ## When it breaks
 
 - **A post published but isn't listed**: the render workflow did not run or
   failed; check the Actions tab, then `BLOG/data/blogs.json`.
 - **Broken picture**: the path in the post's front matter or body must start
-  with `/sayantansen/BLOG/images/<slug>/`.
+  with `/BLOG/images/<slug>/`.
 - **Header or footer differs on posts**: the template in `render_blogs.py`
   was not updated alongside the other pages.

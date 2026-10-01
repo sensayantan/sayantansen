@@ -1,7 +1,7 @@
 ---
 title: Ganguly and Waugh, where the elder made way for the younger
 date: 2014-10-30T14:10:00.001Z
-banner: /sayantansen/BLOG/images/ganguly-and-waugh-where-elder-made-way/three_photo_cricket_collage.jpg
+banner: /BLOG/images/ganguly-and-waugh-where-elder-made-way/three_photo_cricket_collage.jpg
 tags: []
 layout: standard
 images: []

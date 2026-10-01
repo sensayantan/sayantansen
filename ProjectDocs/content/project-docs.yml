@@ -24,7 +24,7 @@ document:
   title: "Sayantan Sen website Project Documentation"
   purpose: >-
     This document consolidates the requirements expressed while designing,
-    building, testing and operating sensayantan.github.io — a static personal
+    building, testing and operating sensayantan.com — a static personal
     site with a browser-based CMS, an automated daily news brief, and a
     retrieval search over autism research. It converts the request history
     into epics, user stories, acceptance criteria and assumptions, and keeps

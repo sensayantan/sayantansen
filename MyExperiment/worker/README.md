@@ -158,7 +158,7 @@ in `loadIndex()` instead.
 ## Limits and abuse
 
 - Questions are capped at 300 characters.
-- CORS allows only `sensayantan.github.io` and localhost.
+- CORS allows only `sensayantan.com`, `sensayantan.github.io` and localhost.
 - 20 questions per IP per minute. This uses the Cache API, which is
   per-colocation rather than global, so it is a soft limit — enough to stop
   a stuck loop or a casual scraper from burning the daily Workers AI

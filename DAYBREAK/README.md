@@ -189,4 +189,4 @@ The publisher clone is `/Users/sayantan.sen/Documents/Codex/daybreak-publisher`.
 
 Validation failures stop before commit/push. Unavailable individual numeric fields are labelled; a failed whole workflow is not reported as success. A non-fast-forward sync or push error stops without force pushing. Generated/committed local files may remain for inspection after failure; do not reset them blindly. Pages deployment is verified separately from Git push, using a date-and-commit cache-busting URL and exact title check. If Pages stays old, report deployment pending/failure rather than claiming the edition is live.
 
-Canonical public page: `https://sensayantan.github.io/sayantansen/DAYBREAK/daybreak-latest.html`.
+Canonical public page: `https://sensayantan.com/DAYBREAK/daybreak-latest.html`.

@@ -1,7 +1,7 @@
 ---
 title: India always proved statistics wrong in the WC. Can it happen this time also  ?
 date: 2014-12-16T10:07:00.003Z
-banner: /sayantansen/BLOG/images/india-always-proved-statistics-wrong-in/images.jpeg
+banner: /BLOG/images/india-always-proved-statistics-wrong-in/images.jpeg
 tags: []
 layout: standard
 images: []

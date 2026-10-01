@@ -44,18 +44,18 @@ has repeatedly served a stale copy otherwise.
 Each photo in `about.yml` has an `image` path, an optional `caption` and an
 `ai_generated` flag; a flagged photo is shown with an "AI Generated" badge. The admin
 uploads into `AboutMe/images/` (its `media_folder` in `admin/config.yml`),
-and paths are stored with the `/sayantansen/` base so the admin's own
-preview resolves them.
+and paths are stored root-absolute (`/AboutMe/images/…`) so they resolve the
+same in the admin's preview and on the site.
 
 ## Run it locally
 
 ```
 pip install -r requirements.txt
 python AboutMe/render_about.py
-python3 -m http.server 8000      # from the folder above the repo
+python3 -m http.server 8000      # from the repo folder
 ```
 
-Then open `http://localhost:8000/sayantansen/`. The page must be served,
+Then open `http://localhost:8000/`. The page must be served,
 not opened as a file: browsers block `fetch()` from `file://`.
 
 ## When it breaks
@@ -66,4 +66,4 @@ not opened as a file: browsers block `fetch()` from `file://`.
   invalid. `admin/check_cms_config.py` runs in the render workflow to catch
   this before it ships.
 - **A photo is missing**: its `image` path must start with
-  `/sayantansen/AboutMe/images/`.
+  `/AboutMe/images/`.

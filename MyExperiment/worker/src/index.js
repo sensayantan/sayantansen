@@ -11,6 +11,7 @@ import { search } from "./search.js";
 import { generateAnswer } from "./answer.js";
 
 const ALLOWED_ORIGINS = [
+  "https://sensayantan.com",
   "https://sensayantan.github.io",
   "http://localhost:8000",
   "http://127.0.0.1:8000",

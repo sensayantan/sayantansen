@@ -4,7 +4,7 @@ date: 2014-10-30T14:20:00Z
 tags: []
 layout: standard
 images:
-  - image: "/sayantansen/BLOG/images/to-ministry-of-human-resource-seek/download.jpg"
+  - image: "/BLOG/images/to-ministry-of-human-resource-seek/download.jpg"
     caption: ""
 ---
 
@@ -22,7 +22,7 @@ and supply and survival of the fittest, but is that humanity all about. Should s
 not be more tolerant, more expressive to support the poor and weaker section?
 Please note that the ask is not to show empathy, but to be more embracing.
 
-[![](/sayantansen/BLOG/images/to-ministry-of-human-resource-seek/download.jpg)](/sayantansen/BLOG/images/to-ministry-of-human-resource-seek/download.jpg)
+[![](/BLOG/images/to-ministry-of-human-resource-seek/download.jpg)](/BLOG/images/to-ministry-of-human-resource-seek/download.jpg)
 
 Yes, I am talking here of children
 with various disabilities. These gifted children have not come to this world

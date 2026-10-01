@@ -1,6 +1,9 @@
 # sayantansen
 
-Sayantan Sen's personal website — https://sensayantan.github.io/sayantansen/
+Sayantan Sen's personal website — https://sensayantan.com/
+
+(Before 2026-09-30 it lived at `sensayantan.github.io/sayantansen/`; GitHub
+Pages redirects every old link there to the same page here.)
 
 A static site on GitHub Pages: plain HTML, CSS and JavaScript, no build
 step. Four sections, one folder each:
@@ -22,7 +25,7 @@ Cloudflare Workers behind admin login and live search.
 ## Editing content
 
 About Me and blog posts are edited in the browser at
-[`/admin`](https://sensayantan.github.io/sayantansen/admin/) (Decap CMS,
+[`/admin`](https://sensayantan.com/admin/) (Decap CMS,
 GitHub sign-in). Publishing commits straight to `main`; a GitHub Action
 renders the pages within a minute. Admin login needs the Worker in
 [`oauth-proxy/`](oauth-proxy/README.md).
@@ -30,15 +33,14 @@ renders the pages within a minute. Admin login needs the Worker in
 ## Run it locally
 
 Pages load their content with `fetch()`, which browsers block for
-`file://`, so serve the site. It is published under the `/sayantansen/`
-path, so serve from the folder *above* this repository:
+`file://`, so serve the site. It is published at the root of its domain,
+so serve this repository's folder itself:
 
 ```
-cd ..
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000/sayantansen/`.
+Then open `http://localhost:8000/`.
 
 To regenerate content after editing source files:
 

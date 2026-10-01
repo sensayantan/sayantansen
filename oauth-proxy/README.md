@@ -30,7 +30,7 @@ these steps reflect what's actually there now, not older docs.
 1. GitHub → **Settings → Developer settings → OAuth Apps → New OAuth App**.
 2. Fill in:
    - **Application name**: anything, e.g. "Sayantan Sen Blog Admin"
-   - **Homepage URL**: `https://sensayantan.github.io/sayantansen/`
+   - **Homepage URL**: `https://sensayantan.com/`
    - **Authorization callback URL**: `https://<your-worker-url>/api/callback` — must match your actual deployed URL from step 1 exactly, including `/api/callback` with no trailing slash.
 3. Click **Register application**.
 4. Click **Generate a new client secret** — copy both the **Client ID** and the **Client Secret** now (the secret is shown only once).
@@ -80,7 +80,7 @@ In `admin/config.yml`, set `backend.base_url` to your actual deployed URL from s
 
 ### 5. Test it
 
-Visit `https://sensayantan.github.io/sayantansen/admin/` → click **Login with GitHub** → approve on GitHub's page → you should land back in the admin, logged in.
+Visit `https://sensayantan.com/admin/` → click **Login with GitHub** → approve on GitHub's page → you should land back in the admin, logged in.
 
 ## The popup handshake, and why it does not wait
 

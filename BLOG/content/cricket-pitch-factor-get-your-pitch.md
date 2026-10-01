@@ -4,7 +4,7 @@ date: 2023-11-23T14:38:00Z
 tags: []
 layout: standard
 images:
-  - image: "/sayantansen/BLOG/images/cricket-pitch-factor-get-your-pitch/ICC-Cricket-World-Cup.jpg"
+  - image: "/BLOG/images/cricket-pitch-factor-get-your-pitch/ICC-Cricket-World-Cup.jpg"
     caption: ""
 ---
 
@@ -65,4 +65,4 @@ I hope to see that depending on "PITCH WISDOM INDEX", the cricket team coach has
 
   
 
-![](/sayantansen/BLOG/images/cricket-pitch-factor-get-your-pitch/ICC-Cricket-World-Cup.jpg)
+![](/BLOG/images/cricket-pitch-factor-get-your-pitch/ICC-Cricket-World-Cup.jpg)

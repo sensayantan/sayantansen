@@ -44,7 +44,7 @@ if(publish){
   assert(staged.every(p=>files.includes(p)),'Unrelated staged file; refuse commit');
   if(staged.length){run('git',['commit','-m',`Publish Daybreak for ${e.date}`]);run('git',['push','origin','main']);}
   result.commit=run('git',['rev-parse','--short','HEAD']);
-  result.url=`https://sensayantan.github.io/sayantansen/DAYBREAK/daybreak-latest.html?v=${e.date}-${result.commit}`;
+  result.url=`https://sensayantan.com/DAYBREAK/daybreak-latest.html?v=${e.date}-${result.commit}`;
   // A pushed commit is not proof of deployment. Check Pages for up to 3 minutes.
   if(args.includes('--defer-pages-verification')) {
     console.log(JSON.stringify({...result,deployed:false,mode:'pushed-awaiting-deployment',output}));
