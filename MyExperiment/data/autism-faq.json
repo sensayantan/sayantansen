@@ -1,7 +1,7 @@
 {
   "meta": {
     "model": "BAAI/bge-small-en-v1.5",
-    "generated": "2026-09-29",
+    "generated": "2026-10-01",
     "document_count": 1900,
     "counts": {
       "pubmed": 1500,
@@ -148,6 +148,36 @@
       "question": "What screening tools are used for toddlers?",
       "results": [
         {
+          "score": 0.734,
+          "title": "Can Novel Telemedicine Tools Reduce Disparities Related to Early Identification of Autism",
+          "text": "Conditions: Autism Spectrum Disorder, Developmental Delay. Phase: NA. In this study, the investigators are trying to find new ways to screen for autism spectrum disorder (ASD) in young children. The investigators want to see if people like pediatricians can screen children for ASD while a psychologist watches on a monitor. The investigators are testing two screening tools. The investigators want to see if they are good at identifying children with ASD and children without ASD. The investigators hope this research will make it easier for families to get answers when there are concerns for ASD.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT03847337",
+          "publication_date": "2019-03-04",
+          "authors": "Vanderbilt University Medical Center",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
+          "score": 0.699,
+          "title": "Can a Novel Telemedicine Tool Reduce Disparities Related to the Identification of Preschool Children With Autism?",
+          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. Families seeking evaluation for autism spectrum disorder (ASD) often face barriers such as low availability of specialists, lengthy waitlists, and long distances to tertiary care diagnostic centers. This is especially true for children from traditionally underserved groups and communities. Without innovative approaches for enhanced identification of ASD, families and clinicians will continue to struggle with accessing and providing care. Telemedicine offers tremendous potential for addressing this need, but there are few psychometrically sound, validated tools that can be administered remotely, via telehealth platforms. This team of investigators developed and conducted a preliminary evaluation of a novel parent-administered, clinician-guided tele-diagnostic tool, the TAP (TELE-ASD-PEDS), designed specifically for direct-to-home and community clinic use with toddlers. Remote administration of the TAP yielded a very high level of agreement with blinded comprehensive evaluation regarding ASD risk classification. Subsequently, the unanticipated broad dissemination of the TAP during COVID-19 demonstrated its value for traditionally underserved groups, spanning broad geographies. Although promising, this work was limited by its specific focus on toddlers with ASD concerns. A telemedicine tool designed for the unique context and population of preschool-aged children referred for diagnostic assessment could have tremendous value in terms of both accurate identification as well as family engagement with service. In the current work, the investigators will now evaluate the performance, usability, and utility of the TAP-Preschool, a new telemedicine tool for ASD risk assessment in preschoolers, through a clinical trial. The TAP-Preschool was developed through a computationally informed co-production in which the targeted population were recruited as active partners in designing the tool. The investigators will gather critical data not only regarding its structure and accuracy, but also its potential deployment across systems responsible for engaging children and families from underserved groups in meaningful service. This work has potential to transform the ASD evaluation process and dramatically improve care access for traditionally underserved groups.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT05373173",
+          "publication_date": "2022-06-01",
+          "authors": "Vanderbilt University Medical Center",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
+          "score": 0.699,
+          "title": "A Pilot Study to Develop a Behavior-based Screening Protocol for Early Diagnosis of Autism Spectrum Disorders",
+          "text": "Conditions: ASD. This study aims to collect basic data to develop a tool for early screening of autism spectrum disorder (ASD) in children and adolescents through eye tracking and motion analysis.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT06339359",
+          "publication_date": "2024-03-01",
+          "authors": "Bundang CHA Hospital",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
           "score": 0.699,
           "title": "Comparative screening accuracy of the Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-Chat-R/F) for early autism spectrum disorder: a systematic review.",
           "text": "Objective: Early screening for autism spectrum disorder (ASD) is critical for timely intervention, making the Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-CHAT-R/F) a widely adopted tool globally. However, a recent systematic synthesis of its comparative accuracy is lacking. This review aimed to evaluate the screening accuracy of the M-CHAT-R/F against other ASD screening instruments. Design: A systematic review was conducted in accordance with Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines. A narrative synthesis was employed to integrate findings across diverse study designs and methodological quality was assessed using the Joanna Briggs Institute checklist. Eligibility Criteria: Peer-reviewed, English-language observational studies published between January 2020 and October 2025 that compared the accuracy metrics of the M-CHAT-R/F with alternative screening tools. Information Sources: Scopus, PubMed, ScienceDirect and ProQuest. Results: From 172 identified articles, six high-quality studies encompassing 12 633 participants aged 12-48 months were analysed. The synthesis revealed a complex performance profile for the M-CHAT-R/F. While its sensitivity for detecting potential cases was highly inconsistent, its negative predictive value remained consistently high, reliably identifying children who screened negative. Conversely, the tool demonstrated variable specificity and a persistently low positive predictive value, indicating a substantial false-positive burden and reduced confidence in positive results. Furthermore, the M-CHAT-R/F's accuracy was highly age-dependent, with performance degrading outside the optimal 16-30-month window compared with other specialised tools. Conclusions: The M-CHAT-R/F may not be an optimal instrument in every clinical setting. Its clinical utility may be limited by variable sensitivity and a lower positive predictive value, potentially creating a higher false-positive burden. Clinicians and health systems should consider adopting age-specific, tiered screening protocols to improve diagnostic efficiency and better allocate intervention resources.",
@@ -156,36 +186,6 @@
           "publication_date": "2026-06-09",
           "authors": "Tsen ASF, Bantalani MA, Ab Rahim MN et al.",
           "venue": "Family medicine and community health"
-        },
-        {
-          "score": 0.698,
-          "title": "Preliminary Reliability and Validity of the M-CHAT-S, a New Autism Screening Tool for School-Aged Children.",
-          "text": "Identifying autism early is critical for ensuring timely access to appropriate educational and clinical supports. Current autism screening practices primarily focus on toddlers; universal practices for identifying the substantial portion of autistic children who arrive at school age without a diagnosis are lacking. This study evaluates the preliminary reliability and validity of the Modified Checklist for Autism in Toddlers-School Age version (M-CHAT-S), a novel screener designed for early school-age children, with separate versions for verbally fluent and minimally verbal children. A total of 165 caregivers and 107 educators completed the M-CHAT-S, along with the Social Responsiveness Scale, Second Edition (SRS-2), to test convergent validity, and the Child Behavior Checklist (CBCL), to test discriminant validity. Findings demonstrate strong internal consistency across versions (Cronbach's \u03b1 = .79-.92) and robust construct validity. Children with preexisting autism diagnoses scored higher on the M-CHAT-S than nonautistic children. Both test-retest reliability and interrater reliability were in the moderate range. Despite these limitations, the M-CHAT-S demonstrates promise as a screening tool that could facilitate earlier identification of autistic children in school settings. Future research will involve a partnership with school districts to support school-based validation and implementation.Lay AbstractChildren with disabilities have a right to a free and appropriate public education in the United States. Children who are not identified by the time of school entry are likely to miss out on appropriate services and supports to which they would otherwise be legally entitled. Many studies show that a large portion of individuals who are ultimately diagnosed with autism are not identified until by the time they start school.Screening tools can help identify children who may be on the autism spectrum. Universal autism screening is currently recommended for toddlers, but not school-age children. To address this gap, we developed the Modified Checklist for Autism in Toddlers-School Age version (M-CHAT-S) for children in early elementary school. This study tested the consistency and accuracy of the M-CHAT-S for both verbally fluent and minimally verbal children.We asked 165 caregivers and 107 educators to complete the M-CHAT-S and compared their responses to other well-established measures of autism traits and behavior. Overall, we found that the M-CHAT-S had good reliability, meaning that the items in the measure were consistent with each other. Children with a known autism diagnosis scored higher on the M-CHAT-S than non-autistic children. M-CHAT-S scores were more strongly related to another autism screening tool (the SRS-2) than to a survey of general behavior (the CBCL). However, test-retest reliability (whether the same rater's score stayed consistent over time) and interrater reliability (whether two different raters agreed on scores) were lower than expected.These results suggest that the M-CHAT-S may be a useful tool for identifying autistic children in early school years. Future research will involve partnering with school districts to be able to reach as many children as possible, including autistic children who have not yet been identified. If validated further, this tool could help schools and families recognize children who need autistic support, leading to earlier access to services.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42487298/",
-          "publication_date": "2026-09",
-          "authors": "de Marchena A, Wieckowski AT, Dickerson AF et al.",
-          "venue": "Autism : the international journal of research and practice"
-        },
-        {
-          "score": 0.69,
-          "title": "Tailoring Screening Algorithms for a Large Health System: Autism Screening as a Case Example.",
-          "text": "Objectives: When health care systems develop algorithms to implement national screening guidelines, they must choose which information to incorporate (e.g., primary screening, secondary screening, and results from prior visits), whether to follow recommended screening thresholds (i.e., cut scores), and if not, how to set them. Our objective was to analyze electronic medical record (EMR) data to inform these choices. Methods: Retrospective analyses utilized EMR from 33,490 families of children 4 years of age and under enrolled in Kaiser Permanente Northern California. Given prior screening results, we analyzed how each child in the dataset would have been classified by several potential screening algorithms that differed with respect to information used and screening thresholds. Outcomes considered several perspectives, including population health, specialty care, primary care, and individual families. Results: Analyses supported a screening algorithm that: 1) includes all sources of screening information, 2) recommends evaluation for children with an estimated chance of receiving an autism diagnosis by 4 years of \u226550%, and 3) recommends active monitoring for children with an estimated probability of autism of \u22653.3% (but <50%). If implemented with fidelity, this algorithm could result in the direct referral of 1.8% of children, achieving 34.2% sensitivity and 62.1% positive predictive value before requiring further clinical decision-making. Tradeoffs with other potential screening algorithms are considered. Conclusions: Based on results, we recommend that health systems use EMR data to consider tradeoffs between potential algorithms when implementing or refining screening protocols. We also recommend replication over time to account for secular changes.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42297237/",
-          "publication_date": "2026-08",
-          "authors": "Sheldrick RC, Hooker JL, Davignon M et al.",
-          "venue": "Academic pediatrics"
-        },
-        {
-          "score": 0.685,
-          "title": "Recommending Autism Detection in Early Childhood (ADEC) for use in low- and middle-income countries.",
-          "text": "Early detection of autism spectrum disorder (ASD) is vital for early intervention; however, access to feasible and reliable screening tools remains a challenge in many low- and middle-income countries. The purpose of this letter is to highlight Autism Detection in Early Childhood (ADEC), a play-based observational and clinician-administered instrument for children aged 12-36 months with strong cross-cultural evidence of validity, specificity, and sensitivity. We are pleased to announce that, for the first time since its development in 2007, ADEC is now freely available to clinicians and researchers worldwide. LAY ABSTRACT: Early autism identification is crucial to help children and families access services and interventions early, which are more likely to be effective (Wankhede et al., 2024; Sadeghi et al., 2019; Sadeghi and Pouretemad, 2022). Many low- and middle-income countries, however, lack access to commonly used autism screening and diagnostic tools because these tools are costly, time-consuming, or require extensive training. Consequently, diagnosis and treatment may be delayed. The Autism Detection in Early Childhood (ADEC) is a short, play-based observational assessment for children between the ages of 12 and 36 months. It consists of 16 items that address social, communication, and behavioral aspects of autism. It has been demonstrated that the ADEC can accurately identify autistic children in multiple countries, including the United States, Mexico, Ecuador, Indonesia, and Japan. The brief and virtual versions of the tool is also available, making it suitable for use in clinics, telehealth services, and remote or underserved settings. It's our pleasure to announce that the ADEC is now available free and openly for clinicians and researchers worldwide for the first time since its development in 2007. The ADEC offers a practical, reliable, and cost-effective option for early autism detection by removing financial and access barriers. This tool can be used and further validated by clinicians and researchers worldwide, especially in developing countries, to improve early identification of autism.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42054888/",
-          "publication_date": "2026-06",
-          "authors": "Young R, Sadeghi S",
-          "venue": "Asian journal of psychiatry"
         }
       ]
     },
@@ -193,13 +193,23 @@
       "question": "How effective is parent-mediated early intervention?",
       "results": [
         {
-          "score": 0.78,
-          "title": "Parent-mediated and Telehealth Intervention for Children With Autism Spectrum Disorder",
-          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. This study has two purposes: Aim 1: To develop a Telehealth Early Intervention Program (TEIP) for children with ASD that will be carried out by parents at home when interact with their children; and to train parents in delivering developmental and behavioral techniques to their children. The participating families will be randomized in parallel to treatment and comparison groups for teaching the knowledge and techniques: (1) Treatment group: providing the training of TEIP for parents via telehealth modalities as they learn critical skills with their child with the goal of increasing multidimensional child developments. Intervention provider will provide the training for parent-child dyad interaction to work with parents to implement these strategies at home environment; and (2) Comparison group: provide general care consultation of child development for parents. Aim 2: To evaluate this program's effectiveness by measuring changes in a child's developments and behaviors. Investigator will evaluate child outcomes on the symptoms of ASD and multidimensional developmental functioning. Furthermore, investigator will measure the changes in the parent's knowledge and behaviors of parent-child interaction. Moreover, investigator will determine if parental participation in the intervention is associated with an improvement in parenting competences and decreased levels of stress.",
+          "score": 0.803,
+          "title": "Evaluating the Efficacy of Pathways Parent-Mediated Early Autism Intervention on Social Attention and Language",
+          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. The goal of this clinical trial is to compare the efficacy of Pathways parent-mediated early autism intervention (Pathways) and a parent education intervention (PEI) delivered to culturally and linguistically diverse families with children 12-42 months of age suspected of or diagnosed with autism. Question 1: Is Pathways more effective than a PEI at (a) fostering the development of social orienting, joint attention, and social communication and language in children with a research diagnosis of autism and (b) relieving their parents' stress? Question 2: Is the magnitude of the relationship between early and later developing attention greater in children whose parents receive Pathways compared to children whose parents receive PEI? Question 3: Is the magnitude of the relationship between joint attention and social communication and language greater in children whose parents receive Pathways compared to children whose parents receive PEI? Participants will be randomized into 24 weeks of Pathways or PEI. Participants will receive a battery of assessments to evaluate the child's cognitive, social attention, social communication, language, and adaptive functioning, and parental stress at four different time points spaced every 12 weeks from baseline to three-month follow-up.",
           "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT05810675",
-          "publication_date": "2022-08-19",
-          "authors": "National Taiwan University Hospital",
+          "source_url": "https://clinicaltrials.gov/study/NCT05604326",
+          "publication_date": "2022-10-27",
+          "authors": "The University of Texas at Dallas",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
+          "score": 0.779,
+          "title": "Parent-implemented Social Communication Treatment in Preschool Children With Autism Spectrum Disorder",
+          "text": "Conditions: Autism Spectrum Disorder, Autism, Social Communication, Speech Therapy, Parenting. Phase: NA. An accumulation of research evidence has pointed to parent-implemented communication treatment as effective in reducing the severity of social communication deficits in preschool children with ASD. Despite even high-quality evidence, real-world translation to clinical practice remains challenging, especially for children from lower-income families, for two reasons. First, the treatment outcome is highly variable despite study-level efficacy data, most likely due to unique child and parent factors that make treatment response uneven across individual children. Second, the cost of intervention with the largest effect sizes remains high due to its one-on-one format. With the overarching goal to reduce cost and to increase treatment effectiveness at the individual-child level, this project will conduct a randomized controlled trial (RCT) to compare the effectiveness of two options for intervention to address two specific objectives. The investigators will first ascertain whether parent-implemented communication treatment taught by a speech therapist in an Individual (one-on-one) format is more effective than treatment taught in a Group format (up to 8 families learning together) at the study level. The Individual format is at least 4 times more expensive than the Group format; its relative treatment effect must be empirically ascertained to justify its cost. The investigators will then evaluate what combinations of parent and child behavioral and neural factors determine which format of intervention is likely to be more effective at the individual-child level. It is likely that not all families require the more costly Individual format of intervention. Machine-learning analytics with cross-validation will be used in constructing predictive models of treatment response, which will increase the likelihood of these models being generalizable to new patients. This study will be among the first examples of fulfilling the promise of Precision Medicine in providing guidance to patients and families with developmental disorders not about whether to receive intervention but which option for intervention to receive in the context of multiple options. This predict-to-prescribe approach of ASD intervention will likely lead to a paradigm shift in clinical practice and ultimately result in lowering the overall cost and increasing the effectiveness of intervention for children with ASD as individuals.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT05455411",
+          "publication_date": "2022-07-01",
+          "authors": "Chinese University of Hong Kong",
           "venue": "ClinicalTrials.gov"
         },
         {
@@ -221,16 +231,6 @@
           "publication_date": "2026-09",
           "authors": "Latr\u00e8che K, Journal F, Godel M et al.",
           "venue": "Autism research : official journal of the International Society for Autism Research"
-        },
-        {
-          "score": 0.776,
-          "title": "Implementing a parent-mediated intervention for toddlers with ASD within the Chinese child healthcare system: a real-world study.",
-          "text": "Background: Behavioural interventions remain the cornerstone of evidence-based practice for addressing the core symptoms of autism spectrum disorder (ASD). The Skill Training Program for Parents with ASD Children (STPAC) is a group intervention programme for parents and the first parent-mediated intervention programme developed by Chinese clinical practitioners. This study was conducted to evaluate the feasibility and effectiveness of STPAC within the context of routine child healthcare services in China. Methods: This is a real-world, multi-site implementation study employed a single-arm, pre-post design. Between July 2023 and June 2025, 128 families of toddlers (aged 18-54 months) with suspected or diagnosed ASD were enrolled from two child healthcare settings. Participants received the 8-week, group-based parent training programme, which integrated didactic lessons, video modelling and individualised coaching. Outcomes were assessed at baseline and post-intervention using parent-reported measures: the Knowledge of Autism Intervention Questionnaire (KAIQ), the Communication and Symbolic Behavior Scales Developmental Profile (CSBS DP) and the Parenting Stress Index-Short Form (PSI-SF). Statistical analysis included paired-samples t-tests to evaluate within-group changes, with effect sizes (Cohen's d) calculated to quantify the magnitude of improvement. Results: Parental knowledge of autism intervention strategies increased substantially (mean improvement=6.26 points, p<0.001; d=1.17). Child communication and symbolic skills also improved, with the CSBS DP total score rising from 35.30 to 40.88 (p<0.001; d=0.99), representing an overall improvement rate of 85.7%. Furthermore, parenting stress decreased from clinically significant to normal levels (mean reduction=3.70 points, p=0.005). The intervention was equally effective across diverse family demographics, and baseline child communication ability was the strongest predictor of post-intervention gains. Conclusions: Despite an attrition rate of approximately 30%, STPAC demonstrated feasibility as a parent-mediated intervention delivered by trained local clinicians within routine child healthcare settings. Participation in the programme was associated with improvements in parental knowledge, child social communication and parenting stress. These findings provide preliminary evidence supporting the potential of STPAC to expand access to early ASD intervention, though confirmation in a randomised controlled trial is warranted.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42527107/",
-          "publication_date": "2026-07-29",
-          "authors": "Li H, Long X, Huang X et al.",
-          "venue": "BMJ paediatrics open"
         }
       ]
     },
@@ -338,16 +338,6 @@
           "venue": "Metabolic brain disease"
         },
         {
-          "score": 0.849,
-          "title": "Biomarkers Trajectories of Early Intervention in Siblings of Children with Autism Spectrum Disorder",
-          "text": "Conditions: Autism Spectrum Disorder, Early Intervention. Phase: NA. This project deals with essential challenges in the context of Autism Spectrum Disorder benefiting from a prospective design in childhood, early intervention and a cutting-edge experimental techniques. The present study tests the potential effect of early intervention on neural and behavioral responses in toddlers at elevated likelihood of developing autism (siblings of children with autism) who show clinical autistic signs. Four comparison groups were included in the study: (1) toddlers at elevated likelihood of developing autism with clinical autistic signs who receive early intervention from 18 to 24 months (2) toddlers at elevated likelihood of developing autism with clinical autistic signs who do not receive early intervention (3) toddlers at elevated likelihood of developing autism without clinical autistic signs who only received assessment and monitoring, and (4) typically developing toddlers who only received assessment and monitoring. This study focuses on social and nonsocial sensory integration skills (measured by electroencephalographic and eyetracking recordings) to identify reliable biomarkers for early detection and intervention of autism during a critical period of development. The characterization of biomarkers will guide the detection of the most vulnerable children that will benefit from early intervention, with the long-term aim of reducing the impact of autism on the National Health System.",
-          "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT05614206",
-          "publication_date": "2022-09-26",
-          "authors": "IRCCS Eugenio Medea",
-          "venue": "ClinicalTrials.gov"
-        },
-        {
           "score": 0.824,
           "title": "Serum Biomarkers of Neuroaxonal and Astroglial Damage in Autism Spectrum Disorder: Relationship With Symptom Severity, Behavioural Dimensions and Age.",
           "text": "Purpose: Autism spectrum disorder (ASD) is a neurodevelopmental condition characterized by persistent deficits in social communication and the presence of restrictive, repetitive patterns of behaviour. Although its exact aetiology remains multifaceted and partially understood, recent clinical interest has shifted towards neurobiological substrates, specifically neuroaxonal and astroglial integrity. This study aims to compare serum levels of Neurofilament Light Chain (NfL), Glial Fibrillary Acidic Protein (GFAP), Tau and S100B between children with ASD and healthy controls, while investigating the influence of these biochemical variables on autism severity and behavioural manifestations. Methods: The study cohort consisted of 44 children (aged 24-72 months) diagnosed with ASD according to DSM-5-TR criteria and 40 age-matched healthy controls. Clinical assessments were conducted using the Childhood Autism Rating Scale (CARS), the Aberrant Behaviour Checklist (ABC) and the Autism Behaviour Checklist. Serum concentrations of the targeted biomarkers were measured using the ELISA method from venous blood samples. Results: Serum NfL, Tau, GFAP and S100B concentrations did not differ significantly between children with ASD and healthy controls. Exploratory analyses suggested possible associations between selected biomarkers and clinical characteristics; however, these associations did not remain statistically significant after age adjustment and correction for multiple comparisons. Further studies using larger cohorts and ultrasensitive analytical platforms are needed to validate these preliminary findings. Conclusion: These findings indicate that serum NfL, Tau, GFAP and S100B did not differentiate children with ASD from healthy controls. Exploratory biomarker-clinical associations did not remain statistically significant after age adjustment and correction for multiple comparisons. Larger longitudinal studies using ultrasensitive analytical platforms are warranted.",
@@ -366,6 +356,16 @@
           "publication_date": "2026-06-03",
           "authors": "Rutkowski P, Romanowicz A, Mroczko J et al.",
           "venue": "Molecules (Basel, Switzerland)"
+        },
+        {
+          "score": 0.814,
+          "title": "Unveiling Diagnostic Biomarkers in Autism: A Comparative Proteome Analysis of CNTNAP2 Knockout Mice and Human ASD Patients.",
+          "text": "Autism Spectrum Disorder (ASD) is a biologically heterogeneous neurodevelopmental condition, presenting a major barrier to the identification of robust and translatable molecular biomarkers. Here, we employ a cross-species proteomic framework to identify conserved protein signatures associated with ASD. Quantitative proteomic profiling of brain and serum from CNTNAP2 knockout mice, integrated with serum proteomes from individuals with ASD, revealed 132 proteins consistently dysregulated across species. Functional pathway analyses implicated coordinated alterations in lipid metabolism, synaptic signaling, and immune regulation. To prioritize diagnostically informative candidates, we applied machine learning-based feature selection and identified a minimal panel of ten proteins (COL1A1, ITIH4, CLU, NID1, C5, MASP1, PON1, PLTP, HSPA5, and FETUB) that robustly discriminated ASD from control samples. Gene ontology and KEGG pathway analyses highlighted enrichment of immune regulatory pathways, synaptic transmission, oxidative stress responses, and lipid metabolic processes, consistent with emerging models linking neuroimmune dysregulation and metabolic imbalance to ASD pathophysiology. An XGBClassifier trained on this biomarker panel achieved strong performance in independent test sets (AUC = 0.75). Together, these findings establish cross-species proteomic integration combined with machine learning as a powerful strategy for uncovering conserved, biologically grounded biomarkers in ASD, providing a framework for future validation and translational development.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41897278/",
+          "publication_date": "2026-02-24",
+          "authors": "Kim A, Cho A, Kim J et al.",
+          "venue": "Biomolecules"
         }
       ]
     },
@@ -393,6 +393,16 @@
           "venue": "Scientific reports"
         },
         {
+          "score": 0.776,
+          "title": "Study of the Personal Identity in Adults With Autism Spectrum Disorder Without Intellectual Deficiency",
+          "text": "Conditions: Autism Spectrum Disorders. Phase: NA. The research aims at clarifying the impact of autism on personal identity in adulthood. Two studies will be made in order to compare adults with autistic spectrum disorders without intellectual deficiency and controls. In the first study (Study A), the investigators will ask subjects to tell autobiographical memories and to specify their characteristics by answering focused questions. In the second study (Study B), the investigators will ask subjects to say the self statements which define them. Then, subjects will have to tell and to specify the characteristics of the autobiographical memories linked to these self statements.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT02747056",
+          "publication_date": "2016-06",
+          "authors": "University Hospital, Strasbourg, France",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
           "score": 0.77,
           "title": "To improve the diagnosis of autism spectrum disorder without intellectual impairment: A qualitative study among adults with the diagnosis and psychiatrists.",
           "text": "Introduction: Despite the evidence and expert opinion that many adults with autism spectrum disorder (ASD) face barriers to formal diagnosis, qualitative studies examining adult patients' experience and requirements for better access to the diagnosis are still lacking. Aims: To qualitatively explore the pre-diagnosis experiences of adults with ASD, the impact of receiving a diagnosis, and the need for improved access to diagnosis both for adults with ASD and for adult psychiatrists. Methods: Sixteen semi-structured interviews were conducted (11 adults diagnosed with ASD and 5 psychiatrists). A mixed deductive-inductive thematic analysis was employed. Results: Several factors contributing to delayed diagnosis were identified including difficulties accessing healthcare, limited awareness of ASD among some clinicians, the use of camouflaging behaviors by participants, and family adaptation to their symptoms. Receiving a diagnosis was often described as a relief, allowing participants to understand past social difficulties and seek better acknowledgment and accommodation from their environment. The analysis highlighted the need to reduce wait times and service costs, as well as to enhance clinicians' knowledge of ASD to improve accessibility and satisfaction with diagnosis. Participants also noted the complex interplay between media portrayals of ASD and public understanding of the disorder. Conclusions: Increased education for mental health professionals and broader public awareness campaigns are necessary to facilitate timely access to appropriate diagnosis and support services.",
@@ -401,32 +411,12 @@
           "publication_date": "2026-10",
           "authors": "Cambier G, van der Hoeven J, Chaix G et al.",
           "venue": "L'Encephale"
-        },
-        {
-          "score": 0.768,
-          "title": "On the Spectrum: High-Functioning Autism and Its Contemporary Relevance.",
-          "text": "With publication of the Diagnostic and Statistical Manual of Mental Disorders, fifth edition (DSM-5) in 2013, autism's prevalence in the United States nearly doubled to more than 2% of the population. In reconceptualizing the condition, DSM-5 collapsed 4 diagnoses into 1 diagnosis: autism spectrum disorder. What the 4 had in common were deficits in 2 broad areas: restricted, repetitive behaviors or interests; and deficits in social communication. Three of the 4 were severe forms easily recognized in childhood. The fourth, constituting most of the increase in prevalence, was Asperger disorder, or high-functioning autism, frequently going undiagnosed until adulthood. These patients typically have fluent language, intact intellect, and highly developed compensatory strategies including social \"masking.\" The adult diagnosis is manifested in struggles to maintain employment or friendships both platonic and intimate. Nonpsychiatric providers are likely to encounter patients with autism spectrum disorder seeking care for myriad comorbid psychiatric and physical problems. Complicating matters is that many adult psychiatrists are unfamiliar with what was until recently the purview of child psychiatrists. Autism has neither cure nor specific pharmacologic treatments, but addressing comorbidities, with psychiatric and medical referrals where indicated, mitigates suffering. Services targeting employment and educational support, occupational therapy focused on activities of daily living, and skill-based psychotherapies that aim to improve social interactions can reduce stress and anxiety while enhancing function, reducing isolation, and encouraging satisfying relationships.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42065701/",
-          "publication_date": "2026-05",
-          "authors": "Bostwick JM, McKean AJS",
-          "venue": "Mayo Clinic proceedings"
         }
       ]
     },
     {
       "question": "What clinical trials are studying autism therapies?",
       "results": [
-        {
-          "score": 0.817,
-          "title": "Novel therapeutics in autism spectrum disorder.",
-          "text": "Autism spectrum disorder (ASD) is a heterogeneous neurodevelopmental condition with limited treatment options that address its full complexity. This review critically evaluates novel therapeutics across five key domains: behavioral and psychosocial interventions, psychopharmacology, digital and AI-driven tools, neuromodulation, and genetic therapies. The broad heterogeneity of ASD complicates clinical research, often obscuring treatment effects and limiting generalizability. Challenges across domains include identifying reliable biomarkers, defining meaningful outcomes, and ensuring equitable access to evidence-based care and research participation. Behavioral and psychosocial therapies, considered first line interventions, are shifting toward naturalistic, developmentally informed, and neurodiversity-affirming models that reflect individual needs across the spectrum and across the lifespan. There continues to be no medications that are currently FDA approved for core autism symptoms, though ongoing pharmacologic research increasingly emphasizes biologically informed, stratified approaches to develop biomarkers that identify subsets of individuals who may benefit from a specific treatment. Digital and AI-driven tools promise greater personalization and expanded access but require safeguards, validation, and attention to equity. Neuromodulation techniques, including Transcranial Magnetic Stimulation (TMS) and Transcranial Direct Current Stimulation (tDCS), remain experimental yet highlight the importance of personalized protocols and ethical oversight. Genetics has seen advancements in gene-targeted therapies for syndromic forms of ASD marking a pivotal move toward precision medicine in autism, though ongoing challenges regarding safety, efficacy, and equitable access persist. This review informs clinicians, researchers, individuals with lived experiences and other important stakeholders by appraising current evidence, identifying limitations, and outlining future directions to advance rigorous, inclusive, and collaborative autism therapeutics.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41748402/",
-          "publication_date": "2026-01",
-          "authors": "Sara Daniella Kevelson, Elmaghraby R, Patel F et al.",
-          "venue": "Neurotherapeutics : the journal of the American Society for Experimental NeuroTherapeutics"
-        },
         {
           "score": 0.768,
           "title": "Evaluation of a Clinical Transitional Program in Autism",
@@ -438,16 +428,6 @@
           "venue": "ClinicalTrials.gov"
         },
         {
-          "score": 0.759,
-          "title": "A Trial of CM-AT in Children With Autism",
-          "text": "Conditions: Autism. Phase: PHASE3. The purpose of this study is to determine whether CM-AT is safe and effective in treating the core symptoms of autism.",
-          "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT00881452",
-          "publication_date": "2009-05",
-          "authors": "Curemark",
-          "venue": "ClinicalTrials.gov"
-        },
-        {
           "score": 0.757,
           "title": "Pharmacological evaluation frameworks in autism spectrum disorder: Methodological and neurobiological considerations.",
           "text": "Autism spectrum disorder (ASD) is a heterogeneous neurodevelopmental condition characterized by persistent deficits in social communication and interaction, alongside restricted and repetitive behaviors. Despite substantial advances in genetics, neurobiology and neuroimaging, no pharmacological treatment currently addresses the core symptoms of ASD. Existing medications primarily target associated behavioral disturbances such as irritability, aggression and hyperactivity. This narrative review synthesizes contemporary neurobiological findings, methodological challenges and evolving clinical trial frameworks relevant to the evaluation of emerging pharmacotherapies in ASD. Particular emphasis is placed on biomarker-informed stratification, rigorous trial design and developmental timing as critical determinants of therapeutic success. Advances in molecular genetics, systems neuroscience and multimodal biomarker integration highlight the need for precision medicine approaches that align pharmacological targets with underlying neurodevelopmental mechanisms. Strengthening methodological rigor while maintaining ethical and neurodiversity-affirming principles will be essential to advancing effective pharmacological interventions for ASD.",
@@ -456,6 +436,26 @@
           "publication_date": "2026-09",
           "authors": "Bourin M",
           "venue": "Pakistan journal of pharmaceutical sciences"
+        },
+        {
+          "score": 0.756,
+          "title": "Drug development in autism spectrum disorder: genetic heterogeneity, failed trials, and the case for stratified pharmacotherapy.",
+          "text": "Despite three decades of clinical trials, no pharmacological treatment has shown consistent efficacy for the core features of autism spectrum disorder (ASD), and regulatory approvals remain limited to risperidone and aripiprazole for severe irritability. This limited efficacy likely reflects a mismatch between underlying biology and broad trial designs. ASD is a clinically defined neurodevelopmental condition with marked etiologic heterogeneity, shaped by highly polygenic liability and a long tail of rare, often de novo , high-impact variants. Genomic studies implicate synaptic signaling, chromatin regulation, and excitatory-inhibitory processes, but this partial biological convergence does not support a single therapeutic target across the diagnostic spectrum. Debate over environmental risk factors, including prenatal acetaminophen exposure, also shows how weak causal inference can distort research priorities. We propose three priorities for ASD pharmacotherapy: genetically stratified mechanism-linked interventions, pharmacogenomics-informed symptomatic prescribing, and trials using validated or biomarker-informed endpoints that capture outcomes regarded as meaningful by autistic people.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42127326/",
+          "publication_date": "2026-09-01",
+          "authors": "Bortoletto R, Fanelli G, Colizzi M",
+          "venue": "International clinical psychopharmacology"
+        },
+        {
+          "score": 0.746,
+          "title": "Physical exercise therapy for autism spectrum disorder: protocol for a scoping review of systematic reviews.",
+          "text": "Background: Autism spectrum disorder (ASD) is a complex neurodevelopmental disorder characterized by core symptoms of impaired social communication and restricted repetitive patterns of behavior. Physical exercise therapy (PET), as a non-pharmacological intervention, has seen increasing application and research in the ASD field. Although multiple systematic reviews have examined the efficacy of PET interventions for ASD and associated factors, a scoping review is still needed to systematically analyze existing systematic reviews and meta-analyses, thereby identifying current research gaps. Methods: This study will be based on the scoping-review methodological framework proposed by Arksey and O'Malley in 2005 and the PRISMA-ScR reporting guidelines. The search will cover four databases: MEDLINE (PubMed), EMBASE, Web of Science, and Cochrane Library (Wiley), screening systematic reviews published in English from database inception through December 2025. The study will include systematic reviews of randomized controlled trials and observational studies (with or without meta-analysis). Two reviewers will independently perform literature screening and data extraction. All eligible articles will be evaluated using the AMSTAR-2 tool. Tabulated data will be summarized through quantitative analysis, with qualitative synthesis conducted using narrative methods. Discussion: This scoping review will highlight the evidence needed to guide decision-making for PET interventions in individuals with ASD. Systematic Review Registration: Open Science Framework ( https://doi.org/10.17605/OSF.IO/JVM4H ).",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42071249/",
+          "publication_date": "2026-05-04",
+          "authors": "Fan F, Li J, Zhang X et al.",
+          "venue": "Systematic reviews"
         }
       ]
     },
