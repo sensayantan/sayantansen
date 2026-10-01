@@ -4,6 +4,13 @@
   "main": "src/index.js",
   "compatibility_date": "2026-09-30",
 
+  // Keep variables set in the dashboard when this config deploys. Without
+  // this, every deploy (each push to main) replaces the Worker's plain-text
+  // variables with the "vars" below, silently deleting a dashboard-added
+  // CONTACT_TO that was saved as Text rather than Secret. Secrets survive
+  // either way; this makes the address survive too.
+  "keep_vars": true,
+
   // Cloudflare Email Routing's send binding. No destination address here on
   // purpose: this repository is public, and the owner's address lives only in
   // the CONTACT_TO secret. Email Routing will only deliver to destination
