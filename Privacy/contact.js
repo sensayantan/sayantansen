@@ -11,8 +11,8 @@
   // The Worker's endpoint, and the Turnstile widget's site key. The site key
   // is public by design: it identifies the widget, while the secret that
   // verifies a token lives only in the Worker's dashboard settings.
-  var CONTACT_ENDPOINT = "";
-  var TURNSTILE_SITE_KEY = "";
+  var CONTACT_ENDPOINT = "https://sayantansen-contact.sen-sayantan.workers.dev/api/contact";
+  var TURNSTILE_SITE_KEY = "0x4AAAAAAFLZyAA6Ixk3Wvx8";
 
   var form = document.getElementById("contact-form");
   var unavailable = document.getElementById("contact-unavailable");
