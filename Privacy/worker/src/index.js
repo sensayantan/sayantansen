@@ -162,7 +162,13 @@ async function handleContact(request, env) {
     await env.SEND_EMAIL.send(new EmailMessage(from, env.CONTACT_TO, raw));
   } catch (error) {
     console.error("send failed:", error);
-    return json({ error: "The message couldn't be sent. Please try again later." }, request, env, 502);
+    // Email Routing's message says what is wrong (an unverified destination,
+    // a sender off the domain, ...). Addresses are masked before it reaches
+    // the page, so the owner's address can never be shown to a visitor.
+    const reason = String((error && error.message) || error)
+      .replace(/[^\s<>"']+@[^\s<>"']+/g, "[address]")
+      .slice(0, 200);
+    return json({ error: "The message couldn't be sent. Please try again later.", reason }, request, env, 502);
   }
   return json({ ok: true }, request, env);
 }
