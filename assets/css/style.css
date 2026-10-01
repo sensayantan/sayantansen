@@ -206,6 +206,15 @@ a:hover {
   text-decoration: underline;
 }
 
+.footer-copyright a {
+  color: #fff;
+}
+
+.footer-copyright a:hover,
+.footer-copyright a:focus {
+  text-decoration: underline;
+}
+
 /* Responsive pill nav */
 
 @media (max-width: 640px) {
@@ -2429,4 +2438,129 @@ html.is-bare body {
   margin: 0.75rem 0 0;
   font-size: 0.82rem;
   color: #b3261e;
+}
+
+/* =========================================================
+   Privacy & contact (Privacy/index.html)
+   ========================================================= */
+
+.privacy-page {
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+.privacy-title {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  margin: 0 0 0.25rem;
+  color: var(--color-text);
+}
+
+.privacy-updated {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin: 0 0 2rem;
+}
+
+.privacy-section {
+  margin: 0 0 2rem;
+}
+
+.privacy-section h2 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  color: var(--color-text);
+}
+
+.privacy-section p,
+.privacy-section li {
+  line-height: 1.65;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 560px;
+}
+
+/* display:flex above would otherwise override the hidden attribute, and the
+   form would show beside the "being set up" note before it is configured. */
+.contact-form[hidden] {
+  display: none;
+}
+
+.contact-form label {
+  font-weight: 600;
+  margin-top: 0.6rem;
+  color: var(--color-text);
+}
+
+.contact-optional {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.contact-form input,
+.contact-form textarea {
+  font: inherit;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.contact-turnstile {
+  margin-top: 0.9rem;
+  min-height: 65px;
+}
+
+.contact-submit {
+  align-self: flex-start;
+  margin-top: 0.6rem;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.contact-submit:hover:not(:disabled) {
+  background: var(--color-accent-dark);
+}
+
+.contact-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.contact-status {
+  min-height: 1.3em;
+  margin: 0.4rem 0 0;
+  color: var(--color-muted);
+}
+
+.contact-status.is-ok {
+  color: #1d6b3a;
+}
+
+.contact-status.is-error {
+  color: #a32020;
+}
+
+.contact-unavailable {
+  color: var(--color-muted);
 }

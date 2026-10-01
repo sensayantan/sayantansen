@@ -16,6 +16,7 @@ data, plus a `README.md` explaining how that feature works end to end.
 | Today's News | [`DAYBREAK/`](DAYBREAK/) | A researched daily brief, Mon–Sat, plus an archive calendar | [DAYBREAK/README.md](DAYBREAK/README.md) |
 | Sayantan Blogs | [`BLOG/`](BLOG/) | Blog posts written in `/admin`, rendered to static pages | [BLOG/README.md](BLOG/README.md) |
 | My Experiment | [`MyExperiment/`](MyExperiment/) | Retrieval search over ~1,900 autism research records, with live summaries | [MyExperiment/README.md](MyExperiment/README.md) |
+| *(footer link)* | [`Privacy/`](Privacy/) | Privacy policy and a contact form that emails the owner via a Cloudflare Worker | [Privacy/README.md](Privacy/README.md) |
 | *(not a menu item)* | [`ProjectDocs/`](ProjectDocs/) | Epics, stories and backlog for the site itself; GitHub sign-in required | [ProjectDocs/README.md](ProjectDocs/README.md) |
 
 ## The whole system
@@ -77,7 +78,7 @@ Three patterns repeat across every feature:
 
 Every page carries the same header and footer, copy-pasted rather than
 templated (there is no build step to include them): root `index.html`,
-`ProjectDocs/index.html`, `BLOG/index.html`, `DAYBREAK/index.html`,
+`Privacy/index.html`, `ProjectDocs/index.html`, `BLOG/index.html`, `DAYBREAK/index.html`,
 `DAYBREAK/archive.html`, `MyExperiment/index.html`, and the post template
 inside `BLOG/render_blogs.py`. A change to the header or footer must be made
 in all of them. Daybreak editions get their nav from
@@ -121,7 +122,9 @@ local and gitignored; reader data belongs in a Worker's own storage.
 | GitHub Pages | hosting | free |
 | GitHub Actions | rendering, monthly corpus refresh | free tier |
 | GitHub Discussions + giscus | blog comments | free |
-| Cloudflare Workers + Workers AI | admin login; autism search embedding and summaries | free tier |
+| Cloudflare Workers + Workers AI | admin login; autism search embedding and summaries; contact form | free tier |
+| Cloudflare Email Routing + Turnstile | contact form delivery to the owner's inbox; spam check | free |
+| Cloudflare Registrar + DNS | the sensayantan.com domain | ~$10–11/year (domain only) |
 | PubMed E-utilities, ClinicalTrials.gov | the autism corpus | free, no key |
 | Yahoo Finance | Daybreak market data (ticker symbols only) | free |
 | Codex app | Daybreak research and publishing | existing subscription |

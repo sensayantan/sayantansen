@@ -43,6 +43,7 @@ CANDIDATE_GLOBS = [
     "DAYBREAK/archive.html",
     "MyExperiment/*.html",
     "ProjectDocs/*.html",
+    "Privacy/*.html",
     "BLOG/render_blogs.py",
 ]
 

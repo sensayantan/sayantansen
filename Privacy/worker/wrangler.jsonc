@@ -1,0 +1,31 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "sayantansen-contact",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-30",
+
+  // Cloudflare Email Routing's send binding. No destination address here on
+  // purpose: this repository is public, and the owner's address lives only in
+  // the CONTACT_TO secret. Email Routing will only deliver to destination
+  // addresses verified in the dashboard, so the binding cannot mail anyone else.
+  "send_email": [
+    { "name": "SEND_EMAIL" }
+  ],
+
+  "vars": {
+    // Sender address. It must be on the domain that has Email Routing on.
+    "FROM_ADDRESS": "contact-form@sensayantan.com",
+    // Pages allowed to post to the form endpoint (comma-separated).
+    "SITE_ORIGINS": "https://sensayantan.com,http://localhost:8000,http://127.0.0.1:8000"
+  },
+
+  // Set in the dashboard (Settings → Variables and Secrets), never here:
+  //   TURNSTILE_SECRET  Turnstile widget secret key
+  //   CONTACT_TO        the owner's verified destination address
+
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  }
+}
