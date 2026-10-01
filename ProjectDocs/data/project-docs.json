@@ -1214,10 +1214,34 @@
                 "GitHub announced ubuntu-latest moves to Ubuntu 26 from 2026-10-19. Pinning defers that move rather than testing it; adopting Ubuntu 26 later should be its own change, with one run of each workflow checked on it. Ubuntu 24.04 remains a supported runner image well beyond that date."
               ],
               "notes": ""
+            },
+            {
+              "number": "5.6",
+              "title": "Serve the site from its own domain, sensayantan.com",
+              "status": "Done",
+              "known_status": true,
+              "narrative": "As the site owner, I want the site at my own address, sensayantan.com, rather than a github.io project path, so it reads as mine, keeps the same free hosting and publishing flow, and gives the planned privacy page, analytics and social sign-in a proper domain to live on.",
+              "acceptance_criteria": [
+                "The site is served from https://sensayantan.com/, still hosted on GitHub Pages from main, with an HTTPS certificate covering sensayantan.com and www.sensayantan.com and HTTPS enforced; http:// and www both redirect to https://sensayantan.com/.",
+                "Every old sensayantan.github.io/sayantansen/... link redirects (301) to the same page on the domain, so links shared before the move keep working.",
+                "The domain was bought through Cloudflare Registrar at cost, about $10-11 a year, the only paid item in the site; hosting stays free.",
+                "DNS at Cloudflare: four A and four AAAA records for GitHub Pages and a www CNAME to sensayantan.github.io, all DNS-only so GitHub can issue the certificate, plus a TXT record verifying the domain on the owner's GitHub account so no one else can claim it there.",
+                "The /sayantansen/ base path is gone: stored post, About Me and admin upload paths are root-absolute; Daybreak editions, the edition template and the publisher's live check point at the domain; the redirect pages' canonical links and the docs follow.",
+                "The admin login Worker accepts both the domain and the old github.io origin, and the autism-search Worker allows the domain; the owner confirmed /admin login on the domain, and My Experiment's live search answers from it.",
+                "Every page was checked on the live domain with no failed requests, script errors or broken images."
+              ],
+              "assumptions": [
+                "sayantansen.com was already taken; sensayantan.com matches the owner's existing GitHub and X handle.",
+                "GitHub Pages was kept rather than moving to Cloudflare Pages because only GitHub can redirect the old github.io links automatically; the comment and analytics Workers in later steps can live on a subdomain.",
+                "Setting the custom domain turned HTTPS enforcement off until GitHub issued the certificate, which took under a minute; enforcement was then switched back on.",
+                "Local testing now serves the repository folder itself, since paths are root-absolute.",
+                "The giscus comment threads, matched on page pathname, would detach with the new paths; none existed, and giscus is due to be replaced by the planned social-sign-in comments."
+              ],
+              "notes": ""
             }
           ],
-          "done": 5,
-          "total": 5
+          "done": 6,
+          "total": 6
         },
         {
           "project": "Sayantan Sen website Project Documentation",
@@ -1437,14 +1461,6 @@
       "date": "2026-09-25"
     },
     {
-      "epic": "Pipeline and safeguards",
-      "title": "Move the site to the custom domain sensayantan.com",
-      "description": "Step 1. Part of the 2026-09-30 plan, done in order: 1) custom domain, 2) privacy policy page, 3) visitor analytics, 4) social-sign-in comments. Nothing paid except the domain. Decided: buy sensayantan.com through Cloudflare Registrar (about $10-11 a year, at cost, the only paid item; sayantansen.com is taken) and keep hosting on GitHub Pages, free, with the custom domain, so every old sensayantan.github.io/sayantansen/ link redirects to the same page automatically. DNS records at Cloudflare must be DNS-only (proxy off) so GitHub Pages can issue the HTTPS certificate. The site moves from the /sayantansen/ path to the root, so every hard-coded /sayantansen/ changes with it: post and About Me image paths, the admin's upload paths, SITE in DAYBREAK/patch_daybreak.py, run.mjs's Pages verification URL, and the Workers' allowed origins. That change ships only after the domain resolves.",
-      "type": "Technical Debt",
-      "known_type": true,
-      "date": "2026-09-25"
-    },
-    {
       "epic": "My Passion",
       "title": "Build \"My Passion\" \u2014 a historical extravaganza of Soccer, Cricket and Hockey World Cup history",
       "description": "A brand-new page, not yet its own epic, collecting facts, embedded videos, interviews and controversies from Soccer, Cricket and Hockey World Cup history for readers interested in these sports' pasts. Needs its own content model, separate from a blog post, since it mixes narrative text with embedded video and per-event detail.",
@@ -1543,8 +1559,8 @@
   ],
   "totals": {
     "epics": 7,
-    "stories": 76,
-    "done": 76,
-    "backlog": 16
+    "stories": 77,
+    "done": 77,
+    "backlog": 15
   }
 }
