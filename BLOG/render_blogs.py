@@ -201,7 +201,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=31">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=32">
 </head>
 <body>
 
@@ -264,12 +264,12 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
         <a href="https://x.com/sensayantan" target="_blank" rel="noopener">X</a>
         <a href="https://substack.com/@sayantansen" target="_blank" rel="noopener">Substack</a>
       </div>
-      <p class="footer-copyright">&copy; <span id="year"></span> Sayantan Sen</p>
+      <p class="footer-copyright">&copy; <span id="year"></span> Sayantan Sen · <a href="../../Privacy/index.html">Privacy &amp; contact</a></p>
     </div>
   </footer>
 
-  <script src="../../assets/js/main.js?v=31"></script>
-  <script src="../comments.js?v=31"></script>
+  <script src="../../assets/js/main.js?v=32"></script>
+  <script src="../comments.js?v=32"></script>
 </body>
 </html>
 """

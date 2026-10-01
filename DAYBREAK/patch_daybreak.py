@@ -185,7 +185,7 @@ SITE_FOOTER = (
         f'<a href="{href}" target="_blank" rel="noopener">{label}</a>'
         for href, label in FOOTER_LINKS
     )
-    + '</div><p class="dbSiteFooterCopy">&copy; 2026 Sayantan Sen</p>'
+    + f'</div><p class="dbSiteFooterCopy">&copy; 2026 Sayantan Sen · <a href="{SITE}/Privacy/index.html">Privacy &amp; contact</a></p>'
     "</div></footer>"
 )
 
@@ -460,8 +460,13 @@ def add_site_footer(html: str) -> tuple[str, bool]:
     stale = re.search(r'<footer><div class="footer-connect">.*?</footer>', html, re.S)
     if stale:
         html = html[: stale.start()] + html[stale.end():]
-    if 'class="dbSiteFooter"' in html:
-        return html, bool(stale)
+    current = re.search(r'<footer class="dbSiteFooter">.*?</footer>', html, re.S)
+    if current:
+        # Replace rather than skip, so a change to SITE_FOOTER (such as the
+        # Privacy & contact link) reaches editions patched by an earlier run.
+        if current.group(0) == SITE_FOOTER:
+            return html, bool(stale)
+        return html[: current.start()] + SITE_FOOTER + html[current.end():], True
     if "</body>" not in html:
         return html, False
     return html.replace("</body>", SITE_FOOTER + "</body>", 1), True
