@@ -66,7 +66,11 @@
     })
       .then(function (response) {
         return response.json().then(function (data) {
-          if (!response.ok) throw new Error(data.error || "The message couldn't be sent.");
+          if (!response.ok) {
+            // The reason code (e.g. timeout-or-duplicate) is what tells a
+            // stale page apart from a misconfigured widget when reporting it.
+            throw new Error((data.error || "The message couldn't be sent.") + (data.reason ? " (" + data.reason + ")" : ""));
+          }
         });
       })
       .then(function () {

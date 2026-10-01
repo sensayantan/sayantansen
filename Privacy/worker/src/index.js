@@ -84,9 +84,13 @@ function buildEmail({ from, to, replyTo, name, email, message, origin }) {
   return headers.join("\r\n") + "\r\n\r\n" + encoded;
 }
 
+// Returns Turnstile's verdict and its error codes. The codes are what tell a
+// wrong secret ("invalid-input-secret") apart from an expired or reused token
+// ("timeout-or-duplicate") or a page on an unlisted hostname, so they are
+// passed back to the form and logged rather than collapsed into a yes/no.
 async function verifyTurnstile(token, ip, env) {
   const form = new FormData();
-  form.append("secret", env.TURNSTILE_SECRET);
+  form.append("secret", String(env.TURNSTILE_SECRET).trim());
   form.append("response", token);
   if (ip) form.append("remoteip", ip);
   const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
@@ -94,7 +98,11 @@ async function verifyTurnstile(token, ip, env) {
     body: form,
   });
   const result = await res.json();
-  return result.success === true;
+  return {
+    success: result.success === true,
+    codes: result["error-codes"] || [],
+    hostname: result.hostname || null,
+  };
 }
 
 async function handleContact(request, env) {
@@ -125,8 +133,18 @@ async function handleContact(request, env) {
   }
 
   const ip = request.headers.get("CF-Connecting-IP");
-  if (!data.turnstileToken || !(await verifyTurnstile(data.turnstileToken, ip, env))) {
-    return json({ error: "The human check didn't pass. Please try again." }, request, env, 403);
+  if (!data.turnstileToken) {
+    return json({ error: "The human check didn't pass. Please try again.", reason: "missing-token" }, request, env, 403);
+  }
+  const check = await verifyTurnstile(data.turnstileToken, ip, env);
+  if (!check.success) {
+    console.warn("turnstile rejected:", check.codes.join(","), "hostname:", check.hostname);
+    return json(
+      { error: "The human check didn't pass. Please try again.", reason: check.codes.join(",") || "rejected" },
+      request,
+      env,
+      403,
+    );
   }
 
   const from = env.FROM_ADDRESS || "contact-form@sensayantan.com";
@@ -160,10 +178,19 @@ export default {
       return handleContact(request, env);
     }
     if (url.pathname === "/api/health") {
+      // Verifying a dummy token tells a wrong secret apart from a right one
+      // without revealing it: a bad secret is reported as
+      // "invalid-input-secret", a good one only rejects the dummy token.
+      let turnstileSecretValid = null;
+      if (env.TURNSTILE_SECRET) {
+        const probe = await verifyTurnstile("health-check-dummy-token", null, env);
+        turnstileSecretValid = !probe.codes.includes("invalid-input-secret");
+      }
       return json(
         {
-          ok: Boolean(env.TURNSTILE_SECRET && env.CONTACT_TO && env.SEND_EMAIL),
+          ok: Boolean(env.TURNSTILE_SECRET && env.CONTACT_TO && env.SEND_EMAIL && turnstileSecretValid),
           turnstileSecret: Boolean(env.TURNSTILE_SECRET),
+          turnstileSecretValid,
           contactTo: Boolean(env.CONTACT_TO),
           emailBinding: Boolean(env.SEND_EMAIL),
         },
