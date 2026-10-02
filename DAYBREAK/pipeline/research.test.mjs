@@ -48,4 +48,5 @@ test('full research contract uses 24 mocked calls and emits every configured sec
   assert.match(firstResearchPrompt,/Prior developing event/);assert.match(firstResearchPrompt,/material new development/);
   assert.match(firstResearchPrompt,/BBC News/);assert.match(firstResearchPrompt,/Required source roster/);
   assert.equal(result.edition.sections[0].stories[0].sources[0].verifiedAt,stamp);
+  assert.equal(result.researchDepth.get('Top News').candidateEvents,config.sectionRules['Top News'].target);
 });

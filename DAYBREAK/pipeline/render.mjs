@@ -29,8 +29,25 @@ export function validateAudit(audit,e,{now=Date.now()}={}) {
       const age=now-Date.parse(source.checkedAt);assert(Number.isFinite(age)&&age>=-300000&&age<=24*3600000,`Stale research audit check for ${source.rosterUrl}`);
       assert(source.status==='reviewed'||source.note,`Non-reviewed source requires an explanation: ${source.rosterUrl}`);
       assert(Array.isArray(source.articleUrls)&&source.articleUrls.every(x=>new URL(x).protocol==='https:'),'Audit article URLs must be HTTPS');
+      if(source.status==='reviewed'){
+        assert(source.articleUrls.length,`Reviewed source requires a retrieved article URL: ${source.rosterUrl}`);
+        const landing=new URL(source.rosterUrl);landing.hash='';
+        assert(source.articleUrls.some(value=>{const article=new URL(value);article.hash='';return article.href!==landing.href;}),`Publisher homepage alone is not article research: ${source.rosterUrl}`);
+      }
     });
     assert(Array.isArray(section.supplementalArticleUrls)&&section.supplementalArticleUrls.every(x=>new URL(x).protocol==='https:'),`Invalid supplemental audit URLs for ${title}`);
+    const depth=section.researchDepth,rule=config.sectionRules[title],selected=e.sections[i].stories.length;
+    assert(depth&&Number.isInteger(depth.candidateArticles)&&Number.isInteger(depth.candidateEvents)&&Number.isInteger(depth.corroboratedEvents)&&Number.isInteger(depth.recoveryPasses),`Research depth missing for ${title}`);
+    assert(depth.candidateArticles>=depth.candidateEvents&&depth.candidateEvents>=depth.corroboratedEvents&&depth.corroboratedEvents>=selected,`Invalid research-depth counts for ${title}`);
+    assert.equal(depth.selectedStories,selected,`Research-depth selected count mismatch for ${title}`);
+    assert.equal(depth.rosterAttempted,roster.length,`Full source roster was not attempted for ${title}`);
+    assert(Array.isArray(depth.rejectionReasons),`Research rejection reasons missing for ${title}`);
+    if(selected<rule.target){
+      assert(depth.recoveryPasses>=2,`${title} is below target without two recovery passes`);
+      assert(depth.candidateArticles>=Math.max(rule.target*2,selected*2),`${title} is below target without a sufficient article candidate pool`);
+      assert(depth.candidateEvents>=rule.target,`${title} is below target without enough distinct candidate events`);
+      assert(depth.rejectionReasons.length,`${title} is below target without documented rejection reasons`);
+    }
     const auditedArticles=new Set([...section.sources.flatMap(x=>x.articleUrls),...section.supplementalArticleUrls]);
     for(const story of e.sections[i].stories)for(const source of story.sources)assert(auditedArticles.has(source.url),`Published source absent from research audit: ${source.url}`);
   });

@@ -6,7 +6,21 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 const now=new Date().toISOString();
 const e={date:now.slice(0,10),researchedAt:now,reviewComplete:true,sections:config.sections.map((title,i)=>({title,deck:'Test fixture, not news',stories:Array.from({length:config.sectionRules[title].target},(_,j)=>({eventId:`test-${i}-${j}`,category:'Test',headline:`Fixture story ${i} ${j}`,summary:'Synthetic test only.',publishedAt:now,sources:[{url:`https://source-a-${i}.example/${j}`,label:'Test source A',verifiedAt:now},{url:`https://source-b-${i}.example/${j}`,label:'Test source B',verifiedAt:now}]}))})),metrics:config.metrics.map(label=>({label,value:'Source unavailable',asOf:'Test only',source:'https://example.com/metric'})),marketAnalysis:'Synthetic test, not a market claim.',marketAnalysisSources:[],earnings:{items:[],emptyReason:'Test only'}};
-const makeAudit=edition=>({date:edition.date,researchedAt:edition.researchedAt,editionSha256:editionDigest(edition),sections:config.sections.map((title,i)=>({title,sources:sourceRosters.get(title.toLowerCase().replace(/[^a-z0-9]+/g,'')).map(source=>({rosterUrl:source.url,status:'reviewed',checkedAt:now,note:'',articleUrls:[source.url]})),supplementalArticleUrls:edition.sections[i].stories.flatMap(story=>story.sources.map(source=>source.url))}))});
+const makeAudit=edition=>({
+  date:edition.date,
+  researchedAt:edition.researchedAt,
+  editionSha256:editionDigest(edition),
+  sections:config.sections.map((title,i)=>{
+    const roster=sourceRosters.get(title.toLowerCase().replace(/[^a-z0-9]+/g,''));
+    const selected=edition.sections[i].stories.length,target=config.sectionRules[title].target;
+    return {
+      title,
+      sources:roster.map(source=>({rosterUrl:source.url,status:'reviewed',checkedAt:now,note:'',articleUrls:[new URL('daybreak-fixture-article',source.url.endsWith('/')?source.url:source.url+'/').href]})),
+      supplementalArticleUrls:edition.sections[i].stories.flatMap(story=>story.sources.map(source=>source.url)),
+      researchDepth:{rosterAttempted:roster.length,candidateArticles:Math.max(roster.length,target*2),candidateEvents:Math.max(selected,target),corroboratedEvents:Math.max(selected,target),selectedStories:selected,recoveryPasses:selected<target?2:1,rejectionReasons:selected<target?['Synthetic candidates rejected by fixture.']:[]}
+    };
+  })
+});
 const audit=makeAudit(e);
 const prices={generatedAt:now,rows:Array.from({length:24},(_,i)=>({symbol:`TEST${i}`,name:'Fixture',exchange:'Test',currency:'USD',price:10+i,week:i<12?i+1:-i,month:-i,asOf:e.date,quoteUrl:`https://example.com/quote/${i}`}))};
 const out=await fs.mkdtemp(path.join(os.tmpdir(),'daybreak-test-'));
@@ -17,6 +31,8 @@ const rendered=await fs.readFile(path.join(out,result.archive),'utf8');
 assert(rendered.includes('Research source audit:'));assert(rendered.includes('BBC News'));assert(rendered.includes('(reviewed)'));assert(rendered.includes('Spectrum — Autism Research News'));
 const belowTarget=structuredClone(e);belowTarget.sections[0].stories=[];belowTarget.sections[0].emptyReason='No additional story passed verification.';
 validateEdition(belowTarget);await render(belowTarget,prices,prices,out,makeAudit(belowTarget));
+const shallowAudit=makeAudit(belowTarget);shallowAudit.sections[0].researchDepth={rosterAttempted:sourceRosters.get('topnews').length,candidateArticles:1,candidateEvents:1,corroboratedEvents:0,selectedStories:0,recoveryPasses:1,rejectionReasons:[]};
+assert.throws(()=>validateAudit(shallowAudit,belowTarget),/below target/);
 assert(!(await fs.readFile(path.join(out,result.archive),'utf8')).includes('Editorial target:'));
 await assert.rejects(render(e,prices,prices,out),/Research audit/);
 const tampered=structuredClone(audit);tampered.editionSha256='0'.repeat(64);assert.throws(()=>validateAudit(tampered,e),/does not match/);

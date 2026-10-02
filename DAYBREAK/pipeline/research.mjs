@@ -80,7 +80,7 @@ export function rankAndDeduplicate(cards,now=Date.now()) {
   }
   return selected;
 }
-export function createClient({key,model,fetchImpl=fetch,maxCalls=24}) {
+export function createClient({key,model,fetchImpl=fetch,maxCalls=48}) {
   assert(key,'OPENAI_API_KEY is required (never commit it)');
   assert(model,'DAYBREAK_OPENAI_MODEL must name an API model supporting web search and structured outputs');
   let calls=0;
@@ -96,7 +96,7 @@ export function createClient({key,model,fetchImpl=fetch,maxCalls=24}) {
   };
 }
 export async function research({request,date=pacificDate(),now=()=>new Date(),previousStories=[],previousHeadlines=[]}) {
-  const audit=[],cards=[],emptyReasons=new Map();
+  const audit=[],cards=[],emptyReasons=new Map(),researchDepth=new Map();
   async function retrieveAndExtract(name,scope,schema) {
     const roster=sourceRosters.get(name.toLowerCase().replace(/[^a-z0-9]+/g,''))||[];
     const retrieval=await request({
@@ -130,8 +130,12 @@ Empty stories/items require an honest reason. Do not claim an exhaustive S&P 500
   }
   for(let i=0;i<config.sections.length;i++) {
     const section=config.sections[i];console.log(`Researching ${section}`);
-    const {data,allowed}=await retrieveAndExtract(section,scopes[i],newsSchema);
-    assert(Array.isArray(data.stories)&&data.stories.length<=12,'Invalid/excessive candidate count');
+    const rule=config.sectionRules[section],passes=[];
+    passes.push(await retrieveAndExtract(section,`${scopes[i]} Build a broad candidate pool: inspect at least ${rule.target*2} current articles and seek at least ${rule.target} distinct events before selecting.`,newsSchema));
+    if(passes[0].data.stories.length<rule.target)passes.push(await retrieveAndExtract(section,`${scopes[i]} Recovery pass: the initial search was below the ${rule.target}-story target. Search different roster publishers, local/official sources and material updates to prior events. Return only additional distinct events.`,newsSchema));
+    const data={stories:passes.flatMap(x=>x.data.stories),emptyReason:passes.map(x=>x.data.emptyReason).filter(Boolean).join(' ')};
+    const allowed=new Set(passes.flatMap(x=>[...x.allowed]));
+    assert(Array.isArray(data.stories)&&data.stories.length<=24,'Invalid/excessive candidate count');
     emptyReasons.set(section,data.emptyReason);
     for(const card of data.stories) {
       assert(card.evidence&&card.summary&&card.headline&&card.eventId,'Incomplete evidence card');
@@ -141,6 +145,8 @@ Empty stories/items require an honest reason. Do not claim an exhaustive S&P 500
       for(const n of card.summary.match(/\d+(?:[.,]\d+)*/g)||[])assert(card.evidence.includes(n),'Unsupported summary number');
       cards.push({...card,section,sources:card.sources.map(s=>({...s,url:canonical(s.url),verifiedAt:now().toISOString()}))});
     }
+    const distinctEvents=new Set(data.stories.map(x=>x.eventId)).size;
+    researchDepth.set(section,{rosterAttempted:(sourceRosters.get(section.toLowerCase().replace(/[^a-z0-9]+/g,''))||[]).length,candidateArticles:allowed.size,candidateEvents:distinctEvents,corroboratedEvents:data.stories.filter(x=>new Set(x.sources.map(s=>new URL(s.url).hostname.replace(/^www\./,''))).size>=2).length,recoveryPasses:passes.length,rejectionReasons:data.stories.length<rule.target?[data.emptyReason||'Candidates failed freshness, independence, significance or deduplication checks.']:[]});
   }
   const selected=rankAndDeduplicate(cards,now().getTime());
   // Story counts are soft editorial targets. Never pad a desk or block an otherwise
@@ -160,7 +166,7 @@ Also market breadth/internals and mover analysis. Exact metric labels in order: 
       stories:selected.filter(x=>x.section===title).map(({eventId,headline,summary,publishedAt,sources})=>({eventId,category:title,headline,summary,publishedAt,sources})),
       emptyReason:emptyReasons.get(title)||'No additional fresh, non-duplicate story verified in this search.'})),
     ...markets,earnings};
-  validateEdition(e);return {edition:e,audit,candidates:cards,selection:selected};
+  validateEdition(e);return {edition:e,audit,candidates:cards,selection:selected,researchDepth};
 }
 if(process.argv[1]===fileURLToPath(import.meta.url)) {
   const args=process.argv.slice(2),index=args.indexOf('--output');assert(index>=0&&args[index+1],'Required: --output FILE');
@@ -186,7 +192,8 @@ if(process.argv[1]===fileURLToPath(import.meta.url)) {
     });
     const rosterArticles=new Set(sources.flatMap(x=>x.articleUrls));
     const supplementalArticleUrls=result.edition.sections.find(x=>x.title===title).stories.flatMap(x=>x.sources.map(source=>source.url)).filter(url=>!rosterArticles.has(url));
-    return {title,sources,supplementalArticleUrls:[...new Set(supplementalArticleUrls)]};
+    const depth=result.researchDepth?.get?.(title)||result.audit.find(x=>x.name===title)?.researchDepth;
+    return {title,sources,supplementalArticleUrls:[...new Set(supplementalArticleUrls)],researchDepth:{...depth,selectedStories:result.edition.sections.find(x=>x.title===title).stories.length}};
   })};
   await fs.writeFile(path.join(path.dirname(destination),'research-audit.json'),JSON.stringify(manifest,null,2));
   await fs.writeFile(path.join(path.dirname(destination),'research-debug.json'),JSON.stringify(result,null,2));

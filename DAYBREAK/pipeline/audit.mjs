@@ -14,7 +14,8 @@ if(mode==='init') {
   const audit={date:edition.date,researchedAt:edition.researchedAt,editionSha256:editionDigest(edition),sections:config.sections.map((title,i)=>({
     title,
     sources:sourceRosters.get(key(title)).map(source=>({rosterUrl:source.url,status:'not_retrieved',checkedAt:edition.researchedAt,note:'Not yet audited; update this status after the source is actually checked.',articleUrls:[]})),
-    supplementalArticleUrls:edition.sections[i].stories.flatMap(story=>story.sources.map(source=>source.url))
+    supplementalArticleUrls:edition.sections[i].stories.flatMap(story=>story.sources.map(source=>source.url)),
+    researchDepth:{rosterAttempted:0,candidateArticles:0,candidateEvents:0,corroboratedEvents:0,selectedStories:edition.sections[i].stories.length,recoveryPasses:0,rejectionReasons:['Not yet researched; replace with actual counts before verification.']}
   }))};
   await fs.mkdir(path.dirname(auditPath),{recursive:true});await fs.writeFile(auditPath,JSON.stringify(audit,null,2));
   console.log(`Audit skeleton created at ${auditPath}; publication labels every roster entry not retrieved until the researcher records actual checks.`);
