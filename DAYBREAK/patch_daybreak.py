@@ -18,6 +18,9 @@ applies three changes, and writes it back:
   3. Adds the "Archive" link to that bar, which is how a reader reaches
      an older edition.
   4. Inserts the short note explaining how the brief is produced.
+  5. Removes the generator's "Today's Curated News for Sayantan Sen"
+     heading block. The <title> keeps that text for the browser tab and
+     for the pipeline's deploy check.
 
 Before those, it rewrites links to the site's pages from the old
 sensayantan.github.io/sayantansen address to sensayantan.com, and from their
@@ -599,6 +602,17 @@ def add_method_note(html: str) -> tuple[str, bool]:
     return html, False
 
 
+def remove_mast_heading(html: str) -> tuple[str, bool]:
+    """Drops the generator's big "Today's Curated News" heading block.
+
+    The edition date already sits in the masthead, so the heading only
+    repeats it. Removed here rather than only in the template so older
+    editions, and a generator still on the old template, lose it too.
+    """
+    updated = re.sub(r'<section class="mast"[^>]*>.*?</section>', "", html, count=1, flags=re.S)
+    return updated, updated != html
+
+
 def add_css(html: str) -> tuple[str, bool]:
     """Injects our styles, replacing a previous injection if there is one.
 
@@ -630,6 +644,7 @@ def patch(path: Path) -> list[str]:
         ("bare-mode", add_bare_mode),
         ("popup-script", add_popup_script),
         ("method-note", add_method_note),
+        ("mast-heading", remove_mast_heading),
     ):
         html, changed = fn(html)
         if changed:
