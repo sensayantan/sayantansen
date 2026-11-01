@@ -1,10 +1,10 @@
 {
   "meta": {
     "model": "BAAI/bge-small-en-v1.5",
-    "generated": "2026-10-01",
-    "document_count": 1900,
+    "generated": "2026-11-01",
+    "document_count": 1899,
     "counts": {
-      "pubmed": 1500,
+      "pubmed": 1499,
       "clinicaltrials": 400
     }
   },
@@ -12,6 +12,26 @@
     {
       "question": "Is autism genetic?",
       "results": [
+        {
+          "score": 0.81,
+          "title": "Genetic architecture of patients with autism spectrum disorder - data analysis based on the literature review.",
+          "text": "Background: Autism spectrum disorder (ASD) is a neurodevelopmental condition including incorrect functioning in communication, social interaction, and repetitive behavior. Global prevalence is estimated as 1-2%, with a predominance of men. Different pre- and perinatal, environmental, immunological, neurobiological, genetic, and epigenetic factors are involved in the etiology of ASD. The study aims to analyze genetic abnormalities in patients with ASD according to data from the current literature. Materials And Methods: Studies available in the PubMed and Google Scholar databases were chosen through a literature search. Only papers published from 2020, available as full-text publications in English, with studies conducted on humans, original papers, or meta-analyses were included. Results And Discussion: The following types of genetic variation were identified: copy number variants, larger insertions, inversions, uniparental disomies, tandem repeat expansions, common single nucleotide polymorphisms, single nucleotide variants, short insertions/deletions, and mitochondrial variants. Epigenetic factors, like histone modifications, deoxyribonucleic acid (DNA) methylation, and micro ribonucleic acid might play an important role in ASD predisposition. Genes identified in the review were mainly involved in neurodevelopment, synaptic formation, neuronal migration, neurotransmission, glial proliferation, ubiquitination, chromatin remodeling, or transcription. ASD is described as a component of the phenotype in fragile X syndrome, tuberous sclerosis complex, neurofibromatosis type 1, Angelman, Phelan-McDermid, Smith-Lemli-Opitz syndromes, and chromosome trisomies. Current guidelines for genetic diagnosis of ASD recommend performing directed genetic studies in the first line (like multiplex ligation-dependent probe amplification - MLPA, analysis of FMR1 gene), in case of a negative result, chromosomal microarray as a routine method, then next-generation sequencing (NGS) panel testing, WES (whole exome sequencing), or even WGS (whole genome sequencing) as the last test. Conclusions: Wider access to modern diagnostic methods has increased the number of ASD patients in whom the genetic etiology of the disorder has been uncovered. Knowledge of the genetic background would be applicable in the diagnosis, prevention, prognosis, and individualized treatment.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42401939/",
+          "publication_date": "2026-07-04",
+          "authors": "R\u0119ka G, Wojciechowska K, Lejman M",
+          "venue": "BMC medical genomics"
+        },
+        {
+          "score": 0.806,
+          "title": "From genotype to phenotype: understanding the genetic basis of autism.",
+          "text": "Purpose Of Review: This paper covers some of the key findings on the topic of genetic influences in autism over the last 12-18 months, which consist of significant conceptual shifts and new insights from recent technological advances. Recent Findings: Autism is a highly heritable condition, with significant heterogeneity of the genes that influence the development of this condition. The heterogeneity of autism, and multiple pathways contributing to the development of an autistic phenotype, create challenges in our understanding, diagnosis, and management of this condition.Recent studies of common genetic variation and polygenic risk scores have focussed on resolving phenotypic heterogeneity and identifying meaningful autism subtypes. Rare-variant discovery has expanded across ancestries, the X chromosome, noncoding loci, structural variants, and tandem repeats, aided by long-read and pangenome-informed sequencing. Single-cell multiomics, spatial perturbation methods and human organoid models have connected genetic variation to cell-type-specific and developmental phenotypes, while also revealing substantial mutation-specific effects and methodological sensitivity. Genetic testing increasingly provides aetiological diagnoses and informs medical surveillance. Recent developments also illustrate the therapeutic potential of gene-first approaches for selected monogenic neurodevelopmental disorders. Summary: Recent developments have expanded our understanding of the way the genetic basis of autism manifests phenotypically.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42743015/",
+          "publication_date": "2026-11-01",
+          "authors": "Eapen V, Stylianakis AA, Voineagu I",
+          "venue": "Current opinion in psychiatry"
+        },
         {
           "score": 0.802,
           "title": "In silico Genotype-Phenotype Correlation Analysis of Inherited Variations in Autism Spectrum Disorder Families Identify an Interplay between Sensory Function and Repetitive-behaviour Genes.",
@@ -23,16 +43,6 @@
           "venue": "Journal of molecular neuroscience : MN"
         },
         {
-          "score": 0.794,
-          "title": "Closing the Gap in Autism Genetics: Population-Specific Variants and the Imperative for Global Inclusion.",
-          "text": "Autism spectrum disorder (ASD) is a highly heritable neurodevelopmental condition with an exceptionally complex and heterogeneous genetic architecture, encompassing both polygenic common variants and rare, high-impact variants. Over the past decade, large-scale sequencing studies in Europe and North America have identified hundreds of ASD risk genes and substantially advanced biological insight. However, the global distribution of ASD genomic research remains profoundly imbalanced, with most non-European ancestry populations severely underrepresented. This Eurocentric bias constrains variant discovery, limits fine-mapping resolution, and reduces the generalizability of genetic findings, with direct implications for biological interpretation, diagnosis, and therapeutic development. In this review, we synthesize current evidence on the global landscape of ASD genomics, emphasizing the striking contrast between high-depth, well-powered Euro-American cohorts and the persistent undersequencing of populations in Asia and Africa. We highlight emerging data demonstrating pronounced ancestry-specific risk genes, indicating that the genetic architecture of ASD is not uniform worldwide. We further discuss the downstream biological inference and translational applications, including artificial intelligence-assisted diagnostics and gene-based therapies. We argue that achieving a comprehensive and biologically meaningful understanding of risk genes of ASD requires large-scale trans-ethnic sequencing, integrative multi-omic approaches, and coordinated global collaboration.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41921886/",
-          "publication_date": "2026-08-15",
-          "authors": "Yang K, Geng Y, Zhou W et al.",
-          "venue": "Biological psychiatry"
-        },
-        {
           "score": 0.792,
           "title": "Unraveling the Genetic and Molecular Architecture of Autism Spectrum Disorder: Implications for Clinical Genetics and Genomic Diagnostics.",
           "text": "Autism spectrum disorder (ASD) is a neurodevelopmental condition that occurs in early childhood, characterized by a broad range of clinical manifestations and impairments in social communication. It represents one of the most prevalent neurodevelopmental disorders, affecting approximately 1% of the general population. The phenotypic heterogeneity of ASD arises from different genetic causes, including chromosomal abnormalities, copy number variants (CNVs), and single-nucleotide variants (SNVs), which may occur as de novo or inherited events. Moreover, the polygenic and multifactorial nature of ASD, together with epigenetic regulation and environmental influences, contributes substantially to its complex genetic architecture. Molecular diagnosis remains challenging and relies on multiple genomic approaches, such as array comparative genomic hybridization (array-CGH), whole-exome sequencing (WES), and whole-genome sequencing (WGS); however, the diagnostic yields of these methods remain limited, reflecting the complexity of ASD's genetic architecture. Notably, ASD-associated genes converge on key biological pathways, particularly those involved in transcriptional regulation, chromatin remodeling, synaptic function, and neuronal signaling. These include well-established risk genes such as CHD8, ADNP, ARID1B, SHANK3, SYNGAP1, SCN2A, GRIN2B, FOXP1, and DYRK1A, among others. This review summarizes the current knowledge on the genetic basis of ASD, highlighting key aspects of its complex genetic architecture. By integrating evidence from major clinical and research databases, it provides a clearer understanding of the underlying mechanisms, supporting improved diagnosis and future research and therapeutic strategies.",
@@ -40,16 +50,6 @@
           "source_url": "https://pubmed.ncbi.nlm.nih.gov/41977462/",
           "publication_date": "2026-04-04",
           "authors": "Treccarichi S, Vinci M, Virgillito M et al.",
-          "venue": "International journal of molecular sciences"
-        },
-        {
-          "score": 0.791,
-          "title": "Special Issue: Genetic Basis of Autism Spectrum Disorder.",
-          "text": "Autism spectrum disorder (ASD) encompasses a wide and diverse range of neurodevelopmental conditions, characterized by difficulties with social communication along with restricted and repetitive patterns of behavior [...].",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42196546/",
-          "publication_date": "2026-05-19",
-          "authors": "Bolognesi E, Guerini FR",
           "venue": "International journal of molecular sciences"
         }
       ]
@@ -148,24 +148,34 @@
       "question": "What screening tools are used for toddlers?",
       "results": [
         {
-          "score": 0.734,
-          "title": "Can Novel Telemedicine Tools Reduce Disparities Related to Early Identification of Autism",
-          "text": "Conditions: Autism Spectrum Disorder, Developmental Delay. Phase: NA. In this study, the investigators are trying to find new ways to screen for autism spectrum disorder (ASD) in young children. The investigators want to see if people like pediatricians can screen children for ASD while a psychologist watches on a monitor. The investigators are testing two screening tools. The investigators want to see if they are good at identifying children with ASD and children without ASD. The investigators hope this research will make it easier for families to get answers when there are concerns for ASD.",
-          "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT03847337",
-          "publication_date": "2019-03-04",
-          "authors": "Vanderbilt University Medical Center",
-          "venue": "ClinicalTrials.gov"
+          "score": 0.782,
+          "title": "Development of the Screening Tool for Autism in Two-Year-Olds-Brief Form: Accuracy in Detecting Autism in Toddlers.",
+          "text": "Early diagnosis of autism is crucial for timely intervention, yet existing screening tools are often limited by administration time in clinical settings. This study developed and evaluated the Screening Tool for Autism in Two-Year-Olds-Brief Form (STAT-BF) for detecting autism in toddlers aged less than 36 months. In Study 1, two independent samples of 40 toddlers each (20 autistic and 20 with developmental delays [DDs]) were analyzed using chi-square tests to identify discriminative items. Five items (Turn-taking, Bubbles, Snack, Balloon, and Bag of Toys) were retained, with a cutoff score of 3 yielding optimal sensitivity and specificity. Study 2's validation, based on a sample of 251 toddlers (81 autism, 55 mild- autism, 115 DDs), yielded high sensitivity for autism (0.91; 74/81) and mild-autism (0.91; 50/55), together with good specificity (0.81; 93/115). Administration time was reduced to 5 to 10 min while maintaining screening accuracy. These findings suggest that the STAT-BF may serve as a feasible and efficient Level 2 screening tool for early autism detection among toddlers referred for developmental concerns, particularly in resource-limited clinical settings. Further validation in diverse populations and longitudinal follow-up is warranted to establish generalizability.Lay AbstractEarly support can make a big difference in the outcomes of autistic children, but they must first be identified as early as possible. Although reliable autism screening tools exist, many are too time-consuming for high-volume clinical settings. In this study, we developed and validated a shorter version of the Screening Tool for Autism in Two-Year-Olds (STAT) that takes 5 to 10 min. This brief tool focuses on five play-based activities that assess social communication skills in toddlers aged 18 to 36 months. We conducted a two-phase study in Taiwan. The first phase identified the most discriminating items, and the validation phase included 251 toddlers with autism, mild-autism, and developmental delays (DDs). Results showed that the brief form correctly identified over 90% of autistic children, including those with milder symptoms, and correctly ruled out autism in about 80% of children with DDs. This efficient screening method could help more health care providers detect autism early, especially in high-volume clinical settings with limited resources. Because the brief form uses structured play instead of parent questionnaires, it offers direct behavioral observation and increases cultural accessibility for families from a broad range of backgrounds. This brief screening tool could help clinicians more efficiently identify autism among toddlers already referred for developmental evaluation, facilitating timely referral for formal diagnostic confirmation and subsequent access to intervention services.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42660854/",
+          "publication_date": "2026-11",
+          "authors": "Hung YR, Hou YM, Iao LS et al.",
+          "venue": "Autism : the international journal of research and practice"
         },
         {
-          "score": 0.699,
-          "title": "Can a Novel Telemedicine Tool Reduce Disparities Related to the Identification of Preschool Children With Autism?",
-          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. Families seeking evaluation for autism spectrum disorder (ASD) often face barriers such as low availability of specialists, lengthy waitlists, and long distances to tertiary care diagnostic centers. This is especially true for children from traditionally underserved groups and communities. Without innovative approaches for enhanced identification of ASD, families and clinicians will continue to struggle with accessing and providing care. Telemedicine offers tremendous potential for addressing this need, but there are few psychometrically sound, validated tools that can be administered remotely, via telehealth platforms. This team of investigators developed and conducted a preliminary evaluation of a novel parent-administered, clinician-guided tele-diagnostic tool, the TAP (TELE-ASD-PEDS), designed specifically for direct-to-home and community clinic use with toddlers. Remote administration of the TAP yielded a very high level of agreement with blinded comprehensive evaluation regarding ASD risk classification. Subsequently, the unanticipated broad dissemination of the TAP during COVID-19 demonstrated its value for traditionally underserved groups, spanning broad geographies. Although promising, this work was limited by its specific focus on toddlers with ASD concerns. A telemedicine tool designed for the unique context and population of preschool-aged children referred for diagnostic assessment could have tremendous value in terms of both accurate identification as well as family engagement with service. In the current work, the investigators will now evaluate the performance, usability, and utility of the TAP-Preschool, a new telemedicine tool for ASD risk assessment in preschoolers, through a clinical trial. The TAP-Preschool was developed through a computationally informed co-production in which the targeted population were recruited as active partners in designing the tool. The investigators will gather critical data not only regarding its structure and accuracy, but also its potential deployment across systems responsible for engaging children and families from underserved groups in meaningful service. This work has potential to transform the ASD evaluation process and dramatically improve care access for traditionally underserved groups.",
-          "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT05373173",
-          "publication_date": "2022-06-01",
-          "authors": "Vanderbilt University Medical Center",
-          "venue": "ClinicalTrials.gov"
+          "score": 0.707,
+          "title": "Autism Screening in the First Year and Beyond: Comparison of Multiple Measures.",
+          "text": "Autism screening aids in early detection and diagnosis. Several screeners are available for toddlers 16 months and older, but there is little data on the accuracy of screening measures used in the first year of life. A community sample (N = 1641) completed three screeners-M-CHAT-R, ITC, VIRSA-online at 6, 9, 12, 18, and 24 months of age (including exploratory use of M-CHAT-R prior to 16 months). At 36 months, outcomes of ASD or Non-ASD were determined by tele-evaluation and outcome surveys. Psychometric properties were assessed for all screeners at all ages, both used individually and in combination. When used in the first year of life (6-12 months), psychometric properties were in the poor range, with area under the curve (AUC) < 0.70 for all three screeners, whether used in isolation or combination. At 18 and 24 months, the M-CHAT-R and ITC outperformed the VIRSA, with psychometric properties in the fair range (AUC 0.70-0.79) used in isolation and the good range (AUC \u2265 0.80) when used in combination. Using the M-CHAT-R and ITC at more than one age in the second year also fell in the good range. This study, using procedures to address limitations of prior screening studies and follow screen-negative cases, found that none of the three screeners had adequate psychometric properties in the first year. At 18 and 24 months, findings supported the use of multiple screeners, either in combination or longitudinally, for best prediction of autism diagnosis.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42631533/",
+          "publication_date": "2026-10",
+          "authors": "Gangi DN, Parikh C, Hill MM et al.",
+          "venue": "Autism research : official journal of the International Society for Autism Research"
+        },
+        {
+          "score": 0.703,
+          "title": "Structured interactive play for autism spectrum disorder screening in toddlers: a primary care-based cohort study.",
+          "text": "Background: Early identification of autism spectrum disorder (ASD) is crucial for improving outcomes, yet diagnosis is often delayed. Primary care faces challenges, including the limited accuracy of existing tools and scarce access to specialist assessments. This prospective cohort study evaluated the feasibility of a novel, structured examiner-child interactive play protocol as an early behavioral screening tool for ASD. Methods: We recruited 260 toddlers aged 18-36 months. At baseline, all children participated in a structured interactive play session. Their behaviors (e.g., eye contact, turn-taking, social smiling, symbolic play) were coded from video recordings to quantify nine core indicators. After a 6-month follow-up, 217 children completed comprehensive clinical assessments. Core symptoms were evaluated using the Childhood Autism Rating Scale (CARS), and developmental level was assessed using the Bayley Scales of Infant and Toddler Development-Fourth Edition (Bayley-4). Based on clinical assessment results, participants were classified into an ASD group (n = 45) and a typically developing (TD) group (n = 165) for primary analysis. Spearman correlation analysis was used to examine the relationships between behavioral indicators, developmental levels, and symptom severity. Receiver operating characteristic (ROC) curve analysis assessed each indicator's discriminative validity for ASD. Results: During the structured interactive play, the ASD group performed significantly worse on all behavioral indicators than the TD group. Correlation analysis revealed that several behavioral indicators, including eye contact, turn-taking, and symbolic play, showed positive correlations with cognitive (rs = 0.30-0.51) and language ability (rs = 0.34-0.43) and negative correlations with symptom severity (rs=-0.53--0.36). ROC analysis identified that eye-contact metrics were the strongest discriminators. Specifically, eye contact frequency yielded an AUC of 0.915 (sensitivity 96.36%, specificity 73.33%), and total eye contact duration achieved an AUC of 0.899 (sensitivity 86.67%, specificity 84.44%). Conclusion: Behavioral observation through examiner-child structured interactive play, particularly metrics related to eye contact, effectively differentiates toddlers with iASD. This objective, low-cost method shows potential as a primary screening tool for enhancing early ASD detection in primary care settings. Clinical Trial Number: Not applicable.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42464217/",
+          "publication_date": "2026-07-16",
+          "authors": "Ai D, Hu B, Wei Q et al.",
+          "venue": "BMC psychiatry"
         },
         {
           "score": 0.699,
@@ -176,16 +186,6 @@
           "publication_date": "2024-03-01",
           "authors": "Bundang CHA Hospital",
           "venue": "ClinicalTrials.gov"
-        },
-        {
-          "score": 0.699,
-          "title": "Comparative screening accuracy of the Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-Chat-R/F) for early autism spectrum disorder: a systematic review.",
-          "text": "Objective: Early screening for autism spectrum disorder (ASD) is critical for timely intervention, making the Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-CHAT-R/F) a widely adopted tool globally. However, a recent systematic synthesis of its comparative accuracy is lacking. This review aimed to evaluate the screening accuracy of the M-CHAT-R/F against other ASD screening instruments. Design: A systematic review was conducted in accordance with Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines. A narrative synthesis was employed to integrate findings across diverse study designs and methodological quality was assessed using the Joanna Briggs Institute checklist. Eligibility Criteria: Peer-reviewed, English-language observational studies published between January 2020 and October 2025 that compared the accuracy metrics of the M-CHAT-R/F with alternative screening tools. Information Sources: Scopus, PubMed, ScienceDirect and ProQuest. Results: From 172 identified articles, six high-quality studies encompassing 12 633 participants aged 12-48 months were analysed. The synthesis revealed a complex performance profile for the M-CHAT-R/F. While its sensitivity for detecting potential cases was highly inconsistent, its negative predictive value remained consistently high, reliably identifying children who screened negative. Conversely, the tool demonstrated variable specificity and a persistently low positive predictive value, indicating a substantial false-positive burden and reduced confidence in positive results. Furthermore, the M-CHAT-R/F's accuracy was highly age-dependent, with performance degrading outside the optimal 16-30-month window compared with other specialised tools. Conclusions: The M-CHAT-R/F may not be an optimal instrument in every clinical setting. Its clinical utility may be limited by variable sensitivity and a lower positive predictive value, potentially creating a higher false-positive burden. Clinicians and health systems should consider adopting age-specific, tiered screening protocols to improve diagnostic efficiency and better allocate intervention resources.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42264543/",
-          "publication_date": "2026-06-09",
-          "authors": "Tsen ASF, Bantalani MA, Ab Rahim MN et al.",
-          "venue": "Family medicine and community health"
         }
       ]
     },
@@ -194,12 +194,22 @@
       "results": [
         {
           "score": 0.803,
-          "title": "Evaluating the Efficacy of Pathways Parent-Mediated Early Autism Intervention on Social Attention and Language",
-          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. The goal of this clinical trial is to compare the efficacy of Pathways parent-mediated early autism intervention (Pathways) and a parent education intervention (PEI) delivered to culturally and linguistically diverse families with children 12-42 months of age suspected of or diagnosed with autism. Question 1: Is Pathways more effective than a PEI at (a) fostering the development of social orienting, joint attention, and social communication and language in children with a research diagnosis of autism and (b) relieving their parents' stress? Question 2: Is the magnitude of the relationship between early and later developing attention greater in children whose parents receive Pathways compared to children whose parents receive PEI? Question 3: Is the magnitude of the relationship between joint attention and social communication and language greater in children whose parents receive Pathways compared to children whose parents receive PEI? Participants will be randomized into 24 weeks of Pathways or PEI. Participants will receive a battery of assessments to evaluate the child's cognitive, social attention, social communication, language, and adaptive functioning, and parental stress at four different time points spaced every 12 weeks from baseline to three-month follow-up.",
+          "title": "Effectiveness of Parent-Mediated Intervention Combined With Positive Behavioral Support on Challenging Behaviors and Parenting Stress Among Children With Autism.",
+          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. This study aims to evaluate the effectiveness of a parent-mediated intervention combined with Positive Behavioral Support (PBS) in reducing challenging behaviors among children with autism and decreasing parenting stress in South Punjab, Pakistan. By equipping parents with PBS techniques, the intervention seeks to identify and manage behavioral triggers, thereby improving child behavior and reducing caregiver strain. There is a growing need for culturally adapted intervention programs in local languages such as Urdu and Seraiki, tailored to the socio-cultural context of Pakistani families. This study addresses this gap by providing indigenous evidence on a dual-component intervention (Parent-Mediated Intervention + PBS) designed specifically for the family structure and caregiving practices in South Punjab.",
           "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT05604326",
-          "publication_date": "2022-10-27",
-          "authors": "The University of Texas at Dallas",
+          "source_url": "https://clinicaltrials.gov/study/NCT07570550",
+          "publication_date": "2026-01-01",
+          "authors": "Islamia University of Bahawalpur",
+          "venue": "ClinicalTrials.gov"
+        },
+        {
+          "score": 0.782,
+          "title": "Comparative Efficacy of Self-directed & Therapist-assisted Telehealth Parent Training Intervention for Children With ASD",
+          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. The specific objectives of this project are to conduct a randomized control trial to examine the effect of a novel, telehealth parent training intervention for children with autism spectrum disorder (ASD), ImPACT Online, on parent and child outcomes. The investigators will compare the benefits of the self-directed and therapist-assisted delivery formats, and examine moderators and mediators of treatment outcomes. The investigators anticipate that both the self-directed and therapist-assisted models of ImPACT Online will be effective methods for teaching parents to use evidence-based intervention strategies and for increasing parent self-efficacy compared to a web-based information control group. Participants will be randomly assigned to one of three groups. One-third of participants will be in the therapist-assisted group; one-third will be in the self-directed group; and one-third will be in a web-based information control group.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT02721381",
+          "publication_date": "2015-03-01",
+          "authors": "Michigan State University",
           "venue": "ClinicalTrials.gov"
         },
         {
@@ -221,32 +231,12 @@
           "publication_date": "2026-05",
           "authors": "Tokish H, Ingersoll B, RISE Research Network",
           "venue": "Autism : the international journal of research and practice"
-        },
-        {
-          "score": 0.776,
-          "title": "Through Parents' Eyes: Perspectives on Child Development and Family Experience During ESDM Intervention.",
-          "text": "Early intensive intervention for autistic children aims to support developmental progress in social and communication domains. Although outcomes are typically assessed using standardized measures of child development, parental perspectives during early intervention remain largely understudied. Here, we examined parental perceptions after 6 months of intensive Early Start Denver Model (ESDM) intervention. Participants were parents of 104 autistic children aged 1.3-3.5 years enrolled in an individualized therapist-delivered ESDM intervention following diagnosis confirmation. Child development was assessed at entry (baseline) and 6 months later (follow-up). At follow-up, parents completed an 18-item questionnaire capturing their perceptions of child progress across twelve domains as well as changes in parenting skills, personal well-being, and family life. Descriptive analyses, item-level correlations, and principal component analysis (PCA) were conducted to identify underlying components. Parents generally indicated improvements across all domains, with aggravation rarely reported. PCA revealed three intercorrelated components (Social Communication, Nonverbal Social Engagement, and Positive Parental Experience), each showing distinct associations with child or parent measures. Parental perceptions of child development were strongly correlated with standardized developmental assessments, particularly in social communication. While parents also reported enhanced parenting skills and positive personal and familial impacts, these experiences were not associated with child developmental gains but with parental education and the number of siblings in the household. These findings underscore the importance of integrating parental perspectives alongside clinical assessments when evaluating early intervention outcomes. Future research should investigate how parental perceptions evolve over longer periods and how they may inform family-centered care and post-intervention support.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42500921/",
-          "publication_date": "2026-09",
-          "authors": "Latr\u00e8che K, Journal F, Godel M et al.",
-          "venue": "Autism research : official journal of the International Society for Autism Research"
         }
       ]
     },
     {
       "question": "Why are more boys diagnosed with autism than girls?",
       "results": [
-        {
-          "score": 0.766,
-          "title": "Diagnostic challenges in predominantly late-diagnosed gender-diverse autistic individuals: Age, delays, and perceived misdiagnoses.",
-          "text": "Historically, diagnostic criteria for autism have been shaped by male-centric childhood presentations, leading to reduced diagnostic accuracy for non-male autistic individuals. We investigated disparities between gender-diverse and cisgender autistic individuals in the age at formal diagnosis, delays between initial suspicion and diagnosis, and the frequency of prior perceived misdiagnoses. We analyzed 2,722 participants predominately late-diagnosed with autism, including 402 gender-diverse individuals. The analysis, controlling for age at participation, revealed that cisgender females were diagnosed at the oldest age, followed by gender-diverse individuals and cisgender males. Autistic gender-diverse individuals received the highest number of co-occurring psychiatric diagnoses and had the highest rates of prior perceived misdiagnosis, followed by cisgender females and cisgender males. These findings highlight the pressing need for diagnostic frameworks that account for gender diversity and actively mitigate biases in clinical practice.Lay abstractAutism is often thought of as a condition that mainly affects boys in childhood. However, research shows that this view can delay or complicate diagnosis for non-male autistic individuals. For instance, research has demonstrated that autistic females are diagnosed later than males. In this study, we examined when and how autism is diagnosed in gender-diverse individuals (people whose gender identity does not align with the sex they were assigned at birth or who identify outside the male/female binary) compared to cisgender men and women (whose gender aligns with their birth sex). We analyzed data from 2,722 Dutch adults with autism, including 402 gender-diverse participants, mostly diagnosed in adulthood. We looked at the age at which participants were diagnosed and how long it took from first suspecting autism to receiving a formal diagnosis. We also examined whether participants had been diagnosed with another psychiatric condition and whether they perceived that diagnosis to be a misdiagnosis. Our results showed that gender-diverse people and cisgender women tend to be diagnosed later than cisgender men. Gender-diverse individuals and women reported being previously diagnosed with other conditions such as personality disorders, which they later believed were incorrect. These results suggest that gender biases still affect autism diagnosis, especially for gender-diverse people and women. Understanding these challenges is important to improve diagnostic practices and ensure more accurate and timely support for everyone on the autism spectrum.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41841559/",
-          "publication_date": "2026-08",
-          "authors": "Zidane Burgess AZ, van der Zwaag W, Jonkman KM et al.",
-          "venue": "Autism : the international journal of research and practice"
-        },
         {
           "score": 0.762,
           "title": "Sex Differences in Psychopathology and Neurocognition in Community Youth With Autism Spectrum Disorder.",
@@ -258,16 +248,6 @@
           "venue": "Autism research : official journal of the International Society for Autism Research"
         },
         {
-          "score": 0.751,
-          "title": "Autism Spectrum Disorder Among Gender-Diverse Children and Adolescents: A National Cohort Study.",
-          "text": "Autism spectrum disorder (ASD) is more prevalent in transgender and gender-diverse (TGD) individuals than in the general population, yet the specific developmental pathways within and clinical outcomes of this intersection are insufficiently understood. This study examined how ASD and sex assigned at birth (SAAB) are associated with gender-related milestones, access to gender-affirming consultation and care (GACC), and psychiatric outcomes. We reviewed electronic medical records for 786 TGD children and adolescents (aged 4-19 years) presenting to a national referral clinic between 2013 and 2025. Demographic, developmental, and psychiatric variables were analyzed across four ASD-by-SAAB groups using generalized linear models and logistic regressions, with Bonferroni-adjusted post hoc comparisons (\u03b1 = 0.0083). ASD was documented in 9.7% of the cohort, with referrals of autistic TGD patients increasing significantly over time. Autistic patients presented with a distinct profile, characterized by higher socioeconomic position (SEP), intellectual giftedness, non-binary gender identity, and an earlier stage of pubertal development at presentation. Crucially, while ages at gender-related milestones were largely comparable between neurotypes, autistic assigned female at birth (AFAB) adolescents were significantly less likely to initiate puberty suppression or gender-affirming hormones than their non-autistic peers. Furthermore, higher SEP was associated with earlier clinical presentation only for non-autistic youth. Autistic TGD patients exhibited a higher psychiatric burden, with an ASD diagnosis uniquely associated with elevated rates of anxiety, ADHD, and psychotropic medication use. These findings reveal a disparity between developmental synchrony and clinical access, underscoring the need for autism-informed protocols to support equitable gender-affirming care.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41873702/",
-          "publication_date": "2026-05",
-          "authors": "Topaz E, Sheppes T, Segev-Becker A et al.",
-          "venue": "Autism research : official journal of the International Society for Autism Research"
-        },
-        {
           "score": 0.747,
           "title": "Adaptive Functioning, Sensory Processing, and Behavioral Problems in Autistic Children: The Moderating Role of Gender.",
           "text": "Children with autism spectrum disorder (ASD) frequently experience elevated emotional and behavioral difficulties, yet factors associated with variability remain incompletely understood. Adaptive functioning and sensory processing differences have been linked to behavioral problems, but little is known about whether associations differ between boys and girls. This study examined relationships between adaptive functioning, sensory processing, and behavioral problems in children with ASD, focusing on gender as a moderator. The purposive sampling included 110 autistic children (M age = 85.61 months, SD = 31.51; 50 boys and 60 girls) and their primary caregivers. Adaptive functioning was assessed using the Vineland Adaptive Behavior Scales-Third Edition, sensory processing using the Short Sensory Profile, and behavioral problems using the C hild Behavior Checklist. Gender differences were examined with Mann-Whitney tests, associations with Spearman's correlations, and moderation analyses using PROCESS with bootstrap resampling. Girls demonstrated higher internalizing and externalizing behavioral problems than boys, whereas boys showed greater sensory processing differences. Correlational analyses revealed distinct patterns: adaptive functioning showed stronger associations with behavioral difficulties among girls, whereas sensory processing differences were associated with behavioral problems among boys. Moderation analyses indicated that gender moderated the relationship between adaptive functioning and behavioral problems, such that higher adaptive functioning was associated with fewer behavioral difficulties among girls but not boys. These findings highlight gender-specific patterns in associations between functional abilities and behavior profiles in autism, underscoring the importance of considering gender in developmental pathways and intervention approaches.",
@@ -276,12 +256,42 @@
           "publication_date": "2026-09",
           "authors": "Shulman C, Bitton D, Nir Z",
           "venue": "Autism research : official journal of the International Society for Autism Research"
+        },
+        {
+          "score": 0.739,
+          "title": "Gender-related differences in characteristics and treatment response between attention-deficit/hyperactivity disorder Japanese children with and without autism spectrum disorder: a single-center retrospective study.",
+          "text": "Aim: Patients with attention-deficit/hyperactivity disorder (ADHD) as well as those with comorbid autism spectrum disorder (ASD), often experience intellectual developmental challenges, social immaturity and social difficulties. However, there have been few detailed reports on the gender differences in these factors among Japanese children. To compare gender-based differences in characteristics and treatment responsiveness between ADHD children without ASD and those with ASD, we undertook a clinical survey of ADHD children. Methods: Patients were divided into two groups based on the presence of ASD and by gender; ASD-based groups were further subdivided by gender, and the gender-based groups were further subdivided by ASD status. We compared patient background, including body mass index (BMI), ADHD characteristics, intelligence quotient (IQ), and treatment response between these groups. Results: Age at first examination and social intelligence quotient (SQ) were significantly lower in the male patients than in the female patients. ADHD Rating Scale (ADHD-RS) scores for hyperactivity disorder and total before treatment and ADHD-RS scores for hyperactivity disorder at the most recent follow-up in the male patients were higher than those in the female patients. In male patients, the initial IQ and SQ of the ASD-comorbidity group were lower than those of the ADHD-only group, but there were no significant differences in each ADHD-RS score, or BMI-standard deviation score. Conclusion: These results suggest that male with ADHD tend to have stronger hyperactivity and impulsivity, with such hyperactivity and impulsivity persisting despite treatment and requiring adequate long-term management.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42214913/",
+          "publication_date": "2026-08",
+          "authors": "Kawasaki Y, Suzuki Y, Miyazaki K et al.",
+          "venue": "Brain & development"
+        },
+        {
+          "score": 0.73,
+          "title": "Assessment of Autism Spectrum Disorder in Gender-Diverse Populations: A Systematic Review and Meta-Analysis.",
+          "text": "Purpose: This review aimed to determine how autism spectrum disorder (ASD) and autistic traits are assessed in gender-diverse populations. Methods: Following the Preferred Reporting Items for Systematic reviews and Meta-Analyses 2020 guidelines, we conducted a systematic review and meta-analysis of studies published from January 2013 in English or French that focused on gender-diverse individuals and reported diagnostic procedures and/or tools used to assess ASD. Only studies involving human participants were included. Reviews, meta-analyses, case reports, editorials, posters, and conference abstracts were excluded. Two independent reviewers screened records and extracted data using a standardized form, including study design, sample characteristics, diagnostic instruments, and assessment procedures. Data were synthesized qualitatively, and pooled prevalence estimates were calculated using random-effects meta-analysis when appropriate. Methodological quality and risk of bias were assessed using the Joanna Briggs Institute tools for analytical cross-sectional studies and for case-control studies. Results: Twenty-eight studies met the inclusion criteria. Eighteen assessed ASD diagnoses; only six (33%) used robust diagnostic criteria, identifying 100 participants with a confirmed ASD diagnosis (5.4%) among 1855 participants. Other studies relied mainly on self-report or screening instruments. Twenty-three studies examined the broader autism phenotype using 13 different tools. The pooled prevalence of robust ASD diagnosis was 12% (95% confidence interval [CI] = 7%-19%), and broader autism phenotype prevalence was 24% (95% CI = 17%-33%). Conclusions: Few studies met clinical gold standards. Elevated prevalence estimates may reflect methodological variability and barriers to appropriate evaluation. Training in both ASD and gender diversity is essential for inclusive and accurate diagnostic practices.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42861853/",
+          "publication_date": "2026",
+          "authors": "Gloanec C, Bonazzi G, Boughanmi ME et al.",
+          "venue": "LGBT health"
         }
       ]
     },
     {
       "question": "What do studies say about sleep problems in autistic children?",
       "results": [
+        {
+          "score": 0.886,
+          "title": "Behavioral interventions for sleep problems in autistic children: A systematic review.",
+          "text": "Purpose: Autistic children are at high risk for sleep problems, which have significant detrimental effects on overall functioning. Behavioral treatment is effective for pediatric insomnia in the general population; however, current evidence on behavioral sleep interventions for autistic children has not been synthesized. This study addressed this gap by systematically reviewing available evidence on the effects of behavioral sleep interventions on sleep and daytime functioning in autistic children. Methods And Results: A systematic search of five databases (PubMed, PsycInfo, Web of Science, Embase, CINAHL) was conducted in accordance with PRISMA guidelines. Studies were eligible if they were published in English in a peer-reviewed journal, included autistic children under 18 years of age, evaluated a behavioral sleep intervention, measured sleep outcomes, and used a quantitative study design. Thirty-nine studies were included, published between 2002 and 2025. Most studies (92%) included multi-component behavioral interventions, and studies tested a range of treatment delivery modalities (in-person, virtual, online, and hybrid). Most studies (95%) found that behavioral interventions were effective for at least some sleep outcomes. Most studies (51%) were rated as \"weak\" quality overall, with 26% rated as \"moderate,\" and only 23% rated as \"strong\" in overall quality. Conclusions: Existing quantitative research provides consistent evidence supporting the overall effectiveness of behavioral sleep interventions for autistic children. However, the evidence base remains limited, as most studies employ research designs with notable methodological weaknesses. Future research is needed with larger, more representative samples, and with more rigorous study designs.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42685447/",
+          "publication_date": "2026-12",
+          "authors": "Mazurek MO, Smith JV, Kiernan B et al.",
+          "venue": "Sleep medicine"
+        },
         {
           "score": 0.852,
           "title": "Sleep as a viable target for early intervention in children with autism spectrum disorder: A narrative review informed by a systematic literature search.",
@@ -311,16 +321,6 @@
           "publication_date": "2026-08",
           "authors": "Mammarella V, Breda M, De Gennaro L et al.",
           "venue": "Sleep medicine reviews"
-        },
-        {
-          "score": 0.838,
-          "title": "Sleep Disturbances and Behavioural Phenotypes in Children With Autism Spectrum Disorder: A Comparative Study With Typically Developing Peers.",
-          "text": "Objectives: The primary objective of this study was to investigate the relationship between different types of sleep problems and specific behavioural difficulties in children and adolescents with autism spectrum disorder (ASD), compared with typically developing children (TDC). Method: We compared 40 children and adolescents with ASD and normal intellectual functioning with 50 TDC using the Sleep Disturbance Scale for Children (SDSC), the Conners' Parent Rating Scale-Revised Short (CPRS-RS) and the Repetitive Behaviour Scale-Revised (RBS-R). Results: Participants with ASD had significantly higher scores on CPRS-RS inattention, hyperactivity and stereotyped, self-injurious, compulsive, routine, sameness and restricted behaviours, in addition to higher RBS-R scores. The ASD group also scored higher on the SDSC initiating and maintaining sleep subscale. Correlation analyses demonstrated significant associations between repetitive behaviours and multiple domains of sleep disturbances in the ASD group, whereas no significant correlations remained after Bonferroni correction in the TDC group. Regression analyses revealed that sleep breathing problems were associated with RBS-R Total (\u03b2 = 0.590, p = 0.001); arousal/waking with compulsive behaviours (\u03b2 = 0.394, p = 0.014); and sameness behaviours with both timing (\u03b2 = 0.542, p = 0.012) and overall sleep problems (\u03b2 = 0.516, p = 0.002) in the ASD group. Conclusions: In this study, sameness behaviours, compulsive behaviours and total RBS-R scores were significantly associated with several sleep problems in children and adolescents with ASD. These findings add to the literature demonstrating robust associations between specific types of sleep problems and particular behavioural difficulties in this population.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42087808/",
-          "publication_date": "2026-05",
-          "authors": "Sevincok D, Isik CM, Ozbek MM et al.",
-          "venue": "International journal of developmental neuroscience : the official journal of the International Society for Developmental Neuroscience"
         }
       ]
     },
@@ -336,6 +336,16 @@
           "publication_date": "2026-06-22",
           "authors": "Ghosh D, Sadhukhan S, Attri M et al.",
           "venue": "Metabolic brain disease"
+        },
+        {
+          "score": 0.84,
+          "title": "Proteomic Biomarker Tests in Blood Samples from Children with Autism Spectrum Disorder (ASD)",
+          "text": "Conditions: Autistic Disorder. Behavioral testing is the gold standard for diagnosing autism spectrum disorder (ASD). These tests, including ADOS and ADI-R, are subjective, require trained staff to administer, are time-consuming, and can only be administered at a later age. Blood-, urine- or stool-based diagnostic biomarker test for ASD would enable objective early diagnosis, potentially even before clinical symptoms are present, eliminate the need for trained staff and enable early intervention. Such a test would not only conserve money and time but would also provide clues to ASD pathogenesis. To date, no definitive treatment exists for ASD. Most therapies are symptom-focused, generally focusing on behavioral, social and communication skills. Recent works have reported on promising outcomes of mesenchymal stem cell (MSC) treatment of children with ASD. MSCs are multipotent, non-hematopoietic, easily isolatable and expandable stem cells involved in tissue repair, immunomodulatory responses and neuromodulation. MSC treatment of children with ASD has reportedly led to improvements in speech, sociability, eye coordination, balance, cognition and overall well-being. At the base of this approach lies the known plasticity of the human brain and immune system in the early childhood years and the ability of MSCs to modulate atypical inflammatory and immune activities. Assessment of ASD biomarker profiles in children with ASD who have undergone one or more SCT sessions may shed light on the mechanism of action, assist in better defining ASD-specific diagnostic markers and monitor treatment outcomes.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT02168868",
+          "publication_date": "2013-05",
+          "authors": "Benjamin Gesundheit",
+          "venue": "ClinicalTrials.gov"
         },
         {
           "score": 0.824,
@@ -356,16 +366,6 @@
           "publication_date": "2026-06-03",
           "authors": "Rutkowski P, Romanowicz A, Mroczko J et al.",
           "venue": "Molecules (Basel, Switzerland)"
-        },
-        {
-          "score": 0.814,
-          "title": "Unveiling Diagnostic Biomarkers in Autism: A Comparative Proteome Analysis of CNTNAP2 Knockout Mice and Human ASD Patients.",
-          "text": "Autism Spectrum Disorder (ASD) is a biologically heterogeneous neurodevelopmental condition, presenting a major barrier to the identification of robust and translatable molecular biomarkers. Here, we employ a cross-species proteomic framework to identify conserved protein signatures associated with ASD. Quantitative proteomic profiling of brain and serum from CNTNAP2 knockout mice, integrated with serum proteomes from individuals with ASD, revealed 132 proteins consistently dysregulated across species. Functional pathway analyses implicated coordinated alterations in lipid metabolism, synaptic signaling, and immune regulation. To prioritize diagnostically informative candidates, we applied machine learning-based feature selection and identified a minimal panel of ten proteins (COL1A1, ITIH4, CLU, NID1, C5, MASP1, PON1, PLTP, HSPA5, and FETUB) that robustly discriminated ASD from control samples. Gene ontology and KEGG pathway analyses highlighted enrichment of immune regulatory pathways, synaptic transmission, oxidative stress responses, and lipid metabolic processes, consistent with emerging models linking neuroimmune dysregulation and metabolic imbalance to ASD pathophysiology. An XGBClassifier trained on this biomarker panel achieved strong performance in independent test sets (AUC = 0.75). Together, these findings establish cross-species proteomic integration combined with machine learning as a powerful strategy for uncovering conserved, biologically grounded biomarkers in ASD, providing a framework for future validation and translational development.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41897278/",
-          "publication_date": "2026-02-24",
-          "authors": "Kim A, Cho A, Kim J et al.",
-          "venue": "Biomolecules"
         }
       ]
     },
@@ -393,24 +393,24 @@
           "venue": "Scientific reports"
         },
         {
-          "score": 0.776,
-          "title": "Study of the Personal Identity in Adults With Autism Spectrum Disorder Without Intellectual Deficiency",
-          "text": "Conditions: Autism Spectrum Disorders. Phase: NA. The research aims at clarifying the impact of autism on personal identity in adulthood. Two studies will be made in order to compare adults with autistic spectrum disorders without intellectual deficiency and controls. In the first study (Study A), the investigators will ask subjects to tell autobiographical memories and to specify their characteristics by answering focused questions. In the second study (Study B), the investigators will ask subjects to say the self statements which define them. Then, subjects will have to tell and to specify the characteristics of the autobiographical memories linked to these self statements.",
-          "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT02747056",
-          "publication_date": "2016-06",
-          "authors": "University Hospital, Strasbourg, France",
-          "venue": "ClinicalTrials.gov"
+          "score": 0.769,
+          "title": "Research Priorities in Autism From a Clinical Setting: Voices of Autistic Adults and Families of Children and Adolescents With Autism Spectrum Disorder.",
+          "text": "This study explored the research priorities of autistic adults and families of children and adolescents with autism spectrum disorder within a hospital-based diagnostic service in Spain. Using a mixed-methods design with interviews and a survey aligned with the Spanish Autism Strategic Plan (2023-2027), 42 participants shared what research they consider most relevant. Both groups prioritized applied research that improves daily life-communication, sensory processing, flexibility, mental health, education, employment, and quality of life. Families also emphasized biomedical topics such as genetics, microbiota, and pharmacological treatments, noting that etiological research should enhance well-being rather than aim to \"cure\" autism. Autistic adults highlighted the need for more accurate and timely diagnosis, especially for women and late-diagnosed adults, as well as research on masking, autonomy, workplace adaptations, and independent living. Participants perceived limited real-world impact from current autism research due to poor dissemination and scarce practical application, yet interest in future involvement was high, with many willing to collaborate or act as co-researchers. The study shows that participatory research can be successfully embedded in clinical settings and underscores the need for a national research agenda grounded in lived experience and focused on improving everyday well-being.Lay AbstractThis study aimed to identify which research topics are most important to autistic adults and to families of children and adolescents with autism spectrum disorder in Spain. Participants were also asked for their views on publicly funded autism research projects from 2020 to 2023 in order to assess whether funding priorities align with what they consider most relevant. A total of 42 people took part (23 family members and 19 autistic adults), all invited through a hospital-based autism diagnostic program in Barcelona. Data were collected through interviews and a survey based on the Spanish Strategic Plan for Autism (2023-2027). Both families and autistic adults agreed that the most useful research is that which improves daily life, particularly in areas such as communication, flexibility, sensory processing, education, employment, mental health, and quality of life. Studies on the causes or genetics of autism were also seen as relevant, provided their goal is to improve the quality of life of autistic people and their families, rather than the eradication of autism. Families placed greater importance on professional training and good health care practices, whereas autistic adults emphasized the need for research on independence, aging, and sensory experiences. Nearly all participants had previously taken part in research and showed strong interest in continuing to do so. Many autistic adults expressed a desire to participate not only as subjects but also as collaborators or co-researchers. This study demonstrates that participatory research can be conducted within a clinical setting, integrating the voices of autistic people and their families into the health care system itself. This approach helps build a more inclusive, respectful, and practically useful autism science.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42717635/",
+          "publication_date": "2026-11",
+          "authors": "Gisbert-Gustemps L, Mart\u00ednez-Ram\u00edrez M, Seti\u00e9n-Ramos I et al.",
+          "venue": "Autism : the international journal of research and practice"
         },
         {
-          "score": 0.77,
-          "title": "To improve the diagnosis of autism spectrum disorder without intellectual impairment: A qualitative study among adults with the diagnosis and psychiatrists.",
-          "text": "Introduction: Despite the evidence and expert opinion that many adults with autism spectrum disorder (ASD) face barriers to formal diagnosis, qualitative studies examining adult patients' experience and requirements for better access to the diagnosis are still lacking. Aims: To qualitatively explore the pre-diagnosis experiences of adults with ASD, the impact of receiving a diagnosis, and the need for improved access to diagnosis both for adults with ASD and for adult psychiatrists. Methods: Sixteen semi-structured interviews were conducted (11 adults diagnosed with ASD and 5 psychiatrists). A mixed deductive-inductive thematic analysis was employed. Results: Several factors contributing to delayed diagnosis were identified including difficulties accessing healthcare, limited awareness of ASD among some clinicians, the use of camouflaging behaviors by participants, and family adaptation to their symptoms. Receiving a diagnosis was often described as a relief, allowing participants to understand past social difficulties and seek better acknowledgment and accommodation from their environment. The analysis highlighted the need to reduce wait times and service costs, as well as to enhance clinicians' knowledge of ASD to improve accessibility and satisfaction with diagnosis. Participants also noted the complex interplay between media portrayals of ASD and public understanding of the disorder. Conclusions: Increased education for mental health professionals and broader public awareness campaigns are necessary to facilitate timely access to appropriate diagnosis and support services.",
+          "score": 0.768,
+          "title": "On the Spectrum: High-Functioning Autism and Its Contemporary Relevance.",
+          "text": "With publication of the Diagnostic and Statistical Manual of Mental Disorders, fifth edition (DSM-5) in 2013, autism's prevalence in the United States nearly doubled to more than 2% of the population. In reconceptualizing the condition, DSM-5 collapsed 4 diagnoses into 1 diagnosis: autism spectrum disorder. What the 4 had in common were deficits in 2 broad areas: restricted, repetitive behaviors or interests; and deficits in social communication. Three of the 4 were severe forms easily recognized in childhood. The fourth, constituting most of the increase in prevalence, was Asperger disorder, or high-functioning autism, frequently going undiagnosed until adulthood. These patients typically have fluent language, intact intellect, and highly developed compensatory strategies including social \"masking.\" The adult diagnosis is manifested in struggles to maintain employment or friendships both platonic and intimate. Nonpsychiatric providers are likely to encounter patients with autism spectrum disorder seeking care for myriad comorbid psychiatric and physical problems. Complicating matters is that many adult psychiatrists are unfamiliar with what was until recently the purview of child psychiatrists. Autism has neither cure nor specific pharmacologic treatments, but addressing comorbidities, with psychiatric and medical referrals where indicated, mitigates suffering. Services targeting employment and educational support, occupational therapy focused on activities of daily living, and skill-based psychotherapies that aim to improve social interactions can reduce stress and anxiety while enhancing function, reducing isolation, and encouraging satisfying relationships.",
           "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/41839710/",
-          "publication_date": "2026-10",
-          "authors": "Cambier G, van der Hoeven J, Chaix G et al.",
-          "venue": "L'Encephale"
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42065701/",
+          "publication_date": "2026-05",
+          "authors": "Bostwick JM, McKean AJS",
+          "venue": "Mayo Clinic proceedings"
         }
       ]
     },
@@ -418,44 +418,44 @@
       "question": "What clinical trials are studying autism therapies?",
       "results": [
         {
-          "score": 0.768,
-          "title": "Evaluation of a Clinical Transitional Program in Autism",
-          "text": "Conditions: Autism Spectrum Disorder (ASD). Phase: NA. Clinical trial without drug, randomized: Comparison of a specific and integrative clinical protocol for young adults with autism to usual treatment. It will include both low and high-functioning participants.",
+          "score": 0.762,
+          "title": "Integrated Platform for Measuring and Reducing Symptoms of Autism Spectrum Disorder",
+          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. This study will consist of a randomized, double-blind, sham-controlled clinical trial at SUNY Upstate Medical University and Mt. Sinai Medical Center with 80 autistic children evaluating the effects of transcranial photobiomodulation (tPBM) on multiple clinically validated scales.",
           "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT03392870",
-          "publication_date": "2017-03-01",
-          "authors": "Corporacion Parc Tauli",
+          "source_url": "https://clinicaltrials.gov/study/NCT06006637",
+          "publication_date": "2023-10-17",
+          "authors": "State University of New York - Upstate Medical University",
           "venue": "ClinicalTrials.gov"
         },
         {
-          "score": 0.757,
-          "title": "Pharmacological evaluation frameworks in autism spectrum disorder: Methodological and neurobiological considerations.",
-          "text": "Autism spectrum disorder (ASD) is a heterogeneous neurodevelopmental condition characterized by persistent deficits in social communication and interaction, alongside restricted and repetitive behaviors. Despite substantial advances in genetics, neurobiology and neuroimaging, no pharmacological treatment currently addresses the core symptoms of ASD. Existing medications primarily target associated behavioral disturbances such as irritability, aggression and hyperactivity. This narrative review synthesizes contemporary neurobiological findings, methodological challenges and evolving clinical trial frameworks relevant to the evaluation of emerging pharmacotherapies in ASD. Particular emphasis is placed on biomarker-informed stratification, rigorous trial design and developmental timing as critical determinants of therapeutic success. Advances in molecular genetics, systems neuroscience and multimodal biomarker integration highlight the need for precision medicine approaches that align pharmacological targets with underlying neurodevelopmental mechanisms. Strengthening methodological rigor while maintaining ethical and neurodiversity-affirming principles will be essential to advancing effective pharmacological interventions for ASD.",
+          "score": 0.761,
+          "title": "Past, present, and future of non-pharmacological interventions for autism spectrum disorder: A global bibliometric and thematic analysis (2001-2025).",
+          "text": "Background: Non-pharmacological interventions (NPIs) have become increasingly important in addressing the complex and heterogeneous needs of individuals with autism spectrum disorder (ASD), particularly in light of the limitations associated with pharmacological treatments. Objective: This study aimed to systematically map the global research landscape and thematic evolution of NPIs for ASD from 2001 to 2025 using bibliometric approaches. Methods: A total of 341 English-language articles were retrieved from the Web of Science Core Collection. Microsoft Excel and Biblioshiny were employed to perform descriptive analysis, co-authorship network mapping, keyword co-occurrence analysis, and thematic evolution analysis based on Keywords Plus. Results: The findings indicate a sustained increase in research output, particularly after 2011, with publication volume peaking in 2024 and citation impact continuing to rise. Music therapy, applied behavior analysis, and repetitive transcranial magnetic stimulation emerged as the most influential intervention approaches. The United States led in both publication volume and academic impact, followed by China and the United Kingdom. Thematic evolution analysis revealed a gradual shift from behavior-oriented frameworks toward mechanism-informed and context-sensitive approaches, with increasing attention to early intervention, population heterogeneity, and family involvement. Conclusion: Research on NPIs for ASD is undergoing a transition toward more integrative, individualized, and evidence-based paradigms. Future studies should prioritize longitudinal designs, cross-cultural validation, and the translation of mechanistic insights into scalable, real-world interventions.",
           "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42436630/",
-          "publication_date": "2026-09",
-          "authors": "Bourin M",
-          "venue": "Pakistan journal of pharmaceutical sciences"
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42888638/",
+          "publication_date": "2026-10-16",
+          "authors": "Feng X, Song Y, Li X et al.",
+          "venue": "Medicine"
         },
         {
-          "score": 0.756,
-          "title": "Drug development in autism spectrum disorder: genetic heterogeneity, failed trials, and the case for stratified pharmacotherapy.",
-          "text": "Despite three decades of clinical trials, no pharmacological treatment has shown consistent efficacy for the core features of autism spectrum disorder (ASD), and regulatory approvals remain limited to risperidone and aripiprazole for severe irritability. This limited efficacy likely reflects a mismatch between underlying biology and broad trial designs. ASD is a clinically defined neurodevelopmental condition with marked etiologic heterogeneity, shaped by highly polygenic liability and a long tail of rare, often de novo , high-impact variants. Genomic studies implicate synaptic signaling, chromatin regulation, and excitatory-inhibitory processes, but this partial biological convergence does not support a single therapeutic target across the diagnostic spectrum. Debate over environmental risk factors, including prenatal acetaminophen exposure, also shows how weak causal inference can distort research priorities. We propose three priorities for ASD pharmacotherapy: genetically stratified mechanism-linked interventions, pharmacogenomics-informed symptomatic prescribing, and trials using validated or biomarker-informed endpoints that capture outcomes regarded as meaningful by autistic people.",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42127326/",
-          "publication_date": "2026-09-01",
-          "authors": "Bortoletto R, Fanelli G, Colizzi M",
-          "venue": "International clinical psychopharmacology"
+          "score": 0.759,
+          "title": "A Trial of CM-AT in Children With Autism",
+          "text": "Conditions: Autism. Phase: PHASE3. The purpose of this study is to determine whether CM-AT is safe and effective in treating the core symptoms of autism.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT00881452",
+          "publication_date": "2009-05",
+          "authors": "Curemark",
+          "venue": "ClinicalTrials.gov"
         },
         {
-          "score": 0.746,
-          "title": "Physical exercise therapy for autism spectrum disorder: protocol for a scoping review of systematic reviews.",
-          "text": "Background: Autism spectrum disorder (ASD) is a complex neurodevelopmental disorder characterized by core symptoms of impaired social communication and restricted repetitive patterns of behavior. Physical exercise therapy (PET), as a non-pharmacological intervention, has seen increasing application and research in the ASD field. Although multiple systematic reviews have examined the efficacy of PET interventions for ASD and associated factors, a scoping review is still needed to systematically analyze existing systematic reviews and meta-analyses, thereby identifying current research gaps. Methods: This study will be based on the scoping-review methodological framework proposed by Arksey and O'Malley in 2005 and the PRISMA-ScR reporting guidelines. The search will cover four databases: MEDLINE (PubMed), EMBASE, Web of Science, and Cochrane Library (Wiley), screening systematic reviews published in English from database inception through December 2025. The study will include systematic reviews of randomized controlled trials and observational studies (with or without meta-analysis). Two reviewers will independently perform literature screening and data extraction. All eligible articles will be evaluated using the AMSTAR-2 tool. Tabulated data will be summarized through quantitative analysis, with qualitative synthesis conducted using narrative methods. Discussion: This scoping review will highlight the evidence needed to guide decision-making for PET interventions in individuals with ASD. Systematic Review Registration: Open Science Framework ( https://doi.org/10.17605/OSF.IO/JVM4H ).",
-          "source": "pubmed",
-          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42071249/",
-          "publication_date": "2026-05-04",
-          "authors": "Fan F, Li J, Zhang X et al.",
-          "venue": "Systematic reviews"
+          "score": 0.758,
+          "title": "Promoting Resilience in Teens With ASD",
+          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. Interventions for Autism Spectrum Disorder (ASD) are almost uniformly costly and time-intensive, blunting dissemination of intervention and stymying opportunities to make scalable impact. This study offers the first pilot randomized controlled trial (RCT) of whether a single session intervention, shown to reduce internalizing problems in typically-developing youth, may improve core and co-occuring symptoms of ASD.",
+          "source": "clinicaltrials",
+          "source_url": "https://clinicaltrials.gov/study/NCT04208425",
+          "publication_date": "2019-01-07",
+          "authors": "Stony Brook University",
+          "venue": "ClinicalTrials.gov"
         }
       ]
     },
@@ -474,13 +474,13 @@
         },
         {
           "score": 0.804,
-          "title": "Sensory Intervention for Children With Autism",
-          "text": "Conditions: Autism Spectrum Disorder. Phase: NA. Greater than 80% of children with autism spectrum disorder (ASD) experience sensory differences that make it difficult for them to fully participate in meaningful everyday activities. In this research study, we will use MRI and behavioral methods to assess how sensory interventions might change sensory brain structures, allowing us to better predict which sensory interventions might work best for whom.",
-          "source": "clinicaltrials",
-          "source_url": "https://clinicaltrials.gov/study/NCT06246487",
-          "publication_date": "2024-01-16",
-          "authors": "University of Florida",
-          "venue": "ClinicalTrials.gov"
+          "title": "Longitudinal changes in parent-reported sensory processing from childhood to adolescence in autistic individuals: a long-term follow-up study from T\u00fcrkiye.",
+          "text": "Unlabelled: Sensory processing differences are common among autistic individuals and may change across development. However, longitudinal evidence describing how these patterns evolve during the transition from childhood to adolescence remains limited. This longitudinal study examined changes in parent-reported sensory processing patterns in 54 autistic individuals assessed approximately 6 years apart. Sensory processing was evaluated using the Turkish versions of the Sensory Profile in childhood and the Adolescent/Adult Sensory Profile in adolescence. During childhood, mean scores indicated probable or definite sensory processing differences across all four quadrants: low registration, sensation seeking, sensory sensitivity, and sensation avoiding. By adolescence, mean scores indicated sensory processing differences only in the sensation-seeking quadrant, suggesting that differences in the other quadrants had become less pronounced. Across sensory domains, auditory processing and multisensory processing/activity level showed relative stability between childhood and adolescence, whereas differences in visual, touch, oral, and vestibular processing became less pronounced with age. Conclusion: These findings provide longitudinal evidence that parent-reported sensory processing patterns may change during the transition from childhood to adolescence, while some sensory domains remain relatively stable. Periodic, developmentally appropriate reassessment of sensory processing characteristics may therefore be important for identifying changing sensory needs and informing individualized support and intervention planning for autistic adolescents. What Is Known: \u2022 Sensory processing differences are common in autistic individuals, but longitudinal evidence on how these patterns change from childhood to adolescence remains limited. \u2022 Sensory processing characteristics may vary across developmental stages and can influence everyday participation and support needs. What Is New: \u2022 Over approximately 6 years of follow-up, parent-reported sensory processing patterns changed from childhood to adolescence, while auditory and multisensory processing/activity level remained relatively stable. \u2022 Periodic reassessment across development may help identify current sensory needs and ensure that supports and accommodations remain aligned with the young person's sensory profile.",
+          "source": "pubmed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/42955397/",
+          "publication_date": "2026-10-28",
+          "authors": "Kaya Evsen S, Kars K\u0131z\u0131lkoca S, Huri M",
+          "venue": "European journal of pediatrics"
         },
         {
           "score": 0.797,
